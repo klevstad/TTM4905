@@ -3,7 +3,7 @@
 TTM4905 - Master Thesis in Communication Technology
 Department of Telematics (ITEM)
 Norwegian University of Science and Technology (NTNU)
-Spring 2015
+Spring 2016
 ```
 ---
 ```
