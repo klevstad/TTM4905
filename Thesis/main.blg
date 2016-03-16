@@ -1,0 +1,85 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: abstract_english.aux
+A level-1 auxiliary file: preface.aux
+A level-1 auxiliary file: Chapter1//introduction.aux
+A level-1 auxiliary file: Chapter2//background.aux
+A level-1 auxiliary file: Chapter3//scyther.aux
+A level-1 auxiliary file: Chapter4//6lowpan-krentz.aux
+The style file: chicago.bst
+Database file #1: main.bib
+Warning--no key, author in avispa
+Warning--no author, editor, or organization in avispa
+Warning--to sort, need author or key in avispa
+Warning--no key, author in proverif
+Warning--no author, editor, or organization in proverif
+Warning--to sort, need author or key in proverif
+Warning--no key, author in scyther
+Warning--no author, editor, or organization in scyther
+Warning--to sort, need author or key in scyther
+Warning--no key, author in avispa
+Warning--no author, editor, or organization in avispa
+Warning--no key, author in avispa
+Warning--no author, editor, or organization in avispa
+Warning--no key, author in proverif
+Warning--no author, editor, or organization in proverif
+Warning--no key, author in proverif
+Warning--no author, editor, or organization in proverif
+Warning--no key, author in scyther
+Warning--no author, editor, or organization in scyther
+Warning--no key, author in scyther
+Warning--no author, editor, or organization in scyther
+Warning--no key, author in avispa
+Warning--no author, editor, or organization in avispa
+Warning--empty year in avispa
+Warning--no key, author in proverif
+Warning--no author, editor, or organization in proverif
+Warning--empty year in proverif
+Warning--no key, author in scyther
+Warning--no author, editor, or organization in scyther
+Warning--empty year in scyther
+Warning--can't use both volume and number fields in burrows1989logic
+Warning--page numbers missing in Needham:1978
+You've used 13 entries,
+            2861 wiz_defined-function locations,
+            699 strings with 7090 characters,
+and the built_in function-call counts, 8920 in all, are:
+= -- 826
+> -- 480
+< -- 8
++ -- 148
+- -- 172
+* -- 714
+:= -- 1436
+add.period$ -- 46
+call.type$ -- 13
+change.case$ -- 86
+chr.to.int$ -- 12
+cite$ -- 57
+duplicate$ -- 315
+empty$ -- 640
+format.name$ -- 196
+if$ -- 1786
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 10
+newline$ -- 68
+num.names$ -- 98
+pop$ -- 105
+preamble$ -- 1
+purify$ -- 162
+quote$ -- 0
+skip$ -- 298
+stack$ -- 0
+substring$ -- 519
+swap$ -- 126
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 256
+warning$ -- 32
+while$ -- 115
+width$ -- 0
+write$ -- 185
+(There were 32 warnings)

@@ -1,0 +1,1 @@
+SCYTHER_GUI_VERSION = "Compromise-0.9.2"

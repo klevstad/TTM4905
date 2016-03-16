@@ -1,0 +1,124 @@
+/* 
+ * UP
+ * Ustaoglu 09
+ *
+ * Not ready for general consumption: the complex internal structure is
+ * not yet well represented by the helper rules, therefore even the
+ * simple generic PFS attack (a la Krawczyk) isn't even found.
+ */
+
+// Hash functions
+hashfunction h1,h2,exp;
+hashfunction KDF;
+
+hashfunction H,HE;
+usertype invops;
+const add,mult: invops;
+
+usertype group;
+usertype string;
+
+const g: group;
+const UPTEXT: string;
+
+/*
+ * Hack to simulate g^ab = g^ba.
+ * '@' prefix of protocol name denotes helper protocol, which is used by
+ * Scyther for displaying, and such protocols are ignored in
+ * auto-generation of protocol modifiers.
+ */
+protocol @exponentiation(RA,RB,RC,RD,RE)
+{
+	role RA
+	{
+		var alpha,beta, T1,T2: Ticket;
+
+		recv_!1(RA,RA, exp(exp(g,T1),T2) );
+		send_!2(RA,RA, exp(exp(g,T2),T1) );
+	}
+	role RB
+	{
+		var alpha,beta, T1a,T1b,T2,T5,T6: Ticket;
+
+		recv_!3(RB,RB, H( exp(exp(g,T1a),T1b),T2,RA,RB,T5,T6,UPTEXT) );
+		recv_!4(RB,RB, H( exp(exp(g,T1b),T1a),T2,RA,RB,T5,T6,UPTEXT) );
+	}
+	role RC
+	{
+		var alpha,beta, T1,T2a,T2b,T5,T6: Ticket;
+
+		recv_!5(RC,RC, H( T1,exp(exp(g,T2a),T2b),RA,RB,T5,T6,UPTEXT) );
+		recv_!6(RC,RC, H( T1,exp(exp(g,T2b),T2a),RA,RB,T5,T6,UPTEXT) );
+	}
+	role RD
+	{
+		var alpha,beta, T1,T2,T5,T5a,T5b,T6: Ticket;
+
+		recv_!7(RD,RD, H( T1,T2,RA,RB,exp(exp(g,T5a),T5b),T6,UPTEXT) );
+		recv_!8(RD,RD, H( T1,T2,RA,RB,exp(exp(g,T5b),T5a),T6,UPTEXT) );
+	}
+	role RE
+	{
+		var alpha,beta, T1,T2,T5,T6a,T6b: Ticket;
+
+		recv_!9( RE,RE, H( T1,T2,RA,RB,T5,exp(exp(g,T6a),T6b),UPTEXT) );
+		recv_!10(RE,RE, H( T1,T2,RA,RB,T5,exp(exp(g,T6b),T6a),UPTEXT) );
+	}
+}
+
+// The protocol description
+
+protocol UP(I,R)
+{
+	role I
+	{
+		fresh x: Nonce;
+		var Y: Ticket;
+
+		send_1(I,R,  exp(g,x) );
+		recv_2(R,I,  Y );
+
+		claim(I,SKR,
+		  H(
+		    exp(
+		      mult(Y,exp(pk(R),HE(Y))),
+		      add(x,sk(I))
+		    ),
+		    exp(
+		      mult(Y,pk(R)),
+		      add(x,mult(HE(exp(g,x)),sk(I)))
+		    ),
+		    I,R,
+		    exp(g,x),Y,
+		    UPTEXT
+		  )
+		);
+	}	
+	
+	role R
+	{
+		fresh y: Nonce;
+		var X: Ticket;
+
+		recv_1(I,R,  X );
+		send_2(R,I,  exp(g,y) );
+
+		claim(R,SKR,
+		  H(
+		    exp(
+		      mult(X,pk(I)),
+		      add(y,mult(HE(exp(g,y)),sk(R)))
+		    ),
+		    exp(
+		      mult(X,exp(pk(I),HE(X)),
+		      add(y,sk(R)))
+		    ),
+		    I,R,
+		    X,exp(g,y),
+		    UPTEXT
+		  )
+		);
+	}
+}
+
+

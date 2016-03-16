@@ -1,0 +1,35 @@
+\BOOKMARK [0][-]{section*.1}{List of Figures}{}% 1
+\BOOKMARK [0][-]{section*.2}{List of Tables}{}% 2
+\BOOKMARK [0][-]{section*.3}{List of Acronyms}{}% 3
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 4
+\BOOKMARK [0][-]{chapter.2}{Background}{}% 5
+\BOOKMARK [1][-]{section.2.1}{Internet of Things}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.2}{The IEEE 802.15.4 Standard}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.3}{6LoWPAN: Putting IP on Top of 802.15.4}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.4}{Formal Security Analysis}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{Scyther}{}% 10
+\BOOKMARK [1][-]{section.3.1}{The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{chapter.3}% 11
+\BOOKMARK [2][-]{subsection.3.1.1}{Scyther and its Pattern Refinement Algorithm / its novelty?}{section.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.1.2}{Reasons for Choosing Scyther}{section.3.1}% 13
+\BOOKMARK [1][-]{section.3.2}{Scyther's Different Modes of Usage}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.2.1}{Verifying Claims}{section.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.2.2}{Generating Claims Automatically}{section.3.2}% 16
+\BOOKMARK [2][-]{subsection.3.2.3}{Complete Characterization}{section.3.2}% 17
+\BOOKMARK [1][-]{section.3.3}{Claims}{chapter.3}% 18
+\BOOKMARK [2][-]{subsection.3.3.1}{Alive}{section.3.3}% 19
+\BOOKMARK [2][-]{subsection.3.3.2}{Secret}{section.3.3}% 20
+\BOOKMARK [2][-]{subsection.3.3.3}{Non-injective Synchronization}{section.3.3}% 21
+\BOOKMARK [2][-]{subsection.3.3.4}{Non-injective Agreement}{section.3.3}% 22
+\BOOKMARK [2][-]{subsection.3.3.5}{Running, Commit}{section.3.3}% 23
+\BOOKMARK [1][-]{section.3.4}{Scyther Syntax}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.5}{Scyther's Graphical Interface for Verification and Falsification}{chapter.3}% 25
+\BOOKMARK [0][-]{chapter.4}{6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{}% 26
+\BOOKMARK [1][-]{section.4.1}{Ideas of the Paper}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.2}{Informal Analysis}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.3}{Formal Analysis}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.3.1}{Scyther}{section.4.3}% 30
+\BOOKMARK [0][-]{chapter.5}{Krentz Mobility Paper}{}% 31
+\BOOKMARK [0][-]{chapter.6}{TBA}{}% 32
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 33
+\BOOKMARK [0][-]{chapter.8}{Appendix}{}% 34
+\BOOKMARK [0][-]{section*.6}{References}{}% 35

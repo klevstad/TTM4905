@@ -1,0 +1,96 @@
+\documentclass[10pt]{article}
+
+\begin{document}
+\author{Eirik Klevstad}
+\title{The 6LoWPAN Architecture}
+\maketitle
+
+
+\section{Abstract}
+
+Enable IPv6 packets to be carried on top of low power wireless networks.
+
+Concept born from the idea that the Internet Protocol should be applied to even the smallest of devices.
+
+initial goal: deal with adaptation layer.
+
+requirements imposed by IPv6: longer addresses
+
+Creates a set of headers allowing compression of long addresses into smaller headers. Also allows for use of various mesh networks supporting fragmentation and reassembling.
+
+\section{Introduction}
+
+IP not considered for sensor networks because of being too heavy weight for such applications.
+
+"Why invent a new protocol when we already have IP?"
+
+6LoWPAN defines how to layer IPv6 over low data rate, low power, small footprint radio networks (LoWPAN).
+
+Was turned down in 2001.
+
+Not only applied to small devices, but in fact used. 
+
+\section{Why IP based sensor networks}
+
+
+Using IP at the edge of devices: Flattens address and naming hierarchies and makes the connection model simpler.
+
+No need for complex gateways that translate between proprietary protocols and the standard IP, replaced by standard components such as bridges, routers.
+
+By using IP: Possible to use tools that are already developed for IP networks, no need to learn something "totally new" paradigm.
+
+Network is programmed and functions the same as other Internet applications.
+
+
+Since it is IP, easy to just use SNMP for management instead of the need for developing a whole new management protocol.
+
+A lot of protocols that are already created and may be applied to the IP sensor applications: UDP, TCP, DNS, ICMP, TFTP.
+
+No need for configuration servers (DHCP and NAT) by utilizing the Zero-Conf and Neighbour Discovery capabilities of IPv6.
+
+\section{6LoWPAN - Not too big}
+
+
+Designed to be used in small pico sensor networks.
+
+Implementations of 6LoWPAN easily fits in 32 Kb flash memory parts.
+
+Unique stateless header compression mechanism: IPv6 packets in 4 bytes
+
+Resulting design: "only pay for what you use" (header overhead and processing)
+
+The cost of implement 6LoWPAN: Less or equal to similar protocols, overhead for common packets are much less than other protocols = energy savings.
+
+
+\section{6LoWPAN - In detail}
+
+Each header includes a type identifier and the most common headers are identified with a predefined prefix for each header. 
+
+Dispatch header (1 byte): Type of header to follow. To first bits defines if 6LoWPAN or non-6LoWPAN, last six bits indicates if compressed or uncompressed.
+
+Mesh header (4 bytes): Standardize how to encode the hop limit and the link layer source and destination of the packet. 802.15.4 allows both short and long addresses. Mesh header has two bits to indicate which.
+
+Fragmentation header (4 bytes for first fragment, 5 bytes after): Supports fragmentation and reassembling of payloads larger than one frame.
+
+Utilize these headers and "stack" them in combination for specific needs of each packet and network.
+
+Another benefit: Protocol is extendible with new header types.
+
+Error in 802.15.4: Lack of Protocol Type field = Two different protocols can collide in their bit formats in the 15.4 payload. 
+
+
+\section{Route over vs. Mesh under}
+
+Active areas for research: Mesh networking for sensor networks, which seamlessly extends the device's reach and need for simple deployment and configuration.
+
+Multiple paths between nodes. More reliable because of path diversity.
+
+Instead of building a mesh network under the IP layer (mesh under or layer 2 mesh), it is possible to build the mesh network above the IP layer using standard or new routing protocols (route over or layer 3 routing)
+
+\section{6LoWPAN Today and tomorrow}
+
+United States of Department of Defence is developing multiple prototype 6LoWPAN networks to demonstrate its usages, mobility ,security, self-healing.
+
+
+
+\end{document}

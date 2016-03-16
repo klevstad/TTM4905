@@ -1,0 +1,106 @@
+/* 
+ * KEA
+ *
+ * From "Security Analysis of KEA Authenticated Key Exchange Protocol"
+ * Lauter, Mityagin, 2006.
+ * 
+ * We simplified the protocol, changing xor to a hash. Clearly, with xor
+ * there are more attacks.
+ */
+
+// Hash functions
+hashfunction h1,h2,g1,g2;
+
+/*
+ * Hack to gain equivalence of public keys to g^private.
+ */
+protocol @publickeys(RA,RB,RC)
+{
+	role RA
+	{
+		send_!1(RA,RA, g1(sk(RA)) );
+	}
+	role RB
+	{
+		// Special one to go into DH g2
+		var T: Ticket;
+
+		recv_!2(RB,RB, g2(g1(T),sk(RB)) );
+		send_!3(RB,RB, g2(pk(RB),T) );
+	}
+	role RC
+	{
+		// Special one to go into DH g2
+		var T: Ticket;
+
+		recv_!4(RC,RC, g2(pk(RC),T) );
+		send_!5(RC,RC, g2(g1(T),sk(RC)) );
+	}
+}
+
+/*
+ * Hack to simulate g^ab = g^ba.
+ * '@' prefix of protocol name denotes helper protocol, which is used by
+ * Scyther for displaying, and such protocols are ignored in
+ * auto-generation of protocol modifiers.
+ */
+protocol @exponentiation(RA,RB,RC)
+{
+	role RA
+	{
+		var T1,T2: Ticket;
+
+		recv_!1(RA,RA, g2(g1(T1),T2) );
+		send_!2(RA,RA, g2(g1(T2),T1) );
+	}
+	role RB
+	{
+		var T1,T2,T3: Ticket;
+
+		recv_!3(RB,RB, h1(g2(g1(T1),T2),T3) );
+		send_!4(RB,RB, h1(g2(g1(T2),T1),T3) );
+	}
+	role RC
+	{
+		var T1,T2,T3: Ticket;
+
+		recv_!5(RC,RC, h1(T3,g2(g1(T1),T2)) );
+		send_!6(RC,RC, h1(T3,g2(g1(T2),T1)) );
+	}
+}
+
+// The protocol description
+
+protocol KEA(I,R)
+{
+	role I
+	{
+		fresh x: Nonce;
+		var beta: Ticket;
+
+		send_Compromise(I,I, x);
+		send_1(I,R, g1(x) );
+		recv_2(R,I, beta );
+
+		claim(I,SKR, h1(
+		  g2(beta,sk(I)),
+		  g2(pk(R),x)
+		));
+	}	
+	
+	role R
+	{
+		fresh y: Nonce;
+		var alpha: Ticket;
+
+		recv_1(I,R, alpha );
+		send_Compromise(R,R, y);
+		send_2(R,I, g1(y) );
+
+		claim(R,SKR, h1(
+		  g2(pk(I),y),
+		  g2(alpha,sk(R))
+		));
+	}
+}
+

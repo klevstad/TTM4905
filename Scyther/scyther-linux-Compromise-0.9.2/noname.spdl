@@ -1,0 +1,23 @@
+protocol MWE(Alice, Bob)
+{
+	role Alice {
+		fresh Na: Nonce;
+		var Nb: Nonce;
+		
+		send_1(Alice, Bob, Na);
+		recv_2(Bob, Alice, Nb);
+
+		claim(Alice, Secret, Na);
+		claim(Alice, Secret, Nb);
+	};
+	role Bob {
+		var Na: Nonce;
+		fresh Nb: Nonce;
+
+		recv_1(Alice, Bob, Na);
+		send_2(Bob, Alice, Nb);
+
+		#claim(Bob, Secret, Na);
+		#claim(Bob, Secret, Nb);	
+	};
+}

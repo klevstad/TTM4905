@@ -1,0 +1,84 @@
+/* 
+ * Two-move Diffie-Hellman from CK2001
+ * Transformed using MT-authenticator based on encryption
+ */
+
+// Hash functions
+hashfunction h1,h2,g1,g2,MAC;
+
+/*
+ * Hack to simulate g^ab = g^ba.
+ * '@' prefix of protocol name denotes helper protocol, which is used by
+ * Scyther for displaying, and such protocols are ignored in
+ * auto-generation of protocol modifiers.
+ */
+protocol @exponentiation(RA,RB)
+{
+	role RA
+	{
+		var T1,T2: Ticket;
+
+		recv_!1(RA,RA, g2(g1(T1),T2) );
+		send_!2(RA,RA, g2(g1(T2),T1) );
+	}
+
+        role RB
+        {
+                var N, Nonce;
+                var s: Nonce;
+                var T1,T2: Nonce;
+
+		recv_!3(RB,RB,  MAC(N,RB,s,g2(g1(T1),T2),RA) );
+		send_!4(RB,RB,  MAC(N,RB,s,g2(g1(T2),T1),RA) );
+         }
+}
+
+// The protocol description
+
+protocol twoDH-MTencr(I,R)
+{
+	role I
+	{
+		fresh x: Nonce;
+		fresh s: Nonce;
+		fresh Na: Nonce;
+		var Nb: Nonce;
+		var i: Nonce;
+		var beta: Ticket;
+
+                claim(I,SID,s);
+		send_1a(I,R,  I,s,g1(x) );
+                send_Compromise(I,I, x);
+		recv_1b(R,I,  { Nb }pk(I) );
+		send_1c(I,R,  MAC(Nb,I,s,g1(x),R) );
+		recv_2a(R,I,  R,s,beta );
+		send_2b(I,R,  { Na }pk(R) );
+                send_Compromise(I,I, Na);
+		recv_2c(R,I,  MAC(Na,R,s,beta,I) );
+
+		claim(I,SKR, g2(beta,x) );
+	}	
+	
+	role R
+	{
+		fresh y: Nonce;
+		fresh i: Nonce;
+		fresh Nb: Nonce;
+		var alpha: Ticket;
+		var s: Nonce;
+		var Na: Nonce;
+
+		recv_1a(I,R,  I,s,alpha );
+                claim(R,SID,s);
+		send_1b(R,I,  { Nb }pk(I) );
+                send_Compromise(R,R, Nb);
+		recv_1c(I,R,  MAC(Nb,I,s,alpha,R) );
+		send_2a(R,I,  R,s,g1(y) );
+                send_Compromise(R,R, y);
+		recv_2b(I,R,  { Na }pk(R) );
+		send_2c(R,I,  MAC(Na,R,s,g1(y),I) );
+
+		claim(R,SKR, g2(alpha,y) );
+	}
+}
+
