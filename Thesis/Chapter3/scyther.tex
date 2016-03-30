@@ -111,12 +111,12 @@ Scyther, however, does not support this enhanced form of synchronization, hence 
 \section{Scyther Syntax}
 
 
-The syntax used in \verb!.spdl!-files, which are protocol files that can be run and verified by Scyther, can resemble popular object-oriented languages such as C, C++ or Java. The structure of a minimum working example is shown below, consisting of an outer class defining the protocol and multiple agents (or roles) inside the protocol. In this example, we define that our protocol consists of two communicating parties; Alice and Bob, without giving them any specific behaviour.
+The syntax used in \verb!.spdl!-files, which are protocol files that can be run and verified by Scyther, can resemble popular object-oriented languages such as C, C++ or Java. The structure of a minimum working example for the protocol known as \gls{apkes} is shown below, consisting of an outer class defining the protocol and multiple agents (or roles) inside the protocol. In this example, we define that our protocol consists of two communicating parties; U and V, without giving them any specific behaviour.
 
 \begin{lstlisting}
-protocol MinimumWorkingExampleProtocol(Alice, Bob){
-	role Alice { };
-	role Bob { };  
+protocol APKES(U, V){
+	role U { };
+	role V { };  
 };
 \end{lstlisting}
 
@@ -125,12 +125,12 @@ For each of the different roles in the protocol, behaviour can be added as a seq
 
 
 \begin{lstlisting}
-role Alice{
-	fresh Na: Nonce; # A freshly generated nonce
-	var Nb: Nonce; # A variable for receiving a nonce
+role U{
+	fresh Ru: Nonce; # A freshly generated nonce
+	var Rv: Nonce; # A variable for receiving a nonce
 	
-	send_1(Alice, Bob, Na); # Message sent from Alice to Bob containing Na
-	recv_2(Bob, Alice, Nb); # Message sent from Bob to Alice containing Nb, which is stored as a variable
+	send_1(U, V, Ru); # Message sent from U to V containing Ru
+	recv_2(V, U, Ru, Rv); # Message sent from V to U containing Ru and Rv, which is stored as a variable
 };
 \end{lstlisting}
 
@@ -155,39 +155,3 @@ Probably elaborate more on the Scyther syntax? More examples?
 
 When running Scyther in its three modes, different views are provided through Scyther's \gls{gui}. If we continue on our example from the section on Scyther's syntax, we now want to verify the security claims for Alice's role in the protocol.
 
-Pictures. How nice.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.85]{ScytherMainWindow.png}
-	\caption{Main view of Scyther's \gls{gui} with a window for writing scripts.}
-	\label{fig:scythermain}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.80]{ScytherVerifyFail.png}
-	\caption{Main view of Scyther's \gls{gui} with a window for writing scripts.}
-	\label{fig:scytherverifyfail}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.58]{ScytherFailAttackGraph.png}
-	\caption{Main view of Scyther's \gls{gui} with a window for writing scripts.}
-	\label{fig:scytherfailgraph}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.80]{ScytherAutomaticVerifyClaimsFail.png}
-	\caption{Main view of Scyther's \gls{gui} with a window for writing scripts.}
-	\label{fig:scytherautomaticclaims}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.80]{ScytherCharacterizeOk.png}
-	\caption{Main view of Scyther's \gls{gui} with a window for writing scripts.}
-	\label{fig:scythercharacterize}
-\end{figure}

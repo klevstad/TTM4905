@@ -14,7 +14,7 @@ Security challenges
 
 \section{The IEEE 802.15.4 Standard}
 
-Following the evolution of \gls{iot}, the need for cheap devices to communicate efficiently between each other has arose. Existing architectures such as 802.11 (WiFi) are too expensive in terms of processing and energy consumption, as the idea of \gls{iot} is to connect even the smallest devices to the network (or Internet). As these devices are small, they have a limited amount of battery, and hence need to use it in a highly efficient matter.
+Following the evolution of \gls{iot}, the need for cheap devices to communicate efficiently between each other has arose. Existing architectures such as 802.11 (WiFi) and Bluetooth are too expensive in terms of processing and energy consumption, as the idea of \gls{iot} is to connect even the smallest devices to a network or Internet. As these devices are small, they have a limited amount of battery, and hence need to use it in a highly efficient matter.
 
 \begin{wrapfigure}[12]{r}{0pt}
   \centering
@@ -86,21 +86,12 @@ Security considerations.
 
 As security protocols grows larger and more complex, they become more and more difficult for humans to analyse. One of the examples of the need for formal security analysis, is the Needham-Schroeder protocol \cite{Needham:1978} from 1978. The Needham-Schroeder protocol is based on public-key cryptography and was intended to allow two communicating parties to mutual authenticate each other.
 
-Initially, the security protocol analysis was conducted using so-called \gls{ban} logic, which showed promising results in finding security flaws and drawbacks for several authentication protocols \cite{burrows1989logic}. ?? % More
+Initially, the security protocol analysis was conducted using so-called \gls{ban} logic, which showed promising results in finding security flaws and drawbacks for several authentication protocols, along with proving that the Needham-Schroeder protcol was, in fact, secure \cite{burrows1989logic}. \gls{ban} logic is a set of rules which can be used to determine whether received information is legit or not by formally describe the interaction between communicating parties. 
 
 17 years later, after being deployed and widely used, G. Lowe discovered, using the automatic tool Casper, that the Needham-Schroeder protocol was in fact insecure, and vulnerable to a man-in-the-middle attack \cite{lowe1996}. Formal security analysis gained increased interest from the research community after the discovery by Lowe, and ... More....
 
 The Dolev-Yao model is a formal model used to prove the security properties of cryptographic protocols. While initially being a verification model built for public key protocols, the Dolev-Yao model is also the basis for most of the security analysis done by verification tools \cite{cremers2005operational}. The model is built upon three primary assumptions \cite{dolev1983security}. Firstly, the Dolev-Yao model assumes that the cryptography is perfect, essentially meaning that the cryptographic system can not be tampered with, and an encrypted message can only be decrypted by the party possessing the corresponding decryption key. The second assumption is that the adversary has completely control over the communication network, hence he is able to observe all messages that are sent between communicating parties, and can inject messages given that he is able to forge its content in a valid matter. Lastly, messages that are sent in the network are to be observed as abstract terms, where the attacker has two possible outcomes; either he learns the complete content of the message, or he learns nothing at all. 
 
 More to come.
-
-
-
-%Dolev and Yao (1983):
-%First, cryptography is assumed to be perfect: a message can only be decrypted by somebody who has the right key (there is no way to crack the scheme).
-
-%Second, messages are considered to be abstract terms: either the adversary learns the complete message (because he has the key), or he learns nothing.
-
-
 
 
