@@ -9,9 +9,9 @@
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
 \contentsline {chapter}{\chapternumberline {2}Background}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Internet of Things}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}The IEEE 802.15.4 Standard}{3}{section.2.2}
-\contentsline {section}{\numberline {2.3}6LoWPAN: Putting IP on Top of 802.15.4}{5}{section.2.3}
-\contentsline {section}{\numberline {2.4}Formal Security Analysis}{6}{section.2.4}
+\contentsline {section}{\numberline {2.2}The IEEE 802.15.4 Standard}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}6LoWPAN: Putting IP on Top of 802.15.4}{7}{section.2.3}
+\contentsline {section}{\numberline {2.4}Formal Security Analysis}{8}{section.2.4}
 \contentsline {chapter}{\chapternumberline {3}Scyther}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{9}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Scyther and its Pattern Refinement Algorithm / its novelty?}{10}{subsection.3.1.1}
@@ -28,13 +28,13 @@
 \contentsline {subsection}{\numberline {3.3.5}Running, Commit}{12}{subsection.3.3.5}
 \contentsline {section}{\numberline {3.4}Scyther Syntax}{12}{section.3.4}
 \contentsline {section}{\numberline {3.5}Scyther's Graphical Interface for Verification and Falsification}{13}{section.3.5}
-\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{17}{chapter.4}
-\contentsline {section}{\numberline {4.1}Ideas of the Paper}{17}{section.4.1}
-\contentsline {section}{\numberline {4.2}Informal Analysis}{17}{section.4.2}
-\contentsline {section}{\numberline {4.3}Formal Analysis}{17}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Scyther}{17}{subsection.4.3.1}
-\contentsline {chapter}{\chapternumberline {5}Krentz Mobility Paper}{19}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}TBA}{21}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Conclusion}{23}{chapter.7}
-\contentsline {chapter}{\chapternumberline {8}Appendix}{25}{chapter.8}
-\contentsline {chapter}{References}{27}{section*.6}
+\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Ideas of the Paper}{15}{section.4.1}
+\contentsline {section}{\numberline {4.2}Informal Analysis}{15}{section.4.2}
+\contentsline {section}{\numberline {4.3}Formal Analysis}{15}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Scyther}{15}{subsection.4.3.1}
+\contentsline {chapter}{\chapternumberline {5}Krentz Mobility Paper}{17}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}TBA}{19}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}Conclusion}{21}{chapter.7}
+\contentsline {chapter}{\chapternumberline {8}Appendix}{23}{chapter.8}
+\contentsline {chapter}{References}{25}{section*.6}

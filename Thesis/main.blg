@@ -9,6 +9,20 @@ A level-1 auxiliary file: Chapter3//scyther.aux
 A level-1 auxiliary file: Chapter4//6lowpan-krentz.aux
 The style file: chicago.bst
 Database file #1: main.bib
+You're missing a field name---line 156 of file main.bib
+ : 
+ : ,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--no key, author in iot-phrase-2
+Warning--no author, editor, or organization in iot-phrase-2
+Warning--to sort, need author or key in iot-phrase-2
+Warning--no key, author in iot-phrase-1
+Warning--no author, editor, or organization in iot-phrase-1
+Warning--to sort, need author or key in iot-phrase-1
+Warning--no key, author in iot-gartner
+Warning--no author, editor, or organization in iot-gartner
+Warning--to sort, need author or key in iot-gartner
 Warning--no key, author in avispa
 Warning--no author, editor, or organization in avispa
 Warning--to sort, need author or key in avispa
@@ -22,6 +36,14 @@ Warning--no key, author in avispa
 Warning--no author, editor, or organization in avispa
 Warning--no key, author in avispa
 Warning--no author, editor, or organization in avispa
+Warning--no key, author in iot-gartner
+Warning--no author, editor, or organization in iot-gartner
+Warning--no key, author in iot-gartner
+Warning--no author, editor, or organization in iot-gartner
+Warning--no key, author in iot-phrase-2
+Warning--no author, editor, or organization in iot-phrase-2
+Warning--no key, author in iot-phrase-1
+Warning--no author, editor, or organization in iot-phrase-1
 Warning--no key, author in proverif
 Warning--no author, editor, or organization in proverif
 Warning--no key, author in proverif
@@ -33,6 +55,15 @@ Warning--no author, editor, or organization in scyther
 Warning--no key, author in avispa
 Warning--no author, editor, or organization in avispa
 Warning--empty year in avispa
+Warning--no key, author in iot-gartner
+Warning--no author, editor, or organization in iot-gartner
+Warning--empty year in iot-gartner
+Warning--no key, author in iot-phrase-2
+Warning--no author, editor, or organization in iot-phrase-2
+Warning--empty year in iot-phrase-2
+Warning--no key, author in iot-phrase-1
+Warning--no author, editor, or organization in iot-phrase-1
+Warning--empty year in iot-phrase-1
 Warning--no key, author in proverif
 Warning--no author, editor, or organization in proverif
 Warning--empty year in proverif
@@ -41,45 +72,45 @@ Warning--no author, editor, or organization in scyther
 Warning--empty year in scyther
 Warning--can't use both volume and number fields in burrows1989logic
 Warning--page numbers missing in Needham:1978
-You've used 13 entries,
+You've used 17 entries,
             2861 wiz_defined-function locations,
-            699 strings with 7090 characters,
-and the built_in function-call counts, 8920 in all, are:
-= -- 826
-> -- 480
-< -- 8
-+ -- 148
-- -- 172
-* -- 714
-:= -- 1436
-add.period$ -- 46
-call.type$ -- 13
-change.case$ -- 86
-chr.to.int$ -- 12
-cite$ -- 57
-duplicate$ -- 315
-empty$ -- 640
-format.name$ -- 196
-if$ -- 1786
-int.to.chr$ -- 2
+            715 strings with 7548 characters,
+and the built_in function-call counts, 10631 in all, are:
+= -- 987
+> -- 506
+< -- 10
++ -- 156
+- -- 182
+* -- 848
+:= -- 1651
+add.period$ -- 58
+call.type$ -- 17
+change.case$ -- 106
+chr.to.int$ -- 14
+cite$ -- 97
+duplicate$ -- 388
+empty$ -- 812
+format.name$ -- 206
+if$ -- 2142
+int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 10
-newline$ -- 68
-num.names$ -- 98
-pop$ -- 105
+missing$ -- 12
+newline$ -- 88
+num.names$ -- 108
+pop$ -- 150
 preamble$ -- 1
-purify$ -- 162
+purify$ -- 203
 quote$ -- 0
-skip$ -- 298
+skip$ -- 348
 stack$ -- 0
-substring$ -- 519
-swap$ -- 126
-text.length$ -- 8
+substring$ -- 635
+swap$ -- 154
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 256
-warning$ -- 32
-while$ -- 115
+type$ -- 318
+warning$ -- 58
+while$ -- 128
 width$ -- 0
-write$ -- 185
-(There were 32 warnings)
+write$ -- 234
+(There was 1 error message)

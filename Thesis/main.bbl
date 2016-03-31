@@ -5,6 +5,22 @@
 \newblock \url{http://www.avispa-project.org/}.
 \newblock Accessed: 2016-02-23.
 
+\bibitem[\protect\citeauthoryear{??}{iot}{a}]{iot-gartner}
+{Gartner: Internet of Things}.
+\newblock http://www.gartner.com/newsroom/id/3165317.
+\newblock Accessed: 2016-03-31.
+
+\bibitem[\protect\citeauthoryear{??}{iot}{b}]{iot-phrase-2}
+{Internet of Things Phrase}.
+\newblock http://www.rfidjournal.com/articles/view?4986.
+\newblock Accessed: 2016-03-31.
+
+\bibitem[\protect\citeauthoryear{??}{iot}{c}]{iot-phrase-1}
+{Internet of Things Phrase}.
+\newblock
+  www.theguardian.com/sustainable-business/2015/feb/27/the-internet-of-things-what-the-man-who-coined-the-phrase-has-to-say.
+\newblock Accessed: 2016-03-31.
+
 \bibitem[\protect\citeauthoryear{??}{pro}{}]{proverif}
 {ProVerif}.
 \newblock \url{http://prosecco.gforge.inria.fr/personal/bblanche/proverif/}.
@@ -58,6 +74,12 @@ Gutierrez, J.~A., M.~Naeve, E.~Callaway, M.~Bourgeois, V.~Mitter, and B.~Heile
   {L}ow-cost {W}ireless {P}ersonal {A}rea {N}etworks.
 \newblock {\em network, IEEE\/}~{\em 15\/}(5), 12--19.
 
+\bibitem[\protect\citeauthoryear{Kopetz}{Kopetz}{2011}]{Kopetz2011}
+Kopetz, H. (2011).
+\newblock {\em Real-Time Systems: Design Principles for Distributed Embedded
+  Applications}, Chapter Internet of Things, pp.\  307--323.
+\newblock Springer.
+
 \bibitem[\protect\citeauthoryear{Lowe}{Lowe}{1996}]{lowe1996}
 Lowe, G. (1996).
 \newblock Breaking and {F}ixing the {N}eedham-{S}chroeder {P}ublic-key
@@ -69,7 +91,7 @@ Lowe, G. (1996).
 Mulligan, G. (2007).
 \newblock The {6L}o{WPAN} {A}rchitecture.
 \newblock In {\em Proceedings of the 4th Workshop on Embedded Networked
-  Sensors}, EmNets '07, New York, NY, USA, pp.\  78--82. ACM.
+  Sensors}, EmNets '07, pp.\  78--82. ACM.
 
 \bibitem[\protect\citeauthoryear{Needham and Schroeder}{Needham and
   Schroeder}{1978}]{Needham:1978}
