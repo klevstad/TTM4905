@@ -9,7 +9,7 @@ A level-1 auxiliary file: Chapter3//scyther.aux
 A level-1 auxiliary file: Chapter4//6lowpan-krentz.aux
 The style file: chicago.bst
 Database file #1: main.bib
-You're missing a field name---line 156 of file main.bib
+You're missing a field name---line 154 of file main.bib
  : 
  : ,
 (Error may have been on previous line)
@@ -23,6 +23,12 @@ Warning--to sort, need author or key in iot-phrase-1
 Warning--no key, author in iot-gartner
 Warning--no author, editor, or organization in iot-gartner
 Warning--to sort, need author or key in iot-gartner
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1563 of file chicago.bst
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1563 of file chicago.bst
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1563 of file chicago.bst
 Warning--no key, author in avispa
 Warning--no author, editor, or organization in avispa
 Warning--to sort, need author or key in avispa
@@ -44,6 +50,14 @@ Warning--no key, author in iot-phrase-2
 Warning--no author, editor, or organization in iot-phrase-2
 Warning--no key, author in iot-phrase-1
 Warning--no author, editor, or organization in iot-phrase-1
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1608 of file chicago.bst
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1608 of file chicago.bst
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1608 of file chicago.bst
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1608 of file chicago.bst
 Warning--no key, author in proverif
 Warning--no author, editor, or organization in proverif
 Warning--no key, author in proverif
@@ -71,46 +85,52 @@ Warning--no key, author in scyther
 Warning--no author, editor, or organization in scyther
 Warning--empty year in scyther
 Warning--can't use both volume and number fields in burrows1989logic
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1645 of file chicago.bst
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1645 of file chicago.bst
+Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
+while executing---line 1645 of file chicago.bst
 Warning--page numbers missing in Needham:1978
-You've used 17 entries,
+You've used 18 entries,
             2861 wiz_defined-function locations,
-            715 strings with 7548 characters,
-and the built_in function-call counts, 10631 in all, are:
-= -- 987
-> -- 506
+            724 strings with 7754 characters,
+and the built_in function-call counts, 11578 in all, are:
+= -- 1058
+> -- 601
 < -- 10
-+ -- 156
-- -- 182
-* -- 848
-:= -- 1651
-add.period$ -- 58
-call.type$ -- 17
-change.case$ -- 106
-chr.to.int$ -- 14
-cite$ -- 97
-duplicate$ -- 388
-empty$ -- 812
-format.name$ -- 206
-if$ -- 2142
++ -- 186
+- -- 212
+* -- 954
+:= -- 1823
+add.period$ -- 61
+call.type$ -- 18
+change.case$ -- 116
+chr.to.int$ -- 15
+cite$ -- 98
+duplicate$ -- 406
+empty$ -- 858
+format.name$ -- 240
+if$ -- 2317
 int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 12
-newline$ -- 88
-num.names$ -- 108
-pop$ -- 150
+missing$ -- 13
+newline$ -- 93
+num.names$ -- 118
+pop$ -- 157
 preamble$ -- 1
-purify$ -- 203
+purify$ -- 219
 quote$ -- 0
-skip$ -- 348
+skip$ -- 365
 stack$ -- 0
-substring$ -- 635
-swap$ -- 154
+substring$ -- 686
+swap$ -- 160
 text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 318
+type$ -- 338
 warning$ -- 58
-while$ -- 128
+while$ -- 136
 width$ -- 0
-write$ -- 234
-(There was 1 error message)
+write$ -- 247
+(There were 11 error messages)

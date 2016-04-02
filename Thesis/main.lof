@@ -5,8 +5,8 @@
 \select@language {english}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The \gls {osi} stack with layers, the data they carry, and some of the most known technologies for the different layers. Note that layer 5 (Session), 6 (Presentation) and 7 (Application) have been merged into one layer.}}{5}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Figure of IEEE 802.15.4's operational space compared to other wireless standards \cite {gutierrez2001ieee}.}}{6}{figure.2.2}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The \gls {osi} stack with layers, the data they carry, and some of the most known technologies for the different layers..}}{6}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Figure of IEEE 802.15.4's operational space compared to other wireless standards \cite {gutierrez2001ieee}. REPLACE THIS}}{7}{figure.2.2}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

@@ -35,20 +35,14 @@ Nevertheless, the increase in \gls{iot} devices possibly provides us with a more
 As the \gls{iot} is built upon the Internet, it faces the same types of security issues as the Internet itself. The amount of "things" connected to the Internet is calculated to be 6.4 billions by the end of 2016, which is almost a 30\% increase from 2015. By 2020, the expected number of these "things" is more than 20 billions \cite{iot-gartner}, providing attackers with equally many possible devices to attack. Given the knowledge that some of these devices may be medical (and other sensitive applications), we quickly recognize potential catastrophic scenarios.
 
 
-The \gls{iot} architecture is divided into three layers; perception, transportation and application, each providing different types of security.
+The \gls{iot} architecture is divided into three layers; perception, transportation and application, each providing different types of security \cite{Jing2014}.Transportation and application layers, however, are out of scope for this project. Perception layer is mostly about sensors and other nodes that collects information from its environment, and communicates it throughout the transport network. Another object for the layer is to pass control messages received. Examples of such technologies are \gls{rfid}, \gls{wsn} and \gls{gps}, each dealing with their own security problems and solutions. The most adjacent problems to the scope of this thesis are the problems related to key distribution and key management, which defines how two devices safely can establish secure communication between each other.
 
- 
-
-
-Data and privacy protection.
-
-Sensors often endpoints in the chain. Encryption ftw.
-
-Identity authentication and access control between parties.
+In an \gls{iot} world, the protection of data and privacy is an essential part. As previously mentioned, \gls{iot} technology may be a solution for problems involving sensitive information. In a medical facility, a possible scenario could be a \gls{wsn}, which are dynamic and bi-directional network of nodes where each node has one or more sensors connected to it. A patient may have sensors implanted in its body, as well as different instruments attached for measuring different properties. All these devices communicate with each other wirelessly, and the network is therefore a possible target for an attacker. To prevent the attacker from eavesdropping, and possible forging content in the network, encryption and authentication of the different nodes are crucial.
 
 
-Two risks in transmission. One from IoT itself, other from network.
+Rewrite??
 
+More motivation for the need for key management in \gls{iot}?
 
 
 
@@ -56,25 +50,25 @@ Two risks in transmission. One from IoT itself, other from network.
 
 Following the evolution of \gls{iot}, the need for cheap devices to communicate efficiently between each other has arose. Existing architectures such as 802.11 (WiFi) and Bluetooth are too expensive in terms of processing and energy consumption, as the idea of \gls{iot} is to connect even the smallest devices to a network or Internet. As these devices are small, they have a limited amount of battery, and hence need to use it in a highly efficient matter.
 
-\begin{wrapfigure}[12]{r}{0pt}
-  \centering
-  \includegraphics[scale=0.55]{osi} %Note: no use of .jpg file ending
-  \vspace{-0.2cm}
-  \caption{The \gls{osi} stack with layers, the data they carry, and some of the most known technologies for the different layers. Note that layer 5 (Session), 6 (Presentation) and 7 (Application) have been merged into one layer.}
-  \label{fig:osi}
-\end{wrapfigure}
-802.15.4 protocols are envisioned for applications supporting smart homes, medical surveillance, monitoring systems for environmental and industrial systems, as well as sensor systems for heating and ventilation. As we know from the \gls{iot}, it is really the imagination that puts and end to the possibilities for interconnected devices. The \gls{osi} stack defines the internal structure of communications systems, and is shown in Figure \ref{fig:osi}. In this figure, layer 5, 6 and 7 are merged into the same layer for simplicity.
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.65]{osi.png}
+	\caption{The \gls{osi} stack with layers, the data they carry, and some of the most known technologies for the different layers..}
+	\label{fig:osi}
+\end{figure}
+
+802.15.4 protocols are envisioned for applications supporting smart homes, medical surveillance, monitoring systems for environmental and industrial systems, as well as sensor systems for heating and ventilation. As we know from the \gls{iot}, it is really the imagination that puts an end to the possibilities for interconnected devices. The \gls{osi} stack defines the internal structure of communications systems, and is shown in Figure \ref{fig:osi}.
 
 As the 802.15.4 standard only defines the physical and data link (\gls{mac}) layer of the \gls{osi} stack, specifications need to be developed to utilize the possibilities provided by 802.15.4 in the upper layers. ZigBee, maintained by the ZigBee Alliance, is the most notable example of specifications that uses 802.15.4 as its base. Others include WirelessHART, MiWi, and ISA100.11a. Cite these? Homepage?
 % cite
 
-The fundamental intention of the 802.15.4 standard is to provide low-rate, low-power communication between devices within a sensor network or \gls{wpan}. Its main use case is to let multiple devices within a short range communicate with each other over a low-rate radio, while maintaining a modest energy consumption. Figure \ref{fig:802154-figure} paints a picture of what 802.15.4 is compared to more well-established concepts such as WiFi (802.11) and Bluetooth. While being a smaller, more cost efficient device than those found in more complex networks, 802.15.4 networks have a much more limited range (about 10 meters), and in most cases a throughput below 250 Kbps \cite{gutierrez2001ieee}. Not only is the 802.15.4 standard significantly lighter in terms of data rate and power consumption, it is also aimed on a different market than regular \gls{wpan}s. \gls{wpan}s are oriented around a person, creating a personal network for the user, which has higher demands to data rate, and can allow a higher energy consumption. 802.15.4, however, focuses on interconnecting devices that do not necessary have this constraint, such as industrial and medical applications. 
+The fundamental intention of the 802.15.4 standard is to provide low-rate, low-power communication between devices within a sensor network or \gls{wpan}. Its main use case is to let multiple devices within a short range communicate with each other over a low-rate radio, while maintaining a modest energy consumption. Figure \ref{fig:802154-figure} paints a picture of what 802.15.4 is compared to more well-established concepts such as WiFi (802.11) and Bluetooth, focusing on energy consumption, complexity and date rate. While being a smaller, more cost efficient device than those found in more complex networks, 802.15.4 networks have a much more limited range (about 10 meters), and in most cases a throughput below 250 Kbps \cite{gutierrez2001ieee}. Not only is the 802.15.4 standard significantly lighter in terms of data rate and power consumption, it is also aimed on a different market than regular \gls{wpan}s. \gls{wpan}s are oriented around a person, creating a personal network for the user, which has higher demands to data rate, and can allow a higher energy consumption. 802.15.4, however, focuses on interconnecting devices that do not necessary have this constraint, such as industrial and medical applications. 
 
-
+% BYTTE UT DENNE
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.85]{802-15-4-place.png}
-	\caption{Figure of IEEE 802.15.4's operational space compared to other wireless standards \cite{gutierrez2001ieee}.}
+	\caption{Figure of IEEE 802.15.4's operational space compared to other wireless standards \cite{gutierrez2001ieee}. REPLACE THIS}
 	\label{fig:802154-figure}
 \end{figure}
 
@@ -86,24 +80,26 @@ Four basic security services are provided in the 802.15.4 link-layer security pa
 
  
 
-
 Access control and replay protection filters out packages at the link layer.
 
-Git
+Message Integrity
+
+Message confidentiality
 
 
 \section{6LoWPAN: Putting IP on Top of 802.15.4}
 
 % We want to reach our devices over the Internet. IP is the thing.
 
-
-Initially, the \gls{ip} was considered to be too "heavy" for low-power wireless networks such as the ones described by the 802.15.4 standard. The idea of implementing \gls{ip} on top of 802.15.4 networks was born as early as in 2001 under the question "Why invent a new protocol when we already have IP?"\cite{Mulligan2007}. With \gls{ip}, the community already had a bundle of existing protocols for management, transport, configuring and debugging, such as \gls{snmp}, \gls{tcp} and \gls{udp}, as well as standardized services for higher layers such as caching, firewalls, load balancing and mobility. Nevertheless, the initial idea of using IP in combination with sensor networks or \gls{wpan} was not accepted by various groups such as ZigBee \cite{Mulligan2007}. The rejection did, however, not stop the initiative, and a group of engineers within \gls{ietf} started designing and developing what would later be known as \gls{6lowpan}.
+Initially, the \gls{ip} was considered to be too "heavy" for low-power wireless networks such as the ones described by the 802.15.4 standard. The idea of implementing \gls{ip} on top of 802.15.4 networks was born as early as in 2001 under the question "Why invent a new protocol when we already have IP?"\cite{Mulligan2007}. With \gls{ip}, the community already had a bundle of existing protocols for management, transport, configuring and debugging, such as \gls{snmp}, \gls{tcp} and \gls{udp}, as well as standardized services for higher layers such as caching, firewalls, load balancing and mobility. Nevertheless, the initial idea of using IP in combination with sensor networks or \gls{wpan}s was not accepted by various groups such as ZigBee \cite{Mulligan2007}. The rejection did, however, not stop the initiative, and a group of engineers within \gls{ietf} started designing and developing what would later be known as \gls{6lowpan}.
 
 Another significant advantage with combining \gls{ip} and 802.15.4 is the simplification of the connectivity model between various devices in the networks. As most 802.15.4-based specifications usually needs custom hardware that tend to be complex, the possibilities to interconnect different networks with each other is somewhat limited. By turning to \gls{ip}, the need for complex connectivity models is obviate as it is possible to use well-understood technologies such as bridges and routers. Another advantage with using \gls{ip} is that the routers between the \gls{6lowpan} devices and the outside networks (so-called edge routers) do not need to maintain any state as they are only forwarding datagrams.
 
 The implementation of \gls{6lowpan} proved to not be any more expensive compared to other alternatives such as ZigBee or Z-wave in terms of code size and \gls{ram} requirements \cite{Mulligan2007}. Another important feature of \gls{6lowpan}
 
 New features - Why is this doable over IP?
+
+One of the main reasons for \gls{ip} actually a feasible option for low-power wireless networks is its improved header compression algorithm. Its, at the time, unique concept is that you only "pay" for what you use in terms of overhead and processing. \gls{6lowpan} introduces a total of possible 256 different headers, each of them containing different fields based on its usage, and hence different lengths. 
 
 Encapsulation and header compression. 
 
@@ -116,10 +112,14 @@ Unique concept: Only pay for what you use in terms of overhead and processing be
 
 % WHY ARE WE TALKING ABOUT THIS?
 
-Security considerations.
+
 
 
 % Security part
+
+Security considerations.
+
+However, just like the IEEE 802.15.4 standard does not provide any description on how to deal with key management and key exchange, neither does \gls{6lowpan}.	
 
 \section{Formal Security Analysis} 
 
