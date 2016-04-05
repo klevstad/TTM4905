@@ -31,6 +31,11 @@
 \newblock \url{https://www.cs.ox.ac.uk/people/cas.cremers/scyther/index.html}.
 \newblock Accessed: 2016-02-23.
 
+\bibitem[\protect\citeauthoryear{Basin, Cremers, and Meadows}{Basin
+  et~al.}{}]{basin2011model}
+Basin, D., C.~J. Cremers, and C.~Meadows.
+\newblock {Model Checking Security Protocols}.
+
 \bibitem[\protect\citeauthoryear{Burrows, Abadi, and Needham}{Burrows
   et~al.}{1989}]{burrows1989logic}
 Burrows, M., M.~Abadi, and R.~M. Needham (1989).
@@ -39,12 +44,10 @@ Burrows, M., M.~Abadi, and R.~M. Needham (1989).
   Physical and Engineering Sciences}, Volume 426, pp.\  233--271. The Royal
   Society.
 
-\bibitem[\protect\citeauthoryear{Cremers and Mauw}{Cremers and
-  Mauw}{2005}]{cremers2005operational}
-Cremers, C. and S.~Mauw (2005).
-\newblock Operational {S}emantics of {S}ecurity {P}rotocols.
-\newblock In {\em Scenarios: Models, Transformations and Tools}, pp.\  66--89.
-  Springer.
+\bibitem[\protect\citeauthoryear{Cremers}{Cremers}{}]{scyther-manual}
+Cremers, C.~J.
+\newblock {\em {Scyther User Manual}}.
+\newblock MIT.
 
 \bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2008a}]{cremers2008scyther}
 Cremers, C.~J. (2008a).
@@ -58,6 +61,19 @@ Cremers, C.~J. (2008b).
   {S}ecurity {P}rotocols by {P}attern {R}efinement.
 \newblock In {\em Proceedings of the 15th ACM conference on Computer and
   communications security}, pp.\  119--128. ACM.
+
+\bibitem[\protect\citeauthoryear{Cremers, Lafourcade, and Nadeau}{Cremers
+  et~al.}{}]{cremers2009comparing}
+Cremers, C.~J., P.~Lafourcade, and P.~Nadeau.
+\newblock {Comparing State Spaces in Automatic Security Protocol Analysis}.
+\newblock {\em Formal to Practical Security\/}~{\em 5458}, 70--94.
+
+\bibitem[\protect\citeauthoryear{Cremers and Mauw}{Cremers and
+  Mauw}{2005}]{cremers2005operational}
+Cremers, C.~J. and S.~Mauw (2005).
+\newblock Operational {S}emantics of {S}ecurity {P}rotocols.
+\newblock In {\em Scenarios: Models, Transformations and Tools}, pp.\  66--89.
+  Springer.
 
 \bibitem[\protect\citeauthoryear{Dolev and Yao}{Dolev and
   Yao}{1983}]{dolev1983security}
@@ -74,6 +90,13 @@ Gutierrez, J.~A., M.~Naeve, E.~Callaway, M.~Bourgeois, V.~Mitter, and B.~Heile
   {L}ow-cost {W}ireless {P}ersonal {A}rea {N}etworks.
 \newblock {\em network, IEEE\/}~{\em 15\/}(5), 12--19.
 
+\bibitem[\protect\citeauthoryear{Hui and Thubert}{Hui and
+  Thubert}{2011}]{rfc6282}
+Hui, J. and P.~Thubert (2011).
+\newblock {Compression Format for IPv6 Datagrams over IEEE 802.15.4-Based
+  Networks}.
+\newblock {\em RFC6282\/}.
+
 \bibitem[\protect\citeauthoryear{Jing, Vasilakos, Wan, Lu, and Qiu}{Jing
   et~al.}{2014}]{Jing2014}
 Jing, Q., A.~V. Vasilakos, J.~Wan, J.~Lu, and D.~Qiu (2014).
@@ -87,12 +110,32 @@ Kopetz, H. (2011).
   Applications}, Chapter Internet of Things, pp.\  307--323.
 \newblock Springer.
 
+\bibitem[\protect\citeauthoryear{Krentz, Rafiee, and Meinel}{Krentz
+  et~al.}{2013}]{krentz20136lowpan}
+Krentz, K.-F., H.~Rafiee, and C.~Meinel (2013).
+\newblock 6{L}o{WPAN} {S}ecurity: {A}dding {C}ompromise {R}esilience to the
+  802.15.4 {S}ecurity {S}ublayer.
+\newblock In {\em Proceedings of the International Workshop on Adaptive
+  Security}. ACM.
+
 \bibitem[\protect\citeauthoryear{Lowe}{Lowe}{1996}]{lowe1996}
 Lowe, G. (1996).
 \newblock Breaking and {F}ixing the {N}eedham-{S}chroeder {P}ublic-key
   {P}rotocol {U}sing {FDR}.
 \newblock In {\em Tools and Algorithms for the Construction and Analysis of
   Systems}, pp.\  147--166. Springer.
+
+\bibitem[\protect\citeauthoryear{Lowe}{Lowe}{1997}]{lowe1997hierarchy}
+Lowe, G. (1997).
+\newblock {A Hierarchy of Authentication Specifications}.
+\newblock In {\em Computer Security Foundations Workshop, 1997. Proceedings.,
+  10th}, pp.\  31--43. IEEE.
+
+\bibitem[\protect\citeauthoryear{Mao and Boyd}{Mao and Boyd}{1993}]{boyd1993}
+Mao, W. and C.~Boyd (1993).
+\newblock {Towards Formal Analysis of Security Protocols}.
+\newblock In {\em Computer Security Foundations Workshop VI, 1993.
+  Proceedings}, pp.\  147--158. IEEE.
 
 \bibitem[\protect\citeauthoryear{Mulligan}{Mulligan}{2007}]{Mulligan2007}
 Mulligan, G. (2007).

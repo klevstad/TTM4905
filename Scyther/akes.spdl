@@ -1,0 +1,75 @@
+/*
+	Adaptive Key Establishment Scheme (AKES)
+*/
+
+hashfunction MIC;
+
+macro PairwiseSessionKey = {Ru, Rv}k(U,V);
+macro HelloAckMIC = MIC(PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, PairwiseSessionKey);
+macro AckMIC = MIC(PANv, IDv, PANu, IDu, Ivu, Cu, PairwiseSessionKey);
+
+const PANu; # U's Personal Area Network (PAN) Id
+const PANv; # V's Personal Area Network (PAN) Id
+
+const IDu; # U's extended, short or simple address
+const IDv; # V's extended, short or simple address
+
+const Cu; # V's frame counter of the last accepted frame from U
+const Cv; # U's frame counter of the last accepted frame from V
+
+const Pu; # Flag indicating whether or not U is currently one of V's permanent neighbours
+
+const SAu; # U's Short Address
+const SAv; # V's Short Address
+
+const Iuv; # U's index in V's list of neighbours (EBEAP)
+const Ivu; # V's index in U's list of neighbours (EBEAP)
+
+const ack-msg;
+
+
+protocol AKES(U, V)
+{
+  role U
+  {
+    fresh Ru: Nonce;
+    var Rv: Nonce;
+
+    # HELLO
+    send_1(U, V, PANu, IDu, Ru);
+
+    # HELLOACK
+    recv_2(V, U, (PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, HelloAckMIC));
+
+    # ACK
+    send_3(U, V, (ack-msg, PANv, IDv, PANu, IDu, Ivu, Cu, AckMIC));
+
+    # Claims
+    claim_U1(U, SKR, PairwiseSessionKey); # The pairwise session key is kept secret from adversary
+    claim_U2(U, Nisynch); # Non-injective synchronization
+    claim_U3(U, Niagree); # Non-injective agreement
+    claim_U4(U, Alive); # V was "alive" as U was able to execute the protocol correctly
+  }
+
+  role V
+  {
+    var Ru: Nonce;
+    fresh Rv: Nonce;
+
+    # HELLO
+    recv_1(U, V, PANu, IDu, Ru);
+
+    # HELLOACK
+    send_2(V, U, (PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, HelloAckMIC));
+
+    # ACK
+    recv_3(U, V, (ack-msg, PANv, IDv, PANu, IDu, Ivu, Cu, AckMIC));
+
+    # Claims
+    claim_V1(V, SKR, PairwiseSessionKey);
+    claim_V2(V, Nisynch);
+    claim_V3(V, Niagree);
+    claim_V4(V, Alive);
+  }
+
+}

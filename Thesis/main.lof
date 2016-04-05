@@ -7,6 +7,7 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The \gls {osi} stack with layers, the data they carry, and some of the most known technologies for the different layers..}}{6}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Figure of IEEE 802.15.4's operational space compared to other wireless standards \cite {gutierrez2001ieee}. REPLACE THIS}}{7}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Figure of the \gls {6lowpan} stack, which uses the 802.15.4 physical and link layer, but adds an adoption layer in the network layer.}}{9}{figure.2.3}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

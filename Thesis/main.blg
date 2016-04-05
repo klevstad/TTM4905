@@ -9,7 +9,7 @@ A level-1 auxiliary file: Chapter3//scyther.aux
 A level-1 auxiliary file: Chapter4//6lowpan-krentz.aux
 The style file: chicago.bst
 Database file #1: main.bib
-You're missing a field name---line 154 of file main.bib
+You're missing a field name---line 178 of file main.bib
  : 
  : ,
 (Error may have been on previous line)
@@ -84,7 +84,15 @@ Warning--empty year in proverif
 Warning--no key, author in scyther
 Warning--no author, editor, or organization in scyther
 Warning--empty year in scyther
+Warning--empty year in basin2011model
+Warning--no journal in basin2011model
+Warning--no number and no volume in basin2011model
+Warning--page numbers missing in basin2011model
 Warning--can't use both volume and number fields in burrows1989logic
+Warning--empty year in scyther-manual
+Warning--empty year in cremers2009comparing
+Warning--no number and no volume in rfc6282
+Warning--page numbers missing in rfc6282
 Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
 while executing---line 1645 of file chicago.bst
 Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
@@ -92,45 +100,45 @@ while executing---line 1645 of file chicago.bst
 Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
 while executing---line 1645 of file chicago.bst
 Warning--page numbers missing in Needham:1978
-You've used 18 entries,
+You've used 25 entries,
             2861 wiz_defined-function locations,
-            724 strings with 7754 characters,
-and the built_in function-call counts, 11578 in all, are:
-= -- 1058
-> -- 601
-< -- 10
-+ -- 186
-- -- 212
-* -- 954
-:= -- 1823
-add.period$ -- 61
-call.type$ -- 18
-change.case$ -- 116
-chr.to.int$ -- 15
-cite$ -- 98
-duplicate$ -- 406
-empty$ -- 858
-format.name$ -- 240
-if$ -- 2317
+            757 strings with 8769 characters,
+and the built_in function-call counts, 16354 in all, are:
+= -- 1475
+> -- 940
+< -- 12
++ -- 284
+- -- 326
+* -- 1341
+:= -- 2681
+add.period$ -- 84
+call.type$ -- 25
+change.case$ -- 165
+chr.to.int$ -- 22
+cite$ -- 113
+duplicate$ -- 554
+empty$ -- 1149
+format.name$ -- 374
+if$ -- 3230
 int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 13
-newline$ -- 93
-num.names$ -- 118
-pop$ -- 157
+missing$ -- 19
+newline$ -- 127
+num.names$ -- 188
+pop$ -- 228
 preamble$ -- 1
-purify$ -- 219
+purify$ -- 311
 quote$ -- 0
-skip$ -- 365
+skip$ -- 493
 stack$ -- 0
-substring$ -- 686
-swap$ -- 160
-text.length$ -- 10
+substring$ -- 901
+swap$ -- 211
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 338
-warning$ -- 58
-while$ -- 136
+type$ -- 478
+warning$ -- 66
+while$ -- 202
 width$ -- 0
-write$ -- 247
+write$ -- 338
 (There were 11 error messages)

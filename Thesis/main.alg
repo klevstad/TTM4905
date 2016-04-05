@@ -1,11 +1,12 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 02.04.2016  15:17:16
-;; Indexstyle: "/tmp/09z98XBvW5", Rawindex: "/tmp/m1R46dzQI6", Output: "main.acr"
+;; at 05.04.2016  14:38:25
+;; Indexstyle: "/tmp/HSc3HLkaUO", Rawindex: "/tmp/G9INZ9Ut2d", Output: "main.acr"
 
 
 Building indexentry-tree:
 Hierdepth of index is :TREE
 
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -49,6 +50,7 @@ Letter-group: "à¨" -> "G"
 Letter-group: "¨—Úœ" -> "I"
 Letter-group: "¨È" -> "I"
 Letter-group: "»€†" -> "M"
+Letter-group: "»€†2" -> "M"
 Letter-group: "»Ð†" -> "M"
 Letter-group: "Ë€»" -> "R"
 Letter-group: "Ëœ¨" -> "R"
