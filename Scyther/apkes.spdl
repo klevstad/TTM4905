@@ -8,8 +8,8 @@ macro PairwiseKey = {Ru, Rv}k(U, V);
 macro helloack-mic = MIC(Ru, Rv, Iuv, SAv, k(U,V));
 macro ack-mic = MIC(ack-msg, Ivu, PairwiseKey);
 
-const SAu; # U's Short Address
-const SAv; # V's Short Address
+const SAu: Agent; # U's Short Address
+const SAv: Agent; # V's Short Address
 
 const Iuv; # U's index in V's list of neighbours
 const Ivu; # V's index in U's list of neighbours
@@ -23,18 +23,18 @@ protocol APKES(U, V)
 		fresh Ru: Nonce;
 		var Rv: Nonce;
 
-		# HELLO		
+		# HELLO
 		send_1(U, V, Ru, SAu);
 
-		# HELLOACK		
-		recv_2(V, U, (Ru, Rv, Iuv, SAv, helloack-mic)); 
+		# HELLOACK
+		recv_2(V, U, (Ru, Rv, Iuv, SAv, helloack-mic));
 		claim(U, Running, V, Ru); # For claiming that the Ru has not been changed
 
 		#ACK
 		send_3(U, V, (ack-msg, Ivu, ack-mic));
 		#send_3(U, V, I );
 
-		
+
 		# Claims:
 		claim_U1(U, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
 		claim_U2(U, Nisynch); # Non-injective synchronization

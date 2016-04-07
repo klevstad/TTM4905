@@ -3,113 +3,44 @@
 
 %Introduction to Scyther. What it is. How it works. Examples.
 
-There exists multiple state-of-the-art tools for performing formal analysis of security protocols, for example Avispa \cite{avispa}, ProVerif \cite{proverif} and Scyther \cite{scyther}. This thesis uses Scyther as the tool for conducting the formal security analysis, and the following chapter will give an introduction to Scyther, how it works, and examples of usages.
+There exists multiple state-of-the-art tools for performing formal analysis of security protocols, for example Avispa \cite{avispa}, ProVerif \cite{proverif} and Scyther \cite{scyther}. This thesis uses Scyther as its tool for conducting formal security analysis, and the following chapter will give an introduction to Scyther, how it works, and examples of usages.
 
 
 \section{The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}
 
 Scyther is a tool for both verification, falsification, and analysis of security protocols developed by Cas Cremers. The tool is based on a patter refinement algorithm that enables unbounded verification, falsification and characterization \cite{cremers2008scyther}. Scyther allows its users to verify security protocols in two different ways. The first option is to execute Scyther scripts through the command-line interface, which provides an output file containing the results of the protocol verification. Option two, is to use Scyther's own \gls{gui}, which provides panels for both verification results, and in case of attacks being found; a visual graph of Scyther's proposed attack on the protocol. The most recent release of Scyther was published on April 4, 2014, and is currently available for both Windows, OS X and Linux.
 
+A security protocol's specification describes messages that are sent between parties and computation done at either party's side. This can be seen as the blueprint of what the different entities are actually allowed to do, and how they communicate with each other. Such a blueprint can be modelled using Scyther to analyse attacks on the protocol, as well as discovering possible protocol behaviours and execution patterns.
 
-Scyther performs its analyses under the \emph{perfect cryptography assumption} \cite{cremers2008unbounded}. This assumption states that all cryptographic functions are perfectly designed, hence it is impossible for the adversary to learn anything about the encrypted message without possessing the corresponding decryption key.
+Scyther allows its user to state security claims which are evaluated at the end of each run of the protocol, either ending in a successful verification of the security property, or in a failure. In the presence of a failure for some security property, Scyther will also provide a concrete attack on the protocol, and will also present an attack graph to easier illustrate the possible threat. Another novel feature that Scyther provides is complete characterization of the protocol, which creates a finite set of possible traces. A trace is a possible way for the protocol to execute, and is in most cases limited to five different possibilities \cite{cremers2008scyther}. By using Scyther to characterize the different roles, it is possible to discover possible malicious ways for an attacker to execute the protocol, and implement precautions or change the protocol to avoid such execution patterns.
 
 
-A security protocol's specification describes messages that are sent between parties and computation done at either party's side. This can be seen as the blueprint of what the different entities are actually allowed to do, and how  
+
+
 
 % Write(short and easy) about the algorithm.
 
-\subsection{Scyther and its Pattern Refinement Algorithm / its novelty?}
+Most algorithms used in verification tools perform \emph{bounded} verification, which means that they are capable of handling a finite space of protocol behaviours. This is a restriction, implying that the algorithm is not able to verify all possible behaviours (or states) of the protocol, but rather a finite subset of the possible state-space. One of Scyther's unique features is its ability to handle an \emph{unbounded} (or infinite) state-space, and that it is guaranteed to \emph{terminate} \cite{cremers2008unbounded}. By constructing an algorithm that terminates every time, it allows for providing useful results, even when no attack is found, or if the algorithm is not able to verify the protocol in the unbounded state-space \cite{cremers2008scyther}.
 
-Most algorithms used in verification tools performs \emph{bounded} verification, which means that they are capable of handling a finite space of protocol behaviours. This is a restriction, implying that the algorithm is not able to verify all possible behaviours (or states) of the protocol, but rather a finite subset of the possible state-space. One of Scyther's unique features is its ability to handle an \emph{unbounded} (or infinite) state-space, and that it is guaranteed to \emph{terminate} \cite{cremers2008unbounded}. By constructing an algorithm that terminates every time, it allows for providing useful results, even when no attack is found, or if the algorithm is not able to verify the protocol in the unbounded state-space \cite{cremers2008scyther}.
-
-Scyther utilizes formal models for describing protocol behaviour. As these are symbolic, they are 
+Scyther performs its analyses under the \emph{perfect cryptography assumption} \cite{cremers2008unbounded}. This assumption states that all cryptographic functions are perfectly designed, hence it is impossible for the adversary to learn anything about the encrypted message without possessing the corresponding decryption key.
 
 
 
 As mentioned, a protocol specification contains a set of roles which serves as blueprints that describes what the protocol is able to do. An execution of the protocol is referred to as a \emph{run}, and defines an unique instance of the protocol with respect to local constraints and the binding between the role and the actual agent acting out the roles behaviour. 
 
-Other novel features implemented in Scyther includes assisted protocol analysis by providing the analyst with different classes of protocol behaviours (or attacks), as well as so-called multi-protocol analysis which allows for analysing multiple protocols that coexist in the environment.
+%Other novel features implemented in Scyther includes assisted protocol analysis by providing the analyst with different classes of protocol behaviours (or attacks), as well as so-called multi-protocol analysis which allows for analysing multiple protocols that coexist in the environment. 
 
 
 % Bedre dette
-
-In the event of Scyther finding an attack on the modelled protocol, Scyther will also provide proves for the attack and present a graphical view of its proposed attack.
-
-Provides formal proofs of the security protocol in question. If Scyther finds a possible attack, it will also prove it.
-
 
 
 For analysis of protocol security, Scyther provides different classes of attacks, which deflects from other available analysis tools.
 
 
-\section{Scyther's Different Modes of Usage}
-
-\subsection{Verifying Claims}
-
-When modelling security protocols in Scyther, an important part is to state security claims for each of the different parties (or \emph{roles}) of the protocol. Examples on such claims are that the key used for encryption between two roles is supposed to be secret, or that the communicating roles have authenticated each other correctly during the protocol execution. 
-\begin{verbatim}
-claim(Alice, Secret, AliceSecretKey);
-\end{verbatim}
-
-\subsection{Generating Claims Automatically}
-
-If we were to develop a security protocol and not knowing the proper claims that should go with it, Scyther is able to automatically analyse our protocol and generate the appropriate claims. Scyther does so by claiming that all locally generated values and variables (such as cryptographic nonces) are supposed to be secret, before verifying them as described in the previous section.
-
-\subsection{Complete Characterization}
-
-
-In addition to verifying claims described in a protocol, Scyther is also able to present a finite set of traces that represent all the execution paths of the protocol. This information can be used to gain insight in potential problems and weaknesses of the modelled protocol. For most protocols, the set of such traces are limited to 1-5 paths, making it fairly easy to quickly obtain an oversight of the protocol's behaviour \cite{cremers2008scyther}.
-
-
-
-
-\section{Security Claims}
-
-\subsection{Secret}
-
-The first, most trivial security claim is secrecy. Secrecy expresses that the stated property is to be kept hidden from an adversary, even in the case of where the adversary controls the network used for communication. However, if one of the agents gets compromised by the adversary and the protocol is executed between an honest agent and the adversary, it would in the end learn what was meant to be kept hidden from it \cite{cremers2005operational}. The secrecy claim does not hold for such cases (nor is it intended to), but for each case where the protocol is executed between two honest agent where the secret property is successfully kept hidden from the adversary. 
-
-\subsection{SKR (Session-Key Reveal)}
-
-SKR is mostly the same as the regular secrecy claim, but is used to highlight that the term that is claimed to be secret is also a session key. This instructs Scyther to reveal the session key to the adversary after it has executed its run, hence proving that the session keys are working correctly and that current session keys are kept secret from the adversary \cite{scyther-manual}. For the SKR claim to function correctly, Scyther's session key reveal checkbox needs to be checked in the settings. If not, this claim is identical to the ordinary secrecy claim presented above.
-
-
-\subsection{Non-injective Synchronization}
-
-Synchronization requires that all protocol messages occur in the expected order with their expected values, and that the behaviour is equivalent to as if the protocol was executed without the presence of any adversary. An injective synchronization property states that the protocol executes as expected over \emph{multiple} runs, claiming that it is not possible for an attacker to use information from previous runs into disrupting the current protocol execution \cite{cremers2005operational}. Such an attack is known as a replay attack, and is used by an adversary to inject traffic into the protocol execution to induce undesirable or unexpected behaviour.
-
-Scyther, however, does not support this enhanced form of synchronization, hence it is vulnerable to replay attacks \cite{cremers2008scyther}. Using its language, we can claim that a property holds non-injective synchronization by using the \texttt{ni-synch} statement.
-
-
-%Synchronization = Strong form for authentication. Does not protect against replay attacks. Same for Non-injective synchronization.
-
-\subsection{Aliveness}
-
-Aliveness is considered to be the weakest form of authentication, guaranteeing to the initiator of a protocol that if it completes a run successfully, then the intended responder of the run has previously executed the protocol \cite{lowe1997hierarchy}. This does not necessarily mean that the responder knew that he was interacting with the initiator, nor does it mean that it has executed the protocol any time recently. 
-
-
-\subsection{Weak Agreement}
-
-Weak agreement strengthens the authentication form introduced as aliveness. Such an authentication states that the responder in fact was executing the protocol with the initiator, and not just having run the protocol at some point in time \cite{lowe1997hierarchy}. By claiming that the protocol holds under the weak agreement, we state that if the initiator successfully completes a run with the intended responder, then the responder confirms that it has previously run the protocol with our initiator. Such a claim would prevent an adversary from acting as a responder by running another run of the protocol in parallel with the intended responder, and conducting a man-in-the-middle-attack. The Needham-Schroeder case presented in the background material failed on this claim, allowing Lowe to construct his attack. 
-
-
-\subsection{Non-injective Agreement}
-
-Where the authentication provided by weak agreement does not specify which of the two communicating parties acted as initiator and responder, non-injective agreement does. It guarantees that if the initiator successfully completes a run of the protocol, apparently with the responder, then the responder has completed a run with the initiator, where he acted as a responder \cite{lowe1997hierarchy}. This does, however, not indicate that they both have executed exactly one run. There is still a possibility that the initiator has executed multiple runs with a responder which he believed to be our initial responder, but may in fact have been communicating with the adversary.
-
-
-
-\subsection{Running, Commit}
-
-
-
-
-
- 
 \section{Scyther Syntax}
 
 
-The syntax used in \verb!.spdl!-files, which are protocol files that can be run and verified by Scyther, can resemble popular object-oriented languages such as C, C++ or Java. The structure of a minimum working example for the protocol known as \gls{apkes} is shown below, consisting of an outer class defining the protocol and multiple agents (or roles) inside the protocol. In this example, we define that our protocol consists of two communicating parties; U and V, without giving them any specific behaviour.
+The syntax used in \verb!.spdl!-files, which are protocol files that can be run and verified by Scyther, can resemble popular object-oriented languages such as C, C++ or Java. The structure of a minimum working example for the protocol known as \gls{apkes} is shown below, consisting of an outer class defining the protocol and multiple agents (or roles) inside the protocol. In this example, we define that our protocol consists of two communicating parties; U and V, without giving them any specific behaviour.\newline
 
 \begin{lstlisting}
 protocol APKES(U, V){
@@ -118,35 +49,30 @@ protocol APKES(U, V){
 };
 \end{lstlisting}
 
-
-For each of the different roles in the protocol, behaviour can be added as a sequence of send and receive events, as well as variable declarations, constants and claims. For the U role, we can define a simple behaviour as shown below, where U generates a random nonce \texttt{Ru} and sends it to V, before receiving a message from V containing the random nonce \texttt{Rv}. All events are labelled with either \texttt{send} or \texttt{recv} followed by a subscript and a number. The number indicates the message's position in a \gls{msc}, and must be incremented for each message sent.
-
+For each of the different roles in the protocol, behaviour can be added as a sequence of send and receive events, as well as variable declarations, constants and claims. For the U role, we can define a simple behaviour as shown below, where U generates a random nonce \texttt{Ru} and sends it to V, before receiving a message from V containing the random nonces \texttt{Ru} and \texttt{Rv}. All events are labelled with either \texttt{send} or \texttt{recv} followed by a subscript and a number. The number indicates the message's position in a \gls{msc}, and must be incremented for each message sent.\newline
 
 \begin{lstlisting}
 role U{
-	fresh Ru: Nonce; # A freshly generated nonce
-	var Rv: Nonce; # A variable for receiving a nonce
+	fresh Ru: Nonce; # Freshly generated nonce
+	var Rv: Nonce; # Variable for receiving a nonce
 	
-	send_1(U, V, Ru); # Message sent from U to V containing Ru
-	recv_2(V, U, Ru, Rv); # Message sent from V to U containing Ru and Rv, which is stored as a variable
+	send_1(U, V, Ru); # Send message to V containing Ru
+	recv_2(V, U, Ru, Rv); # Receive message from V containing Ru and Rv. Store Rv in variable
 };
 \end{lstlisting}
 
-
-
-Typically, a \texttt{send}-event has a corresponding \texttt{recv}-event at the receiving role with the same number.
+Typically, a \texttt{send}-event has a corresponding \texttt{recv}-event at the receiving role with the same number.\newline
 
 \begin{lstlisting}
 role V{
 	[...]
 	
-	recv_1(U, V, Ru); # Receive the message sent from U to V containing Ru
+	recv_1(U, V, Ru); # Receive message sent from U containing Ru. Store Ru in variable
 	send_2(V, U, Ru, Rv); # Send message to U containing Ru and Rv
 };
 \end{lstlisting}
 
-
-Along with support for creating fresh nonce, variables and terms, Scyther also provides a wide set of cryptographic elements such as hash functions, symmetric-key cryptography, public-key cryptography, as well as declaring user specific types and macros, which are abbreviations of complex expressions into simpler once. In the following example, a hash function is used to define a function that generates a \gls{mic} (which is essentially the same as a \gls{mac-auth}. One the next line, we have created a macro representing the generation of a pairwise key between U and V. The key is represented as an encryption of the two values \texttt{Ru} and \texttt{Rv} using a symmetric key that is shared between U and V. Constants and functions defined outside of a role are considered to be global, and available to all of the defined roles in the protocol.
+Along with support for creating fresh nonce, variables and terms, Scyther also provides a wide set of cryptographic elements such as hash functions, symmetric-key cryptography, public-key cryptography, as well as declaring user specific types and macros, which are abbreviations of complex expressions into simpler once. In the following example, a hash function is used to define a function that generates a \gls{mic} (which is essentially the same as a \gls{mac-auth}). One the next line, we have created a macro representing the generation of a pairwise key between U and V. The key is represented as an encryption of the two values \texttt{Ru} and \texttt{Rv} using a symmetric key that is shared between U and V. Constants and functions defined outside of a role are considered to be global, and available to all of the defined roles in the protocol.\newline
 
 \begin{lstlisting}
 hashfunction MIC; # An hashfunction to represent a Message Integrity Code (MIC) generation.
@@ -154,11 +80,28 @@ hashfunction MIC; # An hashfunction to represent a Message Integrity Code (MIC) 
 macro PairwiseKey = {Ru, Rv}k(U, V);
 \end{lstlisting}
 
+%A sequence of events within a role are in most cases concluded with a set of claim events. Claim events are, as previous mentioned, used for describing the security properties of the role. For U, we want to claim that the two nonces \texttt{Ru} and \texttt{Rv} are meant to be kept secret from an adversary.\newline
 
 
+%\begin{lstlisting}
+%role U{
+%	[...]
+%	
+%	# Claims:
+%	claim(U, Secret, Ru);
+%	claim(U, Secret, Rv);
+%};
+%\end{lstlisting}
 
-A sequence of events within a role are in most cases concluded with a set of claim events. Claim events are, as previous mentioned, used for describing the security properties of the role. For U, we want to claim that the two nonces \texttt{Ru} and \texttt{Rv} are meant to be kept secret from an adversary.
+\subsection{Security Claims}
 
+A sequence of events within a role are usually followed by a set of claim events. Claim events are used for describing security properties of a role, for example that some value should be considered secret, or that certain properties holds for authentication. Such claims can be verified using Scyther. If the protocol is not instructed with any security claims, Scyther is able to generate the appropriate claims  for the protocol with respect to secrecy and authentication.
+
+\subsubsection{Secret}
+
+The first, most trivial security claim is secrecy. Secrecy expresses that the stated property is to be kept hidden from an adversary, even in the case of where the adversary controls the network used for communication. However, if one of the agents gets compromised by the adversary and the protocol is executed between an honest agent and the adversary, it would in the end learn what was meant to be kept hidden from it \cite{cremers2005operational}. The secrecy claim does not hold for such cases (nor is it intended to), but for each case where the protocol is executed between two honest agent where the secret property is successfully kept hidden from the adversary.
+
+For our example protocol, we can claim that the two values \texttt{Ru} and \texttt{Rv} are supposed to be secret and thereby hidden from the adversary as shown below.\newline
 
 \begin{lstlisting}
 role U{
@@ -170,19 +113,90 @@ role U{
 };
 \end{lstlisting}
 
+Such claims will obviously fail as there is no encryption used on the messages that are passed between the two roles. 
 
-Probably elaborate more on the Scyther syntax? More examples? 
+
+\subsubsection{SKR (Session-Key Reveal)}
+
+SKR is mostly the same as the regular secrecy claim, but is used to highlight that the term that is claimed to be secret is also a session key. This instructs Scyther to reveal the session key to the adversary after it has executed its run, hence proving that the session keys are working correctly and that current session keys are kept secret from the adversary \cite{scyther-manual}. For the SKR claim to function correctly, Scyther's session key reveal checkbox needs to be checked in the settings. If not, this claim is identical to the ordinary secrecy claim presented above.
+
+
+\subsubsection{Non-injective Synchronization}
+
+Synchronization requires that all protocol messages occur in the expected order with their expected values, and that the behaviour is equivalent to as if the protocol was executed without the presence of any adversary. An injective synchronization property states that the protocol executes as expected over \emph{multiple} runs, claiming that it is not possible for an attacker to use information from previous runs into disrupting the current protocol execution \cite{cremers2005operational}. Such an attack is known as a replay attack, and is used by an adversary to inject traffic into the protocol execution to induce undesirable or unexpected behaviour.
+
+Scyther, however, does not support this enhanced form of synchronization, hence it is vulnerable to replay attacks \cite{scyther-manual}. Using its language, we can claim that a property holds non-injective synchronization by using the \texttt{ni-synch} statement.\newline
+
+
+\begin{lstlisting}
+claim(U, Nisynch, Ru);
+
+\end{lstlisting}
+
+%Synchronization = Strong form for authentication. Does not protect against replay attacks. Same for Non-injective synchronization.
+
+\subsubsection{Aliveness}
+
+Aliveness is considered to be the weakest form of authentication, guaranteeing to the initiator of a protocol (U) that if it completes a run successfully, then the intended responder of the run (V) has previously executed the protocol \cite{lowe1997hierarchy}. This does not necessarily mean that V knew that he was interacting with U, nor does it mean that it has executed the protocol any time recently. 
+
+
+\subsubsection{Weak Agreement}
+
+Weak agreement strengthens the authentication form introduced as aliveness. Such an authentication states that the responder in fact was executing the protocol with the initiator (U), and not just having run the protocol at some point in time \cite{lowe1997hierarchy}. By claiming that the protocol holds under the weak agreement, we state that if U successfully completes a run with the intended responder (V), then V confirms that it has previously run the protocol with U. Such a claim would prevent an adversary from acting as a responder by running another run of the protocol in parallel with a run with U, and conducting a man-in-the-middle-attack. The Needham-Schroeder case presented in Chapter \ref{chp:background} failed on this claim, allowing Lowe to construct his attack. 
+
+
+\subsubsection{Non-injective Agreement}
+
+Where the authentication provided by weak agreement does not specify which of the two communicating parties acted as initiator and responder, non-injective agreement does. It guarantees that if the initiator (U) successfully completes a run of the protocol, apparently with the responder (V), then V has completed a run with U, where he acted as a responder \cite{lowe1997hierarchy}. This does, however, not indicate that they both have executed exactly one run. There is still a possibility that U has executed multiple runs with a responder which he believed to be V, but may in fact have been communicating with the adversary. Another guarantee provided by non-injective agreement is that if U also sends a set of variables to V in the completed run, then they both agree on that the data values corresponds to all in the sent set of variables.
+
+% Last sentence seems.. weird and stupid and I hate it.
+
+Below is an example of the example protocol claiming that V is in fact alive, has run the protocol at some time with U, and that during this particular run, it was U and V that was communicating.\newline
+
+\begin{lstlisting}
+role U{
+	[...]
+	
+	# Claims:
+	claim(U, Alive);
+	claim(U, Weakagree);
+	claim(U, Niagree);
+};
+\end{lstlisting} 
+
+
+
+
+
+\subsubsection{Running, Commit}
+
+The set of variables from non-injective agreement can be defined using the running and commit signals. By using such a claim, we can verify that a variable sent from U to V, and then returned to U has not been changed from its initial value.
+
+Scyther models such a claim by explicitly defining for each receive event containing an item from the set of variables. By marking the variables using a claim event of type running, the variable is marked as currently running in memory. The commit claim can then be used to state that the variables exchanged between U and V (in this case \texttt{Ru}) has not been tampered with, as seen below.\newline
+
+\begin{lstlisting}
+role U{
+	[...]
+	
+	send_1(U, V, Ru);
+	
+	recv_2(V, U, Ru, Rv);
+	claim(U, Running, V, Ru); # 
+	
+	claim(U, Commit, V, Ru);
+};
+
+
+role V{
+	[...]
+	
+	recv_1(U, V, Ru);
+	claim(V, Running, U, Ru);
+	
+	send_2(V, U, Ru, Rv); 
+}
+\end{lstlisting}
 
 \section{Scyther's Graphical Interface for Verification and Falsification}
 
 When running Scyther in its three modes, different views are provided through Scyther's \gls{gui}. If we continue on our example from the section on Scyther's syntax, we now want to verify the security claims for Alice's role in the protocol.
-
-
-
-\section{Reasons for Choosing Scyther}
-
-"Scyther is chosen because of reasons."
-
-Another reason for choosing Scyther is that it is a teaching tool, and comes with a manual and a set of exercises for aiding the user in understanding the tool and its functionality.
-
-Move this to the end of chapter?

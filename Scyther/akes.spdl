@@ -4,15 +4,15 @@
 
 hashfunction MIC;
 
-macro PairwiseSessionKey = {Ru, Rv}k(U,V);
+macro PairwiseSessionKey = {Ru, Rv}k(U,V); # Where k(U,V) is the key from the plugged-in scheme
 macro HelloAckMIC = MIC(PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, PairwiseSessionKey);
 macro AckMIC = MIC(PANv, IDv, PANu, IDu, Ivu, Cu, PairwiseSessionKey);
 
 const PANu; # U's Personal Area Network (PAN) Id
 const PANv; # V's Personal Area Network (PAN) Id
 
-const IDu; # U's extended, short or simple address
-const IDv; # V's extended, short or simple address
+const IDu: Agent; # U's extended, short or simple address
+const IDv: Agent; # V's extended, short or simple address
 
 const Cu; # V's frame counter of the last accepted frame from U
 const Cv; # U's frame counter of the last accepted frame from V
