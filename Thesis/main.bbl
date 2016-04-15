@@ -1,40 +1,27 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\citeauthoryear{??}{avi}{}]{avispa}
-{Avispa}.
-\newblock \url{http://www.avispa-project.org/}.
-\newblock Accessed: 2016-02-23.
+\bibitem[\protect\citeauthoryear{Alliance}{Alliance}{}]{zigbee}
+Alliance, T.~Z.
+\newblock {Zigbee}.
+\newblock \url{http://www.zigbee.org/}.
+\newblock Accessed: 2016-04-15.
 
-\bibitem[\protect\citeauthoryear{??}{iot}{a}]{iot-gartner}
-{Gartner: Internet of Things}.
-\newblock http://www.gartner.com/newsroom/id/3165317.
-\newblock Accessed: 2016-03-31.
-
-\bibitem[\protect\citeauthoryear{??}{iot}{b}]{iot-phrase-2}
-{Internet of Things Phrase}.
+\bibitem[\protect\citeauthoryear{Ashton}{Ashton}{}]{iot-phrase-2}
+Ashton, K.
+\newblock {That ``Internet of Things'' Thing}.
 \newblock http://www.rfidjournal.com/articles/view?4986.
 \newblock Accessed: 2016-03-31.
 
-\bibitem[\protect\citeauthoryear{??}{iot}{c}]{iot-phrase-1}
-{Internet of Things Phrase}.
-\newblock
-  www.theguardian.com/sustainable-business/2015/feb/27/the-internet-of-things-what-the-man-who-coined-the-phrase-has-to-say.
-\newblock Accessed: 2016-03-31.
+\bibitem[\protect\citeauthoryear{Basin, Cremers, and Meadows}{Basin
+  et~al.}{2012}]{basin2011model}
+Basin, D., C.~J. Cremers, and C.~Meadows (2012).
+\newblock {Model Checking Security Protocols}.
 
-\bibitem[\protect\citeauthoryear{??}{pro}{}]{proverif}
-{ProVerif}.
+\bibitem[\protect\citeauthoryear{Blanchet}{Blanchet}{}]{proverif}
+Blanchet, B.
+\newblock {ProVerif}.
 \newblock \url{http://prosecco.gforge.inria.fr/personal/bblanche/proverif/}.
 \newblock Accessed: 2016-02-23.
-
-\bibitem[\protect\citeauthoryear{??}{scy}{}]{scyther}
-{Scyther}.
-\newblock \url{https://www.cs.ox.ac.uk/people/cas.cremers/scyther/index.html}.
-\newblock Accessed: 2016-02-23.
-
-\bibitem[\protect\citeauthoryear{Basin, Cremers, and Meadows}{Basin
-  et~al.}{}]{basin2011model}
-Basin, D., C.~J. Cremers, and C.~Meadows.
-\newblock {Model Checking Security Protocols}.
 
 \bibitem[\protect\citeauthoryear{Burrows, Abadi, and Needham}{Burrows
   et~al.}{1989}]{burrows1989logic}
@@ -44,10 +31,16 @@ Burrows, M., M.~Abadi, and R.~M. Needham (1989).
   Physical and Engineering Sciences}, Volume 426, pp.\  233--271. The Royal
   Society.
 
-\bibitem[\protect\citeauthoryear{Cremers}{Cremers}{}]{scyther-manual}
+\bibitem[\protect\citeauthoryear{Cremers}{Cremers}{}]{scyther}
 Cremers, C.~J.
-\newblock {\em {Scyther User Manual}}.
-\newblock MIT.
+\newblock {Scyther}.
+\newblock \url{https://www.cs.ox.ac.uk/people/cas.cremers/scyther/index.html}.
+\newblock Accessed: 2016-02-23.
+
+\bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2006}]{cremers2006scyther}
+Cremers, C.~J. (2006).
+\newblock {\em {Scyther: Semantics and Verification of Security Protocols}}.
+\newblock Ph.\ D. thesis, Eindhoven University of Technology.
 
 \bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2008a}]{cremers2008scyther}
 Cremers, C.~J. (2008a).
@@ -61,6 +54,10 @@ Cremers, C.~J. (2008b).
   {S}ecurity {P}rotocols by {P}attern {R}efinement.
 \newblock In {\em Proceedings of the 15th ACM conference on Computer and
   communications security}, pp.\  119--128. ACM.
+
+\bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2014}]{scyther-manual}
+Cremers, C.~J. (2014).
+\newblock {\em {Scyther User Manual}}.
 
 \bibitem[\protect\citeauthoryear{Cremers, Lafourcade, and Nadeau}{Cremers
   et~al.}{}]{cremers2009comparing}
@@ -81,6 +78,19 @@ Dolev, D. and A.~C. Yao (1983).
 \newblock On the {S}ecurity of {P}ublic {K}ey {P}rotocols.
 \newblock {\em Information Theory, IEEE Transactions on\/}~{\em 29\/}(2),
   198--208.
+
+\bibitem[\protect\citeauthoryear{Foundation}{Foundation}{}]{wirelesshart}
+Foundation, H.~C.
+\newblock {WirelessHART}.
+\newblock \url{http://en.hartcomm.org/main_article/wirelesshart.html}.
+\newblock Accessed: 2016-04-15.
+
+\bibitem[\protect\citeauthoryear{Gartner}{Gartner}{}]{iot-gartner}
+Gartner.
+\newblock {Gartner Says 6.4 Billion Connected ``Things'' Will Be in Use in
+  2016, Up 30 Percent From 2015}.
+\newblock http://www.gartner.com/newsroom/id/3165317.
+\newblock Accessed: 2016-03-31.
 
 \bibitem[\protect\citeauthoryear{Gutierrez, Naeve, Callaway, Bourgeois, Mitter,
   and Heile}{Gutierrez et~al.}{2001}]{gutierrez2001ieee}
@@ -150,11 +160,38 @@ Needham, R.~M. and M.~D. Schroeder (1978).
   {C}omputers.
 \newblock {\em Commun. ACM\/}~{\em 21\/}(12).
 
+\bibitem[\protect\citeauthoryear{of~Automation}{of~Automation}{}]{isa100}
+of~Automation, I.~S.
+\newblock {ISA100.11a}.
+\newblock \url{http://www.nivis.com/technology/ISA100.11a.php}.
+\newblock Accessed: 2016-04-15.
+
+\bibitem[\protect\citeauthoryear{Project}{Project}{}]{avispa}
+Project, A.
+\newblock {AVISPA}.
+\newblock \url{http://www.avispa-project.org/}.
+\newblock Accessed: 2016-02-23.
+
 \bibitem[\protect\citeauthoryear{Sastry and Wagner}{Sastry and
   Wagner}{2004}]{sastry2004security}
 Sastry, N. and D.~Wagner (2004).
 \newblock Security {C}onsiderations for {IEEE} 802.15.4 {N}etworks.
 \newblock In {\em Proceedings of the 3rd ACM workshop on Wireless security},
   pp.\  32--42. ACM.
+
+\bibitem[\protect\citeauthoryear{Simmonds}{Simmonds}{}]{iot-phrase-1}
+Simmonds, C.
+\newblock {``The Internet of Things'': What the Man Who Coined the Phrase Has
+  to Say}.
+\newblock
+  www.theguardian.com/sustainable-business/2015/feb/27/the-internet-of-things-what-the-man-who-coined-the-phrase-has-to-say.
+\newblock Accessed: 2016-03-31.
+
+\bibitem[\protect\citeauthoryear{Technology}{Technology}{}]{miwi}
+Technology, M.
+\newblock {MiWi}.
+\newblock
+  \url{http://www.microchip.com/wwwAppNotes/AppNotes.aspx?appnote=en536181}.
+\newblock Accessed: 2016-04-15.
 
 \end{thebibliography}

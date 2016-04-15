@@ -15,21 +15,20 @@
 \contentsline {section}{\numberline {2.5}Formal Security Analysis}{9}{section.2.5}
 \contentsline {chapter}{\chapternumberline {3}Symbolic Security Analysis Using Scyther}{11}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{11}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Scyther and its Pattern Refinement Algorithm / its novelty?}{12}{subsection.3.1.1}
 \contentsline {section}{\numberline {3.2}Scyther Syntax}{13}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Security Claims}{14}{subsection.3.2.1}
-\contentsline {subsubsection}{Secret}{15}{section*.5}
+\contentsline {subsubsection}{Secret}{14}{section*.5}
 \contentsline {subsubsection}{SKR (Session-Key Reveal)}{15}{section*.6}
 \contentsline {subsubsection}{Non-injective Synchronization}{15}{section*.7}
 \contentsline {subsubsection}{Aliveness}{16}{section*.8}
 \contentsline {subsubsection}{Weak Agreement}{16}{section*.9}
 \contentsline {subsubsection}{Non-injective Agreement}{16}{section*.10}
 \contentsline {subsubsection}{Running, Commit}{17}{section*.11}
-\contentsline {section}{\numberline {3.3}Scyther's Graphical Interface for Verification and Falsification}{18}{section.3.3}
-\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Ideas of the Paper}{19}{section.4.1}
-\contentsline {section}{\numberline {4.2}Informal Analysis}{19}{section.4.2}
-\contentsline {section}{\numberline {4.3}Formal Analysis}{19}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Scyther}{19}{subsection.4.3.1}
-\contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{21}{chapter.5}
-\contentsline {chapter}{References}{23}{section*.13}
+\contentsline {section}{\numberline {3.3}Scyther's Graphical Interface}{18}{section.3.3}
+\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Ideas of the Paper (Change this)}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}Informal Analysis}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Formal Analysis}{22}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Scyther}{22}{subsection.4.3.1}
+\contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{25}{chapter.5}
+\contentsline {chapter}{References}{27}{section*.13}

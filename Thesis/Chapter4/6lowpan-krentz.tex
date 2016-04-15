@@ -2,9 +2,42 @@
 \label{chp:krentz-6lowpan}
 
 
-\section{Ideas of the Paper}
+\gls{apkes} is a proposed protocol for handling key establishment and key management in \gls{6lowpan}. While currently being implemented in the operating system Contiki, which is a operating system targeted at the sensor community, it has not undergone any formal security analysis. This chapter will cover its ideas and conduct a formal security analysis using Scyther. 
 
-APKES. Threeway handshake.
+
+\section{Ideas of the Paper (Change this)}
+
+As previously described, \gls{6lowpan} is a protocol stack for integrating \gls{wsn}s running on 802.15.4 with \gls{ip}v6 networks and allows for the nodes in the network to communicate with each other or remote hosts using only \gls{ip}. \gls{apkes} provides a framework for establishing pairwise keys for 802.15.4 networks using \gls{6lowpan}. 
+
+
+There exists, however, no description of how to perform key establishment.
+
+
+The main idea with \gls{apkes} is to provide a key establishment scheme for \gls{6lowpan} where the appropriate pairwise key establishment scheme is up to the developer to decide. Such an approach would enhance the overall usability for the protocol, as there is no superior scheme for handling key establishment in 802.15.4, it solely depends on the network. The plugged in scheme has only one function, which is to feed \gls{apkes} with the shared secret for the communicating nodes, and \gls{apkes} handles both key generation and communication with neighbours. 
+
+\gls{apkes} usually consists of three phases.
+
+
+When using pluggable schemes, the protocol needs the IDs 
+
+
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.65]{6lowpan-krentz.png}
+	\caption{\gls{apkes} is positioned in the data link layer in the \gls{6lowpan} stack expanding the 802.15.4 security sublayer \cite{krentz20136lowpan}.}
+	\label{fig:6lowpan-krentz}
+\end{figure}
+
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.55]{apkes.png}
+	\caption{\gls{apkes} consists of a three-way handshake, and utilizes a pluggable scheme for deriving the shared secret between two nodes \cite{krentz20136lowpan}.}
+	\label{fig:apkes}
+\end{figure}
 
 \section{Informal Analysis}
 

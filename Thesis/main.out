@@ -10,14 +10,13 @@
 \BOOKMARK [1][-]{section.2.5}{Formal Security Analysis}{chapter.2}% 10
 \BOOKMARK [0][-]{chapter.3}{Symbolic Security Analysis Using Scyther}{}% 11
 \BOOKMARK [1][-]{section.3.1}{The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{chapter.3}% 12
-\BOOKMARK [2][-]{subsection.3.1.1}{Scyther and its Pattern Refinement Algorithm / its novelty?}{section.3.1}% 13
-\BOOKMARK [1][-]{section.3.2}{Scyther Syntax}{chapter.3}% 14
-\BOOKMARK [2][-]{subsection.3.2.1}{Security Claims}{section.3.2}% 15
-\BOOKMARK [1][-]{section.3.3}{Scyther's Graphical Interface for Verification and Falsification}{chapter.3}% 16
-\BOOKMARK [0][-]{chapter.4}{6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Ideas of the Paper}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.2}{Informal Analysis}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.3}{Formal Analysis}{chapter.4}% 20
-\BOOKMARK [2][-]{subsection.4.3.1}{Scyther}{section.4.3}% 21
-\BOOKMARK [0][-]{chapter.5}{Handling Reboots and Mobility in 802.15.4 Security}{}% 22
-\BOOKMARK [0][-]{section*.13}{References}{}% 23
+\BOOKMARK [1][-]{section.3.2}{Scyther Syntax}{chapter.3}% 13
+\BOOKMARK [2][-]{subsection.3.2.1}{Security Claims}{section.3.2}% 14
+\BOOKMARK [1][-]{section.3.3}{Scyther's Graphical Interface}{chapter.3}% 15
+\BOOKMARK [0][-]{chapter.4}{6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{}% 16
+\BOOKMARK [1][-]{section.4.1}{Ideas of the Paper \(Change this\)}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.2}{Informal Analysis}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.3}{Formal Analysis}{chapter.4}% 19
+\BOOKMARK [2][-]{subsection.4.3.1}{Scyther}{section.4.3}% 20
+\BOOKMARK [0][-]{chapter.5}{Handling Reboots and Mobility in 802.15.4 Security}{}% 21
+\BOOKMARK [0][-]{section*.13}{References}{}% 22

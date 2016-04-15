@@ -5,9 +5,14 @@
 \select@language {english}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The \gls {osi} stack with layers, the data they carry, and example of technology running on the different layers.}}{5}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The \gls {osi} stack with layers, the data they carry, and an example of technology running on the different layers.}}{5}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Figure of IEEE 802.15.4's operational space compared to other wireless standards \cite {gutierrez2001ieee}.}}{7}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Figure of the \gls {6lowpan} stack, which uses the 802.15.4 physical and link layer, but adds an adoption layer in the network layer.}}{8}{figure.2.3}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Results of a verification process using Scyther.}}{18}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Results of a verification process using Scyther when a claim fails.}}{19}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces When Scyther finds an attack on a protocol, if will also provide a graph of the attack.}}{19}{figure.3.3}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{22}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \gls {apkes} consists of a three-way handshake, and utilizes a pluggable scheme for deriving the shared secret between two nodes \cite {krentz20136lowpan}.}}{23}{figure.4.2}
 \addvspace {10pt}
