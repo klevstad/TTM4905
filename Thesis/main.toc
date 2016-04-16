@@ -10,7 +10,7 @@
 \contentsline {chapter}{\chapternumberline {2}Background}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Internet of Things}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}The IEEE 802.15.4 Standard}{5}{section.2.2}
-\contentsline {section}{\numberline {2.3}6LoWPAN: Putting IP on Top of 802.15.4}{7}{section.2.3}
+\contentsline {section}{\numberline {2.3}6LoWPAN: Putting IP on Top of 802.15.4}{8}{section.2.3}
 \contentsline {section}{\numberline {2.4}Key Establishment and Key Management}{9}{section.2.4}
 \contentsline {section}{\numberline {2.5}Formal Security Analysis}{9}{section.2.5}
 \contentsline {chapter}{\chapternumberline {3}Symbolic Security Analysis Using Scyther}{11}{chapter.3}

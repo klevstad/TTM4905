@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.18)  15 APR 2016 15:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.18)  16 APR 2016 16:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1751,52 +1751,61 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-<./figs/osi.png, id=300, 334.24875pt x 250.9375pt>
+<./figs/osi.png, id=307, 334.24875pt x 250.9375pt>
 File: ./figs/osi.png Graphic file (type png)
  <use ./figs/osi.png>
-Package pdftex.def Info: ./figs/osi.png used on input line 45.
+Package pdftex.def Info: ./figs/osi.png used on input line 53.
 (pdftex.def)             Requested size: 217.25911pt x 163.10742pt.
 
-[5pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}
-) has been already used, duplicate ignored
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.53 
-      <./figs/osi.png>] <./figs/802154.png, id=324, 771.88374pt x 504.88625pt>
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5] <./figs/802154.png, id=332, 771.88374pt x 504.88625pt>
 File: ./figs/802154.png Graphic file (type png)
 
 <use ./figs/802154.png>
-Package pdftex.def Info: ./figs/802154.png used on input line 59.
+Package pdftex.def Info: ./figs/802154.png used on input line 65.
 (pdftex.def)             Requested size: 347.34447pt x 227.1967pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 7796) has occurred while \output is active []
 
- [6]
-[7pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}
-) has been already used, duplicate ignored
+ [6pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.77 
+l.71 
+      <./figs/osi.png>]
+Underfull \vbox (badness 3758) has occurred while \output is active []
+
+ [7pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.83 
       <./figs/802154.png>]
-<./figs/6lowpan.png, id=371, 263.98625pt x 233.87375pt>
+<./figs/6lowpan.png, id=382, 263.98625pt x 233.87375pt>
 File: ./figs/6lowpan.png Graphic file (type png)
 
 <use ./figs/6lowpan.png>
-Package pdftex.def Info: ./figs/6lowpan.png used on input line 82.
+Package pdftex.def Info: ./figs/6lowpan.png used on input line 88.
 (pdftex.def)             Requested size: 171.58902pt x 152.01611pt.
  [8pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.91 
-      <./figs/6lowpan.png>] [9]) [10]
+l.94 
+      <./figs/6lowpan.png>]
+Underfull \vbox (badness 3009) has occurred while \output is active []
+
+ [9])
+[10]
 \openout2 = `Chapter3//scyther.aux'.
 
  (./Chapter3//scyther.tex [11
@@ -1805,8 +1814,7 @@ l.91
 
 ]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 53.
-
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic settings for font family
@@ -1856,7 +1864,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
-[17] <./figs/ScytherVerifyClaims.png, id=565, 404.26031pt x 288.3272pt>
+[17] <./figs/ScytherVerifyClaims.png, id=577, 404.26031pt x 288.3272pt>
 File: ./figs/ScytherVerifyClaims.png Graphic file (type png)
 
 <use ./figs/ScytherVerifyClaims.png>
@@ -1870,7 +1878,7 @@ Package pdftex.def Info: ./figs/ScytherVerifyClaims.png used on input line 218.
                                                   \fi \fi 
 l.225 
        <./figs/ScytherVerifyClaims.png (PNG copy)>]
-<./figs/ScytherFailSecretClaim.png, id=572, 449.42906pt x 93.34875pt>
+<./figs/ScytherFailSecretClaim.png, id=584, 449.42906pt x 93.34875pt>
 File: ./figs/ScytherFailSecretClaim.png Graphic file (type png)
 
 <use ./figs/ScytherFailSecretClaim.png>
@@ -1878,7 +1886,7 @@ Package pdftex.def Info: ./figs/ScytherFailSecretClaim.png used on input line 2
 28.
 (pdftex.def)             Requested size: 364.03554pt x 75.61206pt.
 
-<./figs/ScytherFailAttackGraph.png, id=574, 822.82407pt x 455.45157pt>
+<./figs/ScytherFailAttackGraph.png, id=586, 822.82407pt x 455.45157pt>
 File: ./figs/ScytherFailAttackGraph.png Graphic file (type png)
 
 <use ./figs/ScytherFailAttackGraph.png>
@@ -1911,7 +1919,7 @@ cytherFailAttackGraph.png (PNG copy)>]
 
 
 ]
-<./figs/6lowpan-krentz.png, id=597, 404.51125pt x 304.13625pt>
+<./figs/6lowpan-krentz.png, id=609, 404.51125pt x 304.13625pt>
 File: ./figs/6lowpan-krentz.png Graphic file (type png)
 
 <use ./figs/6lowpan-krentz.png>
@@ -1921,7 +1929,7 @@ Package pdftex.def Info: ./figs/6lowpan-krentz.png used on input line 28.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figs/apkes.png, id=604, 685.56125pt x 426.59375pt>
+<./figs/apkes.png, id=616, 685.56125pt x 426.59375pt>
 File: ./figs/apkes.png Graphic file (type png)
  <use ./figs/apkes.png>
 Package pdftex.def Info: ./figs/apkes.png used on input line 37.
@@ -2005,11 +2013,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 152.
  ) 
 Here is how much of TeX's memory you used:
- 23077 strings out of 494465
- 335582 string characters out of 6166361
- 673853 words of memory out of 5000000
- 25483 multiletter control sequences out of 15000+600000
- 60934 words of font info for 110 fonts, out of 8000000 for 9000
+ 23091 strings out of 494465
+ 335818 string characters out of 6166361
+ 673966 words of memory out of 5000000
+ 25489 multiletter control sequences out of 15000+600000
+ 61277 words of font info for 113 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  58i,13n,72p,1753b,1882s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{glo:mic} has been referenced but does not exist, 
@@ -2022,10 +2030,10 @@ mbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (45 pages, 515724 bytes).
+Output written on main.pdf (45 pages, 518033 bytes).
 PDF statistics:
- 741 PDF objects out of 1000 (max. 8388607)
- 657 compressed objects within 7 object streams
- 204 named destinations out of 1000 (max. 500000)
+ 754 PDF objects out of 1000 (max. 8388607)
+ 670 compressed objects within 7 object streams
+ 206 named destinations out of 1000 (max. 500000)
  16089 words of extra memory for PDF output out of 17280 (max. 10000000)
 

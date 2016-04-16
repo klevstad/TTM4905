@@ -114,6 +114,14 @@ Jing, Q., A.~V. Vasilakos, J.~Wan, J.~Lu, and D.~Qiu (2014).
   {C}hallenges.
 \newblock {\em Wireless Networks\/}~{\em 20\/}(8), 2481--2501.
 
+\bibitem[\protect\citeauthoryear{Khan, Khan, Zaheer, and Khan}{Khan
+  et~al.}{2012}]{iot-layers2012}
+Khan, R., S.~U. Khan, R.~Zaheer, and S.~Khan (2012).
+\newblock Future internet: The internet of things architecture, possible
+  applications and key challenges.
+\newblock In {\em Frontiers of Information Technology (FIT), 2012 10th
+  International Conference on}, pp.\  257--260.
+
 \bibitem[\protect\citeauthoryear{Kopetz}{Kopetz}{2011}]{Kopetz2011}
 Kopetz, H. (2011).
 \newblock {\em Real-Time Systems: Design Principles for Distributed Embedded
@@ -193,5 +201,12 @@ Technology, M.
 \newblock
   \url{http://www.microchip.com/wwwAppNotes/AppNotes.aspx?appnote=en536181}.
 \newblock Accessed: 2016-04-15.
+
+\bibitem[\protect\citeauthoryear{Wu, Lu, Ling, Sun, and Du}{Wu
+  et~al.}{2010}]{iot-layers2010}
+Wu, M., T.-J. Lu, F.-Y. Ling, J.~Sun, and H.-Y. Du (2010).
+\newblock Research on the architecture of internet of things.
+\newblock In {\em 2010 3rd International Conference on Advanced Computer Theory
+  and Engineering(ICACTE)}, Volume~5, pp.\  V5--484--V5--487.
 
 \end{thebibliography}
