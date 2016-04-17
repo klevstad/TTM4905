@@ -79,6 +79,13 @@ Dolev, D. and A.~C. Yao (1983).
 \newblock {\em Information Theory, IEEE Transactions on\/}~{\em 29\/}(2),
   198--208.
 
+\bibitem[\protect\citeauthoryear{Eschenauer and Gligor}{Eschenauer and
+  Gligor}{2002}]{Eschenauer2002}
+Eschenauer, L. and V.~D. Gligor (2002).
+\newblock A key-management scheme for distributed sensor networks.
+\newblock In {\em Proceedings of the 9th ACM Conference on Computer and
+  Communications Security}, CCS '02, pp.\  41--47. ACM.
+
 \bibitem[\protect\citeauthoryear{Foundation}{Foundation}{}]{wirelesshart}
 Foundation, H.~C.
 \newblock {WirelessHART}.
