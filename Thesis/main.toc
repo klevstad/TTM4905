@@ -27,9 +27,14 @@
 \contentsline {section}{\numberline {3.3}Scyther's Graphical Interface}{22}{section.3.3}
 \contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{25}{chapter.4}
 \contentsline {section}{\numberline {4.1}Ideas of the Paper (Change this)}{25}{section.4.1}
-\contentsline {section}{\numberline {4.2}Informal Analysis}{25}{section.4.2}
-\contentsline {section}{\numberline {4.3}Formal Analysis}{26}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Scyther}{26}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.1.1}APKES}{25}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Pluggable schemes}{26}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}\gls {ebeap}}{26}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Formal analysis using Scyther}{27}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}Discussion}{27}{subsection.4.1.5}
+\contentsline {section}{\numberline {4.2}Informal Analysis}{27}{section.4.2}
+\contentsline {section}{\numberline {4.3}Formal Analysis}{27}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Scyther}{27}{subsection.4.3.1}
 \contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{29}{chapter.5}
 \contentsline {chapter}{References}{31}{section*.13}
 \vspace {1em}\noindent \bfseries Appendices\par \vspace {-.5em}

@@ -2,23 +2,32 @@
 \label{chp:krentz-6lowpan}
 
 
-\gls{apkes} is a proposed protocol for handling key establishment and key management in \gls{6lowpan}. While currently being implemented in the operating system Contiki, which is a operating system targeted at the sensor community, it has not undergone any formal security analysis. This chapter will cover its ideas and conduct a formal security analysis using Scyther. 
+\gls{apkes} is a proposed protocol for handling key establishment and key management in \gls{6lowpan}. While currently being implemented in the operating system Contiki, an operating system targeted at the sensor network community, it has not undergone any formal security analysis. This chapter will cover its ideas, and conduct a formal security analysis using Scyther. 
+
 
 
 \section{Ideas of the Paper (Change this)}
 
-As previously described, \gls{6lowpan} is a protocol stack for integrating \gls{wsn}s running on 802.15.4 with \gls{ip}v6 networks and allows for the nodes in the network to communicate with each other or remote hosts using only \gls{ip}. \gls{apkes} provides a framework for establishing pairwise keys for 802.15.4 networks using \gls{6lowpan}. 
+
+\subsection{APKES}
 
 
-There exists, however, no description of how to perform key establishment.
+As previously described, \gls{6lowpan} is a protocol stack for integrating \gls{wsn}s running on 802.15.4 with \gls{ip}v6 networks, and enables the nodes in the network to communicate with each other or remote hosts over \gls{ip}. \gls{apkes} provides a framework for establishing pairwise keys for 802.15.4 networks using \gls{6lowpan}.
 
+
+The advantage with pairwise keys over other key schemes such as a network shared key is related to node compromises. In \gls{6lowpan} networks, devices are often placed in potential hostile and unattended areas, greatly increasing the possibility of beging tampered with. In the case of a network shared key, the whole network would be compromised in the event of a node compromise. The attacker would also be able to add new nodes to the network, as the upper-layer protocols rely on the 802.15.4 security sub-layer \cite{krentz20136lowpan}. Pairwise keys, however, would only compromise the communication going to or from that particular node. 
+
+As described in Section \ref{sec:keyestablishment}, a key establishment scheme such as a shared network key is a problematic choice because of the possibility of being tampered with in hostile deployment areas. Pairwise key schemes protects the network from total 
+
+\gls{apkes} provides a key establishment scheme for \gls{6lowpan} networks using pairwise keys that are pre-distributed and pluggable. As described in Section \ref{sec:keyestablishment}, there exists multiple schemes such as a shared network key, pairwise keys, and public-key cryptography. It is not smart to use a preloaded, shared network key when operating with nodes in a \gls{6lowpan} (or other \gls{iot} related networks for that matter), as they may be subject to tampering when deployed in possible hostile areas. A solution to the tampering problem could be to construct tampering-proof nodes, but this is expensive and difficult, hence not a preferable solution \cite{anderson1996tamper}. In the case of an attacker being able to obtain the shared network key, it enables him to inject traffic into the network (in addition to decrypt any encrypted data), and it also add unauthorized nodes to the network.  \gls{6lowpan} depends on the IEEE 802.15.4 security sub-layer to protect it from packet injection and replay attacks as described in Section \ref{sec:802154}, which has no mechanisms for detecting that a node with the key is in fact malicious.
+
+% Hvordan fungerer egentlig dette med sub-layer og finne compromised nodes?
+
+Fully pairwise keys is the special case of the pairwise key scheme where each node contains a pairwise key for every other node in the network, which is both memory-consuming and 
 
 The main idea with \gls{apkes} is to provide a key establishment scheme for \gls{6lowpan} where the appropriate pairwise key establishment scheme is up to the developer to decide. Such an approach would enhance the overall usability for the protocol, as there is no superior scheme for handling key establishment in 802.15.4, it solely depends on the network. The plugged in scheme has only one function, which is to feed \gls{apkes} with the shared secret for the communicating nodes, and \gls{apkes} handles both key generation and communication with neighbours. 
 
 \gls{apkes} usually consists of three phases.
-
-
-When using pluggable schemes, the protocol needs the IDs 
 
 
 
@@ -38,6 +47,23 @@ When using pluggable schemes, the protocol needs the IDs
 	\caption{\gls{apkes} consists of a three-way handshake, and utilizes a pluggable scheme for deriving the shared secret between two nodes \cite{krentz20136lowpan}.}
 	\label{fig:apkes}
 \end{figure}
+
+\subsection{Pluggable schemes}
+
+\gls{apkes} 
+
+\subsection{\gls{ebeap}}
+
+\gls{apkes} authenticates and encrypts unicast frames, which are frames sent from one node to another. Broadcast frames however, which are broadcasted from one node to multiple other nodes, is not encrypted, nor authenticated by \gls{apkes}. Broadcast frames are used for node discovering and informing the network about any changes in the network. For this purpose, Krentz, Rafiee and Meinel presents \gls{ebeap} \cite{krentz20136lowpan}.
+
+
+As discussed in Section \ref{sec:keyestablishment}, one of applications of public-key cryptography is to perform authentication. The implementation of \gls{ecdsa}, for example, which is an \gls{ieee} standard algorithm for generating digital signatures, uses 
+\subsection{Formal analysis using Scyther}
+
+\subsection{Discussion}
+
+
+
 
 \section{Informal Analysis}
 

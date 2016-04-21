@@ -12,11 +12,23 @@ Alliance, T.~Z.
 \newblock \url{http://www.zigbee.org/}.
 \newblock Accessed: 2016-04-15.
 
+\bibitem[\protect\citeauthoryear{Anderson and Kuhn}{Anderson and
+  Kuhn}{1996}]{anderson1996tamper}
+Anderson, R. and M.~Kuhn (1996).
+\newblock {Tamper Resistance - A Cautionary Note}.
+\newblock In {\em Proceedings of the second Usenix workshop on electronic
+  commerce}, Volume~2, pp.\  1--11.
+
 \bibitem[\protect\citeauthoryear{Ashton}{Ashton}{}]{iot-phrase-2}
 Ashton, K.
 \newblock {That ``Internet of Things'' Thing}.
 \newblock http://www.rfidjournal.com/articles/view?4986.
 \newblock Accessed: 2016-03-31.
+
+\bibitem[\protect\citeauthoryear{Barker}{Barker}{2016}]{nist2016}
+Barker, E. (2016).
+\newblock {Recommendation for Key Management Part 1: General}.
+\newblock {\em NIST Special Publication\/}~{\em 800\/}(4), 57.
 
 \bibitem[\protect\citeauthoryear{Basin, Cremers, and Meadows}{Basin
   et~al.}{2012}]{basin2011model}

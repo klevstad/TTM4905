@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.18)  20 APR 2016 17:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.18)  21 APR 2016 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1717,6 +1717,12 @@ Overfull \hbox (13.47409pt too wide) in paragraph at lines 28--28
 e to the 802.15.4 
  []
 
+
+Overfull \hbox (8.49615pt too wide) in paragraph at lines 32--32
+ [][] [][][][][][]\T1/lmr/m/n/10 (-20) Easy Broad-cast En-cryp-tion and Au-then
+-ti-ca-tion Pro-to-col (EBEAP)[][][][] []  
+ []
+
 [5]) [6] (./main.lof) [7
 
 ] [8
@@ -1751,20 +1757,20 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-<./figs/osi.png, id=327, 334.24875pt x 250.9375pt>
+<./figs/osi.png, id=356, 334.24875pt x 250.9375pt>
 File: ./figs/osi.png Graphic file (type png)
  <use ./figs/osi.png>
-Package pdftex.def Info: ./figs/osi.png used on input line 56.
+Package pdftex.def Info: ./figs/osi.png used on input line 58.
 (pdftex.def)             Requested size: 217.25911pt x 163.10742pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] <./figs/802154.png, id=352, 771.88374pt x 504.88625pt>
+[5] <./figs/802154.png, id=382, 771.88374pt x 504.88625pt>
 File: ./figs/802154.png Graphic file (type png)
 
 <use ./figs/802154.png>
-Package pdftex.def Info: ./figs/802154.png used on input line 68.
+Package pdftex.def Info: ./figs/802154.png used on input line 70.
 (pdftex.def)             Requested size: 347.34447pt x 227.1967pt.
 
 
@@ -1778,26 +1784,26 @@ Underfull \vbox (badness 7796) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.74 
+l.76 
       <./figs/osi.png>] [7pdfTeX warning (ext4): destination with the same iden
 tifier (name{figure.2.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.94 
+l.97 
       <./figs/802154.png>]
-<./figs/6lowpan.png, id=403, 263.98625pt x 233.87375pt>
+<./figs/6lowpan.png, id=432, 263.98625pt x 233.87375pt>
 File: ./figs/6lowpan.png Graphic file (type png)
 
 <use ./figs/6lowpan.png>
-Package pdftex.def Info: ./figs/6lowpan.png used on input line 99.
+Package pdftex.def Info: ./figs/6lowpan.png used on input line 102.
 (pdftex.def)             Requested size: 171.58902pt x 152.01611pt.
  [8pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.105 
+l.108 
        <./figs/6lowpan.png>] [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1813,7 +1819,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ] [15]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 29.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 27.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1823,7 +1829,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
@@ -1831,54 +1837,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
-[21] <./figs/ScytherVerifyClaims.png, id=657, 404.26031pt x 288.3272pt>
+[21] <./figs/ScytherVerifyClaims.png, id=699, 404.26031pt x 288.3272pt>
 File: ./figs/ScytherVerifyClaims.png Graphic file (type png)
 
 <use ./figs/ScytherVerifyClaims.png>
-Package pdftex.def Info: ./figs/ScytherVerifyClaims.png used on input line 192.
+Package pdftex.def Info: ./figs/ScytherVerifyClaims.png used on input line 190.
 
 (pdftex.def)             Requested size: 363.83092pt x 259.49207pt.
 
-<./figs/ScytherFailSecretClaim.png, id=660, 449.42906pt x 93.34875pt>
+<./figs/ScytherFailSecretClaim.png, id=702, 449.42906pt x 93.34875pt>
 File: ./figs/ScytherFailSecretClaim.png Graphic file (type png)
 
 <use ./figs/ScytherFailSecretClaim.png>
 Package pdftex.def Info: ./figs/ScytherFailSecretClaim.png used on input line 2
-02.
+00.
 (pdftex.def)             Requested size: 364.03554pt x 75.61206pt.
 
 
@@ -1889,17 +1895,17 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.208 
+l.206 
        <./figs/ScytherVerifyClaims.png (PNG copy)>]
-<./figs/ScytherFailAttackGraph.png, id=667, 822.82407pt x 455.45157pt>
+<./figs/ScytherFailAttackGraph.png, id=708, 822.82407pt x 455.45157pt>
 File: ./figs/ScytherFailAttackGraph.png Graphic file (type png)
 
 <use ./figs/ScytherFailAttackGraph.png>
 Package pdftex.def Info: ./figs/ScytherFailAttackGraph.png used on input line 2
-11.
+09.
 (pdftex.def)             Requested size: 370.26741pt x 204.95131pt.
 
-Overfull \hbox (6.26741pt too wide) in paragraph at lines 211--212
+Overfull \hbox (6.26741pt too wide) in paragraph at lines 209--210
  [][] 
  []
 
@@ -1924,48 +1930,54 @@ cytherFailAttackGraph.png (PNG copy)>]
 
 
 ]
-<./figs/6lowpan-krentz.png, id=690, 404.51125pt x 304.13625pt>
+[25] <./figs/6lowpan-krentz.png, id=746, 404.51125pt x 304.13625pt>
 File: ./figs/6lowpan-krentz.png Graphic file (type png)
 
 <use ./figs/6lowpan-krentz.png>
-Package pdftex.def Info: ./figs/6lowpan-krentz.png used on input line 28.
+Package pdftex.def Info: ./figs/6lowpan-krentz.png used on input line 37.
 (pdftex.def)             Requested size: 262.92918pt x 197.6862pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figs/apkes.png, id=697, 685.56125pt x 426.59375pt>
+<./figs/apkes.png, id=753, 685.56125pt x 426.59375pt>
 File: ./figs/apkes.png Graphic file (type png)
  <use ./figs/apkes.png>
-Package pdftex.def Info: ./figs/apkes.png used on input line 37.
+Package pdftex.def Info: ./figs/apkes.png used on input line 46.
 (pdftex.def)             Requested size: 377.05984pt x 234.62727pt.
 
-Overfull \hbox (13.05984pt too wide) in paragraph at lines 37--38
+Overfull \hbox (13.05984pt too wide) in paragraph at lines 46--47
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [25]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\gls' on input line 55.
+
 
 Class memoir Warning: The material used in the headers is too large
 (24.0pt) for the given head height (12.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 133.
+(in both cases you will find help in the memoir manual). on input line 72.
 
 
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
 
- [26pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-1}) has been already used, duplicate ignored
+ [26])
+[27pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.133 \include{Chapter4//6lowpan-krentz}
-                                         <./figs/6lowpan-krentz.png>] [27pdfTeX
- warning (ext4): destination with the same identifier (name{figure.4.2}) has be
-en already used, duplicate ignored
+                                         <./figs/6lowpan-krentz.png>]
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [28pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
+2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -1974,32 +1986,32 @@ l.133 \include{Chapter4//6lowpan-krentz}
 \openout2 = `Chapter5//krentz-mobility.aux'.
 
 
-(./Chapter5//krentz-mobility.tex [28
+(./Chapter5//krentz-mobility.tex) [29
 
 
 
-]) [29] (./main.bbl [30
+] (./main.bbl [30
 
 
 ]
 bibitemlist
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--20
+Underfull \hbox (badness 10000) in paragraph at lines 23--27
 []\T1/lmr/m/n/10 (+20) Ashton, K.  That ``In-ter-net of Things'' Thing.
  []
 
-[31] [32]) [33]
+[31] [32] [33]) [34]
 \openout2 = `Appendix/Appendix.aux'.
 
- (./Appendix/Appendix.tex [34
-
-
-] (./scripts/apkes.spdl
+ (./Appendix/Appendix.tex (./scripts/apkes.spdl
 LaTeX Font Info:    Try loading font information for TS1+lmr on input line 1.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [35]
+) [35
+
+
+]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [36])
@@ -2032,15 +2044,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 154.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 154.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 154.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3EEF49250CD1AC0CD9DB478B805AE817;1717.
+(rerunfilecheck)             Checksum: 895C80794152DE33BAC13B7B9754C205;2053.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 154.
  ) 
 Here is how much of TeX's memory you used:
- 23446 strings out of 494465
- 341605 string characters out of 6166361
- 772776 words of memory out of 5000000
- 25657 multiletter control sequences out of 15000+600000
- 61559 words of font info for 113 fonts, out of 8000000 for 9000
+ 23563 strings out of 494465
+ 343473 string characters out of 6166361
+ 774658 words of memory out of 5000000
+ 25762 multiletter control sequences out of 15000+600000
+ 61642 words of font info for 114 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  58i,13n,72p,1753b,1882s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
@@ -2053,10 +2065,10 @@ ype1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/publ
 ic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (55 pages, 558457 bytes).
+Output written on main.pdf (55 pages, 564875 bytes).
 PDF statistics:
- 1053 PDF objects out of 1200 (max. 8388607)
- 954 compressed objects within 10 object streams
- 376 named destinations out of 1000 (max. 500000)
- 16625 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 1118 PDF objects out of 1200 (max. 8388607)
+ 1018 compressed objects within 11 object streams
+ 386 named destinations out of 1000 (max. 500000)
+ 16665 words of extra memory for PDF output out of 17280 (max. 10000000)
 

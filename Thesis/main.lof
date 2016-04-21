@@ -13,7 +13,7 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Results of a verification process using Scyther when a claim fails.}}{23}{figure.3.2}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces When Scyther finds an attack on a protocol, if will also provide a graph of the attack.}}{23}{figure.3.3}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{26}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \gls {apkes} consists of a three-way handshake, and utilizes a pluggable scheme for deriving the shared secret between two nodes \cite {krentz20136lowpan}.}}{27}{figure.4.2}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{27}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \gls {apkes} consists of a three-way handshake, and utilizes a pluggable scheme for deriving the shared secret between two nodes \cite {krentz20136lowpan}.}}{28}{figure.4.2}
 \addvspace {10pt}
 \addvspace {10pt}

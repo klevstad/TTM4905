@@ -1,6 +1,6 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 20.04.2016  13:36:20
-;; Indexstyle: "/tmp/mpLrnoPval", Rawindex: "/tmp/azOzsgdKHI", Output: "main.acr"
+;; at 21.04.2016  17:45:42
+;; Indexstyle: "/tmp/wmFRBHxchd", Rawindex: "/tmp/rrYtJoxYEr", Output: "main.acr"
 
 
 Building indexentry-tree:
@@ -36,9 +36,13 @@ sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 
 Forming letter-groups:
 Letter-group: "¨ÃÚ" -> "I"
+Letter-group: "—„—€È" -> "E"
 Letter-group: "ÃÐ¨" -> "O"
 Letter-group: "6´ÃæÈ€¼" -> "glsnumbers"
 Letter-group: "€È®—Ð" -> "A"
@@ -51,8 +55,10 @@ Letter-group: "††»" -> "C"
 Letter-group: "†¨€" -> "C"
 Letter-group: "†ÚË" -> "C"
 Letter-group: "—††" -> "E"
+Letter-group: "—†Ð€" -> "E"
 Letter-group: "ÈÐ" -> "G"
 Letter-group: "à¨" -> "G"
+Letter-group: "¨———" -> "I"
 Letter-group: "¨—Úœ" -> "I"
 Letter-group: "¨È" -> "I"
 Letter-group: "»€†" -> "M"
@@ -77,11 +83,11 @@ Letter-group: "„€¼" -> "B"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "†„†" -> "C"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-Letter-group: "—††" -> "E"
+Letter-group: "—„—€È" -> "E"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "ÈÐ" -> "G"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-Letter-group: "¨—Úœ" -> "I"
+Letter-group: "¨———" -> "I"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "»€†" -> "M"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -97,3 +103,4 @@ Letter-group: "àÈ" -> "U"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "æÈ€¼" -> "W"
 WARNING: location-reference "{}{i}" did match multiple location-classes! (taking first one)
+WARNING: location-reference "{}{v}" did match multiple location-classes! (taking first one)
