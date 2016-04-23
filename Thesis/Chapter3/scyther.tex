@@ -3,7 +3,7 @@
 
 %Introduction to Scyther. What it is. How it works. Examples.
 
-There exists multiple state-of-the-art tools for performing formal analysis of security protocols, for example Avispa \cite{avispa}, ProVerif \cite{proverif} and Scyther \cite{scyther}. This thesis uses Scyther as its tool for conducting formal security analysis, and the following chapter will give an introduction to Scyther, how it works, and examples of usages.
+There exists multiple state-of-the-art tools for performing formal analysis of security protocols, for example Avispa \cite{avispa}, ProVerif \cite{proverif}, and Scyther \cite{scyther}. This thesis uses Scyther as its tool for conducting formal security analysis, and the following chapter will give an introduction to Scyther, how it works, and examples of usages.
 
 
 \section{The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}
@@ -12,7 +12,7 @@ Scyther is a tool for verification, falsification, and analysis of security prot
 
 % Ok
 
-Security protocol specifications are built up of messages that are sent between different entities and computation that is done at either side. Much like a blueprint, these specifications define what a protocol is allowed to do, and how it is allowed to communicate \cite{cremers2003defining}. The blueprint can then be modelled using Scyther, where the entities are converted into roles, the messages are converted into send and receive events, and the security requirements into claim events. Scyther performs complete characterization of a protocol, where roles are broken down to a finite set of representative behaviours by analysing all the possible execution traces where the events hold. The intuitive idea behind this algorithm is that the set of execution traces together represents all possible ways in which the protocol is possible to execute, and grouping them into patterns which are partially ordered, symbolic set of events  \cite{cremers2006scyther}. From the patterns, Scyther is able to construct a complete set of attack traces for each security claim. When analysing protocol, the realizable traces are compared to the attack traces. If none of these realizable traces of the protocol exhibits an attack trace, then there exists not attack, and the security property is verified. 
+Security protocol specifications are built up of messages that are sent between different entities and computation that is done at either side. Much like a blueprint, these specifications define what a protocol is allowed to do, and how it is allowed to communicate \cite{cremers2003defining}. The blueprint can then be modelled using Scyther, where the entities are converted into roles, the messages are converted into send and receive events, and the security requirements into claim events. Scyther performs complete characterization of a protocol, where roles are broken down to a finite set of representative behaviours by analysing all the possible execution traces where the events hold. The intuitive idea behind this algorithm is that the set of execution traces together represents all possible ways in which the protocol could execute, and grouping them into patterns which are partially ordered, symbolic set of events  \cite{cremers2006scyther}. From the patterns, Scyther is able to construct a complete set of attack traces for each security claim. When analysing protocols, the realizable traces are compared to the attack traces. If none of these realizable traces of the protocol exhibits an attack trace, then there exists no attack, and the security property is verified. 
 
 Most protocols can be characterized into a finite set of traces, which enables Scyther to perform \emph{unbounded} verification of the protocol. This greatly differs from the majority of other verification tools which perform \emph{bounded} verification \cite{cremers2008scyther} \cite{cremers2009comparing}. When performing bounded verification, there exists a finite set of traces that the tool is able to verify, meaning that the entire space of possible states is not covered in the verification process \cite{cremers2008unbounded}. At best, such a verification can guarantee that the security requirements hold under a finite subset of the actual state-space. Unbounded verification, however, is to verify all possible states, or behaviours, of the protocol which is a great enhancement compared to bounded verification algorithms. In addition to handling an infinite state-space, Scyther's algorithm is also guaranteed to terminate, which gives it the ability to provide useful results even when it is not able to establish unbounded correctness, or in the scenario of where no attack is found.
 
@@ -59,12 +59,18 @@ role V{
 };
 \end{lstlisting}
 
-Along with support for creating fresh nonces, variables, and terms, Scyther also provides a wide set of cryptographic elements such as hash functions, symmetric-key cryptography, public-key cryptography, as well as declaring user specific types and macros, which are abbreviations of complex expressions into simpler once. In the following example, a hash function is used to define a function that generates a \gls{mic} (which is essentially the same as a \gls{mac-auth}). One the next line, we have created a macro representing the generation of a pairwise key between U and V. The key is represented as an encryption of the two values \texttt{Ru} and \texttt{Rv} using a symmetric key that is shared between U and V. Constants and functions defined outside of a role are considered to be global, and available to all of the defined roles in the protocol.\newline
+Along with support for creating fresh nonces, variables, and terms, Scyther also provides a wide set of cryptographic elements such as hash functions, symmetric-key cryptography, public-key cryptography, as well as declaring user specific types and macros, which are abbreviations of complex expressions into simpler once. In the following example, a hash function is used to define a function that generates a \gls{mic} (which is essentially the same as a \gls{mac-auth}). On the next line, we have created a macro representing the generation of a pairwise key between U and V. The key is represented as an encryption of the two values \texttt{Ru} and \texttt{Rv} using a symmetric key that is shared between U and V. Constants and functions defined outside of a role are considered to be global, and available to all of the defined roles in the protocol.\newline
 
 \begin{lstlisting}
 hashfunction MIC; # An hashfunction to represent a Message Integrity Code (MIC) generation.
 
 macro PairwiseKey = {Ru, Rv}k(U, V);
+
+
+role U {
+
+
+}
 \end{lstlisting}
 
 %A sequence of events within a role are in most cases concluded with a set of claim events. Claim events are, as previous mentioned, used for describing the security properties of the role. For U, we want to claim that the two nonces \texttt{Ru} and \texttt{Rv} are meant to be kept secret from an adversary.\newline
@@ -82,7 +88,7 @@ macro PairwiseKey = {Ru, Rv}k(U, V);
 
 \subsection{Security Claims}
 
-A sequence of events within a role is usually followed by a set of claim events. Claim events are used for describing security properties of a role, for example that some value should be considered secret, or that certain properties holds for authentication. Such claims can be formally verified using Scyther. If the protocol is not instructed with any security claims, Scyther is able to generate the appropriate claims  for the protocol with respect to secrecy and authentication by using the ``Verify automatic claims'' alternative provided by the \gls{gui}.
+A sequence of events within a role is usually followed by a set of claim events. Claim events are used for describing security properties of a role, for example that some value should be considered secret, or that certain properties hold for authentication. Such claims can be formally verified using Scyther. If the protocol is not instructed with any security claims, Scyther is able to generate the appropriate claims  for the protocol with respect to secrecy and authentication by using the ``Verify automatic claims'' alternative provided by the \gls{gui}.
 
 \subsubsection{Secret}
 
@@ -93,8 +99,8 @@ role U{
 	[...]
 	
 	# Claims:
-	claim(U, Secret, Ru);
-	claim(U, Secret, Rv);
+	claim_F1(U, Secret, Ru);
+	claim_F2(U, Secret, Rv);
 };
 \end{lstlisting}
 
@@ -105,17 +111,9 @@ role U{
 
 SKR is mostly the same as the regular secrecy claim, but is used to highlight that the term that is claimed to be secret is also a session key. This instructs Scyther to reveal the session key to the adversary after it has executed its run, hence proving that the session keys are working correctly, and that current session keys are kept secret from the adversary \cite{scyther-manual}. For the SKR claim to function correctly, Scyther's session key reveal checkbox needs to be checked in the settings. If not, this claim is identical to the ordinary secrecy claim presented above.
 
+% Dette er ikke helt riktig. Omformuler.
 
-\subsubsection{Non-injective Synchronization}
-
-Synchronization requires that all protocol messages occur in the expected order with their expected values, and that the behaviour is equivalent to as if the protocol was executed without the presence of any adversary \cite{cremers2006injective}. An injective synchronization property states that the protocol executes as expected over \emph{multiple} runs, claiming that it is not possible for an attacker to use information from previous runs into disrupting the current protocol execution \cite{cremers2005operational}. Such an attack is known as a replay attack, and is used by an adversary to inject traffic into the protocol execution to induce undesirable or unexpected behaviour. Scyther, however, does not support this enhanced form of synchronization, hence it strongest type of synchronization is non-injective synchronization. Because of this, Scyther is not able to verify whether or not a protocol is secure against replay attacks.\newline
-
-
-\begin{lstlisting}
-claim(U, Nisynch);
-\end{lstlisting}
-
-%Synchronization = Strong form for authentication. Does not protect against replay attacks. Same for Non-injective synchronization.
+The adversary is able to obtain any session key from a session whose identifier differs from the current session's. 
 
 \subsubsection{Aliveness}
 
@@ -129,32 +127,44 @@ Weak agreement strengthens the authentication form introduced as aliveness. Such
 
 \subsubsection{Non-injective Agreement}
 
-Where the authentication provided by weak agreement does not specify which of the two communicating parties acted as initiator and responder, non-injective agreement does. It guarantees that if the initiator (U) successfully completes a run of the protocol, apparently with the responder (V), then V has completed a run with U, where he acted as a responder \cite{lowe1997hierarchy}. This does, however, not indicate that they both have executed exactly one run. There is still a possibility that U has executed multiple runs with a responder which he believed to be V, but may in fact have been communicating with the adversary. Another guarantee provided by non-injective agreement is that if U also sends a set of variables to V in the completed run, then they both agree on that the data values corresponds to all in the sent set of variables.
+Where the authentication provided by weak agreement does not specify which of the two communicating parties acted as initiator and responder, non-injective agreement does. It guarantees that if the initiator (U) successfully completes a run of the protocol, apparently with the responder (V), then V has completed a run with U, where he acted as a responder \cite{lowe1997hierarchy}. This does, however, not indicate that they both have executed exactly one run. There is still a possibility that U has executed multiple runs with a responder which he believed to be V, but may in fact have been communicating with the adversary. Another guarantee provided by non-injective agreement is that if U also sends a set of variables to V in the completed run, then they both agree that the data values correspond to all in the sent set of variables.
 
 % Last sentence seems.. weird and stupid and I hate it.
 
-Below is an example of the example protocol claiming that V is in fact alive, has run the protocol at some time with U, and that during this particular run, it was U and V that was communicating.\newline
+Below is the example protocol claiming that V is in fact alive, has run the protocol at some time with U, and that during this particular run, it was U and V that was communicating.\newline
 
 \begin{lstlisting}
 role U{
 	[...]
 	
 	# Claims:
-	claim(U, Alive);
-	claim(U, Weakagree);
-	claim(U, Niagree);
+	claim_U1(U, Alive);
+	claim_U2(U, Weakagree);
+	claim_U3(U, Niagree);
 };
 \end{lstlisting} 
 
 
+\subsubsection{Non-injective Synchronization}
 
+Synchronization requires that all protocol messages occur in the expected order with their expected values, and that the behaviour is equivalent to as if the protocol was executed without the presence of any adversary \cite{cremers2006injective}. An injective synchronization property states that the protocol executes as expected over \emph{multiple} runs, claiming that it is not possible for an attacker to use information from previous runs into disrupting the current protocol execution \cite{cremers2005operational}. Such an attack is known as a replay attack, and is used by an adversary to inject traffic into the protocol execution to induce undesirable or unexpected behaviour. Scyther, however, does not support this enhanced form of synchronization, hence it strongest type of synchronization is non-injective synchronization. Because of this, Scyther is not able to verify whether or not a protocol is secure against replay attacks.\newline
+
+
+\begin{lstlisting}
+claim_U4(U, Nisynch);
+\end{lstlisting}
+
+%Synchronization = Strong form for authentication. Does not protect against replay attacks. Same for Non-injective synchronization.
 
 
 \subsubsection{Running, Commit}
 
-The set of variables from non-injective agreement can be defined using running and commit signals. By using such claims, we can verify that a variable sent from U to V, and then returned to U has not been changed from its initial value.
+Running and commit signals can be used as a form of authentication for some variables from a set of terms within a message. By using these signals (in Scyther modelled as claims), we can verify that a variable sent from U to V, and then returned to U, has not been changed from its initial value during transmission. From a formal view, this can be seen as non-injective agreement over a set of terms \cite{scyther-manual}.
 
-Scyther models such a claim by explicitly defining for each receive event containing an item from the set of variables. By marking the variables using a claim event of type running, the variable is marked as currently running in memory. The commit claim can then be used to state that the variables exchanged between U and V (in this case \texttt{Ru}) have not been tampered with, as seen below.\newline
+The expression $claim(V, Running, U, Ru)$ denotes that V is currently executing the protocol with U, and with the nonce $Ru$. In U's case, $claim(U, Commit, V, Ru)$ indicates that the protocol as reached a point where authentication is claimed (U has completed the protocol run with V), where $Ru$ is the variable that it claimed to be exchanged during this part of the run \cite{ryan2001modelling}. Usually, the \emph{commit} claim is stated at the end of the protocol run. For the correctness of the \emph{commit} claim to hold, it requires that the \emph{running} signal is added in the communicating role, and preceding the \emph{commit} claim in the trace.
+
+This pattern is a scheme for authentication properties, but it also allows for expressing authentication for additional information specific to the particular, for example some variable inside the message. Occurrence of a \emph{commit} signal in U's protocol run guarantees that a corresponding \emph{running} signal has previously occurred in V's protocol run, which guarantees that the received message containing $Ru$ must have been transmitted by V \cite{ryan2001modelling}. Below is an example of how we can claim non-injective agreement over a variable, in this case the nonce $Ru$. 
+\newline
 
 \begin{lstlisting}
 role U{
@@ -163,9 +173,8 @@ role U{
 	send_1(U, V, Ru);
 	
 	recv_2(V, U, Ru, Rv);
-	claim(U, Running, V, Ru); # Ru running in memory
 	
-	claim(U, Commit, V, Ru); # Claim that Ru has not been tampered with
+	claim_U5(U, Commit, V, Ru); # Authentication over the term Ru is claimed
 };
 
 
@@ -173,7 +182,8 @@ role V{
 	[...]
 	
 	recv_1(U, V, Ru);
-	claim(V, Running, U, Ru); # Ru running in memory
+	claim_V6(V, Running, U, Ru); # Claim that V is currently running the protocol with U
+	
 	
 	send_2(V, U, Ru, Rv); 
 }
@@ -187,13 +197,13 @@ If we continue on our example from the section on Scyther's syntax, we now want 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.90]{ScytherVerifyClaims.png}
+	\includegraphics[scale=0.9]{Untitled.png}
 	\caption{Results of a verification process using Scyther where all claims are successfully verified.}
 	\label{fig:scyther-verify-claims}
 \end{figure}
 
 
-Scyther returns an \texttt{Ok} status code for each claim that is successfully verified. As we see in Figure \ref{fig:scyther-verify-claims}, Scyther is not able to find any attacks on the protocol. To illustrate the case of Scyther actually finding an attack, we introduce two new claims where \texttt{Ru} and \texttt{Rv} are claimed to be secret. In our example protocol, both nonces are sent in plaintext between U and V, hence this claim will naturally fail as seen in Figure \ref{fig:scyther-verify-claims-fail}.
+Scyther returns an \texttt{Ok} status code for each claim that is successfully verified. As we see in Figure \ref{fig:scyther-verify-claims}, Scyther is not able to find any attacks on the protocol. To illustrate the case of Scyther actually finding an attack, we try to verify the claims introduced in the section on secrecy, claiming that \texttt{Ru} and \texttt{Rv} are secret. In our example protocol, both nonces are sent in plaintext between U and V, hence this claim will naturally fail as seen in Figure \ref{fig:scyther-verify-claims-fail}.
 
 \begin{figure}[h]
 	\centering

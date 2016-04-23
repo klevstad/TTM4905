@@ -17,12 +17,12 @@
 \contentsline {section}{\numberline {3.1}The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{15}{section.3.1}
 \contentsline {section}{\numberline {3.2}Scyther Syntax}{17}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Security Claims}{18}{subsection.3.2.1}
-\contentsline {subsubsection}{Secret}{18}{section*.5}
+\contentsline {subsubsection}{Secret}{19}{section*.5}
 \contentsline {subsubsection}{SKR (Session-Key Reveal)}{19}{section*.6}
-\contentsline {subsubsection}{Non-injective Synchronization}{19}{section*.7}
-\contentsline {subsubsection}{Aliveness}{20}{section*.8}
-\contentsline {subsubsection}{Weak Agreement}{20}{section*.9}
-\contentsline {subsubsection}{Non-injective Agreement}{20}{section*.10}
+\contentsline {subsubsection}{Aliveness}{19}{section*.7}
+\contentsline {subsubsection}{Weak Agreement}{20}{section*.8}
+\contentsline {subsubsection}{Non-injective Agreement}{20}{section*.9}
+\contentsline {subsubsection}{Non-injective Synchronization}{21}{section*.10}
 \contentsline {subsubsection}{Running, Commit}{21}{section*.11}
 \contentsline {section}{\numberline {3.3}Scyther's Graphical Interface}{22}{section.3.3}
 \contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{25}{chapter.4}

@@ -28,7 +28,6 @@ protocol APKES(U, V)
 
 		# HELLOACK
 		recv_2(V, U, (Ru, Rv, Iuv, SAv, helloack-mic));
-		claim(U, Running, V, Ru); # For claiming that the Ru has not been changed
 
 		#ACK
 		send_3(U, V, (ack-msg, Ivu, ack-mic));
@@ -36,11 +35,15 @@ protocol APKES(U, V)
 
 
 		# Claims:
-		claim_U1(U, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
-		claim_U2(U, Nisynch); # Non-injective synchronization
+		claim_U1(U, Alive); # V was "alive" as U was able to execute the protocol correctly
+		claim_U2(U, Weakagree);
 		claim_U3(U, Niagree); # Non-injective agreement
-		claim_U4(U, Alive); # V was "alive" as U was able to execute the protocol correctly
+		claim_U4(U, Nisynch); # Non-injective synchronization
 		claim_U5(U, Commit, V, Ru); # claim that the recv2 value of Ru has not been changed from the send_1 Ru-value
+		
+		#claim_U7(U, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
+		
+		
 	}
 
 	role V
@@ -50,9 +53,9 @@ protocol APKES(U, V)
 
 		# HELLO
 		recv_1(U, V, Ru, SAu);
-		claim(V, Running, U, Ru); # To make sure that the Ru is not tampered with.
 
 		# HELLOACK
+		claim_V6(V, Running, U, Ru); # To make sure that the Ru is not tampered with.
 		send_2(V, U, (Ru, Rv, Iuv, SAv, helloack-mic));
 
 		# ACK
@@ -60,9 +63,12 @@ protocol APKES(U, V)
 		#recv_3(U, V, MIC(Ru));
 
 		# Claims
-		claim_V1(V, Secret, PairwiseKey);
-		claim_V2(V, Nisynch);
+		claim_V1(V, Alive);
+		claim_V2(V, Weakagree);
 		claim_V3(V, Niagree);
-		claim_V4(V, Alive);
+		claim_V4(V, Nisynch);
+		#claim_V5(V, Secret, PairwiseKey);
+		
+		
 	}
 }

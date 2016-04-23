@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.18)  21 APR 2016 18:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.18)  23 APR 2016 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1852,85 +1852,91 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--63
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
- []
+Underfull \vbox (badness 1107) has occurred while \output is active []
 
+ [18]
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 167--169
 
  []
 
-[21] <./figs/ScytherVerifyClaims.png, id=699, 404.26031pt x 288.3272pt>
-File: ./figs/ScytherVerifyClaims.png Graphic file (type png)
+[21] <./figs/Untitled.png, id=688, 365.11406pt x 277.78781pt>
+File: ./figs/Untitled.png Graphic file (type png)
 
-<use ./figs/ScytherVerifyClaims.png>
-Package pdftex.def Info: ./figs/ScytherVerifyClaims.png used on input line 190.
-
-(pdftex.def)             Requested size: 363.83092pt x 259.49207pt.
-
-<./figs/ScytherFailSecretClaim.png, id=702, 449.42906pt x 93.34875pt>
-File: ./figs/ScytherFailSecretClaim.png Graphic file (type png)
-
-<use ./figs/ScytherFailSecretClaim.png>
-Package pdftex.def Info: ./figs/ScytherFailSecretClaim.png used on input line 2
-00.
-(pdftex.def)             Requested size: 364.03554pt x 75.61206pt.
+<use ./figs/Untitled.png>
+Package pdftex.def Info: ./figs/Untitled.png used on input line 201.
+(pdftex.def)             Requested size: 328.59961pt x 250.0067pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[22pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
-}) has been already used, duplicate ignored
+<./figs/ScytherFailSecretClaim.png, id=691, 449.42906pt x 93.34875pt>
+File: ./figs/ScytherFailSecretClaim.png Graphic file (type png)
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.206 
-       <./figs/ScytherVerifyClaims.png (PNG copy)>]
-<./figs/ScytherFailAttackGraph.png, id=708, 822.82407pt x 455.45157pt>
+<use ./figs/ScytherFailSecretClaim.png>
+Package pdftex.def Info: ./figs/ScytherFailSecretClaim.png used on input line 2
+11.
+(pdftex.def)             Requested size: 364.03554pt x 75.61206pt.
+ [22]
+<./figs/ScytherFailAttackGraph.png, id=718, 822.82407pt x 455.45157pt>
 File: ./figs/ScytherFailAttackGraph.png Graphic file (type png)
 
 <use ./figs/ScytherFailAttackGraph.png>
 Package pdftex.def Info: ./figs/ScytherFailAttackGraph.png used on input line 2
-09.
+20.
 (pdftex.def)             Requested size: 370.26741pt x 204.95131pt.
 
-Overfull \hbox (6.26741pt too wide) in paragraph at lines 209--210
+Overfull \hbox (6.26741pt too wide) in paragraph at lines 220--221
  [][] 
  []
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 ) [23pdfTeX warning (ext4): destination with the same identifier (name{figure.3
-.2}) has been already used, duplicate ignored
+.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.131 \include{Chapter3//scyther}
                                  pdfTeX warning (ext4): destination with the sa
-me identifier (name{figure.3.3}) has been already used, duplicate ignored
+me identifier (name{figure.3.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.131 \include{Chapter3//scyther}
-                                  <./figs/ScytherFailSecretClaim.png> <./figs/S
-cytherFailAttackGraph.png (PNG copy)>]
+                                  <./figs/Untitled.png (PNG copy)> <./figs/Scyt
+herFailSecretClaim.png>] [24pdfTeX warning (ext4): destination with the same id
+entifier (name{figure.3.3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.131 \include{Chapter3//scyther}
+                                  <./figs/ScytherFailAttackGraph.png (PNG copy)
+>]
 \openout2 = `Chapter4//6lowpan-krentz.aux'.
 
- (./Chapter4//6lowpan-krentz.tex [24
+ (./Chapter4//6lowpan-krentz.tex [25
 
 
 
 ]
-[25] <./figs/6lowpan-krentz.png, id=746, 404.51125pt x 304.13625pt>
+<./figs/6lowpan-krentz.png, id=756, 404.51125pt x 304.13625pt>
 File: ./figs/6lowpan-krentz.png Graphic file (type png)
 
 <use ./figs/6lowpan-krentz.png>
@@ -1940,7 +1946,7 @@ Package pdftex.def Info: ./figs/6lowpan-krentz.png used on input line 37.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figs/apkes.png, id=753, 685.56125pt x 426.59375pt>
+<./figs/apkes.png, id=763, 685.56125pt x 426.59375pt>
 File: ./figs/apkes.png Graphic file (type png)
  <use ./figs/apkes.png>
 Package pdftex.def Info: ./figs/apkes.png used on input line 46.
@@ -2048,11 +2054,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 154.
  ) 
 Here is how much of TeX's memory you used:
- 23563 strings out of 494465
- 343473 string characters out of 6166361
- 774658 words of memory out of 5000000
- 25762 multiletter control sequences out of 15000+600000
- 61642 words of font info for 114 fonts, out of 8000000 for 9000
+ 23583 strings out of 494465
+ 343738 string characters out of 6166361
+ 759714 words of memory out of 5000000
+ 25767 multiletter control sequences out of 15000+600000
+ 61725 words of font info for 115 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  58i,13n,72p,1753b,1882s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
@@ -2065,10 +2071,10 @@ ype1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/publ
 ic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (55 pages, 564875 bytes).
+Output written on main.pdf (55 pages, 570876 bytes).
 PDF statistics:
- 1118 PDF objects out of 1200 (max. 8388607)
- 1018 compressed objects within 11 object streams
- 386 named destinations out of 1000 (max. 500000)
+ 1137 PDF objects out of 1200 (max. 8388607)
+ 1037 compressed objects within 11 object streams
+ 399 named destinations out of 1000 (max. 500000)
  16665 words of extra memory for PDF output out of 17280 (max. 10000000)
 

@@ -56,45 +56,45 @@ Warning--empty year in isa100
 Warning--empty year in avispa
 Warning--empty year in iot-phrase-1
 Warning--empty year in miwi
-You've used 43 entries,
+You've used 44 entries,
             2861 wiz_defined-function locations,
-            859 strings with 11671 characters,
-and the built_in function-call counts, 29597 in all, are:
-= -- 2603
-> -- 1967
+            863 strings with 11815 characters,
+and the built_in function-call counts, 30231 in all, are:
+= -- 2651
+> -- 2019
 < -- 21
-+ -- 570
-- -- 680
-* -- 2329
-:= -- 5302
-add.period$ -- 152
-call.type$ -- 43
-change.case$ -- 300
-chr.to.int$ -- 41
-cite$ -- 63
-duplicate$ -- 947
-empty$ -- 1860
-format.name$ -- 768
-if$ -- 5673
++ -- 588
+- -- 700
+* -- 2379
+:= -- 5425
+add.period$ -- 155
+call.type$ -- 44
+change.case$ -- 306
+chr.to.int$ -- 42
+cite$ -- 64
+duplicate$ -- 965
+empty$ -- 1896
+format.name$ -- 792
+if$ -- 5785
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 31
-newline$ -- 227
-num.names$ -- 426
-pop$ -- 366
+missing$ -- 33
+newline$ -- 232
+num.names$ -- 436
+pop$ -- 374
 preamble$ -- 1
-purify$ -- 557
+purify$ -- 570
 quote$ -- 0
-skip$ -- 869
+skip$ -- 892
 stack$ -- 0
-substring$ -- 1515
-swap$ -- 358
+substring$ -- 1537
+swap$ -- 363
 text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 842
+type$ -- 852
 warning$ -- 20
-while$ -- 438
+while$ -- 448
 width$ -- 0
-write$ -- 604
+write$ -- 617
 (There were 11 error messages)

@@ -126,7 +126,7 @@ Eschenauer, L. and V.~D. Gligor (2002).
 
 \bibitem[\protect\citeauthoryear{Foundation}{Foundation}{}]{wirelesshart}
 Foundation, H.~C.
-\newblock {WirelessHART}.
+\newblock Wireless{HART}.
 \newblock \url{http://en.hartcomm.org/main_article/wirelesshart.html}.
 \newblock Accessed: 2016-04-15.
 
@@ -242,6 +242,13 @@ Project, A.
 \newblock {AVISPA}.
 \newblock \url{http://www.avispa-project.org/}.
 \newblock Accessed: 2016-02-23.
+
+\bibitem[\protect\citeauthoryear{Ryan and Schneider}{Ryan and
+  Schneider}{2001}]{ryan2001modelling}
+Ryan, P. and S.~A. Schneider (2001).
+\newblock {\em The modelling and analysis of security protocols: the csp
+  approach}.
+\newblock Addison-Wesley Professional.
 
 \bibitem[\protect\citeauthoryear{Sastry and Wagner}{Sastry and
   Wagner}{2004}]{sastry2004security}
