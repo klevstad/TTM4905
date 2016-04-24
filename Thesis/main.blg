@@ -11,7 +11,7 @@ A level-1 auxiliary file: Chapter5//krentz-mobility.aux
 The style file: chicago.bst
 A level-1 auxiliary file: Appendix/Appendix.aux
 Database file #1: main.bib
-You're missing a field name---line 274 of file main.bib
+You're missing a field name---line 284 of file main.bib
  : 
  : ,
 (Error may have been on previous line)
@@ -56,45 +56,45 @@ Warning--empty year in isa100
 Warning--empty year in avispa
 Warning--empty year in iot-phrase-1
 Warning--empty year in miwi
-You've used 44 entries,
+You've used 45 entries,
             2861 wiz_defined-function locations,
-            863 strings with 11815 characters,
-and the built_in function-call counts, 30231 in all, are:
-= -- 2651
-> -- 2019
-< -- 21
-+ -- 588
-- -- 700
-* -- 2379
-:= -- 5425
-add.period$ -- 155
-call.type$ -- 44
-change.case$ -- 306
-chr.to.int$ -- 42
-cite$ -- 64
-duplicate$ -- 965
-empty$ -- 1896
-format.name$ -- 792
-if$ -- 5785
+            868 strings with 12134 characters,
+and the built_in function-call counts, 31797 in all, are:
+= -- 2756
+> -- 2216
+< -- 22
++ -- 654
+- -- 766
+* -- 2546
+:= -- 5714
+add.period$ -- 159
+call.type$ -- 45
+change.case$ -- 321
+chr.to.int$ -- 43
+cite$ -- 65
+duplicate$ -- 997
+empty$ -- 1953
+format.name$ -- 862
+if$ -- 6083
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 33
-newline$ -- 232
-num.names$ -- 436
-pop$ -- 374
+missing$ -- 34
+newline$ -- 237
+num.names$ -- 446
+pop$ -- 391
 preamble$ -- 1
-purify$ -- 570
+purify$ -- 591
 quote$ -- 0
-skip$ -- 892
+skip$ -- 923
 stack$ -- 0
-substring$ -- 1537
-swap$ -- 363
-text.length$ -- 21
+substring$ -- 1589
+swap$ -- 377
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 852
+type$ -- 872
 warning$ -- 20
-while$ -- 448
+while$ -- 457
 width$ -- 0
-write$ -- 617
+write$ -- 632
 (There were 11 error messages)

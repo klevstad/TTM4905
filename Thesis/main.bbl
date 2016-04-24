@@ -117,6 +117,15 @@ Dolev, D. and A.~C. Yao (1983).
 \newblock {\em Information Theory, IEEE Transactions on\/}~{\em 29\/}(2),
   198--208.
 
+\bibitem[\protect\citeauthoryear{Durumeric, Kasten, Adrian, Halderman, Bailey,
+  Li, Weaver, Amann, Beekman, Payer, et~al.}{Durumeric
+  et~al.}{2014}]{durumeric2014matter}
+Durumeric, Z., J.~Kasten, D.~Adrian, J.~A. Halderman, M.~Bailey, F.~Li,
+  N.~Weaver, J.~Amann, J.~Beekman, M.~Payer, et~al. (2014).
+\newblock {The Matter of Heartbleed}.
+\newblock In {\em Proceedings of the 2014 Conference on Internet Measurement
+  Conference}, pp.\  475--488. ACM.
+
 \bibitem[\protect\citeauthoryear{Eschenauer and Gligor}{Eschenauer and
   Gligor}{2002}]{Eschenauer2002}
 Eschenauer, L. and V.~D. Gligor (2002).

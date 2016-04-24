@@ -8,7 +8,7 @@ There exists multiple state-of-the-art tools for performing formal analysis of s
 
 \section{The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}
 
-Scyther is a tool for verification, falsification, and analysis of security protocols developed by Cas Cremers. The tool is based on a patter refinement algorithm that enables unbounded verification, falsification and characterization \cite{cremers2008scyther}. Scyther allows its users to verify security protocols in two different ways. The first option is to execute Scyther scripts through the command-line interface, which provides an output file containing the results of the protocol verification. Option two, is to use Scyther's own \gls{gui}, which provides panels for both verification results, and in case of attacks being found; a visual graph of Scyther's proposed attack on the protocol. The most recent release of Scyther was published on April 4, 2014, and is currently available for Windows, OS X and Linux.
+Scyther is a tool for verification, falsification, and analysis of security protocols developed by Cas Cremers. The tool is based on a patter refinement algorithm that enables unbounded verification, falsification, will also enabling the tool to perform characterization \cite{cremers2008scyther} on the protocol. Scyther allows its users to verify security protocols in two different ways. The first option is to execute Scyther scripts through the command-line interface, which provides an output file containing the results of the protocol verification. Option two, is to use Scyther's own \gls{gui}, which provides panels for both verification results, and in case of attacks being found; a visual graph of Scyther's proposed attack on the protocol. The most recent release of Scyther was published on April 4, 2014, and is currently available for Windows, OS X and Linux.
 
 % Ok
 
@@ -59,6 +59,7 @@ role V{
 };
 \end{lstlisting}
 
+
 Along with support for creating fresh nonces, variables, and terms, Scyther also provides a wide set of cryptographic elements such as hash functions, symmetric-key cryptography, public-key cryptography, as well as declaring user specific types and macros, which are abbreviations of complex expressions into simpler once. In the following example, a hash function is used to define a function that generates a \gls{mic} (which is essentially the same as a \gls{mac-auth}). On the next line, we have created a macro representing the generation of a pairwise key between U and V. The key is represented as an encryption of the two values \texttt{Ru} and \texttt{Rv} using a symmetric key that is shared between U and V. Constants and functions defined outside of a role are considered to be global, and available to all of the defined roles in the protocol.\newline
 
 \begin{lstlisting}
@@ -73,18 +74,6 @@ role U {
 }
 \end{lstlisting}
 
-%A sequence of events within a role are in most cases concluded with a set of claim events. Claim events are, as previous mentioned, used for describing the security properties of the role. For U, we want to claim that the two nonces \texttt{Ru} and \texttt{Rv} are meant to be kept secret from an adversary.\newline
-
-
-%\begin{lstlisting}
-%role U{
-%	[...]
-%	
-%	# Claims:
-%	claim(U, Secret, Ru);
-%	claim(U, Secret, Rv);
-%};
-%\end{lstlisting}
 
 \subsection{Security Claims}
 
@@ -107,13 +96,13 @@ role U{
 
 
 
-\subsubsection{SKR (Session-Key Reveal)}
+\subsubsection{\gls{skr}}
 
-SKR is mostly the same as the regular secrecy claim, but is used to highlight that the term that is claimed to be secret is also a session key. This instructs Scyther to reveal the session key to the adversary after it has executed its run, hence proving that the session keys are working correctly, and that current session keys are kept secret from the adversary \cite{scyther-manual}. For the SKR claim to function correctly, Scyther's session key reveal checkbox needs to be checked in the settings. If not, this claim is identical to the ordinary secrecy claim presented above.
+Session keys are created at the end of a key establishment process, and are usually used for a session of the communication, before being replaced. When they expire, they are deleted from the system and never used again, limiting the amount of ciphertexts available for the adversary to perform cryptanalysis. In Scyther, the claim \gls{skr} is used to identify the session keys in the protocol, and claim that they are secret. For the \gls{skr} claim to function correctly, Scyther's session-key reveal checkbox needs to be checked in the settings. With this setting enabled, Scyther will reveal any session-key, whose run identifier differs from the current session's, to the adversary. If the \gls{skr} claim is used without enabling the setting, the claim is verified as a regular secret claim as defined by Scyther. 
 
-% Dette er ikke helt riktig. Omformuler.
+%\gls{skr} is mostly the same as the regular secrecy claim, but is used to highlight that the term that is claimed to be secret is also a session key. This instructs Scyther to reveal the session key to the adversary after it has executed its run, hence proving that the session keys are working correctly, and that current session keys are kept secret from the adversary \cite{scyther-manual}.  If not, this claim is identical to the ordinary secrecy claim presented above.
 
-The adversary is able to obtain any session key from a session whose identifier differs from the current session's. 
+
 
 \subsubsection{Aliveness}
 
@@ -149,9 +138,17 @@ role U{
 
 Synchronization requires that all protocol messages occur in the expected order with their expected values, and that the behaviour is equivalent to as if the protocol was executed without the presence of any adversary \cite{cremers2006injective}. An injective synchronization property states that the protocol executes as expected over \emph{multiple} runs, claiming that it is not possible for an attacker to use information from previous runs into disrupting the current protocol execution \cite{cremers2005operational}. Such an attack is known as a replay attack, and is used by an adversary to inject traffic into the protocol execution to induce undesirable or unexpected behaviour. Scyther, however, does not support this enhanced form of synchronization, hence it strongest type of synchronization is non-injective synchronization. Because of this, Scyther is not able to verify whether or not a protocol is secure against replay attacks.\newline
 
-
 \begin{lstlisting}
-claim_U4(U, Nisynch);
+role U {
+	[...]
+
+	# Claims:	
+	[...]
+	
+	claim_U4(U, Nisynch);
+}
+
+
 \end{lstlisting}
 
 %Synchronization = Strong form for authentication. Does not protect against replay attacks. Same for Non-injective synchronization.
@@ -159,7 +156,7 @@ claim_U4(U, Nisynch);
 
 \subsubsection{Running, Commit}
 
-Running and commit signals can be used as a form of authentication for some variables from a set of terms within a message. By using these signals (in Scyther modelled as claims), we can verify that a variable sent from U to V, and then returned to U, has not been changed from its initial value during transmission. From a formal view, this can be seen as non-injective agreement over a set of terms \cite{scyther-manual}.
+Running and commit signals can be used as a form of authentication for some variables from a set of terms sent in a message. By using these signals (in Scyther modelled as claims), we can verify that a variable sent from U to V, and then returned to U, has not been changed from its initial value during transmission. From a formal view, this can be seen as non-injective agreement over a set of terms \cite{scyther-manual}.
 
 The expression $claim(V, Running, U, Ru)$ denotes that V is currently executing the protocol with U, and with the nonce $Ru$. In U's case, $claim(U, Commit, V, Ru)$ indicates that the protocol as reached a point where authentication is claimed (U has completed the protocol run with V), where $Ru$ is the variable that it claimed to be exchanged during this part of the run \cite{ryan2001modelling}. Usually, the \emph{commit} claim is stated at the end of the protocol run. For the correctness of the \emph{commit} claim to hold, it requires that the \emph{running} signal is added in the communicating role, and preceding the \emph{commit} claim in the trace.
 
@@ -182,7 +179,7 @@ role V{
 	[...]
 	
 	recv_1(U, V, Ru);
-	claim_V6(V, Running, U, Ru); # Claim that V is currently running the protocol with U
+	claim_V6(V, Running, U, Ru); # Claim that V is currently running the protocol with U with the value Ru
 	
 	
 	send_2(V, U, Ru, Rv); 

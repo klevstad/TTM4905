@@ -53,9 +53,9 @@ protocol APKES(U, V)
 
 		# HELLO
 		recv_1(U, V, Ru, SAu);
+		claim_V6(V, Running, U, Ru); # To make sure that the Ru is not tampered with.
 
 		# HELLOACK
-		claim_V6(V, Running, U, Ru); # To make sure that the Ru is not tampered with.
 		send_2(V, U, (Ru, Rv, Iuv, SAv, helloack-mic));
 
 		# ACK

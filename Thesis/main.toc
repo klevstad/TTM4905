@@ -12,32 +12,43 @@
 \contentsline {section}{\numberline {2.2}The IEEE 802.15.4 Standard}{5}{section.2.2}
 \contentsline {section}{\numberline {2.3}6LoWPAN: Putting IP on Top of 802.15.4}{7}{section.2.3}
 \contentsline {section}{\numberline {2.4}Key Establishment and Key Management}{9}{section.2.4}
-\contentsline {section}{\numberline {2.5}Formal Security Analysis}{12}{section.2.5}
-\contentsline {chapter}{\chapternumberline {3}Symbolic Security Analysis Using Scyther}{15}{chapter.3}
-\contentsline {section}{\numberline {3.1}The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{15}{section.3.1}
-\contentsline {section}{\numberline {3.2}Scyther Syntax}{17}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Security Claims}{18}{subsection.3.2.1}
-\contentsline {subsubsection}{Secret}{19}{section*.5}
-\contentsline {subsubsection}{SKR (Session-Key Reveal)}{19}{section*.6}
-\contentsline {subsubsection}{Aliveness}{19}{section*.7}
-\contentsline {subsubsection}{Weak Agreement}{20}{section*.8}
-\contentsline {subsubsection}{Non-injective Agreement}{20}{section*.9}
-\contentsline {subsubsection}{Non-injective Synchronization}{21}{section*.10}
-\contentsline {subsubsection}{Running, Commit}{21}{section*.11}
-\contentsline {section}{\numberline {3.3}Scyther's Graphical Interface}{22}{section.3.3}
-\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Ideas of the Paper (Change this)}{25}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}APKES}{25}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Pluggable schemes}{26}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}\gls {ebeap}}{26}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Formal analysis using Scyther}{27}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}Discussion}{27}{subsection.4.1.5}
-\contentsline {section}{\numberline {4.2}Informal Analysis}{27}{section.4.2}
-\contentsline {section}{\numberline {4.3}Formal Analysis}{27}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Scyther}{27}{subsection.4.3.1}
-\contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{29}{chapter.5}
-\contentsline {chapter}{References}{31}{section*.13}
+\contentsline {subsection}{\numberline {2.4.1}Symmetric Encryption}{10}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Asymmetric Encryption}{10}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Security Attributes in Key Establishment Schemes}{10}{subsection.2.4.3}
+\contentsline {subsubsection}{Authentication}{10}{section*.5}
+\contentsline {subsubsection}{Known-Key Security}{11}{section*.6}
+\contentsline {subsubsection}{Forward Secrecy}{11}{section*.7}
+\contentsline {subsubsection}{Key-Compromise Impersonation}{11}{section*.8}
+\contentsline {subsubsection}{Key Control}{12}{section*.9}
+\contentsline {subsubsection}{Unknown Key-Share}{12}{section*.10}
+\contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{12}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{13}{subsection.2.4.5}
+\contentsline {section}{\numberline {2.5}Formal Security Analysis}{13}{section.2.5}
+\contentsline {chapter}{\chapternumberline {3}Symbolic Security Analysis Using Scyther}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{17}{section.3.1}
+\contentsline {section}{\numberline {3.2}Scyther Syntax}{19}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Security Claims}{20}{subsection.3.2.1}
+\contentsline {subsubsection}{Secret}{21}{section*.11}
+\contentsline {subsubsection}{\gls {skr}}{21}{section*.12}
+\contentsline {subsubsection}{Aliveness}{21}{section*.13}
+\contentsline {subsubsection}{Weak Agreement}{22}{section*.14}
+\contentsline {subsubsection}{Non-injective Agreement}{22}{section*.15}
+\contentsline {subsubsection}{Non-injective Synchronization}{23}{section*.16}
+\contentsline {subsubsection}{Running, Commit}{23}{section*.17}
+\contentsline {section}{\numberline {3.3}Scyther's Graphical Interface}{24}{section.3.3}
+\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Ideas of the Paper (Change this)}{27}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}APKES}{27}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Pluggable schemes}{28}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}\gls {ebeap}}{28}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Formal analysis using Scyther}{29}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}Discussion}{29}{subsection.4.1.5}
+\contentsline {section}{\numberline {4.2}Informal Analysis}{29}{section.4.2}
+\contentsline {section}{\numberline {4.3}Formal Analysis}{29}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Scyther}{29}{subsection.4.3.1}
+\contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{31}{chapter.5}
+\contentsline {chapter}{References}{33}{section*.19}
 \vspace {1em}\noindent \bfseries Appendices\par \vspace {-.5em}
-\contentsline {appendix}{\chapternumberline {A}Appendix}{35}{appendix.A}
-\contentsline {section}{\numberline {A.1}Scyther - APKES}{35}{section.A.1}
-\contentsline {section}{\numberline {A.2}Scyther - AKES}{37}{section.A.2}
+\contentsline {appendix}{\chapternumberline {A}Appendix}{37}{appendix.A}
+\contentsline {section}{\numberline {A.1}Scyther - APKES}{37}{section.A.1}
+\contentsline {section}{\numberline {A.2}Scyther - AKES}{39}{section.A.2}

@@ -118,47 +118,80 @@ Compared to other alternatives such as ZigBee or Z-wave, \gls{6lowpan}'s impleme
 \section{Key Establishment and Key Management}
 \label{sec:keyestablishment}
 
-As described, \gls{iot} devices communicate with each other over the network by utilizing some network protocol. There is, however, not always a guarantee for that the network used for communication is secure, but rather the opposite. An attacker may be eavesdropping on the network, and may even be capable of intercepting and spoofing traffic sent between different nodes. From a security perspective, the described attacker is violating both the confidentiality and integrity of the exchanged information. To cope with this, devices should be encrypting and authenticating the data that they are exchanging. 
+As described, \gls{iot} devices communicate with each other over the network by utilizing some network protocol. There is, however, not always a guarantee for that the network used for communication is secure. An attacker may be eavesdropping on the network, and may even be capable of intercepting and spoofing traffic sent between different nodes. From a security perspective, the described attacker is violating both the confidentiality and integrity of the exchanged information. To cope with this, devices should be encrypting and authenticating the data that they are exchanging. 
 
 %Key management is essentially all aspects of managing cryptographic keys in a cryptosystem. For example the generation of keys, key exchange with other entities, secure storage, and how to use and revoke keys. 
 
 
-Key establishment is a fundamental idea in cryptography where two communicating parties exchange information in order to generate cryptographic keys which enable them to perform some sort of cryptography on the messages that are sent between them. The problem is, however, how do we safely agree upon the keys to use in the encryption-decryption process if the network itself can not be trusted? For \gls{iot} devices and sensor networks, confidentiality and data integrity are important aspect. As previously described, \gls{iot} devices have limited resources in terms of battery life and processing abilities, making key establishment schemes that works great in other networks such as WiFi infeasible in an \gls{iot} scenario.
+Key establishment is a fundamental idea in cryptography where two (or more) communicating parties exchange information in order to generate cryptographic keys which enable them to perform some sort of cryptography on the messages that are sent between them. The problem is, however, how to safely agree upon the keys to use in the encryption-decryption process when the network itself can not be trusted. For \gls{iot} devices and sensor networks, confidentiality and data integrity are important aspect. As previously described, \gls{iot} devices have limited resources in terms of battery life and processing abilities, making key establishment schemes that works great in other networks with access to more resources, such as WiFi, infeasible in an \gls{iot} scenario.
 
 
 %How to safely generate keys and distribute them between \gls{iot} is the main problem of the \gls{iot} security field, and 
-
+\subsection{Symmetric Encryption}
 
 % Symmetric key
-In modern cryptography, encryption and decryption is in most cased done either by using symmetric key encryption or asymmetric key encryption. Symmetric key encryption is the case where communicating parties possesses the same key which is used for encryption as well as decryption. While being a straightforward and fast way of encrypting information, it has a major drawback in the case of one of the parties is compromised, then the channel that initially was secure would now be insecure as the adversary could easily encrypt any message that it intercepts.
+In modern cryptography, encryption and decryption are in most cased done either by using symmetric key encryption or asymmetric key encryption. Symmetric key encryption is the case where communicating parties possesses the same key which is used for encryption as well as decryption messages that are sent between them. While being a straightforward and fast way of encrypting information, it has a major drawback in the case of one of the parties is compromised, then the channel that initially was secure would now be insecure as the adversary could easily encrypt any message that it intercepts.
+
+\subsection{Asymmetric Encryption}
 
 % Asymmetric key
-In the 1970s, Whitfield Diffie and Martin Hellman introduced the Diffie-Hellman key exchange, which was one of the first practical examples of public key exchange within cryptography \cite{diffie1976new}.  Asymmetric encryption (or public-key encryption) is the case where each communicating nodes possess a public key and a corresponding private key. The public key is published and used by anyone who wants to send an encrypted message to the node. When the node receives a message that is encrypted with its public key, it uses the private key which is generated from the public key to decrypt the message. In the (un)likely case of being compromised, the node could simply generate a new key pair consisting of a public and a private key, and publish the new public key for others to send encrypted messages under.
+In the 1970s, Whitfield Diffie and Martin Hellman introduced the Diffie-Hellman key exchange, which was one of the first practical examples of public key exchange within cryptography \cite{diffie1976new}. Asymmetric encryption (or public-key encryption) is the case where each communicating nodes possess a public key and a corresponding private key. The public key is published and used by anyone who wants to send an encrypted message to the node. When the node receives a message that is encrypted with its public key, it uses the private key which is generated from the public key to decrypt the message. In the (un)likely case of being compromised, the node could simply generate a new key pair consisting of a public and a private key, and publish the new public key for others to send encrypted messages under.
 
-Of the different algorithms in use today, the \gls{rsa} cryptosystem is the most commonly used, which provides both key exchange and authentication \cite{wander2005energy}. Asymmetric encryption is significantly more computationally costly compared to symmetric encryption. This has to lead a hybrid solution where a symmetric session key is encrypted under the public key of each recipient, which reduces the computation time of encryption and decryption, giving a fairly more efficient encryption scheme.
+Of the different algorithms in use today, the \gls{rsa} cryptosystem is the most commonly used, which provides both key exchange and authentication \cite{wander2005energy}. Asymmetric encryption is significantly more computationally costly compared to symmetric encryption. This has lead to a hybrid solution where a symmetric session key is established and encrypted under the public key of each recipient, which reduces the computation time of encryption and decryption, giving a more efficient encryption scheme.
 
+\subsection{Security Attributes in Key Establishment Schemes}
 
 % Authentication
 
-Authentication is an important aspect of key establishment. More specific, confirming the identity of the entity you are establishing keys with. If authentication is skipped, then the protocol will be weak for so-called man-in-the-middle attacks where an adversary intercepts and relays messages between two communicating parties to learn or modify its content. One of the traditional key exchange infrastructures for enforcing authentication in the Internet is to use a trusted third party \cite{maurer1996modelling}. Usually this third party is a secure key server that is responsible for serving cryptographic keys to users and programs. The keys that are provided by the key server is usually included in a certificate containing additional information about the identity of the owner of that particular key. Example of such systems is the well-known public key system OpenPGP \cite{openpgp}, which is used for encrypting electronic mail. For systems using symmetric encryption, authentication can be achieved through construction of \gls{mac-auth}, which are cryptographic values generated from a symmetric key and the plaintext message. This enables the receiver of a message to compute the same \gls{mac-auth} from the decrypted ciphertext and the shared symmetric key, and provides both authenticity of the sender and the integrity of the received message.
+\subsubsection{Authentication}
+
+Authentication is an important aspect of key establishment. More specific, confirming the identity of the entity you are establishing keys with, as well as the keys. If authentication is skipped, then the protocol will be weak for so-called man-in-the-middle attacks where an adversary intercepts and relays messages between two communicating parties to learn or modify its content. One of the traditional key exchange infrastructures for enforcing authentication in the Internet is to use a trusted third party \cite{maurer1996modelling}. Usually this third party is a secure key server that is responsible for serving cryptographic keys to users and programs. The keys that are provided by the key server is usually included in a certificate containing additional information about the identity of the owner of that particular key. Example of such systems is the well-known public key system OpenPGP \cite{openpgp}, which is used for encrypting electronic mail. For systems using symmetric encryption, authentication can be achieved through construction of \gls{mac-auth}, which are cryptographic values generated from a symmetric key and the plaintext message. This enables the receiver of a message to compute the same \gls{mac-auth} from the decrypted ciphertext and the shared symmetric key, and provides both authenticity of the sender and the integrity of the received message.
+
+\subsubsection{Known-Key Security}
+
+Session keys are single-use symmetric keys that are used for a given period of the communication before being exchanged and deleted from the system, and never to be used again. Known-key security is a property where the leak of information is minimized in the case of one (or multiple) session keys are compromised. For example in the case where session keys are derived from the private key, then the compromise should not lead to the compromise of the private key, nor any of the past or future session keys. 
+
+\subsubsection{Forward Secrecy}
+
+Following in the lines of known-key security, forward secrecy is a security attribute where in the case of the long-term private key of one (or both) of the communicating parties being compromised, it should not lead to the reveal of any of the past session keys that are used in the communication between the parties. 
+The Heartbleed Bug in 2014 was a painful example of the need for forward secrecy, where a bug in the OpenSSL cryptographic software library leaked secret keys for certificates, as well as user names and passwords \cite{durumeric2014matter}. Attackers were able to retrieve 64 kilobytes of the memory of web servers for each attack (or ``heartbeat''), which could be used to retrieve the private long-term key of the web server. The private key could then be used to retroactively decrypt all traffic that had previously been recorded.
+
+\subsubsection{Key-Compromise Impersonation}
+
+In this case, an adversary has obtained the long-term private key of an honest entity $A$. Key-compromise impersonation prevents the adversary both from impersonating $A$ to other entities (establishing session keys with them), as well as preventing the adversary from impersonate other entities in communication with $A$ (masquerading as a different entity in order to establish a session key with $A$). In practice, a party possessing the private key of $A$ is able to decrypt both past and future traffic going to and from $A$.
 
 
-%Key establishment and wireless sensor technology.
+\subsubsection{Key Control}
 
-The simplest possible scheme for key establishment is the network-shared key scheme, where every node in the network possesses the same key which is used for encryption and decryption between all nodes in the network \cite{perrig2004security}. While being easy to set up, it leaves the network vulnerable to node compromises as wireless sensor nodes often are deployed in hostile and unattended areas, where the compromising of one node is equal to the compromising of the entire network \cite{krentz20136lowpan}. Pairwise keys is a better symmetric key scheme, where each node pair possesses their own symmetric key for communication between them. This, however, leads to higher memory requirements as the node in worst case has to store the symmetric key for $N-1$ nodes, where the number of nodes in the network can be high \cite{perrig2004security}. Group keying is another approach where groups of nodes share the same symmetric key. This greatly reduces the memory consumption for the devices, and can provide a mild version of compromise resilience. Unfortunately, group keying is not supported in \gls{ieee} 802.15.4 \cite{sastry2004security}. Pairwise random keys is another scheme that can support the hunt for pairwise keys while still maintaining a modest memory consumption. When using such a scheme, a node only possesses a part of the pairwise keys which when added up constitutes the entire pairwise key pool. The idea of such an approach is to create a multi-hop path between nodes, essentially connecting the entire network together while eliminating the need for storing $N-1$ keys.
+Key control is to prevent a party from computing a part of the session key without input from the other party. Essentially, one of the communicating parties should not be able to force the secret session key into something of its own choice. Key control is usually accomplished through both parties creating a random value, which is shared with the other party, and computed together into the shared key, for example in the Diffie-Hellman key exchange.
+
+\subsubsection{Unknown Key-Share}
+
+Unknown key-share resilience is an attribute in key agreement protocols where a key shared between two entities $A$ and $B$ can not be shared with any others without they both consenting to it. When $A$ and $B$ are establishing a shared key, attacks targeting this process may want to convince $A$ that it is sharing the key with $B$, while $B$ in fact is under the impression that it is sharing the key with a third entity $C$. 
+
+
+\subsection{Key Establishment Schemes}
+
+The simplest possible scheme for key establishment is the network-shared key scheme, where every node in the network possesses the same key which is used for encryption and decryption between all nodes in the network \cite{perrig2004security}. While being easy to set up, it leaves the network vulnerable to node compromises as wireless sensor nodes often are deployed in hostile and unattended areas, where the compromising of one node is equal to the compromising of the entire network \cite{krentz20136lowpan}. Also, in 802.15.4, the network-shared key scheme is incompatible with replay protection, moving the responsibility of implementing such measures to the higher layers \cite{sastry2004security}.
+
+Pairwise keys is a better symmetric key scheme, where each node pair possesses their own symmetric key for communication between them. This, however, leads to higher memory requirements as the node in worst case has to store the symmetric key for $N-1$ nodes, where the number of nodes in the network can be high \cite{perrig2004security}. Group keying is another approach where groups of nodes share the same symmetric key. This greatly reduces the memory consumption for the devices, and can provide a mild version of compromise resilience. Unfortunately, group keying is not supported in \gls{ieee} 802.15.4 \cite{sastry2004security}.
+
+Pairwise random keys is another scheme that can support the hunt for pairwise keys while still maintaining a modest memory consumption. When using such a scheme, a node only possesses a part of the pairwise keys which when added up constitutes the entire pairwise key pool. The idea of such an approach is to create a multi-hop path between nodes, essentially connecting the entire network together while eliminating the need for storing $N-1$ keys.
 
 
 % Herfra må det bli bedre.
 
+\subsection{Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}
+
 When it comes to \gls{wsn} applications, symmetric encryption algorithms have historically been the most mature ones \citep{Jing2014}. However, there exists several drawbacks with technology utilizing symmetric encryption. For starters, their key exchange protocols are often complex which is a constraint for the scalability of the network. Also, as the \gls{iot} devices are placed in possible hostile environment, they may be physically tampered with by adversaries \cite{krentz20136lowpan}. If they should successfully compromise one of the nodes, then the security of the entire network may be at stake. Finally, authentication is a rather complex and inconvenient procedure with symmetric encryption involving \gls{mac-auth} which leads to higher requirements for storage space, overhead in messages, and increased energy consumption.
 
-It has been an underlining assumption in the research community that public-key cryptography has been a unsuitable solution for key establishment and key management in \gls{wsn}s and other \gls{iot} related networks \cite{wander2005energy} \cite{gaubatz2004public}. While improving the security over symmetric key encryption, and also providing easier authentication and higher scalability, it still has issues related to energy consumption due to higher computational complexity as well as being time consuming \citep{Eschenauer2002}. However, public-key cryptography algorithms such as Rabin's Scheme, NtruEncrypt and \gls{ecc} have proven promising results when implemented efficiently for wireless platforms \cite{Jing2014} \cite{gaubatz2004public}. Especially \gls{ecc} and its implementation of \gls{ecdsa} have proven to be over four times more energy efficient than \gls{rsa}-1024 \cite{wander2005energy}. One of the main advantages with \gls{ecc} over more commonly used public-key algorithms such as \gls{rsa} is the reduced key size, which in leads to greater memory and energy savings, while providing approximate the same level of security (\gls{ecc}-160 is equivalent to \gls{rsa}-1024 in terms of cryptographic strength) \cite{nist2016}. Bottom line, there is no scheme that provides a clear advantage over others, symmetric or asymmetric. It is up to the application designer to find and implement the best suited scheme based on the infrastructure and security demands of the particular network.
+It has been an underlining assumption in the research community that public-key cryptography has been an unsuitable solution for key establishment and key management in \gls{wsn}s and other \gls{iot} related networks \cite{wander2005energy} \cite{gaubatz2004public}. While improving the security over symmetric key encryption, and also providing easier authentication and higher scalability, it still has issues related to energy consumption due to higher computational complexity as well as being time consuming \citep{Eschenauer2002}. However, public-key cryptography algorithms such as Rabin's Scheme, NtruEncrypt and \gls{ecc} have proven promising results when implemented efficiently for wireless platforms \cite{Jing2014} \cite{gaubatz2004public}. Especially \gls{ecc} and its implementation of \gls{ecdsa} have proven to be over four times more energy efficient than \gls{rsa}-1024 \cite{wander2005energy}. One of the main advantages with \gls{ecc} over more commonly used public-key algorithms such as \gls{rsa} is the reduced key size, which in leads to greater memory and energy savings, while providing approximate the same level of security (\gls{ecc}-160 is equivalent to \gls{rsa}-1024 in terms of cryptographic strength) \cite{nist2016}.
+
+Bottom line, there is no scheme that provides a clear advantage over others, symmetric or asymmetric, as they all have different advantages and disadvantages. It is up to the application designer to find and implement the best suited scheme based on the infrastructure and security demands of the particular network.
 
 
-Last sentences are stupid. Reformulate.
+%Last sentences are stupid. Reformulate.
 
-
-% Er dette riktig? Er symmetric key bedre? wander2005energy Sier at 
 
 %However, for \gls{wsn} and other types of sensor networks in \gls{iot}, such an approach is infeasible due to the unknown 	topology of the network, communication range constraints, complexity, and network dynamics \citep{Eschenauer2002}. A possible approach is so-called key pre-distribution, where the keys used for securing communication is implemented in the devices before deploying them in their intended environment.  This is, however, an unsafe option. Because of devices often being deployed in hostile environment where they are left unattended, they are also susceptible to be compromised by an attacker \cite{krentz20136lowpan}. The attacker may physically tamper with the device to obtain cryptographic keys, which then can be used to decrypt the communication in case of the network using a network shared key. Another scenario is in the case of the system utilizing a pairwise key scheme, where each node pair share the same symmetric key. This leads to high memory requirements and complexity for the devices, and will also make if significantly harder for new nodes to join the network.
 
@@ -167,7 +200,7 @@ Last sentences are stupid. Reformulate.
 
 %Key management is the idea of how cryptographic keys should be stored, and is one of the hardest problems in \gls{iot} security. 
 
-Key Management?
+%Key Management?
 
 \section{Formal Security Analysis} 
 
@@ -202,3 +235,21 @@ Verification
 Falsification
 
 What are good security properties? What do we want to achieve? 
+
+
+
+Freshness of key
+
+Key control: Not able to learn any part of the shared key on your own / without the help of the other party.
+
+
+Authentication (both of entity and key)
+
+Key integrity
+
+
+Known-key security
+
+Forward secrecy
+
+
