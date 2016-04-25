@@ -246,6 +246,11 @@ Perrig, A., J.~Stankovic, and D.~Wagner (2004).
 \newblock {Security in Wireless Sensor Networks}.
 \newblock {\em Communications of the ACM\/}~{\em 47\/}(6), 53--57.
 
+\bibitem[\protect\citeauthoryear{Popper}{Popper}{2005}]{popper2005logic}
+Popper, K. (2005).
+\newblock {\em {The Logic of Scientific Discovery}}.
+\newblock Routledge.
+
 \bibitem[\protect\citeauthoryear{Project}{Project}{}]{avispa}
 Project, A.
 \newblock {AVISPA}.

@@ -133,6 +133,7 @@
 (indexentry :tkey (("BAN" "\\glossentry{ban}") ) :locref "{}{14}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("BAN" "\\glossentry{ban}") ) :locref "{}{14}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("BAN" "\\glossentry{ban}") ) :locref "{}{14}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("CIA" "\\glossentry{cia}") ) :locref "{}{15}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("GUI" "\\glossentry{gui}") ) :locref "{}{17}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("APKES" "\\glossentry{apkes}") ) :locref "{}{19}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("MSC" "\\glossentry{msc}") ) :locref "{}{19}" :attr "pageglsnumberformat" ) 
