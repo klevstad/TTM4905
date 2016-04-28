@@ -5,7 +5,8 @@
 \select@language {english}
 \contentsline {chapter}{List of Figures}{vii}{section*.1}
 \contentsline {chapter}{List of Tables}{ix}{section*.2}
-\contentsline {chapter}{List of Acronyms}{xiii}{section*.3}
+\contentsline {chapter}{Listings}{xi}{section*.3}
+\contentsline {chapter}{List of Acronyms}{xiii}{section*.4}
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
 \contentsline {chapter}{\chapternumberline {2}Background}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Internet of Things}{3}{section.2.1}
@@ -15,40 +16,51 @@
 \contentsline {subsection}{\numberline {2.4.1}Symmetric Encryption}{10}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Asymmetric Encryption}{10}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Security Attributes in Key Establishment Schemes}{10}{subsection.2.4.3}
-\contentsline {subsubsection}{Authentication}{10}{section*.5}
-\contentsline {subsubsection}{Known-Key Security}{11}{section*.6}
-\contentsline {subsubsection}{Forward Secrecy}{11}{section*.7}
-\contentsline {subsubsection}{Key-Compromise Impersonation}{11}{section*.8}
-\contentsline {subsubsection}{Key Control}{12}{section*.9}
-\contentsline {subsubsection}{Unknown Key-Share}{12}{section*.10}
+\contentsline {subsubsection}{Authentication}{10}{section*.6}
+\contentsline {subsubsection}{Known-Key Security}{11}{section*.7}
+\contentsline {subsubsection}{Perfect Forward Secrecy}{11}{section*.8}
+\contentsline {subsubsection}{Key-Compromise Impersonation}{12}{section*.9}
+\contentsline {subsubsection}{Key Control}{12}{section*.10}
+\contentsline {subsubsection}{Unknown Key-Share}{12}{section*.11}
 \contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{12}{subsection.2.4.4}
 \contentsline {subsection}{\numberline {2.4.5}Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{13}{subsection.2.4.5}
-\contentsline {section}{\numberline {2.5}Formal Security Analysis}{13}{section.2.5}
+\contentsline {section}{\numberline {2.5}Formal Security Analysis}{14}{section.2.5}
 \contentsline {chapter}{\chapternumberline {3}Symbolic Security Analysis Using Scyther}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{17}{section.3.1}
 \contentsline {section}{\numberline {3.2}Scyther Syntax}{19}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Security Claims}{20}{subsection.3.2.1}
-\contentsline {subsubsection}{Secret}{21}{section*.11}
-\contentsline {subsubsection}{\gls {skr}}{21}{section*.12}
-\contentsline {subsubsection}{Aliveness}{21}{section*.13}
-\contentsline {subsubsection}{Weak Agreement}{22}{section*.14}
-\contentsline {subsubsection}{Non-injective Agreement}{22}{section*.15}
-\contentsline {subsubsection}{Non-injective Synchronization}{23}{section*.16}
-\contentsline {subsubsection}{Running, Commit}{23}{section*.17}
-\contentsline {section}{\numberline {3.3}Scyther's Graphical Interface}{24}{section.3.3}
-\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{27}{chapter.4}
-\contentsline {section}{\numberline {4.1}Ideas of the Paper (Change this)}{27}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}APKES}{27}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Pluggable schemes}{28}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}\gls {ebeap}}{28}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Formal analysis using Scyther}{29}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}Discussion}{29}{subsection.4.1.5}
-\contentsline {section}{\numberline {4.2}Informal Analysis}{29}{section.4.2}
-\contentsline {section}{\numberline {4.3}Formal Analysis}{29}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Scyther}{29}{subsection.4.3.1}
-\contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{31}{chapter.5}
-\contentsline {chapter}{References}{33}{section*.19}
+\contentsline {subsection}{\numberline {3.2.1}Security Claims}{21}{subsection.3.2.1}
+\contentsline {subsubsection}{Secret}{21}{section*.12}
+\contentsline {subsubsection}{\gls {skr}}{21}{section*.13}
+\contentsline {subsubsection}{Aliveness}{22}{section*.14}
+\contentsline {subsubsection}{Weak Agreement}{22}{section*.15}
+\contentsline {subsubsection}{Non-injective Agreement}{22}{section*.16}
+\contentsline {subsubsection}{Non-injective Synchronization}{23}{section*.17}
+\contentsline {subsubsection}{Running, Commit}{24}{section*.18}
+\contentsline {section}{\numberline {3.3}Defining an Adversary Compromise Model}{25}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Compromising of long-term keys}{25}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Compromising of short-term data}{26}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Scyther's Graphical User Interface}{27}{section.3.4}
+\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction to APKES}{31}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Easy Broadcast Encryption and Authentication Protocol}{32}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Protocol specification}{33}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Formal Security Analysis of APKES}{33}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Key establishment}{33}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Key agreement}{33}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Security properties}{33}{subsection.4.2.3}
+\contentsline {subsubsection}{Authentication}{33}{section*.19}
+\contentsline {subsubsection}{Key Compromise Impersonation}{34}{section*.20}
+\contentsline {subsubsection}{Unknown Key Share}{34}{section*.21}
+\contentsline {subsubsection}{key confirmation}{34}{section*.22}
+\contentsline {subsubsection}{Forward Secrecy}{34}{section*.23}
+\contentsline {subsection}{\numberline {4.2.4}Threat model}{34}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Formal model}{34}{subsection.4.2.5}
+\contentsline {subsubsection}{Specifying security properties}{34}{section*.24}
+\contentsline {subsection}{\numberline {4.2.6}Results}{34}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}Recommendations}{34}{subsection.4.2.7}
+\contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{35}{chapter.5}
+\contentsline {chapter}{References}{37}{section*.26}
 \vspace {1em}\noindent \bfseries Appendices\par \vspace {-.5em}
-\contentsline {appendix}{\chapternumberline {A}Appendix}{37}{appendix.A}
-\contentsline {section}{\numberline {A.1}Scyther - APKES}{37}{section.A.1}
-\contentsline {section}{\numberline {A.2}Scyther - AKES}{39}{section.A.2}
+\contentsline {appendix}{\chapternumberline {A}Appendix}{41}{appendix.A}
+\contentsline {section}{\numberline {A.1}Scyther - APKES}{41}{section.A.1}
+\contentsline {section}{\numberline {A.2}Scyther - AKES}{43}{section.A.2}

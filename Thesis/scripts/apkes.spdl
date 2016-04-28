@@ -1,6 +1,8 @@
 /*
 	Adaptive Pairwise Key Establishment Scheme (APKES)
 */
+usertype KeyingMaterial;
+usertype Index;
 
 hashfunction MIC;
 
@@ -8,11 +10,11 @@ macro PairwiseKey = {Ru, Rv}k(U, V);
 macro helloack-mic = MIC(Ru, Rv, Iuv, SAv, k(U,V));
 macro ack-mic = MIC(ack-msg, Ivu, PairwiseKey);
 
-const SAu: Agent; # U's Short Address
-const SAv: Agent; # V's Short Address
+const SAu; # U's Short Address
+const SAv; # V's Short Address
 
-const Iuv; # U's index in V's list of neighbours
-const Ivu; # V's index in U's list of neighbours
+const Iuv: Index; # U's index in V's list of neighbours
+const Ivu: Index; # V's index in U's list of neighbours
 
 const ack-msg;
 
@@ -40,10 +42,10 @@ protocol APKES(U, V)
 		claim_U3(U, Niagree); # Non-injective agreement
 		claim_U4(U, Nisynch); # Non-injective synchronization
 		claim_U5(U, Commit, V, Ru); # claim that the recv2 value of Ru has not been changed from the send_1 Ru-value
-		
-		#claim_U7(U, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
-		
-		
+
+		claim_U7(U, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
+
+
 	}
 
 	role V
@@ -67,8 +69,16 @@ protocol APKES(U, V)
 		claim_V2(V, Weakagree);
 		claim_V3(V, Niagree);
 		claim_V4(V, Nisynch);
-		#claim_V5(V, Secret, PairwiseKey);
-		
-		
+		claim_V5(V, Secret, PairwiseKey);
+
+
 	}
+}
+
+protocol EBEAP (U,V)
+
+{
+
+
+
 }

@@ -30,6 +30,13 @@ Barker, E. (2016).
 \newblock {Recommendation for Key Management Part 1: General}.
 \newblock {\em NIST Special Publication\/}~{\em 800\/}(4), 57.
 
+\bibitem[\protect\citeauthoryear{Basin and Cremers}{Basin and
+  Cremers}{2010}]{basin2010modeling}
+Basin, D. and C.~Cremers (2010).
+\newblock {Modeling and Analyzing Security in the Presence of Compromising
+  Adversaries}.
+\newblock In {\em Computer Security--ESORICS 2010}, pp.\  340--356. Springer.
+
 \bibitem[\protect\citeauthoryear{Basin, Cremers, and Meadows}{Basin
   et~al.}{2012}]{basin2011model}
 Basin, D., C.~J. Cremers, and C.~Meadows (2012).
@@ -41,6 +48,11 @@ Blanchet, B.
 \newblock \url{http://prosecco.gforge.inria.fr/personal/bblanche/proverif/}.
 \newblock Accessed: 2016-02-23.
 
+\bibitem[\protect\citeauthoryear{Blom}{Blom}{1984}]{blom1984optimal}
+Blom, R. (1984).
+\newblock An optimal class of symmetric key generation systems.
+\newblock In {\em Advances in cryptology}, pp.\  335--338. Springer.
+
 \bibitem[\protect\citeauthoryear{Burrows, Abadi, and Needham}{Burrows
   et~al.}{1989}]{burrows1989logic}
 Burrows, M., M.~Abadi, and R.~M. Needham (1989).
@@ -48,6 +60,19 @@ Burrows, M., M.~Abadi, and R.~M. Needham (1989).
 \newblock In {\em Proceedings of the Royal Society of London A: Mathematical,
   Physical and Engineering Sciences}, Volume 426, pp.\  233--271. The Royal
   Society.
+
+\bibitem[\protect\citeauthoryear{Chan, Perrig, and Song}{Chan
+  et~al.}{2003}]{chan2003random}
+Chan, H., A.~Perrig, and D.~Song (2003).
+\newblock Random key predistribution schemes for sensor networks.
+\newblock In {\em Security and Privacy, 2003. Proceedings. 2003 Symposium on},
+  pp.\  197--213. IEEE.
+
+\bibitem[\protect\citeauthoryear{Cremers and Horvat}{Cremers and
+  Horvat}{2014}]{cremers2014improving}
+Cremers, C. and M.~Horvat (2014).
+\newblock {Improving the ISO/IEC 11770 Standard for Key Management Techniques}.
+\newblock In {\em Security Standardisation Research}, pp.\  215--235. Springer.
 
 \bibitem[\protect\citeauthoryear{Cremers}{Cremers}{}]{scyther}
 Cremers, C.~J.
@@ -189,6 +214,12 @@ Kopetz, H. (2011).
   Applications}, Chapter Internet of Things, pp.\  307--323.
 \newblock Springer.
 
+\bibitem[\protect\citeauthoryear{Krawczyk}{Krawczyk}{2005}]{krawczyk2005hmqv}
+Krawczyk, H. (2005).
+\newblock {HMQV: A High-Performance Secure Diffie-Hellman Protocol}.
+\newblock In {\em Advances in Cryptology--CRYPTO 2005}, pp.\  546--566.
+  Springer.
+
 \bibitem[\protect\citeauthoryear{Krentz, Rafiee, and Meinel}{Krentz
   et~al.}{2013}]{krentz20136lowpan}
 Krentz, K.-F., H.~Rafiee, and C.~Meinel (2013).
@@ -220,6 +251,12 @@ Mao, W. and C.~Boyd (1993).
 Maurer, U. (1996).
 \newblock {Modelling a Public-Key Infrastructure}.
 \newblock In {\em Computer Security—ESORICS 96}, pp.\  325--350. Springer.
+
+\bibitem[\protect\citeauthoryear{Meier, Schmidt, Cremers, and Basin}{Meier
+  et~al.}{2013}]{meier2013tamarin}
+Meier, S., B.~Schmidt, C.~Cremers, and D.~Basin (2013).
+\newblock {The Tamarin Prover for the Symbolic Analysis of Security Protocols}.
+\newblock In {\em Computer Aided Verification}, pp.\  696--701. Springer.
 
 \bibitem[\protect\citeauthoryear{Mulligan}{Mulligan}{2007}]{Mulligan2007}
 Mulligan, G. (2007).
@@ -300,5 +337,13 @@ Wu, M., T.-J. Lu, F.-Y. Ling, J.~Sun, and H.-Y. Du (2010).
 \newblock {Research on the Architecture of Internet of Things}.
 \newblock In {\em 2010 3rd International Conference on Advanced Computer Theory
   and Engineering(ICACTE)}, Volume~5, pp.\  V5--484--V5--487.
+
+\bibitem[\protect\citeauthoryear{Zhu, Setia, and Jajodia}{Zhu
+  et~al.}{2006}]{zhu2006leap+}
+Zhu, S., S.~Setia, and S.~Jajodia (2006).
+\newblock {LEAP+: Efficient Security Mechanisms for Large-Scale Distributed
+  Sensor Networks}.
+\newblock {\em ACM Transactions on Sensor Networks (TOSN)\/}~{\em 2\/}(4),
+  500--528.
 
 \end{thebibliography}

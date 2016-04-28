@@ -140,7 +140,7 @@ In the 1970s, Whitfield Diffie and Martin Hellman introduced the Diffie-Hellman 
 Of the different algorithms in use today, the \gls{rsa} cryptosystem is the most commonly used, which provides both key exchange and authentication \cite{wander2005energy}. Asymmetric encryption is significantly more computationally costly compared to symmetric encryption. This has lead to a hybrid solution where a symmetric session key is established and encrypted under the public key of each recipient, which reduces the computation time of encryption and decryption, giving a more efficient encryption scheme.
 
 \subsection{Security Attributes in Key Establishment Schemes}
-
+\label{sec:attributes}
 % Authentication
 
 \subsubsection{Authentication}
@@ -151,14 +151,15 @@ Authentication is an important aspect of key establishment. More specific, confi
 
 Session keys are single-use symmetric keys that are used for a given period of the communication before being exchanged and deleted from the system, and never to be used again. Known-key security is a property where the leak of information is minimized in the case of one (or multiple) session keys are compromised. For example in the case where session keys are derived from the private key, then the compromise should not lead to the compromise of the private key, nor any of the past or future session keys. 
 
-\subsubsection{Forward Secrecy}
+\subsubsection{Perfect Forward Secrecy}
 
-Following in the lines of known-key security, forward secrecy is a security attribute where in the case of the long-term private key of one (or both) of the communicating parties being compromised, it should not lead to the reveal of any of the past session keys that are used in the communication between the parties. 
-The Heartbleed Bug in 2014 was a painful example of the need for forward secrecy, where a bug in the OpenSSL cryptographic software library leaked secret keys for certificates, as well as user names and passwords \cite{durumeric2014matter}. Attackers were able to retrieve 64 kilobytes of the memory of web servers for each attack (or ``heartbeat''), which could be used to retrieve the private long-term key of the web server. The private key could then be used to retroactively decrypt all traffic that had previously been recorded.
+Following in the lines of known-key security, \gls{pfs} is a security attribute where in the case of the long-term private key of one (or both) of the communicating parties being compromised, it should not lead to the reveal of any of the past session keys that are used in the communication between the parties. The Heartbleed incident in 2014 was a painful example of the need for \gls{pfs}, where a bug in the OpenSSL cryptographic software library leaked secret keys for certificates, as well as user names and passwords \cite{durumeric2014matter}. Attackers were able to retrieve 64 kilobytes of the memory of web servers for each attack (or ``heartbeat''), which could be used to retrieve the private long-term key of the web server. The private key could then be used to retroactively decrypt all traffic that had previously been recorded.
+
+\gls{pfs} is a desirable security property for key establishment protocols, but it is often difficult to achieve. \gls{wpfs} is a weaker type of \gls{pfs}, where the adversary is assumed to be \emph{passive} \cite{krawczyk2005hmqv}. In the case of a long-term key compromise, previous sessions are guaranteed to be secure, but only if the adversary was not actively interfering with the protocol during the session. 
 
 \subsubsection{Key-Compromise Impersonation}
 
-In this case, an adversary has obtained the long-term private key of an honest entity $A$. Key-compromise impersonation prevents the adversary both from impersonating $A$ to other entities (establishing session keys with them), as well as preventing the adversary from impersonate other entities in communication with $A$ (masquerading as a different entity in order to establish a session key with $A$). In practice, a party possessing the private key of $A$ is able to decrypt both past and future traffic going to and from $A$.
+In this case, an adversary has obtained the long-term private key of an honest entity $A$. \gls{kci} prevents the adversary both from impersonating $A$ to other entities (establishing session keys with them), as well as preventing the adversary from impersonate other entities in communication with $A$ (masquerading as a different entity in order to establish a session key with $A$). In practice, a party possessing the private key of $A$ is able to decrypt both past and future traffic going to and from $A$.
 
 
 \subsubsection{Key Control}
@@ -167,7 +168,7 @@ Key control is to prevent a party from computing a part of the session key witho
 
 \subsubsection{Unknown Key-Share}
 
-Unknown key-share resilience is an attribute in key agreement protocols where a key shared between two entities $A$ and $B$ can not be shared with any others without they both consenting to it. When $A$ and $B$ are establishing a shared key, attacks targeting this process may want to convince $A$ that it is sharing the key with $B$, while $B$ in fact is under the impression that it is sharing the key with a third entity $C$. 
+Unknown key-share resilience is an attribute in key agreement protocols where a key shared between two entities $A$ and $B$ can not be shared with any others without they both consenting to it. When $A$ and $B$ are establishing a shared key, attacks targeting this process may want to convince $A$ that it is sharing the key with $B$, while $B$ in fact is under the impression that it is sharing the key with a third entity $C$. After the key establishment process is finished, $A$ believes it has established a key with $B$ (which is correct), but $B$ is under the belief that it has established a key with $C$. This results in that when $B$ thinks it is sending a message to C, $A$ is the actual receiver of the message.
 
 
 \subsection{Key Establishment Schemes}
@@ -203,7 +204,7 @@ Bottom line, there is no scheme that provides a clear advantage over others, sym
 %Key Management?
 
 \section{Formal Security Analysis} 
-
+\label{sec:formal}
 
 As security protocols grows larger and more complex, they become more and more difficult for humans to analyse. One of the examples of the need for formal security analysis is the Needham-Schroeder protocol \cite{Needham:1978} from 1978. The Needham-Schroeder Public-Key Protocol is based on public-key cryptography and was intended to allow two communicating parties to mutually authenticate each other. Throughout this section, the protocol will be used as an illustrative example to underline the importance of formal security analysis.
 
@@ -214,24 +215,29 @@ In fact, 17 years later after being deployed and widely used, Lowe discovered us
 
 In order to conduct formal security analysis, we need a formal model to be able to study the protocol under precise assumptions. Formal security models are abstractions of descriptions of systems, aiming to improve the understanding of the security of the system by simplifying its interpretation. By defining a formal security model, we aim to discover and correct errors, incompleteness and inconsistencies in protocol specifications, before they are exploited by adversaries. A protocol specification is a description of the behaviour of the different entities that are allowed to communicate with each other during an execution of the protocol \cite{cremers2005operational}. More precise, a protocol description specifies the different roles in the protocol, each containing a sequential list of the messages that are sent and received from that particular role. It also contains the information of the initial knowledge of the protocol, which are the functions, constants and variables that the protocol needs to execute correctly. Such a specification is expressed using a formal language, which has well-defined syntax and semantics, for example process algebra, predicate logic, and lambda calculus. 
 
-
-The Dolev-Yao model is a formal threat model used to prove the security properties of cryptographic protocols. While initially being a verification model built for public key protocols, the Dolev-Yao model is also the basis for most of the security analysis done by verification tools that focus on verifying secrecy and authentication properties \cite{cremers2005operational}. The model is built upon three primary assumptions: Perfect cryptography, complete control of network, and abstract terms \cite{dolev1983security}. Firstly, the Dolev-Yao model assumes that the cryptography is perfect, essentially meaning that the cryptographic system can not be tampered with, and an encrypted message can only be decrypted by the party possessing the corresponding decryption key. The second assumption is that the adversary has complete control over the communication network, hence he is able to observe all messages that are sent between communicating parties, and can inject messages given that he is able to forge its content in a valid matter. Lastly, messages that are sent in the network are to be observed as abstract terms, where the attacker has two possible outcomes; either he learns the complete content of the message, or he learns nothing at all. 
-
-
 % Verification and falsification
 
-Falsification, presented by Popper in 1934, is the theory of presenting an observation that would disprove the correctness of an alleged theory, or more informally; It is not possible to prove a theory from a single correct observation, but a single observation that contradicts the theory is enough to disprove it \cite{popper2005logic}. In model checking, the falsification process is to formally assess the security properties of the protocol in order to discover examples that disproves the claimed security by constructing counter-examples. Following in the same line of thoughts, we can perform verification by using formal models and languages to verify a statement (i.e. a security property). In formal security analysis, this is referred to as model checking, which uses the formal model to exhaustive verify whether it meets the alleged security properties \cite{basin2011model}. Verification can also be done by constructing mathematical proofs for each of the security properties, proving that the alleged security is fulfilled. 
+Falsification, presented by Popper in 1934, is the theory of presenting an observation that would disprove the correctness of an alleged theory, or more informally; It is not possible to prove a theory from a single correct observation, but a single observation that contradicts the theory is enough to disprove it \cite{popper2005logic}. The falsification process in model checking is to formally assess the security properties of the protocol in order to discover examples that disproves the claimed security by constructing counter-examples. Following in the same line of thoughts, we can perform verification by using formal models and languages to verify a statement (i.e. a security property). In formal security analysis, this is referred to as model checking, which uses the formal model to exhaustive verify whether it meets the alleged security properties \cite{basin2011model}. Verification can also be done by constructing mathematical proofs for each of the security properties, proving that the alleged security is fulfilled. 
 
 
+% Characterization ?
 
+% Intruder model
+
+The Dolev-Yao model is a formal intruder model used to prove the security properties of cryptographic protocols. While initially being a verification model built for public key protocols, the Dolev-Yao model is also the basis for most of the security analysis done by verification tools that focus on verifying secrecy and authentication properties \cite{cremers2005operational}. The model is built upon three primary assumptions: Perfect cryptography, complete control of network, and abstract terms \cite{dolev1983security}. Firstly, the Dolev-Yao model assumes that the cryptography is perfect, essentially meaning that the cryptographic system can not be tampered with, and an encrypted message can only be decrypted by the party possessing the corresponding decryption key. The second assumption is that the adversary has complete control over the communication network, hence he is able to observe all messages that are sent between communicating parties, and can inject messages given that he is able to forge its content in a valid matter. Lastly, messages that are sent in the network are to be observed as abstract terms, where the attacker has two possible outcomes; either he learns the complete content of the message, or he learns nothing at all. 
+
+
+Over the years, multiple intruder models have evolved from the Doley-Yao model. 
+
+%???
 
 % Goals of formal security analysis
-What are good security properties? What do we want to achieve? 
+%What are good security properties? What do we want to achieve? 
 
-Confidentiality, integrity, and availability, also known as the \gls{cia} triad, are the formal security goals 
+%Confidentiality, integrity, and availability, also known as the \gls{cia} triad, are the formal security goals 
 
 
-
+%Non-rep
 
 
 

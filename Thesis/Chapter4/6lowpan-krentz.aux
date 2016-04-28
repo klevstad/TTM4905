@@ -2,30 +2,40 @@
 \providecommand\hyper@newdestlabel[2]{}
 \citation{krentz20136lowpan}
 \citation{anderson1996tamper}
+\citation{krentz20136lowpan}
+\citation{krentz20136lowpan}
+\citation{krentz20136lowpan}
+\citation{zhu2006leap+}
+\citation{blom1984optimal}
+\citation{chan2003random}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{27}{chapter.4}}
-\newlabel{chp:krentz-6lowpan}{{\M@TitleReference {4}{6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}}{27}{6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Ideas of the Paper (Change this)}{27}{section.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}APKES}{27}{subsection.4.1.1}}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{31}{chapter.4}}
+\newlabel{chp:krentz-6lowpan}{{\M@TitleReference {4}{6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}}{31}{6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Introduction to APKES}{31}{section.4.1}}
 \citation{krentz20136lowpan}
-\citation{krentz20136lowpan}
-\citation{krentz20136lowpan}
-\citation{krentz20136lowpan}
-\citation{krentz20136lowpan}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Pluggable schemes}{28}{subsection.4.1.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}\gls {ebeap}}{28}{subsection.4.1.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces \gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite  {krentz20136lowpan}.}}{29}{figure.4.1}}
-\newlabel{fig:6lowpan-krentz}{{\M@TitleReference {4.1}{\gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite  {krentz20136lowpan}.}}{29}{\gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}}{figure.4.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Formal analysis using Scyther}{29}{subsection.4.1.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.5}Discussion}{29}{subsection.4.1.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Informal Analysis}{29}{section.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Formal Analysis}{29}{section.4.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Scyther}{29}{subsection.4.3.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces \gls {apkes} consists of a three-way handshake, and utilizes a pluggable scheme for deriving the shared secret between two nodes \cite  {krentz20136lowpan}.}}{30}{figure.4.2}}
-\newlabel{fig:apkes}{{\M@TitleReference {4.2}{\gls {apkes} consists of a three-way handshake, and utilizes a pluggable scheme for deriving the shared secret between two nodes \cite  {krentz20136lowpan}.}}{30}{\gls {apkes} consists of a three-way handshake, and utilizes a pluggable scheme for deriving the shared secret between two nodes \cite {krentz20136lowpan}}{figure.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces \gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite  {krentz20136lowpan}.}}{32}{figure.4.1}}
+\newlabel{fig:6lowpan-krentz}{{\M@TitleReference {4.1}{\gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite  {krentz20136lowpan}.}}{32}{\gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}}{figure.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Easy Broadcast Encryption and Authentication Protocol}{32}{subsection.4.1.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Protocol specification}{33}{subsection.4.1.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during \gls {apkes}' three-way handshake. $\delimiter "426830A {msg}\delimiter "526930B {K}$ indicates that the frame is authenticated using the key $K$.}}{33}{figure.4.2}}
+\newlabel{fig:apkes-handshake}{{\M@TitleReference {4.2}{Figure of the messages sent between communicating parties during \gls {apkes}' three-way handshake. $\delimiter "426830A {msg}\delimiter "526930B {K}$ indicates that the frame is authenticated using the key $K$.}}{33}{Figure of the messages sent between communicating parties during \gls {apkes}' three-way handshake. $\langle {msg}\rangle {K}$ indicates that the frame is authenticated using the key $K$}{figure.4.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Formal Security Analysis of APKES}{33}{section.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Key establishment}{33}{subsection.4.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Key agreement}{33}{subsection.4.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Security properties}{33}{subsection.4.2.3}}
+\@writefile{toc}{\contentsline {subsubsection}{Authentication}{33}{section*.19}}
+\@writefile{toc}{\contentsline {subsubsection}{Key Compromise Impersonation}{34}{section*.20}}
+\@writefile{toc}{\contentsline {subsubsection}{Unknown Key Share}{34}{section*.21}}
+\@writefile{toc}{\contentsline {subsubsection}{key confirmation}{34}{section*.22}}
+\@writefile{toc}{\contentsline {subsubsection}{Forward Secrecy}{34}{section*.23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Threat model}{34}{subsection.4.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Formal model}{34}{subsection.4.2.5}}
+\@writefile{toc}{\contentsline {subsubsection}{Specifying security properties}{34}{section*.24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Results}{34}{subsection.4.2.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.7}Recommendations}{34}{subsection.4.2.7}}
 \@setckpt{Chapter4//6lowpan-krentz}{
-\setcounter{page}{31}
+\setcounter{page}{35}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -38,8 +48,8 @@
 \setcounter{book}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{4}
-\setcounter{section}{3}
-\setcounter{subsection}{1}
+\setcounter{section}{2}
+\setcounter{subsection}{7}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
@@ -72,9 +82,9 @@
 \setcounter{cmsm@mctr}{0}
 \setcounter{bsm@mctr}{0}
 \setcounter{workm@mctr}{0}
-\setcounter{sheetsequence}{47}
-\setcounter{lastsheet}{57}
-\setcounter{lastpage}{41}
+\setcounter{sheetsequence}{51}
+\setcounter{lastsheet}{61}
+\setcounter{lastpage}{45}
 \setcounter{figure}{2}
 \setcounter{lofdepth}{1}
 \setcounter{table}{0}
@@ -83,14 +93,14 @@
 \setcounter{Hfootnote}{0}
 \setcounter{memhycontfloat}{0}
 \setcounter{Hpagenote}{0}
-\setcounter{bookmark@seq@number}{30}
+\setcounter{bookmark@seq@number}{36}
 \setcounter{AM@survey}{0}
 \setcounter{parentequation}{0}
 \setcounter{theorem}{0}
 \setcounter{recommendation}{0}
 \setcounter{question}{0}
-\setcounter{lstnumber}{21}
-\setcounter{float@type}{16}
+\setcounter{lstnumber}{16}
+\setcounter{float@type}{32}
 \setcounter{algorithm}{0}
 \setcounter{ALG@line}{0}
 \setcounter{ALG@rem}{0}
@@ -115,6 +125,8 @@
 \setcounter{blind@randommax}{1}
 \setcounter{blind@pangramcount}{0}
 \setcounter{blind@pangrammax}{1}
+\setcounter{tcbbreakpart}{1}
+\setcounter{tcblayer}{0}
 \setcounter{section@level}{2}
 \setcounter{lstlisting}{0}
 }
