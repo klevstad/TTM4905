@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.26)  28 APR 2016 20:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.26)  2 MAY 2016 09:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1774,10 +1774,13 @@ Package glossaries Info: Writing glossary file main.glo on input line 26.
 \openout8 = `main.acn'.
 
 Package glossaries Info: Writing glossary file main.acn on input line 26.
- (./main.aux (./abstract_english.aux) (./preface.aux)
-(./Chapter1//introduction.aux) (./Chapter2//background.aux)
-(./Chapter3//scyther.aux) (./Chapter4//6lowpan-krentz.aux)
-(./Chapter5//krentz-mobility.aux) (./Appendix/Appendix.aux))
+ (./main.aux (./Chapter1//introduction.aux)
+(./Chapter2//background.aux) (./Chapter3//scyther.aux)
+(./Chapter4//6lowpan-krentz.aux) (./Chapter5//krentz-mobility.aux
+
+LaTeX Warning: Label `fig:apkes-handshake' multiply defined.
+
+) (./Appendix/Appendix.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
@@ -1884,57 +1887,37 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-])
-\openout2 = `abstract_english.aux'.
-
- (./abstract_english.tex)pdfTeX warning (ext4): destination with the same ident
-ifier (name{page.i}) has been already used, duplicate ignored
+]) (./main.tocpdfTeX warning (ext4): destination with the same identifier (name
+{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.87 \include{abstract_english}
-                                [1
+l.43 ...s of APKES using Scyther}{34}{section.4.2}
+                                                   [1
 
-
-]pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) ha
-s been already used, duplicate ignored
+])pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) h
+as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.88 \cleardoublepage
-                      [2
-
-
-]
-\openout2 = `preface.aux'.
-
- (./preface.tex) [3
+l.103 \cleardoublepage
+                       [2] (./main.lof) [3
 
 ] [4
 
+] (./main.lot) [5] [6
 
-] (./main.toc
-Overfull \hbox (13.47409pt too wide) in paragraph at lines 43--43
- [][] [][][]\T1/lmr/bx/n/10 6LoWPAN Se-cu-rity - Adding Com-pro-mise Re-silienc
-e to the 802.15.4 
- []
-
-[5]) [6] (./main.lof) [7
-
-] [8
-
-] (./main.lot) [9] [10
-
-] (./main.lol
+]
+(./main.lol
 Overfull \hbox (1.67181pt too wide) in paragraph at lines 6--6
  [][] [][][]\T1/lmr/m/n/10 (-20) Example of how to claim au-then-ti-ca-tion by 
 use of alive, weak-agreement, 
  []
 
-) [11] [12
+) [7] [8
 
-] (./main.acr [13
+] (./main.acr [9
 
 
-]) [14]
+]) [10]
 \openout2 = `Chapter1//introduction.aux'.
 
  (./Chapter1//introduction.tex) [1
@@ -1956,7 +1939,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-<./figs/osi.png, id=456, 334.24875pt x 250.9375pt>
+<./figs/osi.png, id=418, 334.24875pt x 250.9375pt>
 File: ./figs/osi.png Graphic file (type png)
  <use ./figs/osi.png>
 Package pdftex.def Info: ./figs/osi.png used on input line 58.
@@ -1965,7 +1948,7 @@ Package pdftex.def Info: ./figs/osi.png used on input line 58.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] <./figs/802154.png, id=482, 771.88374pt x 504.88625pt>
+[5] <./figs/802154.png, id=445, 771.88374pt x 504.88625pt>
 File: ./figs/802154.png Graphic file (type png)
 
 <use ./figs/802154.png>
@@ -1991,7 +1974,7 @@ tifier (name{figure.2.2}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.97 
       <./figs/802154.png>]
-<./figs/6lowpan.png, id=531, 263.98625pt x 233.87375pt>
+<./figs/6lowpan.png, id=495, 263.98625pt x 233.87375pt>
 File: ./figs/6lowpan.png Graphic file (type png)
 
 <use ./figs/6lowpan.png>
@@ -2019,7 +2002,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ] [17]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 27.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 29.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -2029,83 +2015,76 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 29.
+nput line 31.
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
+[21] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
-[24] [25] <./figs/compromise-model.png, id=878, 435.6275pt x 163.61125pt>
+[24]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[25] <./figs/compromise-model.png, id=850, 435.6275pt x 163.61125pt>
 File: ./figs/compromise-model.png Graphic file (type png)
 
 <use ./figs/compromise-model.png>
-Package pdftex.def Info: ./figs/compromise-model.png used on input line 211.
+Package pdftex.def Info: ./figs/compromise-model.png used on input line 222.
 (pdftex.def)             Requested size: 348.50247pt x 130.88916pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 7168) has occurred while \output is active []
 
  [26pdfTeX warning (ext4): destination with the same identifier (name{table.3.1
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.235 
-      ] <./figs/Untitled.png, id=892, 365.11406pt x 277.78781pt>
+l.225 \end{figure}
+                  ] <./figs/Untitled.png, id=865, 365.11406pt x 277.78781pt>
 File: ./figs/Untitled.png Graphic file (type png)
 
 <use ./figs/Untitled.png>
 Package pdftex.def Info: ./figs/Untitled.png used on input line 238.
-(pdftex.def)             Requested size: 328.59961pt x 250.0067pt.
+(pdftex.def)             Requested size: 365.11316pt x 277.78711pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./figs/ScytherFailSecretClaim.png, id=896, 449.42906pt x 93.34875pt>
-File: ./figs/ScytherFailSecretClaim.png Graphic file (type png)
-
-<use ./figs/ScytherFailSecretClaim.png>
-Package pdftex.def Info: ./figs/ScytherFailSecretClaim.png used on input line 2
-48.
-(pdftex.def)             Requested size: 364.03554pt x 75.61206pt.
+Overfull \hbox (1.11316pt too wide) in paragraph at lines 238--239
+ [][] 
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -2115,9 +2094,32 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.254 
+l.244 
        <./figs/compromise-model.png>]
-<./figs/ScytherFailAttackGraph.png, id=905, 822.82407pt x 455.45157pt>
+<./figs/ScytherFailSecretClaim.png, id=874, 449.42906pt x 93.34875pt>
+File: ./figs/ScytherFailSecretClaim.png Graphic file (type png)
+
+<use ./figs/ScytherFailSecretClaim.png>
+Package pdftex.def Info: ./figs/ScytherFailSecretClaim.png used on input line 2
+48.
+(pdftex.def)             Requested size: 364.03554pt x 75.61206pt.
+
+Underfull \vbox (badness 2671) has occurred while \output is active []
+
+ [28pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.254 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3.3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.254 
+       <./figs/Untitled.png (PNG copy)> <./figs/ScytherFailSecretClaim.png>]
+<./figs/ScytherFailAttackGraph.png, id=881, 822.82407pt x 455.45157pt>
 File: ./figs/ScytherFailAttackGraph.png Graphic file (type png)
 
 <use ./figs/ScytherFailAttackGraph.png>
@@ -2129,24 +2131,8 @@ Overfull \hbox (6.26741pt too wide) in paragraph at lines 257--258
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [28pdfTeX warning (ext4): destination with the same identifier (name{figure.3
-.2}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.132 \include{Chapter3//scyther}
-                                 pdfTeX warning (ext4): destination with the sa
-me identifier (name{figure.3.3}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.132 \include{Chapter3//scyther}
-                                  <./figs/Untitled.png (PNG copy)> <./figs/Scyt
-herFailSecretClaim.png>] [29pdfTeX warning (ext4): destination with the same id
-entifier (name{figure.3.4}) has been already used, duplicate ignored
+) [29pdfTeX warning (ext4): destination with the same identifier (name{figure.3
+.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -2160,7 +2146,7 @@ l.132 \include{Chapter3//scyther}
 
 
 ]
-<./figs/6lowpan-krentz.png, id=932, 404.51125pt x 304.13625pt>
+<./figs/6lowpan-krentz.png, id=903, 404.51125pt x 304.13625pt>
 File: ./figs/6lowpan-krentz.png Graphic file (type png)
 
 <use ./figs/6lowpan-krentz.png>
@@ -2170,39 +2156,45 @@ Package pdftex.def Info: ./figs/6lowpan-krentz.png used on input line 13.
 Underfull \vbox (badness 1270) has occurred while \output is active []
 
  [31]
-
-Class memoir Warning: The material used in the headers is too large
-(24.0pt) for the given head height (12.0pt), it is recommended to
-either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 29.
-
-
-Overfull \vbox (12.0pt too high) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [32pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.29 
-      <./figs/6lowpan-krentz.png>] [33pdfTeX warning (ext4): destination with t
-he same identifier (name{figure.4.2}) has been already used, duplicate ignored
+l.27 
+      <./figs/6lowpan-krentz.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33]
+Underfull \vbox (badness 3088) has occurred while \output is active []
+
+ [34pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
+2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.74 \subsubsection
-                   {Key Compromise Impersonation}])
-Overfull \vbox (12.0pt too high) has occurred while \output is active []
-
- [34]
+l.103 \subsubsection
+                    {Forward Secrecy}]) [35]
 \openout2 = `Chapter5//krentz-mobility.aux'.
 
+ (./Chapter5//krentz-mobility.tex
+[36
 
-(./Chapter5//krentz-mobility.tex) [35
 
 
+]) [37pdfTeX warning (ext4): destination with the same identifier (name{figure.
+5.1}) has been already used, duplicate ignored
 
-] (./main.bbl [36
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.136 \include{Chapter5//krentz-mobility}
+                                         ] (./main.bbl [38
 
 
 ]
@@ -2212,7 +2204,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--27
 []\T1/lmr/m/n/10 (+20) Ashton, K.  That ``In-ter-net of Things'' Thing.
  []
 
-[37] [38] [39]) [40]
+[39] [40] [41]) [42]
 \openout2 = `Appendix/Appendix.aux'.
 
  (./Appendix/Appendix.tex (./scripts/apkes.spdl
@@ -2220,24 +2212,18 @@ LaTeX Font Info:    Try loading font information for TS1+lmr on input line 1.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [41
+) [43
 
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42])
-(./scripts/akes.spdl [43]
+ [44])
+(./scripts/akes.spdl [45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44]))
-[45]
-
-Class memoir Warning: The material used in the headers is too large
-(24.0pt) for the given head height (12.0pt), it is recommended to
-either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 155.
-
+ [46]))
+[47]
 \tf@toc=\write10
 \openout10 = `main.toc'.
 
@@ -2252,26 +2238,31 @@ either increase the head height or redesign the header
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 155.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 155.
-(./main.aux (./abstract_english.aux) (./preface.aux)
-(./Chapter1//introduction.aux) (./Chapter2//background.aux)
+ (./main.aux (./Chapter1//introduction.aux) (./Chapter2//background.aux)
 (./Chapter3//scyther.aux) (./Chapter4//6lowpan-krentz.aux)
 (./Chapter5//krentz-mobility.aux) (./Appendix/Appendix.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 155.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 155.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 63B8F4F7D57D8E52A075B50A19EDEE4B;3021.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 44C85B012EC74572DEA65D01EA81BEC9;2668
+(rerunfilecheck)             After:  F54DB98D1A43C7CAB919D958C5BECCE0;2744.
+
+LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 155.
  ) 
 Here is how much of TeX's memory you used:
- 30706 strings out of 493304
- 485201 string characters out of 6139871
- 896129 words of memory out of 5000000
- 32867 multiletter control sequences out of 15000+600000
- 68600 words of font info for 121 fonts, out of 8000000 for 9000
+ 30680 strings out of 493304
+ 484787 string characters out of 6139871
+ 895001 words of memory out of 5000000
+ 32855 multiletter control sequences out of 15000+600000
+ 68860 words of font info for 123 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  60i,14n,72p,1753b,1861s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
@@ -2285,10 +2276,10 @@ ype1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr
 c/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mtt10.pfb>
-Output written on main.pdf (61 pages, 619636 bytes).
+Output written on main.pdf (59 pages, 629579 bytes).
 PDF statistics:
- 1362 PDF objects out of 1440 (max. 8388607)
- 1251 compressed objects within 13 object streams
- 458 named destinations out of 1000 (max. 500000)
- 18813 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 1354 PDF objects out of 1440 (max. 8388607)
+ 1244 compressed objects within 13 object streams
+ 454 named destinations out of 1000 (max. 500000)
+ 18781 words of extra memory for PDF output out of 20736 (max. 10000000)
 

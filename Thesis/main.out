@@ -3,7 +3,7 @@
 \BOOKMARK [0][-]{section*.3}{Listings}{}% 3
 \BOOKMARK [0][-]{section*.4}{List of Acronyms}{}% 4
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 5
-\BOOKMARK [0][-]{chapter.2}{Background}{}% 6
+\BOOKMARK [0][-]{chapter.2}{Background and Related Work}{}% 6
 \BOOKMARK [1][-]{section.2.1}{Internet of Things}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.2}{The IEEE 802.15.4 Standard}{chapter.2}% 8
 \BOOKMARK [1][-]{section.2.3}{6LoWPAN: Putting IP on Top of 802.15.4}{chapter.2}% 9
@@ -14,28 +14,25 @@
 \BOOKMARK [2][-]{subsection.2.4.4}{Key Establishment Schemes}{section.2.4}% 14
 \BOOKMARK [2][-]{subsection.2.4.5}{Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{section.2.4}% 15
 \BOOKMARK [1][-]{section.2.5}{Formal Security Analysis}{chapter.2}% 16
-\BOOKMARK [0][-]{chapter.3}{Symbolic Security Analysis Using Scyther}{}% 17
-\BOOKMARK [1][-]{section.3.1}{The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.2}{Scyther Syntax}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.2.1}{Security Claims}{section.3.2}% 20
-\BOOKMARK [1][-]{section.3.3}{Defining an Adversary Compromise Model}{chapter.3}% 21
-\BOOKMARK [2][-]{subsection.3.3.1}{Compromising of long-term keys}{section.3.3}% 22
-\BOOKMARK [2][-]{subsection.3.3.2}{Compromising of short-term data}{section.3.3}% 23
-\BOOKMARK [1][-]{section.3.4}{Scyther's Graphical User Interface}{chapter.3}% 24
-\BOOKMARK [0][-]{chapter.4}{6LoWPAN Security - Adding Compromise Resilience to the 802.15.4 Security Sublayer}{}% 25
-\BOOKMARK [1][-]{section.4.1}{Introduction to APKES}{chapter.4}% 26
-\BOOKMARK [2][-]{subsection.4.1.1}{Easy Broadcast Encryption and Authentication Protocol}{section.4.1}% 27
-\BOOKMARK [2][-]{subsection.4.1.2}{Protocol specification}{section.4.1}% 28
-\BOOKMARK [1][-]{section.4.2}{Formal Security Analysis of APKES}{chapter.4}% 29
-\BOOKMARK [2][-]{subsection.4.2.1}{Key establishment}{section.4.2}% 30
-\BOOKMARK [2][-]{subsection.4.2.2}{Key agreement}{section.4.2}% 31
-\BOOKMARK [2][-]{subsection.4.2.3}{Security properties}{section.4.2}% 32
-\BOOKMARK [2][-]{subsection.4.2.4}{Threat model}{section.4.2}% 33
-\BOOKMARK [2][-]{subsection.4.2.5}{Formal model}{section.4.2}% 34
-\BOOKMARK [2][-]{subsection.4.2.6}{Results}{section.4.2}% 35
-\BOOKMARK [2][-]{subsection.4.2.7}{Recommendations}{section.4.2}% 36
-\BOOKMARK [0][-]{chapter.5}{Handling Reboots and Mobility in 802.15.4 Security}{}% 37
-\BOOKMARK [0][-]{section*.26}{References}{}% 38
-\BOOKMARK [0][-]{appendix.A}{Appendix}{}% 39
-\BOOKMARK [1][-]{section.A.1}{Scyther - APKES}{appendix.A}% 40
-\BOOKMARK [1][-]{section.A.2}{Scyther - AKES}{appendix.A}% 41
+\BOOKMARK [1][-]{section.2.6}{Related Work}{chapter.2}% 17
+\BOOKMARK [0][-]{chapter.3}{Symbolic Security Analysis Using Scyther}{}% 18
+\BOOKMARK [1][-]{section.3.1}{The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.2}{Scyther Syntax}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.2.1}{Security Claims}{section.3.2}% 21
+\BOOKMARK [1][-]{section.3.3}{Defining an Adversary Compromise Model}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.4}{Scyther's Graphical User Interface}{chapter.3}% 23
+\BOOKMARK [0][-]{chapter.4}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{}% 24
+\BOOKMARK [1][-]{section.4.1}{Introduction to APKES}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.1.1}{Protocol specification}{section.4.1}% 26
+\BOOKMARK [1][-]{section.4.2}{Formal Security Analysis of APKES using Scyther}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.2.1}{Key establishment}{section.4.2}% 28
+\BOOKMARK [2][-]{subsection.4.2.2}{Key agreement}{section.4.2}% 29
+\BOOKMARK [2][-]{subsection.4.2.3}{Security properties}{section.4.2}% 30
+\BOOKMARK [2][-]{subsection.4.2.4}{Adversary Model}{section.4.2}% 31
+\BOOKMARK [2][-]{subsection.4.2.5}{Results}{section.4.2}% 32
+\BOOKMARK [2][-]{subsection.4.2.6}{Recommendations}{section.4.2}% 33
+\BOOKMARK [0][-]{chapter.5}{Handling Reboots and Mobility in 802.15.4 Security}{}% 34
+\BOOKMARK [0][-]{section*.26}{References}{}% 35
+\BOOKMARK [0][-]{appendix.A}{Appendix}{}% 36
+\BOOKMARK [1][-]{section.A.1}{Scyther - APKES}{appendix.A}% 37
+\BOOKMARK [1][-]{section.A.2}{Scyther - AKES}{appendix.A}% 38

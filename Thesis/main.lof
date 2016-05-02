@@ -2,19 +2,19 @@
 \select@language {english}
 \select@language {english}
 \select@language {english}
-\select@language {english}
 \addvspace {10pt}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The \gls {osi} stack with layers, the data they carry, and an example of technology running on the different layers.}}{6}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Figure of IEEE 802.15.4's operational space compared to other wireless standards \cite {gutierrez2001ieee}.}}{7}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Figure of the \gls {6lowpan} stack, which uses the 802.15.4 physical and link layer, but adds an adoption layer in the network layer.}}{8}{figure.2.3}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Mapping of \gls {lkr} rules. Rows display when the compromise occurs, columns display whose data gets compromised, and the boxes captures the capabilities of the different adversaries, which are labelled to the right\cite {basin2010modeling}.}}{27}{figure.3.1}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Mapping of \gls {lkr} rules. Rows display when the compromise occurs, columns display whose data gets compromised, and the boxes captures the capabilities of the different adversaries, which are labelled to the right \cite {basin2010modeling}.}}{27}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Results of a verification process using Scyther where all claims are successfully verified.}}{28}{figure.3.2}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Results of a verification process using Scyther when a claim fails.}}{28}{figure.3.3}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces When Scyther finds an attack on a protocol, if will also provide a graph of the attack.}}{29}{figure.3.4}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces \gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{32}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during \gls {apkes}' three-way handshake. $\delimiter "426830A {msg}\delimiter "526930B {K}$ indicates that the frame is authenticated using the key $K$.}}{33}{figure.4.2}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during \gls {apkes}' three-way handshake. $\delimiter "426830A {msg}\delimiter "526930B {K}$ indicates that the frame is authenticated using the key $K$.}}{34}{figure.4.2}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Figure of the messages sent between communicating parties during \gls {akes}' three-way handshake. $\delimiter "426830A {msg}\delimiter "526930B {K}$ indicates that the frame is authenticated using the key $K$.}}{37}{figure.5.1}
 \addvspace {10pt}

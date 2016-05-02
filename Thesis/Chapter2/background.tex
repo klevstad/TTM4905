@@ -1,4 +1,4 @@
-\chapter{Background}
+\chapter{Background and Related Work}
 \label{chp:background}
 
 \section{Internet of Things}
@@ -7,10 +7,6 @@
 % Bruke gls på iot?
 Over the last decade, a concept called the \emph{Internet of Things} has gained increased attention, both from the research community and commercial actors, as well as from consumers. The term \gls{iot} was, accordingly to most sources, coined in 1999 by the British visionary Kevin Ashton in a presentation about \gls{rfid} \cite{iot-phrase-2} \cite{iot-phrase-1}. Ashton's definition of the concept was a world where computers do not depend on human beings to provide them with information. Out of all the petabytes of information available on the Internet, the majority has been created and captured by humans performing some sort of action. In his opinion, \gls{iot} is about providing computers with the ability to gather information on their own.
 
-
-
-
-%Another vision of the \gls{iot} is based upon the mixing of captured sensor data and connection of physical things to the Internet. 
 
 % Bedre dette
 
@@ -145,7 +141,7 @@ Of the different algorithms in use today, the \gls{rsa} cryptosystem is the most
 
 \subsubsection{Authentication}
 
-Authentication is an important aspect of key establishment. More specific, confirming the identity of the entity you are establishing keys with, as well as the keys. If authentication is skipped, then the protocol will be weak for so-called man-in-the-middle attacks where an adversary intercepts and relays messages between two communicating parties to learn or modify its content. One of the traditional key exchange infrastructures for enforcing authentication in the Internet is to use a trusted third party \cite{maurer1996modelling}. Usually this third party is a secure key server that is responsible for serving cryptographic keys to users and programs. The keys that are provided by the key server is usually included in a certificate containing additional information about the identity of the owner of that particular key. Example of such systems is the well-known public key system OpenPGP \cite{openpgp}, which is used for encrypting electronic mail. For systems using symmetric encryption, authentication can be achieved through construction of \gls{mac-auth}, which are cryptographic values generated from a symmetric key and the plaintext message. This enables the receiver of a message to compute the same \gls{mac-auth} from the decrypted ciphertext and the shared symmetric key, and provides both authenticity of the sender and the integrity of the received message.
+Authentication is an important aspect of key establishment. More specific, confirming the identity of the entity you are establishing keys with, as well as the keys. If authentication is skipped, then the protocol will be weak for so-called man-in-the-middle attacks where an adversary intercepts and relays messages between two communicating parties to learn or modify its content. One of the traditional key exchange infrastructures for enforcing authentication in the Internet is to use a trusted third party \cite{maurer1996modelling}. Usually this third party is a secure key server that is responsible for serving cryptographic keys to users and programs. The keys that are provided by the key server is usually included in a certificate containing additional information about the identity of the owner of that particular key. Example of such systems is the well-known public key system OpenPGP \cite{openpgp}, which is used for encrypting electronic mail. For systems using symmetric encryption, authentication can be achieved through construction of \gls{mac-auth}s, which are cryptographic values generated from a symmetric key and the plaintext message. This enables the receiver of a message to compute the same \gls{mac-auth} from the decrypted ciphertext and the shared symmetric key, and provides both authenticity of the sender and the integrity of the received message.
 
 \subsubsection{Known-Key Security}
 
@@ -215,21 +211,28 @@ In fact, 17 years later after being deployed and widely used, Lowe discovered us
 
 In order to conduct formal security analysis, we need a formal model to be able to study the protocol under precise assumptions. Formal security models are abstractions of descriptions of systems, aiming to improve the understanding of the security of the system by simplifying its interpretation. By defining a formal security model, we aim to discover and correct errors, incompleteness and inconsistencies in protocol specifications, before they are exploited by adversaries. A protocol specification is a description of the behaviour of the different entities that are allowed to communicate with each other during an execution of the protocol \cite{cremers2005operational}. More precise, a protocol description specifies the different roles in the protocol, each containing a sequential list of the messages that are sent and received from that particular role. It also contains the information of the initial knowledge of the protocol, which are the functions, constants and variables that the protocol needs to execute correctly. Such a specification is expressed using a formal language, which has well-defined syntax and semantics, for example process algebra, predicate logic, and lambda calculus. 
 
-% Verification and falsification
-
-Falsification, presented by Popper in 1934, is the theory of presenting an observation that would disprove the correctness of an alleged theory, or more informally; It is not possible to prove a theory from a single correct observation, but a single observation that contradicts the theory is enough to disprove it \cite{popper2005logic}. The falsification process in model checking is to formally assess the security properties of the protocol in order to discover examples that disproves the claimed security by constructing counter-examples. Following in the same line of thoughts, we can perform verification by using formal models and languages to verify a statement (i.e. a security property). In formal security analysis, this is referred to as model checking, which uses the formal model to exhaustive verify whether it meets the alleged security properties \cite{basin2011model}. Verification can also be done by constructing mathematical proofs for each of the security properties, proving that the alleged security is fulfilled. 
-
-
-% Characterization ?
 
 % Intruder model
 
 The Dolev-Yao model is a formal intruder model used to prove the security properties of cryptographic protocols. While initially being a verification model built for public key protocols, the Dolev-Yao model is also the basis for most of the security analysis done by verification tools that focus on verifying secrecy and authentication properties \cite{cremers2005operational}. The model is built upon three primary assumptions: Perfect cryptography, complete control of network, and abstract terms \cite{dolev1983security}. Firstly, the Dolev-Yao model assumes that the cryptography is perfect, essentially meaning that the cryptographic system can not be tampered with, and an encrypted message can only be decrypted by the party possessing the corresponding decryption key. The second assumption is that the adversary has complete control over the communication network, hence he is able to observe all messages that are sent between communicating parties, and can inject messages given that he is able to forge its content in a valid matter. Lastly, messages that are sent in the network are to be observed as abstract terms, where the attacker has two possible outcomes; either he learns the complete content of the message, or he learns nothing at all. 
 
 
-Over the years, multiple intruder models have evolved from the Doley-Yao model. 
+Stronger adversaries. KCI, PFS, BPR, CK, eCK.
+
+
+% Verification and falsification
+
+Falsification, presented by Popper in 1934, is the theory of presenting an observation that would disprove the correctness of an alleged theory, or more informally; It is not possible to prove a theory from a single correct observation, but a single observation that contradicts the theory is enough to disprove it \cite{popper2005logic}. The falsification process in model checking is to formally assess the security properties of the protocol in order to discover examples that disproves the claimed security by constructing counter-examples. Following in the same line of thoughts, we can perform verification by using formal models and languages to verify a statement (i.e. a security property). In formal security analysis, this is referred to as model checking, which uses the formal model to exhaustive verify whether it meets the alleged security properties \cite{basin2011model}. Verification can also be done by constructing mathematical proofs for each of the security properties, proving that the alleged security property is fulfilled. 
+
+
+% Characterization ?
+
+%Over the years, multiple intruder models have evolved from the Doley-Yao model. 
 
 %???
+
+%Can be divided into two categories. Model checking and theorem proving. \cite{Boyd2003}
+
 
 % Goals of formal security analysis
 %What are good security properties? What do we want to achieve? 
@@ -239,5 +242,6 @@ Over the years, multiple intruder models have evolved from the Doley-Yao model.
 
 %Non-rep
 
+\section{Related Work}
 
 

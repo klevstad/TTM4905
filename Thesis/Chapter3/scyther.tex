@@ -18,7 +18,9 @@ Most protocols can be characterized into a finite set of traces, which enables S
 
 As mentioned, a protocol specification contains a set of roles which serves as blueprints that describes what the protocol is able to do. When executing the protocol, each of the different roles can be executed multiple times, and in parallel with each other by one or more agents \cite{cremers2006scyther}. An execution of a role is referred to as a \emph{run}, and defines an unique instance of the protocol with respect to local constraints and the binding between the role and the actual agent acting out the roles behaviour. Scyther allows its users to state security claims which are evaluated as they appear in the protocol trace, either ending in a successful verification of the security property, or in a failure. In the presence of a failure for some security property, Scyther will provide a concrete attack on the protocol by utilizing one of the attack traces from the pattern, and it will also present an attack graph to easier illustrate the  threat. If the protocol developer is unsure of what types of claims that should be stated for each role, Scyther has support for so-called verification of automatic claims, where Scyther will provide the appropriate claims for each variable or key based on its type.
 
-Another of the major novelties in Scyther is the possibility for performing so-called multi-protocol analysis, which in short terms is to analyse multiple protocols that are co-existing in the environment. Such an analysis has previously been infeasible because of an incredible wide state-space, but thanks to Scyther's unique algorithm that operates on an unbounded state-space, it allows for conducting multi-protocol analysis. 
+Another of the major novelties in Scyther is the possibility for performing so-called multi-protocol analysis, which in short terms is to analyse multiple protocols that are co-existing in the environment. Such an analysis has previously been infeasible because of an incredible wide state-space, but thanks to Scyther's unique algorithm that operates on an unbounded state-space, it allows for conducting multi-protocol analysis.
+
+Scyther is available in two versions. The first version is a plain implementation of Scyther, while the second version also contains options for creating a stronger adversary compromise model than the Dolev-Yao model. The compromise edition contains different \gls{lkr} rules, which is used for modelling different adversary capabilities such as \gls{kci}, \gls{wpfs}, and \gls{pfs}, along with support for known-key security. 
 
 
 \section{Scyther Syntax}
@@ -34,6 +36,8 @@ protocol APKES(U, V){
 \end{lstlisting}
 
 For each of the different roles in the protocol, behaviour can be added as a sequence of send and receive events, as well as variable declarations, constants and claims. For the U role, we can define a simple behaviour as shown in Listing \ref{lst:roleu}, where U generates a random nonce \texttt{Ru} and sends it to V, before receiving a message from V containing the random nonces \texttt{Ru} and \texttt{Rv}. All events are labelled with either \texttt{send} or \texttt{recv} followed by a subscript and a number. The number indicates the message's position in a \gls{msc}, and must be incremented for each message sent.\newline
+
+\newpage
 
 \begin{lstlisting}[caption={Terms can be generated, and sent and received when communicating with other agents.}, label={lst:roleu}]
 role U{
@@ -62,6 +66,7 @@ role V{
 
 Along with support for creating fresh nonces, variables, and terms, Scyther also provides a wide set of cryptographic elements such as hash functions, symmetric-key cryptography, public-key cryptography, as well as declaring user specific types and macros, which are abbreviations of complex expressions into simpler once. In Listing \ref{lst:crypt}, a hash function is used to define a function that generates a \gls{mic} (which is essentially the same as a \gls{mac-auth}). On the next line, we have created a macro representing the generation of a pairwise key between U and V. The key is represented as an encryption of the two values \texttt{Ru} and \texttt{Rv} using a symmetric key that is shared between U and V. Constants and functions defined outside of a role are considered to be global, and available to all of the defined roles in the protocol. When the protocol run reaches the \texttt{send\_3} event, it looks up the macro for pairwise key and computes it by encrypting the \texttt{Ru} and \texttt{Rv} values using the symmetric key shared between U and V. \texttt{send\_3} also contains an example of a \gls{mic} of the constant \texttt{msg} sent from U to V, which is created by hashing the message and the pairwise key together using the predefined hashfunction \texttt{MIC}.\newline
 
+
 \begin{lstlisting}[caption={Example on how to use hashfunctions, macros and encryption.}, label={lst:crypt}]
 hashfunction MIC; # An hashfunction to represent a Message Integrity Code (MIC) generation.
 
@@ -84,6 +89,8 @@ A sequence of events within a role is usually followed by a set of claim events.
 
 
 The first, most trivial security claim is secrecy. Secrecy expresses that the stated property is to be kept hidden from an adversary, even in the case of where the adversary controls the network used for communication. However, if one of the agents gets compromised by the adversary and the protocol is executed between an honest agent and the adversary, it would in the end learn what was meant to be kept hidden from it \cite{cremers2005operational}. The secrecy claim does not hold for such cases (nor is it intended to), but for each case where the protocol is executed between two honest agent where the secret property is successfully kept hidden from the adversary. For our example protocol, we can claim that the two values \texttt{Ru} and \texttt{Rv} are supposed to be secret and thereby hidden from the adversary as shown in Listing \ref{lst:cl-sec}. These claims will obviously fail as we have not specified that any encryption should be used on the messages that are passed between the two roles.\newline
+
+\newpage
 
 \begin{lstlisting}[caption={Example of how to claim secrecy for terms in Scyther.}, label={lst:cl-sec}]
 role U{
@@ -183,13 +190,7 @@ role V{
 
 % https://www.inf.ethz.ch/personal/basin/pubs/esorics10.pdf
 
-Formal adversary models are described in Section \ref{sec:formal}. Compromising of long-term keys can, for example, allow an adversary to recover previous session keys (and future) and decrypt the traffic if the protocol does not provide forward secrecy. Another option is for the adversary to perform \gls{kci} where it impersonates the victim towards other agents, or impersonate other entities in communication with the victim. Scyther allows for customizing different adversary models through its settings for a adversary compromise model, which enables a strong Dolev-Yao style adversary with support for verifying security properties such as \gls{pfs}, \gls{wpfs}, \gls{kci} and known-key security. 
-
-\subsection{Compromising of long-term keys}
-
-The initial adversary in the Dolev-Yao intruder model has access to the long-term keys of the communicating parties that do not participate in the current run of the protocol. In other words, if $A$ and $B$ are communicating with each other, then the adversary has access to $C$'s private long-term key during the execution of the protocol. Scyther's initial intruder model, however, does not have access to these keys without directly specifying it in its \gls{lkr} settings. When enabling \{\gls{lkr}, Others\}, the adversary is identical to the Dolev-Yao intruder model, and has access to the long-term private keys for other agents than the those currently involved in the protocol execution \cite{basin2010modeling}.
-
-Section \ref{sec:attributes} mentioned \gls{kci}, where an adversary in possession of $A$'s long-term private key is able to impersonate $A$ when communicating, or impersonate other entities when communicating with $A$. Such an attack can be performed by the adversary after enabling \{\gls{lkr}, Actor\} in Scyther's adversary compromise model. Forward secrecy is the security property where previous communication is protected in the case of compromising of the long-term key, and is enabled in the adversary model by specifying \{\gls{lkr}, Aftercorrect\} and \{\gls{lkr}, After\}. These properties restricts the compromise of long-term keys to only occur after the protocol execution \cite{basin2010modeling}. \{\gls{lkr}, Aftercorrect\} is used to model \gls{wpfs}, and is the weaker case of forward secrecy, where the adversary is considered to be \emph{passive}. For the adversary model, this would restrict it from both injecting messages and obtaining the private keys of the communicating parties after the protocol run.  \{\gls{lkr}, After\} models an \emph{active} adversary capable of actively interfering with the protocol during it run while obtaining the long-term private keys, hence protocols able to provide secrecy in the present this adversary is said to provide \gls{pfs}. These security properties are decomposed in Table \ref{tab:sec-prop-adv-mod} into their basic property, type of security property, and what adversary model that provides them.
+Formal adversary models are described in Section \ref{sec:formal}. Compromising of long-term keys can, for example, allow an adversary to recover previous session keys (and future) and decrypt the traffic if the protocol does not provide forward secrecy. Another option is for the adversary to perform \gls{kci} where it impersonates the victim towards other agents, or impersonate other entities in communication with the victim. Scyther allows for customizing different adversary models through its settings for a adversary compromise model, which enables a strong Dolev-Yao style adversary with support for verifying security properties such as \gls{pfs}, \gls{wpfs}, \gls{kci} and known-key security. These security properties are decomposed in Table \ref{tab:sec-prop-adv-mod} into their basic property, type of security property, and what adversary model (which will be elaborated in the next section) provides them.
 
 \begin{table}[h]
 \centering
@@ -205,27 +206,26 @@ Known-Key Security                  & Session key secrecy 		 & \{SKR\}          
 \label{tab:sec-prop-adv-mod}
 \end{table}
 
+\newpage
+%\subsection{Compromising of long-term keys}
+
+The initial adversary in the Dolev-Yao intruder model has access to the long-term keys of the communicating parties that do not participate in the current run of the protocol. In other words, if $A$ and $B$ are communicating with each other, then the adversary has access to $C$'s private long-term key during the execution of the protocol. Scyther's initial intruder model, however, does not have access to these keys without directly specifying it in its \gls{lkr} settings. When enabling \{\gls{lkr}, Others\}, the adversary is identical to the Dolev-Yao intruder model, and has access to the long-term private keys for other agents than the those currently involved in the protocol execution \cite{basin2010modeling}.
+
+Section \ref{sec:attributes} mentioned \gls{kci}, where an adversary in possession of $A$'s long-term private key is able to impersonate $A$ when communicating other agents, or impersonate other entities when communicating with $A$. Such an attack can be performed by the adversary after enabling \{\gls{lkr}, Actor\} in Scyther's adversary compromise model. Forward secrecy is the security property where previous communication is protected in the case of compromising of the long-term key, and is enabled in the adversary model by specifying \{\gls{lkr}, Aftercorrect\} and \{\gls{lkr}, After\}. These properties restricts the compromise of long-term keys to only occur after the protocol execution \cite{basin2010modeling}. \{\gls{lkr}, Aftercorrect\} is used to model \gls{wpfs}, and is the weaker case of forward secrecy, where the adversary is considered to be \emph{passive}. For the adversary model, this would restrict it from both injecting messages and obtaining the private keys of the communicating parties after the protocol run.  \{\gls{lkr}, After\} models an \emph{active} adversary capable of actively interfering with the protocol during it run while obtaining the long-term private keys, hence protocols able to provide secrecy in the present this adversary is said to provide \gls{pfs}. 
+
+
+
+Figure \ref{fig:compromise-model} illustrates the different \gls{lkr} rules in two dimensions; \emph{when} a compromise occurs, and \emph{whose} long-term keys are compromised. The rows indicate when the compromise occurs, and can either be before the run, during, or after. Columns describe whose keys are compromised, where actors are agents that execute the protocol, peers are communicating partners during the execution, and others are agents not participating in the protocol run. The different capabilities are captured and labelled as different \gls{lkr} rules, as shown on the right hand side of the figure. 
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.80]{compromise-model.png}
-	\caption{Mapping of \gls{lkr} rules. Rows display when the compromise occurs, columns display whose data gets compromised, and the boxes captures the capabilities of the different adversaries, which are labelled to the right\cite{basin2010modeling}.}
+	\caption{Mapping of \gls{lkr} rules. Rows display when the compromise occurs, columns display whose data gets compromised, and the boxes captures the capabilities of the different adversaries, which are labelled to the right \cite{basin2010modeling}.}
 	\label{fig:compromise-model}
 \end{figure}
 
 
-\subsection{Compromising of short-term data}
-
-Short term data is data that is specific for a protocol run. 
-
-State reveal = Contents of thread's local state
-
-
-
-Compromise resilience? Key Compromise Impersonation?	
-
-
-
+In addition to compromising long-term keys, Scyther is also able to model the security property for known-key security. By enabling the \gls{skr} rule, the adversary is allowed to obtain all session keys whose session identifier (the identifier of that particular run of the protocol) differs from the current run's identifier.
 
 
 \section{Scyther's Graphical User Interface}
@@ -235,7 +235,7 @@ If we continue on our example from the section on Scyther's syntax, we now want 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.9]{Untitled.png}
+	\includegraphics[scale=1]{Untitled.png}
 	\caption{Results of a verification process using Scyther where all claims are successfully verified.}
 	\label{fig:scyther-verify-claims}
 \end{figure}
@@ -250,7 +250,7 @@ When no attacks are found, Scyther provides either one two comments; \emph{No at
 	\label{fig:scyther-verify-claims-fail}
 \end{figure}
 
-The status \emph{Falsified} states that the claim is provable false. When a claim is proved to be false, Scyther will also provide a comment; either \emph{At least X attack(x)} or \emph{Exactly X attack(s)}. In the first case, X attacks where found by Scyther, but the search is not able to detect whether or not there may be other attacks as well. In the other case, Scyther can prove that within the given state-space, there are exactly X attacks. Whenever Scyther finds an attack on a protocol, it will also provide a concrete description of the attack as graph. An example of such a graph is shown in Figure \ref{fig:scyther-graph}. It contains description of the different runs that the adversary executes, and shows how it can pass or intercept messages across different runs to learn some secret information or construct an attack.
+The status \emph{Falsified} states that the claim is provable false. When a claim is proved to be false, Scyther will also provide a comment; either \emph{At least X attack(x)} or \emph{Exactly X attack(s)}. In the first case, X attacks where found by Scyther, but the search is not able to detect whether or not there may be other attacks as well. In the other case, Scyther can prove that within the given state-space, there are exactly X attacks. Whenever Scyther finds an attack on a protocol, it will also provide a concrete description of the attack as graph. An example of such a graph is shown in Figure \ref{fig:scyther-graph}. It contains a description of the different runs that the adversary executes, and shows how it can pass or intercept messages across different runs to learn some secret information or construct an attack.
 
 \begin{figure}[h]
 	\centering

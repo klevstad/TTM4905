@@ -1,6 +1,7 @@
 /*
 	Adaptive Pairwise Key Establishment Scheme (APKES)
 */
+
 usertype KeyingMaterial;
 usertype Index;
 
@@ -24,6 +25,7 @@ protocol APKES(U, V)
 	{
 		fresh Ru: Nonce;
 		var Rv: Nonce;
+
 
 		# HELLO
 		send_1(U, V, Ru, SAu);

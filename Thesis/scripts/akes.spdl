@@ -30,46 +30,50 @@ const ack-msg;
 
 protocol AKES(U, V)
 {
-  role U
-  {
-    fresh Ru: Nonce;
-    var Rv: Nonce;
+	role U
+	{
+	fresh Ru: Nonce;
+	var Rv: Nonce;
 
-    # HELLO
-    send_1(U, V, PANu, IDu, Ru);
+	# HELLO
+	send_1(U, V, PANu, IDu, Ru);
 
-    # HELLOACK
-    recv_2(V, U, (PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, HelloAckMIC));
+	# HELLOACK
+	recv_2(V, U, (PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, HelloAckMIC));
 
-    # ACK
-    send_3(U, V, (ack-msg, PANv, IDv, PANu, IDu, Ivu, Cu, AckMIC));
+	# ACK
+	send_3(U, V, (ack-msg, PANv, IDv, PANu, IDu, Ivu, Cu, AckMIC));
 
-    # Claims
-    claim_U1(U, SKR, PairwiseSessionKey); # The pairwise session key is kept secret from adversary
-    claim_U2(U, Nisynch); # Non-injective synchronization
-    claim_U3(U, Niagree); # Non-injective agreement
-    claim_U4(U, Alive); # V was "alive" as U was able to execute the protocol correctly
-  }
+	# Claims
+	claim_U1(U, SKR, PairwiseSessionKey); # The pairwise session key is kept secret from adversary
+	claim_U2(U, Alive); # V was "alive" as U was able to execute the protocol correctly
+	claim_U3(U, Weakagree);
+	claim_U4(U, Niagree); # Non-injective agreement
+	claim_U5(U, Nisynch); # Non-injective synchronization
+
+	}
 
   role V
-  {
-    var Ru: Nonce;
-    fresh Rv: Nonce;
+	{
+	var Ru: Nonce;
+	fresh Rv: Nonce;
 
-    # HELLO
-    recv_1(U, V, PANu, IDu, Ru);
+	# HELLO
+	recv_1(U, V, PANu, IDu, Ru);
 
-    # HELLOACK
-    send_2(V, U, (PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, HelloAckMIC));
+	# HELLOACK
+	send_2(V, U, (PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, HelloAckMIC));
 
-    # ACK
-    recv_3(U, V, (ack-msg, PANv, IDv, PANu, IDu, Ivu, Cu, AckMIC));
+	# ACK
+	recv_3(U, V, (ack-msg, PANv, IDv, PANu, IDu, Ivu, Cu, AckMIC));
 
-    # Claims
-    claim_V1(V, SKR, PairwiseSessionKey);
-    claim_V2(V, Nisynch);
-    claim_V3(V, Niagree);
-    claim_V4(V, Alive);
-  }
+	# Claims
+	claim_V1(V, SKR, PairwiseSessionKey);
+	claim_V2(V, Alive); # V was "alive" as U was able to execute the protocol correctly
+	claim_V3(V, Weakagree);
+	claim_V4(V, Niagree); # Non-injective agreement
+	claim_V5(V, Nisynch); # Non-injective synchronization
+
+	}
 
 }
