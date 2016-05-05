@@ -8,9 +8,9 @@
 \BOOKMARK [1][-]{section.2.2}{The IEEE 802.15.4 Standard}{chapter.2}% 8
 \BOOKMARK [1][-]{section.2.3}{6LoWPAN: Putting IP on Top of 802.15.4}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.4}{Key Establishment and Key Management}{chapter.2}% 10
-\BOOKMARK [2][-]{subsection.2.4.1}{Symmetric Encryption}{section.2.4}% 11
-\BOOKMARK [2][-]{subsection.2.4.2}{Asymmetric Encryption}{section.2.4}% 12
-\BOOKMARK [2][-]{subsection.2.4.3}{Security Attributes in Key Establishment Schemes}{section.2.4}% 13
+\BOOKMARK [2][-]{subsection.2.4.1}{Long-Term and Session Keys}{section.2.4}% 11
+\BOOKMARK [2][-]{subsection.2.4.2}{Security Attributes in Key Establishment Schemes}{section.2.4}% 12
+\BOOKMARK [2][-]{subsection.2.4.3}{Key Establishment Architectures}{section.2.4}% 13
 \BOOKMARK [2][-]{subsection.2.4.4}{Key Establishment Schemes}{section.2.4}% 14
 \BOOKMARK [2][-]{subsection.2.4.5}{Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{section.2.4}% 15
 \BOOKMARK [1][-]{section.2.5}{Formal Security Analysis}{chapter.2}% 16
@@ -32,7 +32,7 @@
 \BOOKMARK [2][-]{subsection.4.2.5}{Results}{section.4.2}% 32
 \BOOKMARK [2][-]{subsection.4.2.6}{Recommendations}{section.4.2}% 33
 \BOOKMARK [0][-]{chapter.5}{Handling Reboots and Mobility in 802.15.4 Security}{}% 34
-\BOOKMARK [0][-]{section*.26}{References}{}% 35
+\BOOKMARK [0][-]{section*.36}{References}{}% 35
 \BOOKMARK [0][-]{appendix.A}{Appendix}{}% 36
 \BOOKMARK [1][-]{section.A.1}{Scyther - APKES}{appendix.A}% 37
 \BOOKMARK [1][-]{section.A.2}{Scyther - AKES}{appendix.A}% 38

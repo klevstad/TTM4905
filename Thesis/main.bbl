@@ -53,6 +53,14 @@ Blom, R. (1984).
 \newblock An optimal class of symmetric key generation systems.
 \newblock In {\em Advances in cryptology}, pp.\  335--338. Springer.
 
+\bibitem[\protect\citeauthoryear{Bos, Halderman, Heninger, Moore, Naehrig, and
+  Wustrow}{Bos et~al.}{2014}]{bos2014elliptic}
+Bos, J.~W., J.~A. Halderman, N.~Heninger, J.~Moore, M.~Naehrig, and E.~Wustrow
+  (2014).
+\newblock Elliptic curve cryptography in practice.
+\newblock In {\em Financial Cryptography and Data Security}, pp.\  157--175.
+  Springer.
+
 \bibitem[\protect\citeauthoryear{Burrows, Abadi, and Needham}{Burrows
   et~al.}{1989}]{burrows1989logic}
 Burrows, M., M.~Abadi, and R.~M. Needham (1989).
@@ -228,6 +236,13 @@ Krentz, K.-F., H.~Rafiee, and C.~Meinel (2013).
 \newblock In {\em Proceedings of the International Workshop on Adaptive
   Security}. ACM.
 
+\bibitem[\protect\citeauthoryear{Liu, Ning, and Li}{Liu
+  et~al.}{2005}]{liu2005establishing}
+Liu, D., P.~Ning, and R.~Li (2005).
+\newblock Establishing pairwise keys in distributed sensor networks.
+\newblock {\em ACM Transactions on Information and System Security
+  (TISSEC)\/}~{\em 8\/}(1), 41--77.
+
 \bibitem[\protect\citeauthoryear{Lowe}{Lowe}{1996}]{lowe1996}
 Lowe, G. (1996).
 \newblock Breaking and {F}ixing the {N}eedham-{S}chroeder {P}ublic-key
@@ -258,6 +273,14 @@ Meier, S., B.~Schmidt, C.~Cremers, and D.~Basin (2013).
 \newblock {The Tamarin Prover for the Symbolic Analysis of Security Protocols}.
 \newblock In {\em Computer Aided Verification}, pp.\  696--701. Springer.
 
+\bibitem[\protect\citeauthoryear{Michallon}{Michallon}{}]{sony-lens}
+Michallon, C.
+\newblock {Sony files to patent new contact lenses that can record video, store
+  it, play it back - and adjust zoom, focus and aperture automatically}.
+\newblock
+  \url{http://www.dailymail.co.uk/sciencetech/article-3567402/Sony-patent-application-reveals-new-contact-lenses-record-video-store-play-adjust-zoom-focus-aperture-automatically.html}.
+\newblock Accessed: 2016-05-04.
+
 \bibitem[\protect\citeauthoryear{Mulligan}{Mulligan}{2007}]{Mulligan2007}
 Mulligan, G. (2007).
 \newblock The {6L}o{WPAN} {A}rchitecture.
@@ -270,6 +293,18 @@ Needham, R.~M. and M.~D. Schroeder (1978).
 \newblock Using {E}ncryption for {A}uthentication in {L}arge {N}etworks of
   {C}omputers.
 \newblock {\em Commun. ACM\/}~{\em 21\/}(12).
+
+\bibitem[\protect\citeauthoryear{Needham and Schroeder}{Needham and
+  Schroeder}{1987}]{needham1987authentication}
+Needham, R.~M. and M.~D. Schroeder (1987).
+\newblock Authentication revisited.
+\newblock {\em ACM SIGOPS Operating Systems Review\/}~{\em 21\/}(1), 7--7.
+
+\bibitem[\protect\citeauthoryear{Neuman and Ts'~O}{Neuman and
+  Ts'~O}{1994}]{neuman1994kerberos}
+Neuman, B.~C. and T.~Ts'~O (1994).
+\newblock {Kerberos: An Authentication Service for Computer Networks}.
+\newblock {\em Communications Magazine, IEEE\/}~{\em 32\/}(9), 33--38.
 
 \bibitem[\protect\citeauthoryear{of~Automation}{of~Automation}{}]{isa100}
 of~Automation, I.~S.
@@ -294,6 +329,15 @@ Project, A.
 \newblock \url{http://www.avispa-project.org/}.
 \newblock Accessed: 2016-02-23.
 
+\bibitem[\protect\citeauthoryear{Roman, Alcaraz, Lopez, and Sklavos}{Roman
+  et~al.}{2011}]{Roman2011147}
+Roman, R., C.~Alcaraz, J.~Lopez, and N.~Sklavos (2011).
+\newblock {Key Management Systems for Sensor Networks in the Context of the
+  Internet of Things}.
+\newblock {\em Computers & Electrical Engineering\/}~{\em 37\/}(2), 147 -- 159.
+\newblock Modern Trends in Applied Security: Architectures, Implementations and
+  Applications.
+
 \bibitem[\protect\citeauthoryear{Ryan and Schneider}{Ryan and
   Schneider}{2001}]{ryan2001modelling}
 Ryan, P. and S.~A. Schneider (2001).
@@ -316,6 +360,12 @@ Simmonds, C.
   www.theguardian.com/sustainable-business/2015/feb/27/the-internet-of-things-what-the-man-who-coined-the-phrase-has-to-say.
 \newblock Accessed: 2016-03-31.
 
+\bibitem[\protect\citeauthoryear{Steiner, Neuman, and Schiller}{Steiner
+  et~al.}{1988}]{steiner1988kerberos}
+Steiner, J.~G., B.~C. Neuman, and J.~I. Schiller (1988).
+\newblock {Kerberos: An Authentication Service for Open Network Systems.}
+\newblock In {\em USENIX Winter}, pp.\  191--202.
+
 \bibitem[\protect\citeauthoryear{Technology}{Technology}{}]{miwi}
 Technology, M.
 \newblock {MiWi}.
@@ -337,6 +387,13 @@ Wu, M., T.-J. Lu, F.-Y. Ling, J.~Sun, and H.-Y. Du (2010).
 \newblock {Research on the Architecture of Internet of Things}.
 \newblock In {\em 2010 3rd International Conference on Advanced Computer Theory
   and Engineering(ICACTE)}, Volume~5, pp.\  V5--484--V5--487.
+
+\bibitem[\protect\citeauthoryear{Yadron}{Yadron}{}]{samsung-lens}
+Yadron, D.
+\newblock {Samsung patent reveals ``smart'' contact lens with built-in camera}.
+\newblock
+  \url{https://www.theguardian.com/technology/2016/apr/06/samsung-smart-contact-lens-camera-patent}.
+\newblock Accessed: 2016-05-04.
 
 \bibitem[\protect\citeauthoryear{Zhu, Setia, and Jajodia}{Zhu
   et~al.}{2006}]{zhu2006leap+}

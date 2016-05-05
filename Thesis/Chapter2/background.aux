@@ -23,8 +23,8 @@
 \citation{gutierrez2001ieee}
 \citation{gutierrez2001ieee}
 \citation{sastry2004security}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The \gls {osi} stack with layers, the data they carry, and an example of technology running on the different layers.}}{6}{figure.2.1}}
-\newlabel{fig:osi}{{\M@TitleReference {2.1}{The \gls {osi} stack with layers, the data they carry, and an example of technology running on the different layers.}}{6}{The \gls {osi} stack with layers, the data they carry, and an example of technology running on the different layers}{figure.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The OSI stack with layers, the data they carry, and an example of technology running on the different layers.}}{6}{figure.2.1}}
+\newlabel{fig:osi}{{\M@TitleReference {2.1}{The OSI stack with layers, the data they carry, and an example of technology running on the different layers.}}{6}{The OSI stack with layers, the data they carry, and an example of technology running on the different layers}{figure.2.1}{}}
 \citation{Mulligan2007}
 \citation{Mulligan2007}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Figure of IEEE 802.15.4's operational space compared to other wireless standards \cite  {gutierrez2001ieee}.}}{7}{figure.2.2}}
@@ -39,54 +39,74 @@
 \newlabel{fig:6lowpan-stack}{{\M@TitleReference {2.3}{Figure of the \gls {6lowpan} stack, which uses the 802.15.4 physical and link layer, but adds an adoption layer in the network layer.}}{8}{Figure of the \gls {6lowpan} stack, which uses the 802.15.4 physical and link layer, but adds an adoption layer in the network layer}{figure.2.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.4}Key Establishment and Key Management}{9}{section.2.4}}
 \newlabel{sec:keyestablishment}{{\M@TitleReference {2.4}{Key Establishment and Key Management}}{9}{Key Establishment and Key Management}{section.2.4}{}}
-\citation{diffie1976new}
-\citation{wander2005energy}
 \citation{maurer1996modelling}
-\citation{openpgp}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Symmetric Encryption}{10}{subsection.2.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Asymmetric Encryption}{10}{subsection.2.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Security Attributes in Key Establishment Schemes}{10}{subsection.2.4.3}}
-\newlabel{sec:attributes}{{\M@TitleReference {2.4.3}{Security Attributes in Key Establishment Schemes}}{10}{Security Attributes in Key Establishment Schemes}{subsection.2.4.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Authentication}{10}{section*.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Long-Term and Session Keys}{10}{subsection.2.4.1}}
+\@writefile{toc}{\contentsline {subsubsection}{Long-Term keys}{10}{section*.6}}
+\@writefile{toc}{\contentsline {subsubsection}{Session Keys}{10}{section*.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Security Attributes in Key Establishment Schemes}{10}{subsection.2.4.2}}
+\newlabel{sec:attributes}{{\M@TitleReference {2.4.2}{Security Attributes in Key Establishment Schemes}}{10}{Security Attributes in Key Establishment Schemes}{subsection.2.4.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Authentication}{10}{section*.8}}
+\@writefile{toc}{\contentsline {subsubsection}{Implicit Key Authentication}{10}{section*.9}}
+\@writefile{toc}{\contentsline {subsubsection}{Explicit Key Authentication}{10}{section*.10}}
 \citation{durumeric2014matter}
 \citation{krawczyk2005hmqv}
-\@writefile{toc}{\contentsline {subsubsection}{Known-Key Security}{11}{section*.7}}
-\@writefile{toc}{\contentsline {subsubsection}{Perfect Forward Secrecy}{11}{section*.8}}
+\@writefile{toc}{\contentsline {subsubsection}{Known-Key Security}{11}{section*.11}}
+\@writefile{toc}{\contentsline {subsubsection}{Perfect Forward Secrecy}{11}{section*.12}}
+\@writefile{toc}{\contentsline {subsubsection}{Key-Compromise Impersonation}{11}{section*.13}}
+\citation{diffie1976new}
+\@writefile{toc}{\contentsline {subsubsection}{Key Control}{12}{section*.14}}
+\@writefile{toc}{\contentsline {subsubsection}{Unknown Key-Share}{12}{section*.15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Key Establishment Architectures}{12}{subsection.2.4.3}}
+\@writefile{toc}{\contentsline {subsubsection}{Symmetric Key}{12}{section*.16}}
+\citation{needham1987authentication}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Figure of a symmetric encryption scheme, where both parties possess the same symmetric key used for encryption and decryption.}}{13}{figure.2.4}}
+\newlabel{fig:symmetric}{{\M@TitleReference {2.4}{Figure of a symmetric encryption scheme, where both parties possess the same symmetric key used for encryption and decryption.}}{13}{Figure of a symmetric encryption scheme, where both parties possess the same symmetric key used for encryption and decryption}{figure.2.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{13}{section*.17}}
+\citation{neuman1994kerberos}
+\citation{steiner1988kerberos}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Figure of the interaction between the client, the KDC, and the SS in Kerberos.}}{15}{figure.2.5}}
+\newlabel{fig:kerberos}{{\M@TitleReference {2.5}{Figure of the interaction between the client, the KDC, and the SS in Kerberos.}}{15}{Figure of the interaction between the client, the KDC, and the SS in Kerberos}{figure.2.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Public-Key}{15}{section*.18}}
 \citation{perrig2004security}
 \citation{krentz20136lowpan}
 \citation{sastry2004security}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Figure of public-key encryption where a message to Alice is encrypted using her public key, and decrypted with her corresponding private key.}}{16}{figure.2.6}}
+\newlabel{fig:asymmetric}{{\M@TitleReference {2.6}{Figure of public-key encryption where a message to Alice is encrypted using her public key, and decrypted with her corresponding private key.}}{16}{Figure of public-key encryption where a message to Alice is encrypted using her public key, and decrypted with her corresponding private key}{figure.2.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{16}{subsection.2.4.4}}
+\@writefile{toc}{\contentsline {subsubsection}{Symmetric Key}{16}{section*.19}}
 \citation{perrig2004security}
 \citation{sastry2004security}
-\@writefile{toc}{\contentsline {subsubsection}{Key-Compromise Impersonation}{12}{section*.9}}
-\@writefile{toc}{\contentsline {subsubsection}{Key Control}{12}{section*.10}}
-\@writefile{toc}{\contentsline {subsubsection}{Unknown Key-Share}{12}{section*.11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{12}{subsection.2.4.4}}
-\citation{Jing2014}
-\citation{krentz20136lowpan}
+\citation{liu2005establishing}
 \citation{wander2005energy}
-\citation{gaubatz2004public}
+\@writefile{toc}{\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{17}{section*.20}}
+\@writefile{toc}{\contentsline {subsubsection}{Public-Key}{17}{section*.21}}
+\citation{bos2014elliptic}
+\citation{nist2016}
+\citation{Jing2014}
+\citation{Roman2011147}
+\citation{krentz20136lowpan}
+\citation{gaubatz2004public,wander2005energy}
 \citation{Eschenauer2002}
 \citation{Jing2014}
-\citation{gaubatz2004public}
 \citation{wander2005energy}
-\citation{nist2016}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.5}Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{13}{subsection.2.4.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.5}Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{18}{subsection.2.4.5}}
+\citation{sony-lens,samsung-lens}
 \citation{Needham:1978}
 \citation{burrows1989logic}
 \citation{boyd1993}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Formal Security Analysis}{19}{section.2.5}}
+\newlabel{sec:formal}{{\M@TitleReference {2.5}{Formal Security Analysis}}{19}{Formal Security Analysis}{section.2.5}{}}
 \citation{basin2011model}
 \citation{lowe1996}
 \citation{cremers2009comparing}
 \citation{cremers2005operational}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Formal Security Analysis}{14}{section.2.5}}
-\newlabel{sec:formal}{{\M@TitleReference {2.5}{Formal Security Analysis}}{14}{Formal Security Analysis}{section.2.5}{}}
 \citation{cremers2005operational}
 \citation{dolev1983security}
 \citation{popper2005logic}
 \citation{basin2011model}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Related Work}{15}{section.2.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Related Work}{21}{section.2.6}}
 \@setckpt{Chapter2//background}{
-\setcounter{page}{16}
+\setcounter{page}{22}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -133,10 +153,10 @@
 \setcounter{cmsm@mctr}{0}
 \setcounter{bsm@mctr}{0}
 \setcounter{workm@mctr}{0}
-\setcounter{sheetsequence}{28}
-\setcounter{lastsheet}{59}
-\setcounter{lastpage}{47}
-\setcounter{figure}{3}
+\setcounter{sheetsequence}{34}
+\setcounter{lastsheet}{67}
+\setcounter{lastpage}{55}
+\setcounter{figure}{6}
 \setcounter{lofdepth}{1}
 \setcounter{table}{0}
 \setcounter{lotdepth}{1}

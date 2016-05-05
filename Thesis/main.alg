@@ -1,6 +1,6 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 01.05.2016  18:36:27
-;; Indexstyle: "/tmp/63GviKcoe1", Rawindex: "/tmp/1GlBpsTlXy", Output: "main.acr"
+;; at 05.05.2016  14:13:14
+;; Indexstyle: "/tmp/mbYiS2oKqb", Rawindex: "/tmp/mJU4R45L2E", Output: "main.acr"
 
 
 Building indexentry-tree:
@@ -40,11 +40,21 @@ sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 
 Forming letter-groups:
 Letter-group: "¨ÃÚ" -> "I"
 Letter-group: "ÃÐ¨" -> "O"
 Letter-group: "6´ÃæÈ€¼" -> "glsnumbers"
+Letter-group: "®†" -> "K"
+Letter-group: "ÐÐ" -> "S"
 Letter-group: "´®Ë" -> "L"
 Letter-group: "€È®—Ð" -> "A"
 Letter-group: "€®—Ð" -> "A"
@@ -63,11 +73,17 @@ Letter-group: "Ú†È" -> "T"
 Letter-group: "àÈ" -> "U"
 Letter-group: "¨—Úœ" -> "I"
 Letter-group: "Ë€»" -> "R"
-Letter-group: "ËÐ€" -> "R"
 Letter-group: "ÈœÐ" -> "P"
+Letter-group: "Ú´Ð" -> "T"
 Letter-group: "æÈœÐ" -> "W"
 Letter-group: "®†¨" -> "K"
+Letter-group: "€Ð" -> "A"
+Letter-group: "ÚÐ" -> "T"
+Letter-group: "ÚÚ" -> "T"
+Letter-group: "†€" -> "C"
+Letter-group: "ËÐ€" -> "R"
 Letter-group: "—††" -> "E"
+Letter-group: "—†¤" -> "E"
 Letter-group: "—†Ð€" -> "E"
 Letter-group: "„€¼" -> "B"
 Letter-group: "à¨" -> "G"
@@ -83,7 +99,7 @@ Letter-group: "€—Ð" -> "A"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "„€¼" -> "B"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-Letter-group: "††»" -> "C"
+Letter-group: "†€" -> "C"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "ÃÐ" -> "D"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)

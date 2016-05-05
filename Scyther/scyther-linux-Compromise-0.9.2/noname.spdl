@@ -1,23 +1,52 @@
-protocol MWE(Alice, Bob)
+/*
+	Adaptive Pairwise Key Establishment Scheme (APKES)
+*/
+
+const ack-msg;
+
+protocol APKES(U, V)
 {
-	role Alice {
-		fresh Na: Nonce;
-		var Nb: Nonce;
-		
-		send_1(Alice, Bob, Na);
-		recv_2(Bob, Alice, Nb);
+	role U
+	{
+		fresh Ru: Nonce;
+		var Rv: Nonce;
 
-		claim(Alice, Secret, Na);
-		claim(Alice, Secret, Nb);
-	};
-	role Bob {
-		var Na: Nonce;
-		fresh Nb: Nonce;
 
-		recv_1(Alice, Bob, Na);
-		send_2(Bob, Alice, Nb);
+		# HELLO
+		send_1(U, V, Ru);
 
-		#claim(Bob, Secret, Na);
-		#claim(Bob, Secret, Nb);	
-	};
+		# HELLOACK
+		recv_2(V, U, (Ru, Rv));
+
+		#ACK
+		send_3(U, V, ack-msg);
+		#send_3(U, V, I );
+
+
+		# Claims:
+		claim_F1(U, Secret, Ru); 
+		claim_F2(U, Secret, Rv);
+
+
+
+	}
+
+	role V
+	{
+		fresh Rv: Nonce;
+		var Ru: Nonce;
+
+		# HELLO
+		recv_1(U, V, Ru);
+
+		# HELLOACK
+		send_2(V, U, Ru, Rv);
+
+		# ACK
+		recv_3(U,V, ack-msg);
+
+		# Claims
+		claim_V1(V, Secret, Ru);
+		claim_V2(V, Secret, Rv);
+	}
 }
