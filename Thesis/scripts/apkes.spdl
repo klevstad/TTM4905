@@ -2,7 +2,6 @@
 	Adaptive Pairwise Key Establishment Scheme (APKES)
 */
 
-usertype KeyingMaterial;
 usertype Index;
 
 hashfunction MIC;
@@ -75,12 +74,4 @@ protocol APKES(U, V)
 
 
 	}
-}
-
-protocol EBEAP (U,V)
-
-{
-
-
-
 }

@@ -1,0 +1,60 @@
+/*
+Secure Authentication and Key Establishment Scheme (SAKES)
+*/
+
+hashfunction MAC;
+
+macro Ci = {ED, LR, LBR, Nu}k(ED, LR);
+macro Ci-mac = MAC(Ci, k(ED, LR), LBR, Nu);
+
+macro MAC4 = MAC(Ci, k(LR, LBR), LR, Nr);
+
+protocol SAKES(ED, LR, LBR) {
+	
+	role ED {
+		# 6LoWPAN End Device (ED)
+
+		fresh Nonce: Nu;
+		var Nonce: Nr;
+
+		# HELLO
+		send_1(ED, LR, Nu);
+		recv_2(LR, ED, Nr);
+
+		send_3(ED, LR, Ci, Ci-mac, ED, Nu);
+
+		recv_6(LBR, ED, {LR, Nb}k(ED, LBR));
+
+	}
+
+	role LR {
+		# 6LoWPAN Router (LR)
+
+		var Nonce: Nu;
+		fresh Nonce: Nr;
+
+		# HELLO
+		recv_1(ED, LR, Nu);
+		send_2(LR, ED, Nr);
+
+		recv_3(ED, LR, Ci, Ci-mac, ED, Nu);
+
+		send_4(LR, LBR, Ci, MAC4, LR, Nr);
+
+	}
+
+	role LBR {
+		# 6LoWPAN Border Router (LBR)
+
+		fresh Nonce: Nb;
+
+		recv_4(LR, LBR, Ci, MAC4, LR, Nr);
+
+
+		send_5(Nb, {ED, LR, LBR}); # Public-private key
+
+		send_6(LBR, ED, {LR, Nb}k(ED, LBR));
+
+
+	}
+}
