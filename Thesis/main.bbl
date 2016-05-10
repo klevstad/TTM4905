@@ -1,12 +1,6 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\citeauthoryear{Alliance}{Alliance}{a}]{openpgp}
-Alliance, O.
-\newblock {OpenPGP}.
-\newblock \url{http://www.openpgp.org/about_openpgp/}.
-\newblock Accessed: 2016-04-15.
-
-\bibitem[\protect\citeauthoryear{Alliance}{Alliance}{b}]{zigbee}
+\bibitem[\protect\citeauthoryear{Alliance}{Alliance}{}]{zigbee}
 Alliance, T.~Z.
 \newblock {Zigbee}.
 \newblock \url{http://www.zigbee.org/}.
@@ -48,6 +42,12 @@ Blanchet, B.
 \newblock \url{http://prosecco.gforge.inria.fr/personal/bblanche/proverif/}.
 \newblock Accessed: 2016-02-23.
 
+\bibitem[\protect\citeauthoryear{Blanchet}{Blanchet}{2012}]{blanchet2012security}
+Blanchet, B. (2012).
+\newblock {Security Protocol Verification: Symbolic and Computational Models}.
+\newblock In {\em Proceedings of the First international conference on
+  Principles of Security and Trust}, pp.\  3--29. Springer-Verlag.
+
 \bibitem[\protect\citeauthoryear{Blom}{Blom}{1984}]{blom1984optimal}
 Blom, R. (1984).
 \newblock An optimal class of symmetric key generation systems.
@@ -75,6 +75,13 @@ Chan, H., A.~Perrig, and D.~Song (2003).
 \newblock Random key predistribution schemes for sensor networks.
 \newblock In {\em Security and Privacy, 2003. Proceedings. 2003 Symposium on},
   pp.\  197--213. IEEE.
+
+\bibitem[\protect\citeauthoryear{Cortier, Kremer, and Warinschi}{Cortier
+  et~al.}{2011}]{cortier2011survey}
+Cortier, V., S.~Kremer, and B.~Warinschi (2011).
+\newblock {A Survey of Symbolic Methods in Computational Analysis of
+  Cryptographic Systems}.
+\newblock {\em Journal of Automated Reasoning\/}~{\em 46\/}(3-4), 225--259.
 
 \bibitem[\protect\citeauthoryear{Cremers and Horvat}{Cremers and
   Horvat}{2014}]{cremers2014improving}
@@ -194,6 +201,12 @@ Gutierrez, J.~A., M.~Naeve, E.~Callaway, M.~Bourgeois, V.~Mitter, and B.~Heile
   {L}ow-cost {W}ireless {P}ersonal {A}rea {N}etworks.
 \newblock {\em network, IEEE\/}~{\em 15\/}(5), 12--19.
 
+\bibitem[\protect\citeauthoryear{Hankerson, Menezes, and Vanstone}{Hankerson
+  et~al.}{2006}]{hankerson2006guide}
+Hankerson, D., A.~J. Menezes, and S.~Vanstone (2006).
+\newblock {\em {Guide to Elliptic Curve Cryptography}}.
+\newblock Springer Science \& Business Media.
+
 \bibitem[\protect\citeauthoryear{Hui and Thubert}{Hui and
   Thubert}{2011}]{rfc6282}
 Hui, J. and P.~Thubert (2011).
@@ -262,11 +275,6 @@ Mao, W. and C.~Boyd (1993).
 \newblock In {\em Computer Security Foundations Workshop VI, 1993.
   Proceedings}, pp.\  147--158. IEEE.
 
-\bibitem[\protect\citeauthoryear{Maurer}{Maurer}{1996}]{maurer1996modelling}
-Maurer, U. (1996).
-\newblock {Modelling a Public-Key Infrastructure}.
-\newblock In {\em Computer Security—ESORICS 96}, pp.\  325--350. Springer.
-
 \bibitem[\protect\citeauthoryear{Meier, Schmidt, Cremers, and Basin}{Meier
   et~al.}{2013}]{meier2013tamarin}
 Meier, S., B.~Schmidt, C.~Cremers, and D.~Basin (2013).
@@ -334,7 +342,8 @@ Project, A.
 Roman, R., C.~Alcaraz, J.~Lopez, and N.~Sklavos (2011).
 \newblock {Key Management Systems for Sensor Networks in the Context of the
   Internet of Things}.
-\newblock {\em Computers & Electrical Engineering\/}~{\em 37\/}(2), 147 -- 159.
+\newblock {\em Computers \& Electrical Engineering\/}~{\em 37\/}(2), 147 --
+  159.
 \newblock Modern Trends in Applied Security: Architectures, Implementations and
   Applications.
 

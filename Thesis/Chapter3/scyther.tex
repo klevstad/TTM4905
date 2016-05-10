@@ -168,7 +168,7 @@ The expression $claim(V, Running, U, Ru)$ denotes that V is currently executing 
 This pattern is a scheme for authentication properties, but it also allows for expressing authentication for additional information specific to a certain part of the protocol run, for example some variable inside the message. Occurrence of a \emph{commit} signal in U's protocol run guarantees that a corresponding \emph{running} signal has previously occurred in V's protocol run, which guarantees that the received message containing $Ru$ must have been transmitted by V \cite{ryan2001modelling}. Listing \ref{lst:cl-rc} contains an example of how we can claim non-injective agreement over a variable, in this case the nonce $Ru$. 
 \newline
 \newpage
-\begin{lstlisting}[caption={Example of a running, commit claim in Scyther to provide authentication for a set of terms.}, label={lst:cl-rc}]
+\begin{lstlisting}[caption={Example of running and commit claims in Scyther to provide authentication for a set of terms.}, label={lst:cl-rc}]
 role U{
 	[...]
 	

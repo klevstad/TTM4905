@@ -9,7 +9,7 @@ A level-1 auxiliary file: Chapter5//krentz-mobility.aux
 The style file: chicago.bst
 A level-1 auxiliary file: Appendix/Appendix.aux
 Database file #1: main.bib
-You're missing a field name---line 378 of file main.bib
+You're missing a field name---line 407 of file main.bib
  : 
  : ,
 (Error may have been on previous line)
@@ -28,7 +28,6 @@ Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei
 while executing---line 1608 of file chicago.bst
 Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
 while executing---line 1608 of file chicago.bst
-Warning--empty year in openpgp
 Warning--empty year in zigbee
 Warning--empty year in iot-phrase-2
 Warning--no journal in basin2011model
@@ -56,45 +55,45 @@ Warning--empty year in avispa
 Warning--empty year in iot-phrase-1
 Warning--empty year in miwi
 Warning--empty year in samsung-lens
-You've used 61 entries,
+You've used 62 entries,
             2861 wiz_defined-function locations,
-            952 strings with 14984 characters,
-and the built_in function-call counts, 44093 in all, are:
-= -- 3840
-> -- 3066
+            961 strings with 15391 characters,
+and the built_in function-call counts, 45018 in all, are:
+= -- 3898
+> -- 3167
 < -- 30
-+ -- 906
-- -- 1052
-* -- 3570
-:= -- 7855
-add.period$ -- 217
-call.type$ -- 61
-change.case$ -- 439
-chr.to.int$ -- 59
++ -- 936
+- -- 1080
+* -- 3688
+:= -- 8025
+add.period$ -- 219
+call.type$ -- 62
+change.case$ -- 448
+chr.to.int$ -- 61
 cite$ -- 83
-duplicate$ -- 1388
-empty$ -- 2719
-format.name$ -- 1192
-if$ -- 8489
-int.to.chr$ -- 3
+duplicate$ -- 1407
+empty$ -- 2768
+format.name$ -- 1228
+if$ -- 8659
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 49
-newline$ -- 320
-num.names$ -- 606
-pop$ -- 519
+missing$ -- 52
+newline$ -- 324
+num.names$ -- 618
+pop$ -- 524
 preamble$ -- 1
-purify$ -- 806
+purify$ -- 824
 quote$ -- 0
-skip$ -- 1304
+skip$ -- 1326
 stack$ -- 0
-substring$ -- 2270
-swap$ -- 534
+substring$ -- 2305
+swap$ -- 537
 text.length$ -- 30
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1182
-warning$ -- 22
-while$ -- 622
+type$ -- 1196
+warning$ -- 21
+while$ -- 628
 width$ -- 0
-write$ -- 859
+write$ -- 871
 (There were 11 error messages)

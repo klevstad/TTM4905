@@ -17,35 +17,33 @@
 \contentsline {subsubsection}{Session Keys}{10}{section*.7}
 \contentsline {subsection}{\numberline {2.4.2}Security Attributes in Key Establishment Schemes}{10}{subsection.2.4.2}
 \contentsline {subsubsection}{Authentication}{10}{section*.8}
-\contentsline {subsubsection}{Implicit Key Authentication}{10}{section*.9}
-\contentsline {subsubsection}{Explicit Key Authentication}{10}{section*.10}
-\contentsline {subsubsection}{Known-Key Security}{11}{section*.11}
-\contentsline {subsubsection}{Perfect Forward Secrecy}{11}{section*.12}
-\contentsline {subsubsection}{Key-Compromise Impersonation}{11}{section*.13}
-\contentsline {subsubsection}{Key Control}{12}{section*.14}
-\contentsline {subsubsection}{Unknown Key-Share}{12}{section*.15}
+\contentsline {subsubsection}{Known-Key Security}{11}{section*.9}
+\contentsline {subsubsection}{Perfect Forward Secrecy}{11}{section*.10}
+\contentsline {subsubsection}{Key-Compromise Impersonation}{12}{section*.11}
+\contentsline {subsubsection}{Key Control}{12}{section*.12}
+\contentsline {subsubsection}{Unknown Key-Share}{12}{section*.13}
 \contentsline {subsection}{\numberline {2.4.3}Key Establishment Architectures}{12}{subsection.2.4.3}
-\contentsline {subsubsection}{Symmetric Key}{12}{section*.16}
-\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{13}{section*.17}
-\contentsline {subsubsection}{Public-Key}{15}{section*.18}
-\contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{16}{subsection.2.4.4}
-\contentsline {subsubsection}{Symmetric Key}{16}{section*.19}
-\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{17}{section*.20}
-\contentsline {subsubsection}{Public-Key}{17}{section*.21}
-\contentsline {subsection}{\numberline {2.4.5}Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{18}{subsection.2.4.5}
-\contentsline {section}{\numberline {2.5}Formal Security Analysis}{19}{section.2.5}
-\contentsline {section}{\numberline {2.6}Related Work}{21}{section.2.6}
+\contentsline {subsubsection}{Symmetric Key}{12}{section*.14}
+\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{13}{section*.15}
+\contentsline {subsubsection}{Public-Key}{16}{section*.16}
+\contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{17}{subsection.2.4.4}
+\contentsline {subsubsection}{Symmetric Key}{17}{section*.17}
+\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{18}{section*.18}
+\contentsline {subsubsection}{Public-Key}{18}{section*.19}
+\contentsline {subsection}{\numberline {2.4.5}Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{19}{subsection.2.4.5}
+\contentsline {section}{\numberline {2.5}Formal Security Analysis}{20}{section.2.5}
+\contentsline {section}{\numberline {2.6}Related Work}{22}{section.2.6}
 \contentsline {chapter}{\chapternumberline {3}Symbolic Security Analysis Using Scyther}{23}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{23}{section.3.1}
 \contentsline {section}{\numberline {3.2}Scyther Syntax}{25}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Security Claims}{27}{subsection.3.2.1}
-\contentsline {subsubsection}{Secret}{27}{section*.22}
-\contentsline {subsubsection}{\gls {skr}}{28}{section*.23}
-\contentsline {subsubsection}{Aliveness}{28}{section*.24}
-\contentsline {subsubsection}{Weak Agreement}{28}{section*.25}
-\contentsline {subsubsection}{Non-injective Agreement}{29}{section*.26}
-\contentsline {subsubsection}{Non-injective Synchronization}{29}{section*.27}
-\contentsline {subsubsection}{Running, Commit}{30}{section*.28}
+\contentsline {subsubsection}{Secret}{27}{section*.20}
+\contentsline {subsubsection}{\gls {skr}}{28}{section*.21}
+\contentsline {subsubsection}{Aliveness}{28}{section*.22}
+\contentsline {subsubsection}{Weak Agreement}{28}{section*.23}
+\contentsline {subsubsection}{Non-injective Agreement}{29}{section*.24}
+\contentsline {subsubsection}{Non-injective Synchronization}{29}{section*.25}
+\contentsline {subsubsection}{Running, Commit}{30}{section*.26}
 \contentsline {section}{\numberline {3.3}Defining an Adversary Compromise Model}{31}{section.3.3}
 \contentsline {section}{\numberline {3.4}Scyther's Graphical User Interface}{33}{section.3.4}
 \contentsline {chapter}{\chapternumberline {4}Adaptable Pairwise Key Establishment Scheme (APKES)}{37}{chapter.4}
@@ -55,17 +53,17 @@
 \contentsline {subsection}{\numberline {4.2.1}Key establishment}{40}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Key agreement}{40}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Security properties}{40}{subsection.4.2.3}
-\contentsline {subsubsection}{Authentication}{40}{section*.29}
-\contentsline {subsubsection}{Key Compromise Impersonation}{40}{section*.30}
-\contentsline {subsubsection}{Unknown Key Share}{41}{section*.31}
-\contentsline {subsubsection}{key confirmation}{41}{section*.32}
-\contentsline {subsubsection}{Forward Secrecy}{41}{section*.33}
+\contentsline {subsubsection}{Authentication}{40}{section*.27}
+\contentsline {subsubsection}{Key Compromise Impersonation}{40}{section*.28}
+\contentsline {subsubsection}{Unknown Key Share}{41}{section*.29}
+\contentsline {subsubsection}{key confirmation}{41}{section*.30}
+\contentsline {subsubsection}{Forward Secrecy}{41}{section*.31}
 \contentsline {subsection}{\numberline {4.2.4}Adversary Model}{41}{subsection.4.2.4}
-\contentsline {subsubsection}{Specifying security properties}{41}{section*.34}
+\contentsline {subsubsection}{Specifying security properties}{41}{section*.32}
 \contentsline {subsection}{\numberline {4.2.5}Results}{41}{subsection.4.2.5}
 \contentsline {subsection}{\numberline {4.2.6}Recommendations}{41}{subsection.4.2.6}
 \contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{43}{chapter.5}
-\contentsline {chapter}{References}{45}{section*.36}
+\contentsline {chapter}{References}{45}{section*.34}
 \vspace {1em}\noindent \bfseries Appendices\par \vspace {-.5em}
 \contentsline {appendix}{\chapternumberline {A}Appendix}{51}{appendix.A}
 \contentsline {section}{\numberline {A.1}Scyther - APKES}{51}{section.A.1}
