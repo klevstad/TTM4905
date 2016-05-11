@@ -19,19 +19,19 @@
 \contentsline {subsubsection}{Authentication}{10}{section*.8}
 \contentsline {subsubsection}{Known-Key Security}{11}{section*.9}
 \contentsline {subsubsection}{Perfect Forward Secrecy}{11}{section*.10}
-\contentsline {subsubsection}{Key-Compromise Impersonation}{12}{section*.11}
+\contentsline {subsubsection}{Key-Compromise Impersonation}{11}{section*.11}
 \contentsline {subsubsection}{Key Control}{12}{section*.12}
 \contentsline {subsubsection}{Unknown Key-Share}{12}{section*.13}
 \contentsline {subsection}{\numberline {2.4.3}Key Establishment Architectures}{12}{subsection.2.4.3}
 \contentsline {subsubsection}{Symmetric Key}{12}{section*.14}
 \contentsline {subsubsection}{Online Servers and Trusted Third Parties}{13}{section*.15}
-\contentsline {subsubsection}{Public-Key}{16}{section*.16}
-\contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{17}{subsection.2.4.4}
-\contentsline {subsubsection}{Symmetric Key}{17}{section*.17}
-\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{18}{section*.18}
+\contentsline {subsubsection}{Public-Key}{15}{section*.16}
+\contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{16}{subsection.2.4.4}
+\contentsline {subsubsection}{Symmetric Key}{16}{section*.17}
+\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{17}{section*.18}
 \contentsline {subsubsection}{Public-Key}{18}{section*.19}
-\contentsline {subsection}{\numberline {2.4.5}Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{19}{subsection.2.4.5}
-\contentsline {section}{\numberline {2.5}Formal Security Analysis}{20}{section.2.5}
+\contentsline {subsection}{\numberline {2.4.5}Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{18}{subsection.2.4.5}
+\contentsline {section}{\numberline {2.5}Formal Security Analysis}{19}{section.2.5}
 \contentsline {section}{\numberline {2.6}Related Work}{22}{section.2.6}
 \contentsline {chapter}{\chapternumberline {3}Symbolic Security Analysis Using Scyther}{23}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{23}{section.3.1}

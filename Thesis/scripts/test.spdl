@@ -1,0 +1,47 @@
+/*
+Test
+*/
+
+protocol TEST(U, V) {
+
+	role U {
+
+    fresh Ru: Nonce;
+    var Rv: Nonce;
+
+    # HELLO
+    send_1(U, V, Ru);
+    recv_2(V, U, {Rv}k(U,V));
+
+    claim_F1(U, Secret, Ru);
+    claim_F2(U, Secret, Rv);
+    #claim_U1(U, Alive);
+    #claim_U2(U, Weakagree);
+    #claim_U3(U, Niagree);
+    #claim_U4(U, Nisynch);
+    #claim_U5(U, Commit, V, Ru);
+
+	}
+
+	role V {
+
+		fresh Rv: Nonce;
+		var Ru: Nonce;
+
+
+		# HELLO
+		recv_1(U, V, Ru);
+		send_2(V, U, {Rv}k(U,V));
+		claim_V5(V,  Running, U, Ru);
+
+		#claim_V1(V, Secret, Ru);
+		#claim_V2(V, Secret, Rv);
+
+		#claim_V1(V, Alive);
+		#claim_V2(V, Weakagree);
+		#claim_V3(V, Niagree);
+		#claim_V4(V, Nisynch);
+
+
+	}
+}

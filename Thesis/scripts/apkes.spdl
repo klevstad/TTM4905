@@ -63,7 +63,6 @@ protocol APKES(U, V)
 
 		# ACK
 		recv_3(U,V, (ack-msg, Ivu, ack-mic));
-		#recv_3(U, V, MIC(Ru));
 
 		# Claims
 		claim_V1(V, Alive);

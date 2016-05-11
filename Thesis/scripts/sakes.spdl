@@ -4,57 +4,121 @@ Secure Authentication and Key Establishment Scheme (SAKES)
 
 hashfunction MAC;
 
-macro Ci = {ED, LR, LBR, Nu}k(ED, LR);
-macro Ci-mac = MAC(Ci, k(ED, LR), LBR, Nu);
+const G; # Generator
+const P; # Prime modulus
 
-macro MAC4 = MAC(Ci, k(LR, LBR), LR, Nr);
+macro msg3-cipher = {I, R, RS, Ni}k(I, S);
+macro msg3 = (msg3-cipher, I, Ni);
+macro msg3-mac = MAC(msg3, k(I, R), I, Ni);
 
-protocol SAKES(ED, LR, LBR) {
+macro msg4 = (msg3, R, Nr);
+macro msg4-mac = MAC(msg3, k(R, S), R, Nr);
+
+macro msg5-cipher = {I, R, RS}sk(S);
+macro msg5 = {Ns,msg5-cipher, pk(S), sk(S)}k(R, S);
+macro msg6 = {R, Ns}k(I, S);
+
+#macro msg7-mac = MAC(msg5-cipher, R, Nr, Pk);
+#macro msg7 = {msg5-cipher, msg7-mac, R, Nr}Sk;
+
+protocol SAKES(I, R, S, RS) {
+
+	role I {
+		# 6LoWPAN End Device (I)
+
+		fresh Ni: Nonce;
+		var Nr: Nonce;
+		var Ns: Nonce;
+
+		# HELLO
+		send_1(I, R, Ni);
+		recv_2(R, I, Nr);
+
+		send_3(I, R, msg3, msg3-mac);
+
+		recv_6(S, I, {R, Ns}k(I, S));
+		
+		claim_I1(I, Niagree);
+		claim_I2(I, Nisynch);
+
+		claim(I, Alive, R);
+		claim(I, Alive, S);
+		claim(I, Weakagree, R);
+		claim(I, Weakagree, S);
+
+		
+		
+
+
+	}
+
+	role R {
+		# 6LoWPAN Router (R)
+
+		fresh Nr: Nonce;
+		var Ni: Nonce;
+		var Ns: Nonce;
+
+		var Pk;
+		var Sk;
+
+		# HELLO
+		recv_1(I, R, Ni);
+		send_2(R, I, Nr);
+
+		recv_3(I, R, msg3, msg3-mac);
+
+		send_4(R, S, msg4, msg4-mac);
+
+		#recv_5(S, R, {Ns, {I, R, S}sk(S), pk(S), sk(S)}k(R, S));
+		recv_5(S, R, {Ns, {I, R, S}Sk, Pk, Sk}k(R, S));
+
+
+
+		claim_R1(R, Niagree);
+		claim_R2(R, Nisynch);
+		
+		claim_R3(R, Secret, sk(S));
+
+		claim(R, Alive, I);
+		claim(R, Alive, S);
+		claim(R, Weakagree, I);
+		claim(R, Weakagree, S);
+		
+		#send_7();
+	}
+
+	role S {
+		# 6LoWPAN Border Router (S)
+
+		fresh Ns: Nonce;
+		var Nr: Nonce;
+		var Ni: Nonce;
+
+		const Pk: Function;
+		secret Sk: Function;
+		inversekeys (Pk, Sk);
+
+		recv_4(R, S, msg4, msg4-mac);
+
+		#send_5(S, R, {Ns, {I, R, S}sk(S), pk(S), sk(S)}k(R, S));
+		send_5(S, R, {Ns, {I, R, S}Sk, Pk, Sk}k(R, S));
+
+
+		send_6(S, I, {R, Ns}k(I, S));
+
+		claim_S1(S, Niagree);
+		claim_S2(S, Nisynch);
+
+		claim(S, Alive, I);
+		claim(S, Alive, R);
+		claim(S, Weakagree, I);
+		claim(S, Weakagree, R);
+	}
 	
-	role ED {
-		# 6LoWPAN End Device (ED)
-
-		fresh Nonce: Nu;
-		var Nonce: Nr;
-
-		# HELLO
-		send_1(ED, LR, Nu);
-		recv_2(LR, ED, Nr);
-
-		send_3(ED, LR, Ci, Ci-mac, ED, Nu);
-
-		recv_6(LBR, ED, {LR, Nb}k(ED, LBR));
-
+	role RS {
+		# Remote Server
 	}
 
-	role LR {
-		# 6LoWPAN Router (LR)
 
-		var Nonce: Nu;
-		fresh Nonce: Nr;
-
-		# HELLO
-		recv_1(ED, LR, Nu);
-		send_2(LR, ED, Nr);
-
-		recv_3(ED, LR, Ci, Ci-mac, ED, Nu);
-
-		send_4(LR, LBR, Ci, MAC4, LR, Nr);
-
-	}
-
-	role LBR {
-		# 6LoWPAN Border Router (LBR)
-
-		fresh Nonce: Nb;
-
-		recv_4(LR, LBR, Ci, MAC4, LR, Nr);
-
-
-		send_5(Nb, {ED, LR, LBR}); # Public-private key
-
-		send_6(LBR, ED, {LR, Nb}k(ED, LBR));
-
-
-	}
 }

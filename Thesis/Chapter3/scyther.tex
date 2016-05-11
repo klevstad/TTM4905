@@ -234,7 +234,7 @@ As mentioned, Scyther provides a \gls{gui} for easily understanding and assessin
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1]{Untitled.png}
+	\includegraphics[scale=1]{ScytherVerifyClaims.png}
 	\caption{Results of a verification process using Scyther where all claims are successfully verified.}
 	\label{fig:scyther-verify-claims}
 \end{figure}
@@ -244,25 +244,27 @@ When no attacks are found, Scyther provides one of two comments: \emph{No attack
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.81]{ScytherFailSecretClaim.png}
+	\includegraphics[scale=0.84]{ScytherFailSecretClaim.png}
 	\caption{Results of a verification process using Scyther when a claim fails.}
 	\label{fig:scyther-verify-claims-fail}
 \end{figure}
 
 The status \emph{Falsified} states that the claim is provable false. When a claim is proved to be false, Scyther will also provide a comment; either \emph{At least X attack(x)} or \emph{Exactly X attack(s)}. In the first case, X attacks where found by Scyther, but the search is not able to detect whether or not there may be other attacks as well. In the other case, Scyther can prove that within the given state-space, there are exactly X attacks.
 
-Whenever Scyther finds an attack on a protocol, it will also provide a concrete illustration of the attack as a graph. Figure \ref{fig:scyther-graph} shows an example of such a graph. It contains a description of the different runs that the adversary executes, which in this case are $Run\ 1$ (executed by role U) and $Run\ 2$ (executed by role V). Initial knowledge is the terms and ... available to the adversary before 
+Whenever Scyther finds an attack on a protocol, it will also provide a concrete illustration of the attack as a graph. Figure \ref{fig:scyther-graph} shows an example of such a graph. The top box for each vertical alignment of boxes describes the run, which is confined inside the grey boxes. It contains a description with the identifier of the run, instance type (i.e. what type of role it is running as), which agents it assumes it is communicating with, and also what fresh values that are generated and instantiated in the run \cite{scyther-manual}. Boxes symbolises events in the different runs, connected by arrows which symbolises ordered constraints. Incoming arrows do not indicate that the messages is sent directly in this step, but is merely an ordering stating that this message can only be received \emph{after} something else has happened. For example, in Figure \ref{fig:scyther-graph}, the \texttt{recv\_2} event in \texttt{Run 1} can only happen after Bob has sent his message in the \texttt{send\_1} event.
 
-WHAT DOES IT MEAN? DOUBLE-RAINBOW OF MY GOD!
-
-, a, and shows how it can pass or intercept messages across different runs to learn some secret information or construct an attack.
-
-% More. What do we see?
 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.45]{ScytherFailAttackGraph.png}
+	\includegraphics[scale=0.5]{ScytherFailAttackGraph.png}
 	\caption{When Scyther finds an attack on a protocol, if will also provide a graph of the attack.}
 	\label{fig:scyther-graph}
 \end{figure}
+
+Arrows in Scyther graphs can be coloured differently. Red arrows indicate that the sent message does not correspond to the received message, which means that the adversary used some information from the sent message in order to construct the one that is received \cite{scyther-manual}. Green arrows indicates that the sent message is identical to the received message. The last possible color (other than black, which does not carry any specific information) is yellow. Yellow arrows indicate that the two parties agree upon the message that is exchanged between the two, but do not agree upon who was the sender and receiver during the exchange.
+
+When a message is sent, it is instantly obtained by the adversary. Initial knowledge (or intruder knowledge) corresponds to the intuition that the intruder is able to generate fresh values of any type, which it in Figure \ref{fig:scyther-graph} uses to generate the nonce that is sent in the \texttt{send\_2} event. The green oval shape indicates where the adversary obtains the information which falsifies the claim, which in this example is the \texttt{Ru} value that is sent in plaintext. The two last boxes in the graph are the black box at the bottom of \texttt{Run 1} which contains the claim that is falsified by Scyther, and the white box to its right which contains abbreviations of the messages that are passed between roles to increase readability of the graph.
+
+
+% More. What do we see?
