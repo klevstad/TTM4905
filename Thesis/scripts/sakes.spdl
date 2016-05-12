@@ -7,19 +7,19 @@ hashfunction MAC;
 const G; # Generator
 const P; # Prime modulus
 
-macro msg3-cipher = {I, R, RS, Ni}k(I, S);
-macro msg3 = (msg3-cipher, I, Ni);
-macro msg3-mac = MAC(msg3, k(I, R), I, Ni);
+macro Message3-Cipher = {I, R, RS, Ni}k(I, S);
+macro Message3 = (Message3-Cipher, I, Ni);
+macro Message3-MAC = MAC(Message3, k(I, R), I, Ni);
 
-macro msg4 = (msg3, R, Nr);
-macro msg4-mac = MAC(msg3, k(R, S), R, Nr);
+macro Message4 = (Message3, R, Nr);
+macro Message4-MAC = MAC(Message3, k(R, S), R, Nr);
 
-macro msg5-cipher = {I, R, RS}sk(S);
-macro msg5 = {Ns,msg5-cipher, pk(S), sk(S)}k(R, S);
-macro msg6 = {R, Ns}k(I, S);
+macro Message5-Cipher = {I, R, RS}sk(S);
+macro Message5 = {Ns,Message5-Cipher, pk(S), sk(S)}k(R, S);
+macro Message6 = {R, Ns}k(I, S);
 
-#macro msg7-mac = MAC(msg5-cipher, R, Nr, Pk);
-#macro msg7 = {msg5-cipher, msg7-mac, R, Nr}Sk;
+#macro Message7-MAC = MAC(Message5-Cipher, R, Nr, Pk);
+#macro Message7 = {Message5-Cipher, Message7-MAC, R, Nr}Sk;
 
 protocol SAKES(I, R, S, RS) {
 
@@ -34,10 +34,10 @@ protocol SAKES(I, R, S, RS) {
 		send_1(I, R, Ni);
 		recv_2(R, I, Nr);
 
-		send_3(I, R, msg3, msg3-mac);
+		send_3(I, R, Message3, Message3-MAC);
 
-		recv_6(S, I, {R, Ns}k(I, S));
-		
+		recv_6(S, I, Message6);
+
 		claim_I1(I, Niagree);
 		claim_I2(I, Nisynch);
 
@@ -46,8 +46,8 @@ protocol SAKES(I, R, S, RS) {
 		claim(I, Weakagree, R);
 		claim(I, Weakagree, S);
 
-		
-		
+
+
 
 
 	}
@@ -66,25 +66,25 @@ protocol SAKES(I, R, S, RS) {
 		recv_1(I, R, Ni);
 		send_2(R, I, Nr);
 
-		recv_3(I, R, msg3, msg3-mac);
+		recv_3(I, R, Message3, Message3-MAC);
 
-		send_4(R, S, msg4, msg4-mac);
+		send_4(R, S, Message4, Message4-MAC);
 
 		#recv_5(S, R, {Ns, {I, R, S}sk(S), pk(S), sk(S)}k(R, S));
-		recv_5(S, R, {Ns, {I, R, S}Sk, Pk, Sk}k(R, S));
+		recv_5(S, R, Message5);
 
 
 
 		claim_R1(R, Niagree);
 		claim_R2(R, Nisynch);
-		
+
 		claim_R3(R, Secret, sk(S));
 
 		claim(R, Alive, I);
 		claim(R, Alive, S);
 		claim(R, Weakagree, I);
 		claim(R, Weakagree, S);
-		
+
 		#send_7();
 	}
 
@@ -99,13 +99,13 @@ protocol SAKES(I, R, S, RS) {
 		secret Sk: Function;
 		inversekeys (Pk, Sk);
 
-		recv_4(R, S, msg4, msg4-mac);
+		recv_4(R, S, Message4, Message4-MAC);
 
 		#send_5(S, R, {Ns, {I, R, S}sk(S), pk(S), sk(S)}k(R, S));
-		send_5(S, R, {Ns, {I, R, S}Sk, Pk, Sk}k(R, S));
+		send_5(S, R, Message5);
 
 
-		send_6(S, I, {R, Ns}k(I, S));
+		send_6(S, I, Message6);
 
 		claim_S1(S, Niagree);
 		claim_S2(S, Nisynch);
@@ -115,7 +115,7 @@ protocol SAKES(I, R, S, RS) {
 		claim(S, Weakagree, I);
 		claim(S, Weakagree, R);
 	}
-	
+
 	role RS {
 		# Remote Server
 	}

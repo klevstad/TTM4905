@@ -7,8 +7,11 @@ usertype Index;
 hashfunction MIC;
 
 macro PairwiseKey = {Ru, Rv}k(U, V);
-macro helloack-mic = MIC(Ru, Rv, Iuv, SAv, k(U,V));
-macro ack-mic = MIC(ack-msg, Ivu, PairwiseKey);
+macro Hello = (Ru, SAu);
+macro HelloAck = (Ru, Rv, Iuv, SAv);
+macro HelloAckMIC = MIC(HelloAck, k(U,V));
+macro Ack = (AckMsg, Ivu);
+macro AckMIC = MIC(Ack, PairwiseKey);
 
 const SAu; # U's Short Address
 const SAv; # V's Short Address
@@ -16,7 +19,7 @@ const SAv; # V's Short Address
 const Iuv: Index; # U's index in V's list of neighbours
 const Ivu: Index; # V's index in U's list of neighbours
 
-const ack-msg;
+const AckMsg;
 
 protocol APKES(U, V)
 {
@@ -25,18 +28,16 @@ protocol APKES(U, V)
 		fresh Ru: Nonce;
 		var Rv: Nonce;
 
-
+		#send_!0(U, U, k(U, V)); #To model if the adversary has obtained the preshared secret in LEAP.
 		# HELLO
 		send_1(U, V, Ru, SAu);
 
 		# HELLOACK
-		recv_2(V, U, (Ru, Rv, Iuv, SAv, helloack-mic));
+		recv_2(V, U, HelloAck, HelloAckMIC);
 
 		#ACK
-		send_3(U, V, (ack-msg, Ivu, ack-mic));
-		#send_3(U, V, I );
-
-
+		send_3(U, V, (Ack, AckMIC));
+		
 		# Claims:
 		claim_U1(U, Alive); # V was "alive" as U was able to execute the protocol correctly
 		claim_U2(U, Weakagree);
@@ -59,10 +60,10 @@ protocol APKES(U, V)
 		claim_V6(V, Running, U, Ru); # To make sure that the Ru is not tampered with.
 
 		# HELLOACK
-		send_2(V, U, (Ru, Rv, Iuv, SAv, helloack-mic));
+		send_2(V, U, HelloAck, HelloAckMIC);
 
 		# ACK
-		recv_3(U,V, (ack-msg, Ivu, ack-mic));
+		recv_3(U,V, Ack, AckMIC);
 
 		# Claims
 		claim_V1(V, Alive);
@@ -71,6 +72,7 @@ protocol APKES(U, V)
 		claim_V4(V, Nisynch);
 		claim_V5(V, Secret, PairwiseKey);
 
-
 	}
 }
+
+

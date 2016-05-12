@@ -24,15 +24,15 @@
 \BOOKMARK [0][-]{chapter.4}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{}% 24
 \BOOKMARK [1][-]{section.4.1}{Introduction to APKES}{chapter.4}% 25
 \BOOKMARK [2][-]{subsection.4.1.1}{Protocol specification}{section.4.1}% 26
-\BOOKMARK [1][-]{section.4.2}{Formal Security Analysis of APKES using Scyther}{chapter.4}% 27
-\BOOKMARK [2][-]{subsection.4.2.1}{Key establishment}{section.4.2}% 28
-\BOOKMARK [2][-]{subsection.4.2.2}{Key agreement}{section.4.2}% 29
-\BOOKMARK [2][-]{subsection.4.2.3}{Security properties}{section.4.2}% 30
-\BOOKMARK [2][-]{subsection.4.2.4}{Adversary Model}{section.4.2}% 31
-\BOOKMARK [2][-]{subsection.4.2.5}{Results}{section.4.2}% 32
-\BOOKMARK [2][-]{subsection.4.2.6}{Recommendations}{section.4.2}% 33
+\BOOKMARK [1][-]{section.4.2}{Claimed Security Properties}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.2.1}{Security properties}{section.4.2}% 28
+\BOOKMARK [1][-]{section.4.3}{Formal Security Analysis of APKES using Scyther}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.3.1}{Adversary}{section.4.3}% 30
+\BOOKMARK [2][-]{subsection.4.3.2}{Results}{section.4.3}% 31
+\BOOKMARK [2][-]{subsection.4.3.3}{Recommendations}{section.4.3}% 32
+\BOOKMARK [2][-]{subsection.4.3.4}{Limitations / Not covered by Scyther}{section.4.3}% 33
 \BOOKMARK [0][-]{chapter.5}{Handling Reboots and Mobility in 802.15.4 Security}{}% 34
-\BOOKMARK [0][-]{section*.34}{References}{}% 35
+\BOOKMARK [0][-]{section*.29}{References}{}% 35
 \BOOKMARK [0][-]{appendix.A}{Appendix}{}% 36
 \BOOKMARK [1][-]{section.A.1}{Scyther - APKES}{appendix.A}% 37
 \BOOKMARK [1][-]{section.A.2}{Scyther - AKES}{appendix.A}% 38

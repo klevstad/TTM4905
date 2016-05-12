@@ -49,21 +49,16 @@
 \contentsline {chapter}{\chapternumberline {4}Adaptable Pairwise Key Establishment Scheme (APKES)}{37}{chapter.4}
 \contentsline {section}{\numberline {4.1}Introduction to APKES}{37}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Protocol specification}{39}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Formal Security Analysis of APKES using Scyther}{40}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Key establishment}{40}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Key agreement}{40}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Security properties}{40}{subsection.4.2.3}
-\contentsline {subsubsection}{Authentication}{40}{section*.27}
-\contentsline {subsubsection}{Key Compromise Impersonation}{40}{section*.28}
-\contentsline {subsubsection}{Unknown Key Share}{41}{section*.29}
-\contentsline {subsubsection}{key confirmation}{41}{section*.30}
-\contentsline {subsubsection}{Forward Secrecy}{41}{section*.31}
-\contentsline {subsection}{\numberline {4.2.4}Adversary Model}{41}{subsection.4.2.4}
-\contentsline {subsubsection}{Specifying security properties}{41}{section*.32}
-\contentsline {subsection}{\numberline {4.2.5}Results}{41}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Recommendations}{41}{subsection.4.2.6}
+\contentsline {section}{\numberline {4.2}Claimed Security Properties}{40}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Security properties}{41}{subsection.4.2.1}
+\contentsline {subsubsection}{Authentication}{41}{section*.27}
+\contentsline {section}{\numberline {4.3}Formal Security Analysis of APKES using Scyther}{41}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Adversary}{41}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Results}{42}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Recommendations}{42}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Limitations / Not covered by Scyther}{42}{subsection.4.3.4}
 \contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{43}{chapter.5}
-\contentsline {chapter}{References}{45}{section*.34}
+\contentsline {chapter}{References}{45}{section*.29}
 \vspace {1em}\noindent \bfseries Appendices\par \vspace {-.5em}
 \contentsline {appendix}{\chapternumberline {A}Appendix}{51}{appendix.A}
 \contentsline {section}{\numberline {A.1}Scyther - APKES}{51}{section.A.1}
