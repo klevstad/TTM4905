@@ -2,11 +2,17 @@
 \label{chp:krentz-6lowpan}
 
 
-\gls{apkes} is a proposed protocol for handling key establishment and key management in \gls{6lowpan}. It is currently implemented in the operating system Contiki, which is an operating system targeted at the sensor network community, but has not undergone any formal security analysis. This chapter will cover its ideas, and conduct a formal security analysis using Scyther. 
-
 \section{Introduction to APKES}
+\gls{apkes} is a proposed protocol by Krentz et al. for handling key establishment and key management in \gls{6lowpan} \cite{krentz20136lowpan}. It is currently implemented in the operating system Contiki, which is an operating system targeted at the sensor network community.
+%but has not undergone any formal security analysis. This chapter will cover its ideas, and conduct a formal security analysis using Scyther. 
 
-As previously described, \gls{6lowpan} is a protocol stack for integrating \gls{wsn}s running on 802.15.4 with \gls{ip}v6 networks, and enables the nodes in the network to communicate with each other or remote hosts over \gls{ip}. \gls{apkes} provides a framework for establishing pairwise keys for nodes in \gls{6lowpan} networks. The advantage with pairwise keys over other key schemes such as a network-shared key is related to node compromises. In \gls{6lowpan} networks, devices are often placed in potential hostile and unattended areas, greatly increasing the possibility of being tampered with by attackers. In the case of a network shared key, the whole network would be compromised in the event of a node compromise. Also, the attacker would be able to add new nodes to the network, as the upper-layer protocols rely on the 802.15.4 security sub-layer which is able to filter out replayed packets and prevent injection, but not discover node compromises \cite{krentz20136lowpan}. A solution to the tampering problem could be to construct tampering-proof nodes, but this is expensive and difficult, hence not a preferable solution \cite{anderson1996tamper}. Pairwise keys, however, would only compromise the communication going to or from that particular node, and the establishment of such keys in the main focus of \gls{apkes}. Figure \ref{fig:6lowpan-krentz} illustrates how \gls{apkes} is implemented at the link layer along with the 820.15.4 security sublayer.
+% Litt mer her
+
+As previously described, \gls{6lowpan} is a protocol stack for integrating \gls{wsn}s running on 802.15.4 with \gls{ip}v6 networks, and enables the nodes in the network to communicate with each other or remote hosts over \gls{ip}. \gls{apkes} provides a framework for establishing pairwise keys for nodes in \gls{6lowpan} networks. The advantage with pairwise keys over other key schemes such as a network-shared key is related to node compromises. In \gls{6lowpan} networks, devices are often placed in potential hostile and unattended areas, greatly increasing the possibility of being tampered with by attackers.
+
+In the case of a network shared key, the whole network would be compromised in the event of a node compromise. Also, the attacker would be able to add new nodes to the network, as the upper-layer protocols rely on the 802.15.4 security sub-layer which is able to filter out replayed packets and prevent injection, but not discover node compromises \cite{krentz20136lowpan}. A solution to the tampering problem could be to construct tampering-proof nodes, but this is expensive and difficult, hence not a preferable solution \cite{anderson1996tamper}. Pairwise keys, however, would only compromise the communication going to or from that particular node, and the establishment of such keys is the main focus of \gls{apkes}.
+
+Figure \ref{fig:6lowpan-krentz} illustrates how \gls{apkes} is implemented at the link layer along with the 820.15.4 security sublayer. In its implementation, \gls{apkes} introduces three special messages which are used in the key establishment process, namely \texttt{HELLO}, \texttt{HELLOACK}, and \texttt{ACK} \cite{krentz20136lowpan}. These are defined as 802.15.4 command messages, which are only processed by the data link layer (i.e they are not passed to upper layers), hence \gls{apkes} is able to establish pairwise keys for networks building on 802.15.4 independently from the protocols running in the upper layers.
 
 \begin{figure}
 	\centering
@@ -15,15 +21,15 @@ As previously described, \gls{6lowpan} is a protocol stack for integrating \gls{
 	\label{fig:6lowpan-krentz}
 \end{figure}
 
-\gls{apkes} provides a ``pluggable'' key establishment scheme for \gls{6lowpan} networks using pairwise keys, where the developer of a \gls{6lowpan} network picks an appropriate key establishment scheme and delegates \gls{apkes} into handling the key establishment with other nodes \cite{krentz20136lowpan}. As there is really no superior scheme for \gls{6lowpan} networks, the use of pluggable schemes enhances the overall usability of the protocol, as the developer can use the most appropriate scheme based on the challenges he faces. The only function of the plugged-in scheme is to feed \gls{apkes} with the shared secret for communicating nodes, and \gls{apkes} will handle both key establishment and key management. Examples of pluggable schemes that has been suggested for \gls{apkes} are \gls{leap} \cite{zhu2006leap+}, Blom's Scheme \cite{blom1984optimal}, and random pairwise keys \cite{chan2003random}. In the case of random pairwise keys, path key establishment has to be implemented in addition to \gls{apkes}.
+\gls{apkes} provides a ``pluggable'' key establishment scheme for \gls{6lowpan} networks using pairwise keys, where the developer of a \gls{6lowpan} network picks an appropriate key establishment scheme and delegates \gls{apkes} into handling the key establishment with other nodes \cite{krentz20136lowpan}. As there is really no superior scheme for \gls{6lowpan} networks, the use of pluggable schemes enhances the overall usability of the protocol, as the developer can use the most appropriate scheme based on the challenges he faces. The only function of the plugged-in scheme is to feed \gls{apkes} with the shared secret for the communicating nodes, and \gls{apkes} will handle both key establishment and key management. Examples of pluggable schemes that have been suggested for \gls{apkes} are \gls{leap} \cite{zhu2006leap+}, Blom's Scheme \cite{blom1984optimal}, and random pairwise keys \cite{chan2003random}. In the case of random pairwise keys, path key establishment has to be implemented in addition to \gls{apkes}.
 
 
 % Nevne at LEAP er best/mest snill mot strøm og minne?
 
 
-During key establishment, a responding node goes from not a neighbour, to a tentative neighbour, before ending up as a permanent neighbour, giving that the key establishment was successful. The change of neighbour status is implemented to prevent \gls{dos} attacks on nodes by flooding them with \texttt{HELLO} messages, which would force them to reply with \texttt{HELLOACK}s, potentially drain their battery. Also, injecting and replaying \texttt{HELLOACK}s and \texttt{ACK}s would also aid an attacker in draining the network's nodes for battery. Upon receiving a \texttt{HELLO} message, $V$ checks if $U$ is already a neighbour, and that it has available space in its list of tentative neighbours, which is limited to $M_t$ neighbours. 
+During key establishment, a responding node goes from not a neighbour, to a tentative neighbour, before ending up as a permanent neighbour, given that the key establishment was successfully executed. The change of neighbour status is implemented to prevent \gls{dos} attacks on nodes by flooding them with messages for starting key establishments (\texttt{HELLO} messages), which would force them to reply to each message (denoted as \texttt{HELLOACK}), potentially drain their battery. Also, injecting and replaying these replies could also aid an attacker in draining the network's nodes for battery. Upon receiving a \texttt{HELLO} message, the responder ($V$) checks if the initiator ($U$) is already a neighbour, and that it has available space in its list of tentative neighbours, which is limited to $M_t$ neighbours. 
 
-By limiting the number of tentative neighbours, $V$ is protected against consecutive \texttt{HELLO} messages, which are discarded without being processed when the number of tentative neighbours exceed $M_t$. The list of tentative neighbours is processed for each \texttt{HELLO}, where neighbours whose expiration time has exceeded are deleted. Permanent neighbours are potentially created upon receiving valid, non-replayed \texttt{HELLOACK}s and valid \texttt{ACK}s from non-permanent neighbours. 
+By limiting the number of tentative neighbours, $V$ is protected against consecutive \texttt{HELLO} messages, which are discarded without being processed when the number of tentative neighbours exceeds $M_t$. The list of tentative neighbours is processed for each \texttt{HELLO}, where neighbours whose expiration time has expired are deleted. Permanent neighbours are potentially created upon receiving valid, non-replayed \texttt{HELLOACK}s and valid \texttt{ACK}s from non-permanent neighbours. 
 
 
 %\subsection{Easy Broadcast Encryption and Authentication Protocol}
@@ -37,7 +43,7 @@ Key establishment in \gls{apkes} consists of a three-way handshake, as described
 
 % Hvorfor sjekke at Ru er den samme? Vil ikke det være åpenbart hvis MICen ikke skulle være lik?
 
-When $U$ receives a \texttt{HELLOACK} message, it verifies the attached \gls{mic} by extracting its key $K_{u,v}$ from the pluggable scheme and computing the \gls{mic} for the concatenation of $R_u$ and $R_v$. $U$ then computes the pairwise key for communicating with $V$ by plugging it into \gls{aes} algorithm. $U$ also checks that the $R_u$ value has not been tampered with, and is equal to the value it initially sent in its \texttt{HELLO} broadcast. The three-way handshake is ends with $U$ sending an \texttt{ACK} to $V$ that is authenticated using $K'_{u,v}$. When $V$ receives the \texttt{ACK}, it verifies the \gls{mic} by using its pairwise key $K'_{v,u}$. After this process, $U$ and $V$ have agreed upon a shared pairwise key where $K'_{u,v} = K'_{v,u}$.
+When $U$ receives a \texttt{HELLOACK} message, it verifies the attached \gls{mic} by extracting its key $K_{u,v}$ from the pluggable scheme and computing the \gls{mic} for the concatenation of $R_u$ and $R_v$. $U$ then computes the pairwise key for communicating with $V$ by plugging it into \gls{aes} algorithm. $U$ also checks that the $R_u$ value has not been tampered with, and is equal to the value it initially sent in its \texttt{HELLO} broadcast. The three-way handshake is ends with $U$ sending an \texttt{ACK} to $V$ that is authenticated using $K'_{u,v}$. When $V$ receives the \texttt{ACK}, it verifies the \gls{mic} by using its pairwise key $K'_{v,u}$. After this process, $U$ and $V$ have agreed upon a shared pairwise key where $K'_{u,v} = K'_{v,u}$, which is to be used for encrypting all future communication between the two nodes.
 
 
 
@@ -69,8 +75,7 @@ One of the focuses of \gls{apkes} is to provide authentication of parties during
 
 $V$ also receives an \texttt{ACK} which is authenticated using the pairwise key $K'_{u,v}$, effectively meaning that $U$ has computed the pairwise key, and which $V$ can confirm by checking the attached \gls{mic}, hence it achieves explicit key authentication. From $U$'s point of view, however, it has no confirmation of that $V$ has in fact computed the pairwise key, other than it knows it is supposed to (and has to in order to verify the authenticity of the \texttt{ACK}.
 
-Another trivial goal of key establishment is for the established key to be secret and hidden from the adversary. This is a ......?
-
+As \gls{apkes} is a key establishment protocol, the established key is of course claimed to me secret from the adversary.
 
 
 %Authentication and encryption of unicast frames. Given that the protocol contains an authenticated three-way handshake: Explicit and implicit key authentication?
@@ -144,7 +149,7 @@ When using pluggable scheme. Have to store key. Apkes + leap: Delete masterkey a
 
 % Implicit: Long-term reveal for other entities than A and B.
 
-% Explicit. 
+% Explicit. Implicit + key confirmation
 
 
 % Please add the following required packages to your document preamble:
@@ -179,10 +184,16 @@ When using pluggable scheme. Have to store key. Apkes + leap: Delete masterkey a
 \begin{table}
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{lc|ccc|ccccc}
+\begin{tabular}{lcccccccccc}
 \multicolumn{1}{p{1.3cm}}{Protocol} & \multicolumn{2}{p{2.2cm}}{Entity\newline authentication} & \multicolumn{1}{p{2.2cm}}{Implicit key\newline authentication} & \multicolumn{2}{p{2.2cm}}{Explicit key\newline authentication}
-& \multicolumn{1}{p{2.6cm}}{Key compromise impersonation} & \multicolumn{1}{p{1.1cm}}{Forward\newline Secrecy} & \multicolumn{1}{p{1.75cm}}{Known-key\newline security} & \multicolumn{1}{p{1.0cm}}{Secrecy\newline of key}\\
- & Of A & Of B &  & Of A & Of B &  &  & &\\ \hline
- APKES & \checkmark & x & x & x & x & x & x & x & x\\
+& \multicolumn{1}{p{2.6cm}}{Key compromise impersonation} & \multicolumn{1}{p{1.1cm}}{Forward\newline Secrecy} & \multicolumn{1}{p{1.75cm}}{Known-key\newline security} & \multicolumn{1}{p{1cm}}{Key\newline control} & \multicolumn{1}{p{1.0cm}}{Secrecy\newline of key}\\
+ & Of U & Of V &  & Of U & Of V &  &  & &\\ \hline
+ APKES & \checkmark & \checkmark & \checkmark & \checkmark & x & x & x & \checkmark & \checkmark & \checkmark\\
+ AKES & x & x & x & x & x & x & x & x & x & x\\
+ SAKES & x & x & x & x & x & x & x & x & x & x\\ \hline
 \end{tabular}}
+\caption{Table of the security properties that are satisfied in the different protocols.}
+\label{tab:scyther-results}
 \end{table}
+
+key control

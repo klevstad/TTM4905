@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.26)  12 MAY 2016 19:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.26)  13 MAY 2016 12:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1940,7 +1940,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-<./figs/osi.png, id=456, 334.24875pt x 250.9375pt>
+<./figs/osi.png, id=458, 334.24875pt x 250.9375pt>
 File: ./figs/osi.png Graphic file (type png)
  <use ./figs/osi.png>
 Package pdftex.def Info: ./figs/osi.png used on input line 51.
@@ -1949,7 +1949,7 @@ Package pdftex.def Info: ./figs/osi.png used on input line 51.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] <./figs/802154.png, id=481, 771.88374pt x 504.88625pt>
+[5] <./figs/802154.png, id=483, 771.88374pt x 504.88625pt>
 File: ./figs/802154.png Graphic file (type png)
 
 <use ./figs/802154.png>
@@ -1975,7 +1975,7 @@ tifier (name{figure.2.2}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.77 
       <./figs/802154.png>]
-<./figs/6lowpan.png, id=530, 263.98625pt x 233.87375pt>
+<./figs/6lowpan.png, id=532, 263.98625pt x 233.87375pt>
 File: ./figs/6lowpan.png Graphic file (type png)
 
 <use ./figs/6lowpan.png>
@@ -1991,7 +1991,7 @@ l.88
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
-[10] [11] <./figs/symmetric.png, id=604, 521.95pt x 252.945pt>
+[10] [11] <./figs/symmetric.png, id=606, 521.95pt x 252.945pt>
 File: ./figs/symmetric.png Graphic file (type png)
 
 <use ./figs/symmetric.png>
@@ -2008,7 +2008,7 @@ e.2.4}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.185 
        <./figs/symmetric.png>]
-<./figs/Kerberos.png, id=642, 364.36125pt x 293.095pt>
+<./figs/Kerberos.png, id=644, 364.36125pt x 293.095pt>
 File: ./figs/Kerberos.png Graphic file (type png)
 
 <use ./figs/Kerberos.png>
@@ -2018,7 +2018,7 @@ Package pdftex.def Info: ./figs/Kerberos.png used on input line 195.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
-<./figs/asymmetric.png, id=652, 521.95pt x 252.945pt>
+<./figs/asymmetric.png, id=654, 521.95pt x 252.945pt>
 File: ./figs/asymmetric.png Graphic file (type png)
 
 <use ./figs/asymmetric.png>
@@ -2120,7 +2120,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[31] <./figs/compromise-model.png, id=983, 435.6275pt x 163.61125pt>
+[31] <./figs/compromise-model.png, id=985, 435.6275pt x 163.61125pt>
 File: ./figs/compromise-model.png Graphic file (type png)
 
 <use ./figs/compromise-model.png>
@@ -2136,7 +2136,7 @@ Underfull \vbox (badness 7168) has occurred while \output is active []
                                                   \fi \fi 
 l.225 \end{figure}
                   ]
-<./figs/ScytherVerifyClaims.png, id=998, 353.82187pt x 281.55188pt>
+<./figs/ScytherVerifyClaims.png, id=1000, 353.82187pt x 281.55188pt>
 File: ./figs/ScytherVerifyClaims.png Graphic file (type png)
 
 <use ./figs/ScytherVerifyClaims.png>
@@ -2154,7 +2154,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
                                                   \fi \fi 
 l.243 
        <./figs/compromise-model.png>]
-<./figs/ScytherFailSecretClaim.png, id=1007, 428.35031pt x 82.05656pt>
+<./figs/ScytherFailSecretClaim.png, id=1009, 428.35031pt x 82.05656pt>
 File: ./figs/ScytherFailSecretClaim.png Graphic file (type png)
 
 <use ./figs/ScytherFailSecretClaim.png>
@@ -2175,7 +2175,7 @@ l.253
 l.253 
        <./figs/ScytherVerifyClaims.png (PNG copy)> <./figs/ScytherFailSecretCla
 im.png (PNG copy)>]
-<./figs/ScytherFailAttackGraph.png, id=1015, 676.77844pt x 446.41782pt>
+<./figs/ScytherFailAttackGraph.png, id=1017, 676.77844pt x 446.41782pt>
 File: ./figs/ScytherFailAttackGraph.png Graphic file (type png)
 
 <use ./figs/ScytherFailAttackGraph.png>
@@ -2196,68 +2196,75 @@ l.266
 
 
 (./Chapter4//6lowpan-krentz.tex
-<./figs/6lowpan-krentz.png, id=1042, 404.51125pt x 304.13625pt>
-File: ./figs/6lowpan-krentz.png Graphic file (type png)
-
-<use ./figs/6lowpan-krentz.png>
-Package pdftex.def Info: ./figs/6lowpan-krentz.png used on input line 13.
-(pdftex.def)             Requested size: 323.60944pt x 243.30933pt.
-
-Underfull \vbox (badness 1270) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [37
 
 
 
 ]
-[38pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1
-}) has been already used, duplicate ignored
+<./figs/6lowpan-krentz.png, id=1053, 404.51125pt x 304.13625pt>
+File: ./figs/6lowpan-krentz.png Graphic file (type png)
+
+<use ./figs/6lowpan-krentz.png>
+Package pdftex.def Info: ./figs/6lowpan-krentz.png used on input line 19.
+(pdftex.def)             Requested size: 323.60944pt x 243.30933pt.
+
+Underfull \vbox (badness 4266) has occurred while \output is active []
+
+ [38pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
+1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.27 
-      <./figs/6lowpan-krentz.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[39]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [40pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-2}) has been already used, duplicate ignored
+l.31 
+      <./figs/6lowpan-krentz.png>] [39] [40pdfTeX warning (ext4): destination w
+ith the same identifier (name{figure.4.2}) has been already used, duplicate ign
+ored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.80 \subsection
-                {Security properties}] [41]
-Overfull \hbox (3.9867pt too wide) in paragraph at lines 187--187
+l.70 \newpage
+             ] [41]
+Overfull \hbox (3.9867pt too wide) in paragraph at lines 194--194
 []|\T1/lmr/m/n/10 (-20) Forward 
  []
 
 
-Overfull \hbox (0.57942pt too wide) in paragraph at lines 187--187
+Overfull \hbox (0.57942pt too wide) in paragraph at lines 194--194
 \T1/lmr/m/n/10 (-20) Secrecy| 
  []
 
 
-Overfull \hbox (3.42488pt too wide) in paragraph at lines 187--187
+Overfull \hbox (1.24123pt too wide) in paragraph at lines 194--194
+\T1/lmr/m/n/10 (-20) control| 
+ []
+
+
+Overfull \hbox (3.42488pt too wide) in paragraph at lines 194--194
 []|\T1/lmr/m/n/10 (-20) Secrecy 
  []
 
-) [42]
+) [42pdfTeX warning (ext4): destination with the same identifier (name{table.4.
+1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.134 \include{Chapter4//6lowpan-krentz}
+                                        ] [43]
 \openout2 = `Chapter5//krentz-mobility.aux'.
 
- (./Chapter5//krentz-mobility.tex) [43
+ (./Chapter5//krentz-mobility.tex [44
 
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
-has been already used, duplicate ignored
+]) [45pdfTeX warning (ext4): destination with the same identifier (name{figure.
+5.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.136 \include{Chapter5//krentz-mobility}
-                                         ] (./main.bbl [44
+                                         ] (./main.bbl [46
 
 
 ]
@@ -2267,7 +2274,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--21
 []\T1/lmr/m/n/10 (+20) Ashton, K.  That ``In-ter-net of Things'' Thing.
  []
 
-[45] [46] [47]
+[47] [48] [49]
 Underfull \hbox (badness 1742) in paragraph at lines 285--291
 \T1/lmr/m/n/10 (+20) video, store it, play it back - and ad-just zoom, fo-cus a
 nd aper-ture
@@ -2286,7 +2293,7 @@ nses-[]record-[]video-[]store-[]play-[]adjust-[]zoom-[]focus-[]aperture-[]autom
 atically .
  []
 
-[48]
+[50]
 Underfull \hbox (badness 4859) in paragraph at lines 401--406
 []\T1/lmr/m/n/10 (+20) Yadron, D.  Sam-sung patent re-veals ``smart'' con-tact 
 lens with
@@ -2298,10 +2305,10 @@ Underfull \hbox (badness 3428) in paragraph at lines 401--406
 m / technology / 2016 / apr / 06 /
  []
 
-) [49]
+) [51]
 \openout2 = `Appendix/Appendix.aux'.
 
- (./Appendix/Appendix.tex [50
+ (./Appendix/Appendix.tex [52
 
 
 ] (./scripts/apkes.spdl
@@ -2309,15 +2316,15 @@ LaTeX Font Info:    Try loading font information for TS1+lmr on input line 1.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [51]
+) [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52])
-(./scripts/akes.spdl [53]
+ [54])
+(./scripts/akes.spdl [55]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [54]))
-[55]
+ [56]))
+[57]
 \tf@toc=\write10
 \openout10 = `main.toc'.
 
@@ -2342,13 +2349,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 155.
  ) 
 Here is how much of TeX's memory you used:
- 31171 strings out of 493304
- 492133 string characters out of 6139871
- 880065 words of memory out of 5000000
- 33295 multiletter control sequences out of 15000+600000
- 69380 words of font info for 127 fonts, out of 8000000 for 9000
+ 31177 strings out of 493304
+ 492199 string characters out of 6139871
+ 881253 words of memory out of 5000000
+ 33296 multiletter control sequences out of 15000+600000
+ 69463 words of font info for 128 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 60i,14n,72p,1753b,1861s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,14n,72p,1753b,1946s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
 vips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/shar
 e/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
@@ -2361,10 +2368,10 @@ c/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
 am10.pfb>
-Output written on main.pdf (69 pages, 709417 bytes).
+Output written on main.pdf (71 pages, 711180 bytes).
 PDF statistics:
- 1525 PDF objects out of 1728 (max. 8388607)
- 1399 compressed objects within 14 object streams
- 494 named destinations out of 1000 (max. 500000)
+ 1541 PDF objects out of 1728 (max. 8388607)
+ 1412 compressed objects within 15 object streams
+ 497 named destinations out of 1000 (max. 500000)
  18804 words of extra memory for PDF output out of 20736 (max. 10000000)
 

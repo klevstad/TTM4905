@@ -9,7 +9,7 @@ hashfunction MIC;
 macro PairwiseKey = {Ru, Rv}k(U, V);
 macro Hello = (Ru, SAu);
 macro HelloAck = (Ru, Rv, Iuv, SAv);
-macro HelloAckMIC = MIC(HelloAck, k(U,V));
+macro HelloAckMIC = MIC(HelloAck,  k(U,V)); # Use PairwiseKey to achieve explicit key authentication?
 macro Ack = (AckMsg, Ivu);
 macro AckMIC = MIC(Ack, PairwiseKey);
 

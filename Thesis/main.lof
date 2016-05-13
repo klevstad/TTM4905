@@ -19,5 +19,5 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces \gls {apkes} is positioned in the data link layer in the \gls {6lowpan} stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{38}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during \gls {apkes}' three-way handshake. $\delimiter "426830A {msg}\delimiter "526930B {K}$ indicates that the frame is authenticated using the key $K$.}}{40}{figure.4.2}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Figure of the messages sent between communicating parties during \gls {akes}' three-way handshake. $\delimiter "426830A {msg}\delimiter "526930B {K}$ indicates that the frame is authenticated using the key $K$.}}{43}{figure.5.1}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Figure of the messages sent between communicating parties during \gls {akes}' three-way handshake. $\delimiter "426830A {msg}\delimiter "526930B {K}$ indicates that the frame is authenticated using the key $K$.}}{45}{figure.5.1}
 \addvspace {10pt}

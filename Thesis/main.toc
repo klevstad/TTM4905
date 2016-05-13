@@ -49,17 +49,17 @@
 \contentsline {chapter}{\chapternumberline {4}Adaptable Pairwise Key Establishment Scheme (APKES)}{37}{chapter.4}
 \contentsline {section}{\numberline {4.1}Introduction to APKES}{37}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Protocol specification}{39}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Claimed Security Properties}{40}{section.4.2}
+\contentsline {section}{\numberline {4.2}Claimed Security Properties}{41}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Security properties}{41}{subsection.4.2.1}
 \contentsline {subsubsection}{Authentication}{41}{section*.27}
 \contentsline {section}{\numberline {4.3}Formal Security Analysis of APKES using Scyther}{41}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Adversary}{41}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.1}Adversary}{42}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Results}{42}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}Recommendations}{42}{subsection.4.3.3}
 \contentsline {subsection}{\numberline {4.3.4}Limitations / Not covered by Scyther}{42}{subsection.4.3.4}
-\contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{43}{chapter.5}
-\contentsline {chapter}{References}{45}{section*.29}
+\contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{45}{chapter.5}
+\contentsline {chapter}{References}{47}{section*.29}
 \vspace {1em}\noindent \bfseries Appendices\par \vspace {-.5em}
-\contentsline {appendix}{\chapternumberline {A}Appendix}{51}{appendix.A}
-\contentsline {section}{\numberline {A.1}Scyther - APKES}{51}{section.A.1}
-\contentsline {section}{\numberline {A.2}Scyther - AKES}{53}{section.A.2}
+\contentsline {appendix}{\chapternumberline {A}Appendix}{53}{appendix.A}
+\contentsline {section}{\numberline {A.1}Scyther - APKES}{53}{section.A.1}
+\contentsline {section}{\numberline {A.2}Scyther - AKES}{55}{section.A.2}
