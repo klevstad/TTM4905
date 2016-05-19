@@ -1,0 +1,27 @@
+\chapter{Discussion and Evaluation}
+\label{chp:discussion}
+
+
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccc}
+\multicolumn{1}{p{1.3cm}}{Protocol} & \multicolumn{2}{p{2.2cm}}{Entity\newline authentication} & \multicolumn{1}{p{2.2cm}}{Implicit key\newline authentication} & \multicolumn{2}{p{2.2cm}}{Explicit key\newline authentication}
+& \multicolumn{1}{p{2.6cm}}{Key compromise impersonation} & \multicolumn{1}{p{1.1cm}}{Forward\newline Secrecy} & \multicolumn{1}{p{1.75cm}}{Known-key\newline security} & \multicolumn{1}{p{1cm}}{Key\newline control} & \multicolumn{1}{p{1.0cm}}{Secrecy\newline of key}\\
+ & Of U & Of V &  & Of U & Of V &  &  & &\\ \hline
+ APKES & \checkmark & \checkmark & \checkmark & \checkmark & x & x & x & \checkmark & \checkmark & \checkmark\\
+ AKES & x & x & x & x & x & x & x & x & x & x\\
+ SAKES & x & x & x & x & x & x & x & x & x & x\\ \hline
+\end{tabular}}
+\caption{Table of the security properties that are satisfied in the different protocols.}
+\label{tab:scyther-results}
+\end{table}
+
+
+\subsection{Limitations / Not covered by Scyther}
+
+
+\gls{apkes} has support for avoiding replay attacks through the use of frame counters. Replay attacks, or \emph{injectivity} is impossible to model in Scyther, hence the formal security analysis has not covered this class of possible attacks on the protocol. 
+
+When using pluggable scheme. Have to store key. Apkes + leap: Delete masterkey after establishing pairwise keys with all nodes. What happens if a node goes down, replaced, and rebooted? No masterkey to use. Can't establish keys with that node. hmm. Fuck this.

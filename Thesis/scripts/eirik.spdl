@@ -1,0 +1,145 @@
+/*
+	Fixing the stupid SAKES protocol.
+*/
+usertype G, P;
+hashfunction MAC, g1, g2, Signature;
+
+
+/*--------------------------------------------------------------------------------------
+AUTHENTICATION
+---------------------------------------------------------------------------------------*/
+macro Message1 = Na;
+macro Message2 = {Nb}k(A, B); # Egentlig Ikke kryptert
+macro Message3-Cipher = {A, B, D, Na}k(A, C);
+macro Message3-MAC = MAC(Message3-Cipher, k(A,B), A, Na);
+macro Message3 = {A, Message3-Cipher, Message3-MAC, Na, Nb}k(A,B);
+# CHANGE: ADDED Nb --> Achieves Niagree, Nisynch for ALL roles by doing this
+
+macro Message4-Cipher = Message3-Cipher;
+macro Message4-MAC = MAC(Message3-Cipher, k(B, C), B, Nb);
+macro Message4 = {B, Message4-Cipher, Message4-MAC, Nb}k(B,C);
+
+#macro ProofToServer = {A, B, D}k(C, D); #{A, B, D}sk(C); # Enrypted with the private key of C, which D apparently possesses?! # Signature?
+macro SignedProofToServer = Signature(A, B, D, sk(C));
+macro Message5 = {Nb, Nc, SignedProofToServer, Pk, Sk}k(B, C);
+# CHANGE: ADDED Nb --> Achieves Niagree, Nisynch in Role B
+
+macro Message6 = {B,  Na, Nc}k(A, C);
+# CHANGE: ADDED Na --> Achieves Weakagree, Niagree, and Nisynch for Role A
+
+/*--------------------------------------------------------------------------------------
+SESSION KEY ESTABLISHMENT
+---------------------------------------------------------------------------------------*/
+
+macro Message7-MAC = MAC(Nb, SignedProofToServer, B, Pk);
+macro Message7 = (Nb, SignedProofToServer,  B, Pk, Message7-MAC);
+
+# *D verifies SignedProof by applying the public key of C*
+
+macro Message8 = (g1(sk(D)), g1, g2, Nd, Nb);
+
+
+macro SessionKey = g2(g1(sk(D)), Sk);
+macro Message9 = {SessionKey}k(A,B);
+macro Message10 = (g2(Sk), Nd);
+
+
+protocol EIRIK(A, B, C, D) {
+
+	role A {
+		fresh Na: Nonce;
+		var Nb, Nc: Nonce;
+		var Sk;
+
+		send_1(A, B, Message1);
+		recv_2(B, A, Message2);
+		send_3(A, B, Message3);
+		recv_6(C, A, Message6);
+
+		recv_9(B, A, Message9);
+
+		claim(A, Alive, B);
+		claim(A, Alive, C);
+		claim(A, Weakagree, B);
+		claim(A, Weakagree, C);
+		claim(A, Niagree);
+		claim(A, Nisynch);
+
+		claim(A, SKR, SessionKey);
+
+	}
+
+	role B {
+		fresh Nb: Nonce;
+		var Na, Nc, Nd: Nonce;
+
+		var Pk, Sk;
+
+		recv_1(A, B, Message1);
+		send_2(B,A,Message2);
+		recv_3(A, B, Message3);
+		send_4(B, C, Message4);
+		recv_5(C, B, Message5);
+
+		send_7(B, D, Message7);
+		recv_8(D, B, Message8);
+		send_9(B, A, Message9);
+		send_10(B, D, Message10);
+
+		claim(B, Alive, A);
+		claim(B, Alive, C);
+		claim(B, Weakagree, A);
+		claim(B, Weakagree, C);
+		claim(B, Niagree);
+		claim(B, Nisynch);
+		claim(B, Secret, Sk);
+	}
+
+	role C {
+		fresh Nc: Nonce;
+		var Na, Nb: Nonce;
+
+		# Generate keypair for B
+		const Pk: Function;
+		secret Sk: Function;
+		inversekeys (Pk, Sk);
+
+		recv_4(B, C, Message4);
+		send_5(C, B, Message5);
+		send_6(C, A, Message6);
+
+		claim(C, Alive, A);
+		claim(C, Alive, B);
+		claim(C, Weakagree, A);
+		claim(C, Weakagree, B);
+		claim(C, Niagree);
+		claim(C, Nisynch);
+
+
+	}
+
+	role D {
+		fresh Nd: Nonce;
+		var Pk, Sk;
+		var Nb;
+		recv_7(B, D, Message7);
+		send_8(D, B, Message8);
+		recv_10(B, D, Message10);
+
+		claim(D, SKR, g2(g1(Sk), sk(D)));
+
+	}
+}
+
+// Hack for Diffie Hellman where g^ab = g^ba
+
+protocol @exponentiation(RA)
+{
+	role RA
+	{
+		var T1,T2: Ticket;
+
+		recv_!1(RA,RA, g2(g1(T1),T2) );
+		send_!2(RA,RA, g2(g1(T2),T1) );
+	}
+}

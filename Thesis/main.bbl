@@ -157,6 +157,14 @@ Dolev, D. and A.~C. Yao (1983).
 \newblock {\em Information Theory, IEEE Transactions on\/}~{\em 29\/}(2),
   198--208.
 
+\bibitem[\protect\citeauthoryear{Dunkels, Gr{\"o}nvall, and Voigt}{Dunkels
+  et~al.}{2004}]{dunkels2004contiki}
+Dunkels, A., B.~Gr{\"o}nvall, and T.~Voigt (2004).
+\newblock {Contiki - A Lightweight and Flexible Operating System for Tiny
+  Networked Sensors}.
+\newblock In {\em Local Computer Networks, 2004. 29th Annual IEEE International
+  Conference on}, pp.\  455--462. IEEE.
+
 \bibitem[\protect\citeauthoryear{Durumeric, Kasten, Adrian, Halderman, Bailey,
   Li, Weaver, Amann, Beekman, Payer, et~al.}{Durumeric
   et~al.}{2014}]{durumeric2014matter}
@@ -214,6 +222,14 @@ Hui, J. and P.~Thubert (2011).
   Networks}.
 \newblock {\em RFC6282\/}.
 
+\bibitem[\protect\citeauthoryear{Hussen, Tizazu, Ting, Lee, Choi, and
+  Kim}{Hussen et~al.}{2013}]{hussen2013sakes}
+Hussen, H.~R., G.~A. Tizazu, M.~Ting, T.~Lee, Y.~Choi, and K.-H. Kim (2013).
+\newblock {SAKES: Secure Authentication and Key Establishment Scheme for M2M
+  Communication in the IP-Based Wireless Sensor Network (6LoWPAN)}.
+\newblock In {\em Ubiquitous and Future Networks (ICUFN), 2013 Fifth
+  International Conference on}, pp.\  246--251. IEEE.
+
 \bibitem[\protect\citeauthoryear{Jing, Vasilakos, Wan, Lu, and Qiu}{Jing
   et~al.}{2014}]{Jing2014}
 Jing, Q., A.~V. Vasilakos, J.~Wan, J.~Lu, and D.~Qiu (2014).
@@ -241,6 +257,13 @@ Krawczyk, H. (2005).
 \newblock In {\em Advances in Cryptology--CRYPTO 2005}, pp.\  546--566.
   Springer.
 
+\bibitem[\protect\citeauthoryear{Krentz and Meinel}{Krentz and
+  Meinel}{2015}]{krentz2015handling}
+Krentz, K.-F. and C.~Meinel (2015).
+\newblock {Handling Reboots and Mobility in 802.15.4 Security}.
+\newblock In {\em Proceedings of the 31st Annual Computer Security Applications
+  Conference}, pp.\  121--130. ACM.
+
 \bibitem[\protect\citeauthoryear{Krentz, Rafiee, and Meinel}{Krentz
   et~al.}{2013}]{krentz20136lowpan}
 Krentz, K.-F., H.~Rafiee, and C.~Meinel (2013).
@@ -248,6 +271,12 @@ Krentz, K.-F., H.~Rafiee, and C.~Meinel (2013).
   802.15.4 {S}ecurity {S}ublayer.
 \newblock In {\em Proceedings of the International Workshop on Adaptive
   Security}. ACM.
+
+\bibitem[\protect\citeauthoryear{Levis, Clausen, Hui, Gnawali, and Ko}{Levis
+  et~al.}{2011}]{levis2011trickle}
+Levis, P., T.~Clausen, J.~Hui, O.~Gnawali, and J.~Ko (2011).
+\newblock The trickle algorithm.
+\newblock {\em Internet Engineering Task Force, RFC6206\/}.
 
 \bibitem[\protect\citeauthoryear{Liu, Ning, and Li}{Liu
   et~al.}{2005}]{liu2005establishing}

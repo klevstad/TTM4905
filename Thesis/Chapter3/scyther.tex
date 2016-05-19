@@ -26,7 +26,7 @@ Scyther is available in two versions. The first version is a plain implementatio
 \section{Scyther Syntax}
 
 
-The syntax used in \verb!.spdl!-files, which are protocol files that can be run and verified by Scyther, can resemble popular object-oriented languages such as C, C++, or Java. Listing \ref{lst:example} contains the structure of a minimum working example of a protocol we call Test, consisting of an outer class defining the protocol and multiple agents (or roles) inside the protocol. In this example, we define that our protocol consists of two communicating parties, U and V, without any specific behaviour.\newline
+The syntax used in \gls{spdl} files, which are protocol files that can be run and verified by Scyther, can resemble popular object-oriented languages such as C, C++, or Java. Listing \ref{lst:example} contains the structure of a minimum working example of a protocol we call Test, consisting of an outer class defining the protocol and multiple agents (or roles) inside the protocol. In this example, we define that our protocol consists of two communicating parties, U and V, without any specific behaviour.\newline
 
 \begin{lstlisting}[caption={Example of the structure of a protocol modelled in Scyther, consisting of roles with different behaviours.}, label={lst:example}]
 protocol Test(U, V){
@@ -187,6 +187,7 @@ role V{
 \end{lstlisting}
 
 \section{Defining an Adversary Compromise Model}
+\label{sec:adversary}
 
 % https://www.inf.ethz.ch/personal/basin/pubs/esorics10.pdf
 
@@ -220,7 +221,7 @@ Figure \ref{fig:compromise-model} illustrates the different \gls{lkr} rules in t
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.80]{compromise-model.png}
-	\caption{Mapping of \gls{lkr} rules. Rows display when the compromise occurs, columns display whose data gets compromised, and the boxes captures the capabilities of the different adversaries, which are labelled to the right \cite{basin2010modeling}.}
+	\caption{Mapping of LKR rules. Rows display when the compromise occurs, columns display whose data gets compromised, and the boxes captures the capabilities of the different adversaries, which are labelled to the right \cite{basin2010modeling}.}
 	\label{fig:compromise-model}
 \end{figure}
 

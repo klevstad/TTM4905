@@ -1,4 +1,4 @@
-\chapter{Appendix}
+\chapter{Scyther Scripts}
 \label{app:listings}
 
 
@@ -11,3 +11,26 @@
 \label{app:akes}
 
 \lstinputlisting{scripts/akes.spdl}
+
+
+\chapter{Notations}
+
+\section{Notations}
+\label{app:notations}
+
+\begin{tcolorbox}[title=Notations used in protocol specifications]
+\begin{tabular}{ll}
+\multicolumn{1}{p{1.3cm}}{\textbf{Symbol}} & \multicolumn{1}{p{4cm}}{\textbf{Meaning}}\\
+A, B, C, D & Nodes\ A, B, C, D\\
+$\langle{\ ...\ }\rangle{}$ & Unauthenticated message\\
+$\langle{\ ...\ }\rangle{k}$ & Authenticated message with key $k$\\
+$\{\ ...\ \}_k$ & Message encrypted with key $k$\\
+$A \rightarrow B$ & Message sent from U to V\\
+$A \rightarrow *$ & Message broadcasted from U\\
+$ID_{node}$ & Identity of a node\\
+$AES(k, m)$ & AES encryption of message $m$ with key $k$\\
+$X\ ||\ Y$ & Concatenation of two terms X and Y\\ 
+\end{tabular}
+\end{tcolorbox}
+
+

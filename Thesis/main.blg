@@ -4,8 +4,10 @@ The top-level auxiliary file: main.aux
 A level-1 auxiliary file: Chapter1//introduction.aux
 A level-1 auxiliary file: Chapter2//background.aux
 A level-1 auxiliary file: Chapter3//scyther.aux
-A level-1 auxiliary file: Chapter4//6lowpan-krentz.aux
-A level-1 auxiliary file: Chapter5//krentz-mobility.aux
+A level-1 auxiliary file: Chapter4//protocols.aux
+A level-1 auxiliary file: Chapter5//analysis.aux
+A level-1 auxiliary file: Chapter6//discussion.aux
+A level-1 auxiliary file: Chapter7//conclusion.aux
 The style file: chicago.bst
 A level-1 auxiliary file: Appendix/Appendix.aux
 Database file #1: main.bib
@@ -48,6 +50,8 @@ Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei
 while executing---line 1645 of file chicago.bst
 Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
 while executing---line 1645 of file chicago.bst
+Warning--no number and no volume in levis2011trickle
+Warning--page numbers missing in levis2011trickle
 Warning--empty year in sony-lens
 Warning--page numbers missing in Needham:1978
 Warning--empty year in isa100
@@ -55,45 +59,45 @@ Warning--empty year in avispa
 Warning--empty year in iot-phrase-1
 Warning--empty year in miwi
 Warning--empty year in samsung-lens
-You've used 62 entries,
+You've used 66 entries,
             2861 wiz_defined-function locations,
-            961 strings with 15391 characters,
-and the built_in function-call counts, 45018 in all, are:
-= -- 3898
-> -- 3167
-< -- 30
-+ -- 936
-- -- 1080
-* -- 3688
-:= -- 8025
-add.period$ -- 219
-call.type$ -- 62
-change.case$ -- 448
-chr.to.int$ -- 61
-cite$ -- 83
-duplicate$ -- 1407
-empty$ -- 2768
-format.name$ -- 1228
-if$ -- 8659
+            983 strings with 16370 characters,
+and the built_in function-call counts, 48780 in all, are:
+= -- 4213
+> -- 3487
+< -- 33
++ -- 1038
+- -- 1184
+* -- 4030
+:= -- 8673
+add.period$ -- 234
+call.type$ -- 66
+change.case$ -- 484
+chr.to.int$ -- 65
+cite$ -- 89
+duplicate$ -- 1519
+empty$ -- 2973
+format.name$ -- 1348
+if$ -- 9405
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 52
-newline$ -- 324
-num.names$ -- 618
-pop$ -- 524
+missing$ -- 56
+newline$ -- 344
+num.names$ -- 658
+pop$ -- 563
 preamble$ -- 1
-purify$ -- 824
+purify$ -- 884
 quote$ -- 0
-skip$ -- 1326
+skip$ -- 1438
 stack$ -- 0
-substring$ -- 2305
-swap$ -- 537
-text.length$ -- 30
+substring$ -- 2483
+swap$ -- 584
+text.length$ -- 33
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1196
-warning$ -- 21
-while$ -- 628
+type$ -- 1276
+warning$ -- 23
+while$ -- 665
 width$ -- 0
-write$ -- 871
+write$ -- 929
 (There were 11 error messages)

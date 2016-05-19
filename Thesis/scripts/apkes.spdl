@@ -44,8 +44,7 @@ protocol APKES(U, V)
 		claim_U3(U, Niagree); # Non-injective agreement
 		claim_U4(U, Nisynch); # Non-injective synchronization
 		claim_U5(U, Commit, V, Ru); # claim that the recv2 value of Ru has not been changed from the send_1 Ru-value
-
-		claim_U7(U, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
+		claim_U6(U, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
 
 
 	}

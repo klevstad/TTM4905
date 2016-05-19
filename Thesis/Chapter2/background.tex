@@ -80,7 +80,7 @@ A significant advantage with combining \gls{ip} and 802.15.4 is the simplificati
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.65]{6lowpan.png}
-	\caption{Figure of the \gls{6lowpan} stack, which uses the 802.15.4 physical and link layer, but adds an adoption layer in the network layer.}
+	\caption{Figure of the 6LoWPAN stack, which uses the 802.15.4 physical and link layer, but adds an adoption layer in the network layer.}
 	\label{fig:6lowpan-stack}
 \end{figure}
 
@@ -95,7 +95,7 @@ Compared to other alternatives such as ZigBee or Z-wave, \gls{6lowpan}'s impleme
 As described, \gls{iot} devices communicate with each other over the network by utilizing some network protocol. There is, however, not always a guarantee that the network used for communication is secure. An attacker may be eavesdropping on the network, and may even be capable of intercepting and spoofing traffic sent between different nodes. From a security perspective, the described attacker is violating both the confidentiality and integrity of the exchanged information. To cope with this, devices should be encrypting and authenticating the data that they are exchanging. 
 
 
-Key establishment is a fundamental idea in cryptography where two (or more) communicating parties exchange information in order to generate cryptographic keys which enable them to perform some sort of cryptography on the messages that are sent between them. The problem is, however, how to safely agree upon the keys to use in the encryption-decryption process when the network itself cannot be trusted. For \gls{iot} devices and sensor networks, confidentiality and data integrity are important aspects. As previously described, \gls{iot} devices have limited resources in terms of battery life and processing abilities, making key establishment schemes that works great in other networks with access to more resources, such as WiFi, infeasible in an \gls{iot} scenario.
+Key establishment is a fundamental idea in cryptography where two (or more) communicating parties exchange information in order to generate cryptographic keys which enable them to perform some sort of cryptography on the messages that are sent between them. The problem is, however, how to safely agree upon the keys to use in the encryption-decryption process when the network itself cannot be trusted. For \gls{iot} devices and sensor networks, confidentiality and data integrity are important aspects. As previously described, \gls{iot} devices have limited resources in terms of battery life and processing abilities, making key establishment schemes that work well in other networks with access to more resources, such as WiFi, infeasible in an \gls{iot} scenario.
 
 
 \subsection{Long-Term and Session Keys}
@@ -103,7 +103,7 @@ Key establishment is a fundamental idea in cryptography where two (or more) comm
 
 \subsubsection{Long-Term keys}
 
-Long-term keys are keys that are deliberately stored somewhere on a device, as they are used multiple times for securing communication, and has no ``expiration date''. The shared secret key in symmetric key encryption, and the private key in public-key cryptography are examples of long-term keys.
+Long-term keys are keys that are deliberately stored somewhere on a device, as they are used multiple times for securing communication, and have no ``expiration date''. The shared secret key in symmetric key encryption, and the private key in public-key cryptography are examples of long-term keys.
 
 
 \subsubsection{Session Keys}
@@ -118,11 +118,9 @@ Session keys are temporary keys that are used for a short period of time. By usi
 
 \subsubsection{Authentication}
 
-Authentication is an important aspect of key establishment. More specific, confirming the identity of the entity you are establishing keys with, as well as the confirming that the established keys are authentic. If authentication is skipped, the protocol will be weak for so-called man-in-the-middle attacks where an adversary intercepts and relays messages between two communicating parties to learn or modify its content.
+Authentication is an important aspect of key establishment. More specifically, confirming the identity of the entity you are establishing keys with, as well as the confirming that the established keys are authentic. If authentication is skipped, the protocol will be weak for so-called man-in-the-middle attacks where an adversary intercepts and relays messages between two communicating parties to learn or modify its content. There are multiple ways for parties to provide authentication based on the chosen establishment scheme. For symmetric schemes, the inclusion of a \gls{mac-auth} could provide authentication of the identity of the origin of the message. Schemes using public-key provides authentication through digital certificates, which are issued by a \gls{ca}, and ensure the link between an identity and a public key.
 
-There are multiple ways for parties to provide authentication based on the chosen establishment scheme. For symmetric schemes, the inclusion of a \gls{mac-auth} could provide authentication of the identity of the origin of the message. Schemes using public-key provides authentication through digital certificates, which are issued by a \gls{ca}, and ensure the link between an identity and a public key.
-
-For session keys, two properties are introduced, namely \emph{implicit key authentication} and \emph{explicit key authentication}. One of the most used ways of establishing session keys between two entities $A$ and $B$ is through $A$ generating a random symmetric key, which is encrypted under $B$'s public key, before it is transmitted. $B$ is then able to extract the session key that should be used for encrypting data using his private key. \emph{Implicit key authentication} assures that only the rightful owner of the public key, which the session key is encrypted under (in this case $B$), is able to recover the session key. It does not, however, assure that $B$ is in fact possessing the session key \cite{hankerson2006guide}. If the protocol also assures $A$ that $B$ has received and possesses the session key, the protocol provides a property called \emph{key confirmation}, and if a protocol provides both implicit key authentication and key confirmation, we can say that the protocol overall provides \emph{explicit key authentication}. 
+For session keys, two properties are introduced, namely \emph{implicit key authentication} and \emph{explicit key authentication}. One of the most used ways of establishing session keys between two entities $A$ and $B$ is through $A$ generating a random symmetric key, which is encrypted under $B$'s public key, before it is transmitted. $B$ is then able to extract the session key that should be used for encrypting data using his private key. \emph{Implicit key authentication} assures that only the rightful owner of the public key, which the session key is encrypted under (in this case $B$), is able to recover the session key. It does not, however, assure that $B$ is in fact possessing the session key \cite{hankerson2006guide}. If the protocol also assures $A$ that $B$ has received and possesses the session key, the protocol provides a property called \emph{key confirmation}, and if a protocol provides both implicit key authentication and key confirmation, we can say that the protocol overall provides \emph{explicit key authentication}. As a side note, exactly how to define explicit key authentication is in some sense based on your view on life. Is the knowledge of that the other party possesses everything it needs to derive the shared key enough for confirmation, or is explicit key authentication to actually obtain something signed or encrypted using the pairwise key that you have derived. For this thesis, we will stick to the latter one as our definition of explicit key authentication. 
 
 
 \subsubsection{Known-Key Security}
@@ -138,11 +136,11 @@ Following in the lines of known-key security, \gls{pfs} is a security attribute 
 
 % Not _all_ traffic. Ephermal DH potentially Okay.
 
-\gls{pfs} is a desirable security property for key establishment protocols, but it is often difficult to achieve. \gls{wpfs} is a weaker type of \gls{pfs}, where the adversary is assumed to be \emph{passive} \cite{krawczyk2005hmqv}. In the case of a long-term key compromise, previous sessions are guaranteed to be secure, but only if the adversary was not actively interfering with the protocol during the session. 
+\gls{pfs} is a desirable security property for key establishment protocols, but it is often difficult to achieve. \gls{wpfs} is a weaker type of \gls{pfs}, where the adversary is assumed to be \emph{passive} \cite{krawczyk2005hmqv}. In the case of a long-term key compromise, previous sessions are guaranteed to be secure, but only if the adversary was not actively interfering with the protocol during the session.  As \gls{pfs} is a property related to session keys, it is not an achievable property for symmetric key schemes.
 
 \subsubsection{Key-Compromise Impersonation}
 
-In this case, an adversary has obtained the long-term private key of an honest entity $A$. \gls{kci} prevents the adversary both from impersonating $A$ to other entities (establishing session keys with them), as well as preventing the adversary from impersonating other entities in communication with $A$ (masquerading as a different entity in order to establish a session key with $A$). \gls{kci} is, however, a difficult security property to achieve for symmetric key protocols.
+In this case, an adversary has obtained the long-term private key of an honest entity $A$. \gls{kci} prevents the adversary both from impersonating $A$ to other entities (establishing session keys with them), as well as preventing the adversary from impersonating other entities in communication with $A$ (masquerading as a different entity in order to establish a session key with $A$). \gls{kci} is, however, a very difficult security property to achieve for symmetric key protocols.
 
 
 % Cite boyd book?
@@ -288,6 +286,8 @@ The Dolev-Yao model is a symbolic and formal intruder model used to prove the se
 Falsification, presented by Popper in 1934, is the theory of presenting an observation that would disprove the correctness of an alleged theory, or more informally; It is not possible to prove a theory from a single correct observation, but a single observation that contradicts the theory is enough to disprove it \cite{popper2005logic}. The falsification process in model checking is to formally assess the security properties of the protocol in order to discover examples that disproves the claimed security by constructing counter-examples. Following in the same line of thoughts, we can perform verification by using formal models and languages to verify a statement (i.e. a security property). In formal security analysis, this is referred to as model checking, which uses the formal model to exhaustively verify whether it meets the alleged security properties \cite{basin2011model}. Verification can also be done by constructing mathematical proofs for each of the security properties, proving that the alleged security property is fulfilled. 
 
 
+
+% Nevne at grunnen til formell sikkerhetsanalyse er at man ikke vet hva slags security properties en protocol hevder å ha
 
 \section{Related Work}
 

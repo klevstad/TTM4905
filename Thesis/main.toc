@@ -19,19 +19,19 @@
 \contentsline {subsubsection}{Authentication}{10}{section*.8}
 \contentsline {subsubsection}{Known-Key Security}{11}{section*.9}
 \contentsline {subsubsection}{Perfect Forward Secrecy}{11}{section*.10}
-\contentsline {subsubsection}{Key-Compromise Impersonation}{11}{section*.11}
+\contentsline {subsubsection}{Key-Compromise Impersonation}{12}{section*.11}
 \contentsline {subsubsection}{Key Control}{12}{section*.12}
 \contentsline {subsubsection}{Unknown Key-Share}{12}{section*.13}
 \contentsline {subsection}{\numberline {2.4.3}Key Establishment Architectures}{12}{subsection.2.4.3}
 \contentsline {subsubsection}{Symmetric Key}{12}{section*.14}
-\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{13}{section*.15}
+\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{14}{section*.15}
 \contentsline {subsubsection}{Public-Key}{15}{section*.16}
-\contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{16}{subsection.2.4.4}
-\contentsline {subsubsection}{Symmetric Key}{16}{section*.17}
-\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{17}{section*.18}
+\contentsline {subsection}{\numberline {2.4.4}Key Establishment Schemes}{17}{subsection.2.4.4}
+\contentsline {subsubsection}{Symmetric Key}{17}{section*.17}
+\contentsline {subsubsection}{Online Servers and Trusted Third Parties}{18}{section*.18}
 \contentsline {subsubsection}{Public-Key}{18}{section*.19}
 \contentsline {subsection}{\numberline {2.4.5}Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{18}{subsection.2.4.5}
-\contentsline {section}{\numberline {2.5}Formal Security Analysis}{19}{section.2.5}
+\contentsline {section}{\numberline {2.5}Formal Security Analysis}{20}{section.2.5}
 \contentsline {section}{\numberline {2.6}Related Work}{22}{section.2.6}
 \contentsline {chapter}{\chapternumberline {3}Symbolic Security Analysis Using Scyther}{23}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{23}{section.3.1}
@@ -46,20 +46,44 @@
 \contentsline {subsubsection}{Running, Commit}{30}{section*.26}
 \contentsline {section}{\numberline {3.3}Defining an Adversary Compromise Model}{31}{section.3.3}
 \contentsline {section}{\numberline {3.4}Scyther's Graphical User Interface}{33}{section.3.4}
-\contentsline {chapter}{\chapternumberline {4}Adaptable Pairwise Key Establishment Scheme (APKES)}{37}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introduction to APKES}{37}{section.4.1}
+\contentsline {chapter}{\chapternumberline {4}Three Protocols for Key Establishment in 6LoWPAN}{37}{chapter.4}
+\contentsline {section}{\numberline {4.1}Adaptable Pairwise Key Establishment Scheme (APKES)}{37}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Protocol specification}{39}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Claimed Security Properties}{41}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Security properties}{41}{subsection.4.2.1}
-\contentsline {subsubsection}{Authentication}{41}{section*.27}
-\contentsline {section}{\numberline {4.3}Formal Security Analysis of APKES using Scyther}{41}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Adversary}{42}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Results}{42}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Recommendations}{42}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Limitations / Not covered by Scyther}{42}{subsection.4.3.4}
-\contentsline {chapter}{\chapternumberline {5}Handling Reboots and Mobility in 802.15.4 Security}{45}{chapter.5}
-\contentsline {chapter}{References}{47}{section*.29}
+\contentsline {subsection}{\numberline {4.1.2}Assumptions of Security Properties}{40}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Weaknesses and Challenges with APKES}{41}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Adaptable Key Establishment Scheme (AKES)}{42}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Protocol Specification}{43}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Assumptions of Security Properties}{44}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Secure Authentication and Key Establishment Scheme}{44}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Protocol Specification}{44}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Assumptions of Security Properties}{44}{subsection.4.3.2}
+\contentsline {chapter}{\chapternumberline {5}Verification of Three Key Establishment Protocols}{47}{chapter.5}
+\contentsline {section}{\numberline {5.1}Modelling Security Claims}{47}{section.5.1}
+\contentsline {paragraph}{Entity authentication:}{47}{section*.27}
+\contentsline {paragraph}{Implicit key authentication}{47}{section*.28}
+\contentsline {paragraph}{Explicit key authentication}{47}{section*.29}
+\contentsline {paragraph}{Known-key security}{47}{section*.30}
+\contentsline {paragraph}{Key control}{48}{section*.31}
+\contentsline {paragraph}{Secrecy of key}{48}{section*.32}
+\contentsline {paragraph}{Forward secrecy}{48}{section*.33}
+\contentsline {paragraph}{Key compromise impersonation}{48}{section*.34}
+\contentsline {section}{\numberline {5.2}Formal Security Analysis of APKES}{48}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Security Claims}{48}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Adversary}{49}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Results}{49}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Formal Security Analysis of AKES}{50}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Security Claims}{50}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Adversary}{50}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Formal Security Analysis of SAKES}{50}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Security Claims}{50}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Adversary}{50}{subsection.5.4.2}
+\contentsline {chapter}{\chapternumberline {6}Discussion and Evaluation}{51}{chapter.6}
+\contentsline {subsection}{\numberline {6.0.3}Limitations / Not covered by Scyther}{51}{subsection.6.0.3}
+\contentsline {chapter}{\chapternumberline {7}Conclusion}{53}{chapter.7}
+\contentsline {chapter}{References}{55}{section*.36}
 \vspace {1em}\noindent \bfseries Appendices\par \vspace {-.5em}
-\contentsline {appendix}{\chapternumberline {A}Appendix}{53}{appendix.A}
-\contentsline {section}{\numberline {A.1}Scyther - APKES}{53}{section.A.1}
-\contentsline {section}{\numberline {A.2}Scyther - AKES}{55}{section.A.2}
+\contentsline {appendix}{\chapternumberline {A}Scyther Scripts}{61}{appendix.A}
+\contentsline {section}{\numberline {A.1}Scyther - APKES}{61}{section.A.1}
+\contentsline {section}{\numberline {A.2}Scyther - AKES}{63}{section.A.2}
+\contentsline {appendix}{\chapternumberline {B}Notations}{67}{appendix.B}
+\contentsline {section}{\numberline {B.1}Notations}{67}{section.B.1}
