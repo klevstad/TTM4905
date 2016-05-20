@@ -4,7 +4,7 @@
 
 \section{Modelling Security Claims}
 
-As mentioned in Section \ref{sec:attributes}, key establishment schemes desire certain security properties. In the verification of the security protocols of this thesis, the following properties are verified: \emph{Entity authentication}, \emph{Implicit key authentication}, \emph{Explicit key authentication}, \emph{Known-key secrecy}, \emph{Key control}, and \emph{Secrecy of key}. As mentioned in Section \ref{sec:attributes}, symmetric key establishment schemes are not resilient against \gls{kci} attacks, and do not provide forward secrecy. %Therefore, these properties are nevertheless included in the models as \gls{sakes} supports a lightweight version of public-key cryptography utilizing session keys.
+As mentioned in Section \ref{sec:attributes}, key establishment schemes desire certain security properties. In the verification of the security protocols of this thesis, the following properties are verified: \emph{Entity authentication}, \emph{Implicit key authentication}, \emph{Explicit key authentication}, \emph{Known-key secrecy}, \emph{Key control}, and \emph{Secrecy of key}. As mentioned in Section \ref{sec:attributes}, symmetric key establishment schemes are not resilient against \gls{kci} attacks, and do not provide forward secrecy. These properties are nevertheless included in the models as \gls{sakes} supports a lightweight version of public-key cryptography which is used to establish session keys.
 
 \paragraph{Entity authentication:} Entity authentication between nodes corresponds to the security claim \texttt{Alive}, and can also be verified through stronger claims such as \texttt{Weakagree}. MORE %MOREOROEROEROER
 

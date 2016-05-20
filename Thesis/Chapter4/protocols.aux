@@ -36,19 +36,25 @@
 \newlabel{fig:akes-handshake}{{\M@TitleReference {4.3}{Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{43}{Figure of the messages sent between communicating parties during AKES' three-way handshake}{figure.4.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Protocol Specification}{43}{subsection.4.2.1}}
 \citation{hussen2013sakes}
+\citation{olsson20146lowpan}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Assumptions of Security Properties}{44}{subsection.4.2.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Secure Authentication and Key Establishment Scheme}{44}{section.4.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Protocol Specification}{44}{subsection.4.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Assumptions of Security Properties}{44}{subsection.4.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Caption goes here}}{45}{figure.4.4}}
-\newlabel{fig:sakes-arch}{{\M@TitleReference {4.4}{Caption goes here}}{45}{Caption goes here}{figure.4.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and authentication module (C) during SAKES' authentication phase.}}{45}{figure.4.5}}
-\newlabel{fig:sakes-auth}{{\M@TitleReference {4.5}{Figure of the messages sent between the end device (A), router (B), and authentication module (C) during SAKES' authentication phase.}}{45}{Figure of the messages sent between the end device (A), router (B), and authentication module (C) during SAKES' authentication phase}{figure.4.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties during SAKES key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D).}}{46}{figure.4.6}}
-\newlabel{fig:sakes-keys}{{\M@TitleReference {4.6}{Figure of the messages sent between communicating parties during SAKES key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D).}}{46}{Figure of the messages sent between communicating parties during SAKES key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D)}{figure.4.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Secure Authentication and Key Establishment Scheme (SAKES)}{44}{section.4.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment.}}{45}{figure.4.4}}
+\newlabel{fig:sakes-arch}{{\M@TitleReference {4.4}{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment.}}{45}{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment}{figure.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Protocol Specification}{46}{subsection.4.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{47}{figure.4.5}}
+\newlabel{fig:sakes-auth}{{\M@TitleReference {4.5}{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{47}{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase}{figure.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D).}}{48}{figure.4.6}}
+\newlabel{fig:sakes-keys}{{\M@TitleReference {4.6}{Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D).}}{48}{Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D)}{figure.4.6}{}}
+\newlabel{eq:skd}{{4.1}{48}{Protocol Specification}{equation.4.1}{}}
+\newlabel{eq:ska}{{4.2}{49}{Protocol Specification}{equation.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Assumptions of Security Properties}{49}{subsection.4.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Weaknesses}{49}{subsection.4.3.3}}
+\newlabel{eq:dh}{{4.3}{49}{Weaknesses}{equation.4.3}{}}
+\newlabel{eq:dh-wrong}{{4.4}{50}{Weaknesses}{equation.4.4}{}}
 \@setckpt{Chapter4//protocols}{
-\setcounter{page}{47}
-\setcounter{equation}{0}
+\setcounter{page}{51}
+\setcounter{equation}{4}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -61,7 +67,7 @@
 \setcounter{part}{0}
 \setcounter{chapter}{4}
 \setcounter{section}{3}
-\setcounter{subsection}{2}
+\setcounter{subsection}{3}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
@@ -94,9 +100,9 @@
 \setcounter{cmsm@mctr}{0}
 \setcounter{bsm@mctr}{0}
 \setcounter{workm@mctr}{0}
-\setcounter{sheetsequence}{61}
-\setcounter{lastsheet}{81}
-\setcounter{lastpage}{67}
+\setcounter{sheetsequence}{65}
+\setcounter{lastsheet}{85}
+\setcounter{lastpage}{71}
 \setcounter{figure}{6}
 \setcounter{lofdepth}{1}
 \setcounter{table}{0}
@@ -105,7 +111,7 @@
 \setcounter{Hfootnote}{0}
 \setcounter{memhycontfloat}{0}
 \setcounter{Hpagenote}{0}
-\setcounter{bookmark@seq@number}{34}
+\setcounter{bookmark@seq@number}{35}
 \setcounter{AM@survey}{0}
 \setcounter{parentequation}{0}
 \setcounter{theorem}{0}

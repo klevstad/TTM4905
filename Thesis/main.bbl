@@ -349,6 +349,12 @@ of~Automation, I.~S.
 \newblock \url{http://www.nivis.com/technology/ISA100.11a.php}.
 \newblock Accessed: 2016-04-15.
 
+\bibitem[\protect\citeauthoryear{Olsson}{Olsson}{2014}]{olsson20146lowpan}
+Olsson, J. (2014).
+\newblock 6lowpan demystified.
+\newblock {\em Texas Instruments. Saatavissa: http://www. ti.
+  com/lit/wp/swry013/swry013. pdf. Hakup{\"a}iv{\"a}\/}~{\em 29}, 2015.
+
 \bibitem[\protect\citeauthoryear{Perrig, Stankovic, and Wagner}{Perrig
   et~al.}{2004}]{perrig2004security}
 Perrig, A., J.~Stankovic, and D.~Wagner (2004).

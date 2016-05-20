@@ -9,15 +9,15 @@ hashfunction MAC, g1, g2, Signature;
 AUTHENTICATION
 ---------------------------------------------------------------------------------------*/
 macro Message1 = Na;
-macro Message2 = {Nb}k(A, B); # Egentlig Ikke kryptert
+macro Message2 = Nb;
 macro Message3-Cipher = {A, B, D, Na}k(A, C);
-macro Message3-MAC = MAC(Message3-Cipher, k(A,B), A, Na);
-macro Message3 = {A, Message3-Cipher, Message3-MAC, Na, Nb}k(A,B);
+macro Message3-MAC = MAC(Message3-Cipher, k(A,B), A, Na, Nb);
+macro Message3 = (A, Message3-Cipher, Message3-MAC, Na, Nb);
 # CHANGE: ADDED Nb --> Achieves Niagree, Nisynch for ALL roles by doing this
 
 macro Message4-Cipher = Message3-Cipher;
 macro Message4-MAC = MAC(Message3-Cipher, k(B, C), B, Nb);
-macro Message4 = {B, Message4-Cipher, Message4-MAC, Nb}k(B,C);
+macro Message4 = (B, Message4-Cipher, Message4-MAC, Nb);
 
 #macro ProofToServer = {A, B, D}k(C, D); #{A, B, D}sk(C); # Enrypted with the private key of C, which D apparently possesses?! # Signature?
 macro SignedProofToServer = Signature(A, B, D, sk(C));
@@ -73,6 +73,12 @@ protocol Authentication(A, B, C, D) {
     recv_3(A, B, Message3);
     send_4(B, C, Message4);
 
+    claim(B, Alive, A);
+    claim(B, Alive, C);
+	claim(B, Weakagree, A);
+	claim(B, Weakagree, C);
+	claim(B, Niagree);
+	claim(B, Nisynch);
     }
 
 
@@ -171,7 +177,7 @@ protocol @exponentiation(RA)
 	{
 		var T1,T2: Ticket;
 
-		recv_!1(RA,RA, g2(g1(T1),T2) );
-		send_!2(RA,RA, g2(g1(T2),T1) );
+		recv_!3(RA,RA, g2(g1(T1),T2) );
+		send_!5(RA,RA, g2(g1(T2),T1) );
 	}
 }

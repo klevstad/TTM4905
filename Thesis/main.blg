@@ -59,45 +59,45 @@ Warning--empty year in avispa
 Warning--empty year in iot-phrase-1
 Warning--empty year in miwi
 Warning--empty year in samsung-lens
-You've used 66 entries,
+You've used 67 entries,
             2861 wiz_defined-function locations,
-            983 strings with 16370 characters,
-and the built_in function-call counts, 48780 in all, are:
-= -- 4213
-> -- 3487
+            987 strings with 16516 characters,
+and the built_in function-call counts, 49312 in all, are:
+= -- 4258
+> -- 3513
 < -- 33
-+ -- 1038
-- -- 1184
-* -- 4030
-:= -- 8673
-add.period$ -- 234
-call.type$ -- 66
-change.case$ -- 484
-chr.to.int$ -- 65
-cite$ -- 89
-duplicate$ -- 1519
-empty$ -- 2973
-format.name$ -- 1348
-if$ -- 9405
++ -- 1044
+- -- 1194
+* -- 4069
+:= -- 8775
+add.period$ -- 237
+call.type$ -- 67
+change.case$ -- 490
+chr.to.int$ -- 66
+cite$ -- 90
+duplicate$ -- 1536
+empty$ -- 3013
+format.name$ -- 1358
+if$ -- 9501
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 56
-newline$ -- 344
-num.names$ -- 658
-pop$ -- 563
+missing$ -- 57
+newline$ -- 349
+num.names$ -- 668
+pop$ -- 566
 preamble$ -- 1
-purify$ -- 884
+purify$ -- 896
 quote$ -- 0
-skip$ -- 1438
+skip$ -- 1455
 stack$ -- 0
-substring$ -- 2483
-swap$ -- 584
+substring$ -- 2515
+swap$ -- 589
 text.length$ -- 33
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1276
+type$ -- 1296
 warning$ -- 23
-while$ -- 665
+while$ -- 676
 width$ -- 0
-write$ -- 929
+write$ -- 942
 (There were 11 error messages)

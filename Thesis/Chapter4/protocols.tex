@@ -120,30 +120,37 @@ In \gls{akes}, the key establishment process consists of a three-way handshake w
 
 
 
-\section{Secure Authentication and Key Establishment Scheme}
+\section{Secure Authentication and Key Establishment Scheme (SAKES)}
 
-The third, and last protocol which will be discussed in this thesis, is the \gls{sakes}. \gls{sakes} is claimed to provide secure authentication and key establishment for nodes in a device-to-device network running on \gls{6lowpan} \cite{hussen2013sakes}. Previous described protocols such as \gls{apkes} and \gls{akes} enables devices to directly communicate with each other without any previous authentication have taken place. The architecture in \gls{sakes} as seen in Figure \ref{fig:sakes-arch} consists of end devices, \gls{6lowpan} routers, \gls{6lowpan} border routers, and remote servers providing services to the devices. End devices are typically sensors, with very limited computational power. Routers are more powerful, 
-
-
+The third, and last protocol which will be discussed in this thesis, is the \gls{sakes}. \gls{sakes} claims to provide secure authentication and key establishment for nodes in a device-to-device network running on \gls{6lowpan} \cite{hussen2013sakes}. Previous described protocols such as \gls{apkes} and \gls{akes} enables devices to directly communicate with each other without any previous authentication have taken place. The architecture in \gls{sakes} as seen in Figure \ref{fig:sakes-arch} consists of end devices, \gls{6lowpan} routers, \gls{6lowpan} border routers, and remote servers providing services to the devices. End devices are typically sensors, with very limited computational power. Border routers and ordinary \gls{6lowpan} routers are more powerful entities which are able to perform lightweight public key cryptography operations.
 
 
-Authentication
--works
-
-
-Key establishment
-- assumptions
-- what is wrong
-- correct to something that is modellable
-
-\begin{figure}
+\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.50]{sakes-arch.png}
-	\caption{Caption goes here}
+	\includegraphics[scale=0.60]{sakes-arch.png}
+	\caption{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment.}
 	\label{fig:sakes-arch}
 \end{figure}
 
+
+Border routers, also known as ``edge routers'', are in addition responsible for handling communication between the end devices and the Internet (as well as other IP-based networks), act as a broker between local data exchanged between the end devices, and generate and maintain the \gls{6lowpan} subnet \cite{olsson20146lowpan}. In \gls{sakes}, the border router is responsible for authenticating end devices and \gls{6lowpan} routers to each other, as well as generating ephemeral public-key pairs for the router to use in session key establishment. In addition to these tasks, the border router is also responsible for periodically distribute symmetric shared keys to its registered nodes.
+
+The use of different entities with more computational power than a regular sensor device allows \gls{sakes} to provide a key establishment scheme utilizing both pairwise symmetric keys and lightweight public key cryptography. \gls{sakes} assumes that the nodes within the network are stationary are pre-registered in the border router's authentication module, which is a trusted entity between the remote server and the \gls{6lowpan} network. While not defined any where in the specification, we assume that this includes possessing the public key of the border router. 
+
+Before a device is able to communicate with the remote server, it needs to authenticate itself to the server, as well as confirming that the nearest \gls{6lowpan} router is a authentic and valid gateway on its way to the server. The authentication module of the border router handles the authentication process, by authenticating a request sent by the end device to the router, which relays it to the border router. This request contains the identity of the end device, the router, and the remote server. If the entities are registered in the authentication module, the border router notifies both the end device and the router with a confirmation of the other party's identity. \gls{sakes} utilizing, as mentioned, a lightweight public key approach where the border router also generates an ephemeral public key pair for the router, which is to be used for session key establishment with the remote server.
+
+Session key establishment between the end device and remote server is done by the router acting on behalf of the end device. For establishing the key, \gls{sakes} utilizes a form of Diffie-Hell key agreement by exchanging public keys with the remote server, before distributing the session key securely to the end device.
+
+
+%\gls{sakes} was suggested as a scheme for securing communication for device-to-device communication 
+
+
 \subsection{Protocol Specification}
+
+\gls{sakes} consists of two phases: Authentication and session key establishment. Figure \ref{fig:sakes-auth} describes the messages exchanged between the end device ($A$), the \gls{6lowpan} router ($B$), and the border router ($C$) in the authentication phase of \gls{sakes}. $A$ starts the authentication by generating a random nonce $N_A$, which it transmits to its closest router $B$. The router responds by generating its own random nonce $N_B$, and sends this back to $A$. The identities of the end device, the closest router of the end device, and the remote server the device wants to connect to is then encrypted into the ciphertext $C_A$ by $A$ using the symmetric key $K_{AC}$, which is shared between the end device and the border router. $A$ also then sends this ciphertext along with its identity and previously computed nonce to the router after adding a \gls{mac-auth} of the message using the shared key $K_{AB}$.
+
+Upon receiving the request from $A$, $B$ authenticates the \gls{mac-auth} of the message by using its copy of the secret key, and adds its own nonce $N_B$ to the message. $B$ then proceeds to add a \gls{mac-auth} of the message as well, using the symmetric key $K_{BC}$, which is shared between $B$ and $C$, before relaying the request to the border router $C$. The border router checks the attached \gls{mac-auth} as well, by using its own copy of the symmetric key shared between $B$ and $C$. It then decrypts the ciphertext created by $A$ which contains the identity of the end device, the router and the remote server by using the symmetric key it shares with $A$.
+
 
 \begin{figure}[h]
 \begin{tcolorbox}[title=Authentication in SAKES]
@@ -151,43 +158,80 @@ Key establishment
 A:\ & Generate\ N_A\ randomly\\
 A \rightarrow B:\ & N_A\\
 B:\ & Generate\ N_B\ randomly\\
-B \rightarrow A:\ & \{N_A\}_{K_{AB}}\\
+B \rightarrow A:\ & N_B\\
 A:\ & Construct\ C_{A}:\ \{ID_A, ID_B, ID_D\}_{K_{AC}}\\
-A \rightarrow B:\ & \{C_A, ID_A, N_A\}_{K_{AB}}\\
-B \rightarrow C:\ & \{C_A, ID_B, N_B\}_{K_{BC}}\\
+A \rightarrow B:\ & \langle{C_A, ID_A, N_A}\rangle{K_{AB}}\\
+B \rightarrow C:\ & \langle{C_A, ID_B, N_B}\rangle{K_{BC}}\\
 C:\ & Verify\ the\ identity\ of\ A,\ B,\ and\ D\\
-C: \ & Construct\ C_C: \{ID_A, ID_B, ID_D\}_{Kpriv_{C}}\\
+C: \ & Construct\ S_C: \{ID_A, ID_B, ID_D\}_{Sk_{C}}\\
 C:\ & Generate\ N_C\ randomly\ and\ a\ public\ key\ pair\ (Pk_B, Sk_B)\\
-C \rightarrow B:\ & \{N_C, C_C, Pk_B, Sk_B\}_{K_{BC}}\\
-C \rightarrow A:\ & \{ID_B, N_C\}_{K_{AC}}\\
+C \rightarrow B:\ & \{N_C, S_C, Pk_B, Sk_B\}_{K_{BC}}\\
+C \rightarrow A:\ & \langle{ID_B, N_C}\rangle{K_{AC}}\\
 \end{align*}
 \end{tcolorbox}
-\caption{Figure of the messages sent between the end device (A), router (B), and authentication module (C) during SAKES' authentication phase.}
+\caption{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}
 \label{fig:sakes-auth}
 \end{figure}
 
+The border router then checks with its authentication module whether the message is really sent by the end device $A$, and if the identity of its nearest neighbour router $B$ is correct. If these checks are successful, the border router signs the identities of the end device, router, and remote server into the term $S_C$. It also generates a public key pair $(Pk_B, Sk_B)$ based on \gls{ecc}, and random nonce $N_D$. It then sends two messages: one to the router, and one to the end device. The message sent to $B$ contains the nonce $N_D$, the signed message $S_C$ containing the verified identities of the request, and the public key pair for $B$ to use in the key establishment phase. To provide secrecy for the generated key pair, the entire message is encrypted under the shared symmetric key $K_BC$ to ensure that the key pair is only accessible to $B$. The end device $A$ also receives a confirmation message from $C$ containing the identity of the router, as well as the random nonce $N_D$ to prevent replaying. To ensure authenticity of the message, it is authenticated using a \gls{mac-auth} with the shared secret $K_{AC}$ as the key.
 
+After both the end device and the router receives their confirmation messages and successfully verifies their authenticity, the authentication process is believed to be completed. The next step in \gls{sakes} is for the router $B$ to establish a session key with the remote server $D$ on behalf of the end device $A$, as the end device often has limited computational power. The messages sent between the entities in the key establishment phase of \gls{sakes} can be seen in Figure \ref{fig:sakes-keys}.
 
 \begin{figure}[h]
 \begin{tcolorbox}[title=Key Establishment in SAKES]
 \begin{align*}
-B \rightarrow D:\ & \{C_C, N_B, P_K, B\}_{Sk_B} \\
-D:\ & Calculate\ Session\ Key\ (SK_D):\ SK_D = g^{Pk_C * Sk_D} \mod{P}\\
+B \rightarrow D:\ & \{C_C, N_B, Pk_B, B, hash\}_{Sk_B} \\
+D:\ & Calculate\ Session\ Key\ (SK_D):\ SK_D = g^{Pk_B * Sk_D} \mod{P}\\
 D:\ & Generate\ N_D\ randomly\\
-D \rightarrow B:\ & \{Pk_D, P, g, N_D, \}_{Sk_D}\\
-B:\ & Calculate\ Session\ Key\ for\ A\ (SK_A):\ SK_A = g^{Pk_D * Sk_C} \mod{P}\\
+D \rightarrow B:\ & \{Pk_D, P, g, N_D, hash\}_{Sk_D}\\
+B:\ & Calculate\ Session\ Key\ for\ A\ (SK_A):\ SK_A = g^{Pk_D * Sk_B} \mod{P}\\
 B \rightarrow A:\ & \{SK_A, N_B\}_{K_{AB}}\\
 Claim:\ & SK_A = SK_D\\
 \end{align*}
 \end{tcolorbox}
-\caption{Figure of the messages sent between communicating parties during SAKES key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D).}
+\caption{Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D).}
 \label{fig:sakes-keys}
 \end{figure}
+
+The router crafts a request containing the obtained signed proof from the border router, its identity and the random nonce $N_B$, and it also adds its temporary public key $Pk_B$. In addition, $B$ computes a hash of the message and appends it as well, before signing it. By signing the message using its corresponding private key $Sk_B$, $B$ allows the remote server to verify the authenticity of the message by using the attached public key $Pk_B$. The server then checks the authenticity of the signed proof in the message that the authentication module in $C$ created by applying its copy of $C$'s public key.
+
+The computation of the session key $SK_D$ in \gls{sakes} is displayed in Equation \ref{eq:skd}, allegedly utilizing a version of the Diffie-Hellman key agreement. In the equation, $g$ and $P$ are two cryptographic numbers, respectively a generator and a prime modulus, while the exponents are the public key of the router $B$ and the private key of the server $D$. After generating the session key, $D$ constructs a message to $B$ containing its public key, a random nonce $N_D$, and the two cryptographic numbers $g$ and $P$. A hash of the message is attached as well, before it is signed using the remote server's private key $Sk_D$, and sent to $B$. 
+
+\begin{equation}
+\label{eq:skd}
+SK_D = g^{\ Pk_{B}\ *\ Sk_D} \mod P
+\end{equation}
+
+Upon receiving the response from the remote server, $B$ computes the hash for the message and compares it to the attached hash value, as well as verifying that the signature matches the public key. The session key for the end device is computed as in Equation \ref{eq:ska}, using the received cryptographic numbers $g$ and $P$, and the public key of $D$ and $B$'s ephemeral private key. In order to distribute the session key securely to the end device $A$, the key is encrypted along with the nonce $N_B$ under the symmetric key $K_{AB}$, and sent to $A$. After the end device successfully decrypts and retrieves its session key, future communication between $A$ and $D$ will be encrypted using the session key. 
+
+\begin{equation}
+\label{eq:ska}
+SK_A = g^{\ Pk_{D}\ *\ Sk_B} \mod P
+\end{equation}
 
 
 \subsection{Assumptions of Security Properties}
 
+\gls{sakes} uses an authentication module located in the border router to authenticate end devices and routers before granting them a signed proof to use in the key establishment process. Authentication is one of the most fundamental security properties in a key establishment, and therefore it is fair to assume that \gls{sakes} should provide authentication between end devices, routers and border routers. The key establishment process is merely conducted between the router and the remote server, where the remote server has no knowledge of the end device, while the border router is absent from this phase. Therefore, we assume that authentication in this process is claimed between end device and router, and between the router and the remote server.
 
+As \gls{sakes} makes use of both pairwise keys and public key pairs, the generated session keys should of course be claimed to be secret. Also, the private key of the ephemeral key pair generated the authentication module should be secret to ensure the secrecy of the generated session key. In modern key establishment schemes, the Diffie-Hellman key agreement process can be used to provide forward secrecy for communicating parties. In \gls{sakes}, only the remote server holds a long-term public key pair, while the border router generates a fresh ephemeral key pair for each session. Nevertheless, forward secrecy should be a desirable property for protocols that leverage Diffie-Hellmen. 
+
+
+\subsection{Weaknesses}
+
+The major downside with the proposed \gls{sakes} protocol is that the authors have misunderstood the concept of Diffie-Hellman key agreement. If we look closer on the two equations that derives the alleged identical session keys, we observe that they are in fact unequal. The mathematical equation for Diffie Hellman is listed in Equation \ref{eq:dh} below.
+
+\begin{equation}
+\label{eq:dh}
+(g^a \mod p)^b \mod p = (g^b \mod p)^a \mod p
+\end{equation}
+
+In \gls{sakes} the private key of the remote server and the ephemeral public key of the router is used to calculate the session key at the server's side. However, the router uses its own ephemeral private key and the public key of server to compute the session key, which basically means something like Equation \ref{eq:dh-wrong}.
+
+\begin{equation}
+\label{eq:dh-wrong}
+(g^a \mod p)^b \mod p \neq (g^c \mod p)^d \mod p
+\end{equation}
 
 % How to check for properties:
 

@@ -29,27 +29,28 @@
 \BOOKMARK [1][-]{section.4.2}{Adaptable Key Establishment Scheme \(AKES\)}{chapter.4}% 29
 \BOOKMARK [2][-]{subsection.4.2.1}{Protocol Specification}{section.4.2}% 30
 \BOOKMARK [2][-]{subsection.4.2.2}{Assumptions of Security Properties}{section.4.2}% 31
-\BOOKMARK [1][-]{section.4.3}{Secure Authentication and Key Establishment Scheme}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.3}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{chapter.4}% 32
 \BOOKMARK [2][-]{subsection.4.3.1}{Protocol Specification}{section.4.3}% 33
 \BOOKMARK [2][-]{subsection.4.3.2}{Assumptions of Security Properties}{section.4.3}% 34
-\BOOKMARK [0][-]{chapter.5}{Verification of Three Key Establishment Protocols}{}% 35
-\BOOKMARK [1][-]{section.5.1}{Modelling Security Claims}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.2}{Formal Security Analysis of APKES}{chapter.5}% 37
-\BOOKMARK [2][-]{subsection.5.2.1}{Security Claims}{section.5.2}% 38
-\BOOKMARK [2][-]{subsection.5.2.2}{Adversary}{section.5.2}% 39
-\BOOKMARK [2][-]{subsection.5.2.3}{Results}{section.5.2}% 40
-\BOOKMARK [1][-]{section.5.3}{Formal Security Analysis of AKES}{chapter.5}% 41
-\BOOKMARK [2][-]{subsection.5.3.1}{Security Claims}{section.5.3}% 42
-\BOOKMARK [2][-]{subsection.5.3.2}{Adversary}{section.5.3}% 43
-\BOOKMARK [1][-]{section.5.4}{Formal Security Analysis of SAKES}{chapter.5}% 44
-\BOOKMARK [2][-]{subsection.5.4.1}{Security Claims}{section.5.4}% 45
-\BOOKMARK [2][-]{subsection.5.4.2}{Adversary}{section.5.4}% 46
-\BOOKMARK [0][-]{chapter.6}{Discussion and Evaluation}{}% 47
-\BOOKMARK [1][-]{subsection.6.0.3}{Limitations / Not covered by Scyther}{chapter.6}% 48
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 49
-\BOOKMARK [0][-]{section*.36}{References}{}% 50
-\BOOKMARK [0][-]{appendix.A}{Scyther Scripts}{}% 51
-\BOOKMARK [1][-]{section.A.1}{Scyther - APKES}{appendix.A}% 52
-\BOOKMARK [1][-]{section.A.2}{Scyther - AKES}{appendix.A}% 53
-\BOOKMARK [0][-]{appendix.B}{Notations}{}% 54
-\BOOKMARK [1][-]{section.B.1}{Notations}{appendix.B}% 55
+\BOOKMARK [2][-]{subsection.4.3.3}{Weaknesses}{section.4.3}% 35
+\BOOKMARK [0][-]{chapter.5}{Verification of Three Key Establishment Protocols}{}% 36
+\BOOKMARK [1][-]{section.5.1}{Modelling Security Claims}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.2}{Formal Security Analysis of APKES}{chapter.5}% 38
+\BOOKMARK [2][-]{subsection.5.2.1}{Security Claims}{section.5.2}% 39
+\BOOKMARK [2][-]{subsection.5.2.2}{Adversary}{section.5.2}% 40
+\BOOKMARK [2][-]{subsection.5.2.3}{Results}{section.5.2}% 41
+\BOOKMARK [1][-]{section.5.3}{Formal Security Analysis of AKES}{chapter.5}% 42
+\BOOKMARK [2][-]{subsection.5.3.1}{Security Claims}{section.5.3}% 43
+\BOOKMARK [2][-]{subsection.5.3.2}{Adversary}{section.5.3}% 44
+\BOOKMARK [1][-]{section.5.4}{Formal Security Analysis of SAKES}{chapter.5}% 45
+\BOOKMARK [2][-]{subsection.5.4.1}{Security Claims}{section.5.4}% 46
+\BOOKMARK [2][-]{subsection.5.4.2}{Adversary}{section.5.4}% 47
+\BOOKMARK [0][-]{chapter.6}{Discussion and Evaluation}{}% 48
+\BOOKMARK [1][-]{subsection.6.0.3}{Limitations / Not covered by Scyther}{chapter.6}% 49
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 50
+\BOOKMARK [0][-]{section*.36}{References}{}% 51
+\BOOKMARK [0][-]{appendix.A}{Scyther Scripts}{}% 52
+\BOOKMARK [1][-]{section.A.1}{Scyther - APKES}{appendix.A}% 53
+\BOOKMARK [1][-]{section.A.2}{Scyther - AKES}{appendix.A}% 54
+\BOOKMARK [0][-]{appendix.B}{Notations}{}% 55
+\BOOKMARK [1][-]{section.B.1}{Notations}{appendix.B}% 56
