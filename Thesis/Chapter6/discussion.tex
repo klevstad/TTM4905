@@ -3,20 +3,73 @@
 
 
 
+\section{Evaluation}
+
+
+Table \ref{tab:scyther-results-auth} shows the security properties related to authentication that are verified by Scyther. In the section for entity authentication, we assume that successful verification of the weakest property in the hierarchy of authentication properties, Aliveness, is enough to earn a checkmark in the column. However, Aliveness has to hold for the role in the claims of all the other roles, meaning that all roles that claim aliveness for role $A$ has to be successfully verified to obtain the checkmark. In cases where the property is not applicable, for instance claiming entity authentication for role $C$ in \gls{apkes} or \gls{akes}, a dash is inserted.
+
 \begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{lcccccccccc}
-\multicolumn{1}{p{1.3cm}}{Protocol} & \multicolumn{2}{p{2.2cm}}{Entity\newline authentication} & \multicolumn{1}{p{2.2cm}}{Implicit key\newline authentication} & \multicolumn{2}{p{2.2cm}}{Explicit key\newline authentication}
-& \multicolumn{1}{p{2.6cm}}{Key compromise impersonation} & \multicolumn{1}{p{1.1cm}}{Forward\newline Secrecy} & \multicolumn{1}{p{1.75cm}}{Known-key\newline security} & \multicolumn{1}{p{1cm}}{Key\newline control} & \multicolumn{1}{p{1.0cm}}{Secrecy\newline of key}\\
- & Of U & Of V &  & Of U & Of V &  &  & &\\ \hline
- APKES & \checkmark & \checkmark & \checkmark & \checkmark & x & x & x & \checkmark & \checkmark & \checkmark\\
- AKES & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & x & x & \checkmark & \checkmark & \checkmark\\
- SAKES & x & x & x & x & x & x & x & x & x & x\\ \hline
+\begin{tabular}{lccccccccccccc}\hline
+\multicolumn{1}{p{1cm}}{Protocol}
+& \multicolumn{4}{p{4cm}}{Entity authentication}
+& \multicolumn{4}{p{4cm}}{Implicit key\newline authentication}
+& \multicolumn{4}{p{5cm}}{Explicit key authentication}\\
+ & Of A & Of B & Of C & Of D & Of A & Of B & Of C & Of D & Of A & Of B & Of C & Of D\\ \hline
+APKES & \checkmark & \checkmark & $-$ & $-$ & \checkmark & \checkmark & $-$ & $-$ & $\times$ & \checkmark & $-$ & $-$\\
+AKES & \checkmark & \checkmark & $-$ & $-$ & \checkmark & \checkmark & $-$ & $-$ & \checkmark & \checkmark & $-$ & $-$\\
+SAKES & \checkmark & \checkmark & $\times$ & \checkmark & \checkmark & \checkmark & $\times$ & \checkmark & $\times$ & $\times$ & $-$ & $\times$ \\ \hline
 \end{tabular}}
-\caption{Table of the security properties that are satisfied in the different protocols.}
-\label{tab:scyther-results}
+\caption{Table of the security properties for authentication that are satisfied in the different protocols.}
+\label{tab:scyther-results-auth}
 \end{table}
+
+\gls{apkes} is only able to achieve explicit key authentication for the responding role $B$, because the \texttt{HELLOACK} that is sent from $B$ to $A$ is authenticated by using the shared secret from the pluggable scheme. \gls{akes} fixes this by computing the session key before sending the \texttt{HELLOACK}, and use the session key to compute the \gls{mac-auth}. Hence it achieves explicit key authentication. As for \gls{sakes}, the session key can not be computed without the other side of the key establishment sending its secret key to the power of the generator. There is not, however, any message passing proving that the session key is in fact computed, and therefore no explicit key authentication is provided for either party.
+
+
+Table \ref{tab:scyther-results-sec} shows the results related to the secrecy of the computed keys in the various schemes. In all three schemes, the computed key is verified to be secret, which is the most important property in key establishment schemes. Key control is not directly modelled and verified, but can verified manually by confirming that each side in the key establishment phase have to contribute to the computation of the key. By allowing the adversary to obtain session keys from other sessions than the current one, known-key security is modelled. The importance of verifying this property is so that there is not possible to compute future session keys from knowledge of previous ones. \gls{akes} holds for this property, as well as \gls{sakes}, while \gls{apkes} does not claim this property as it computes a long-term pairwise key rather than session keys.
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccc}\hline
+\multicolumn{1}{p{1cm}}{Protocol}
+& \multicolumn{1}{p{2cm}}{Secrecy of\newline key}
+& \multicolumn{1}{p{2cm}}{Key control}
+& \multicolumn{1}{p{3cm}}{Known-key security}
+& \multicolumn{1}{p{3cm}}{Forward Secrecy}
+& \multicolumn{1}{p{3cm}}{Key compromise\newline impersonation}\\
+ \hline
+APKES & \checkmark & \checkmark & $-$ & $-$ & $-$ \\
+AKES & \checkmark & \checkmark & \checkmark & $\times$ & $\times$ \\
+SAKES & \checkmark & \checkmark & $\times$  & $\times$ & $\times$ \\ \hline
+\end{tabular}}
+\caption{Table of the security properties for secrecy that are satisfied in the different protocols.}
+\label{tab:scyther-results-sec}
+\end{table}
+
+As explained in Section \ref{sec:attributes}, forward secrecy is a property where the compromise of the long-term key used to generate session keys does not lead to compromise of previous sessions. The Diffie-Hellman key agreement is one of the most well-known schemes that provide forward secrecy. \gls{sakes} leverages this type of agreement, and therefore it should provide forward \gls{pfs} or at least \gls{wpfs}. As seen in Table \ref{tab:scyther-results-sec}, this is not the case based on the model that this thesis presents.  
+
+
+\section{Comparison}
+
+
+\gls{akes} is merely an improvement of \gls{apkes} which addresses the issues that was discovered. While relying on the same three-way handshake and the use of pluggable scheme, it introduces more properties for handling mobility, as well as different protocols for discovering and deleting nodes at runtime.
+
+
+\gls{sakes} consists of more infrastructure than what \gls{akes} and \gls{sakes} has described, which makes the key establishment process more complicated. As seen in the analysis presented in Section \ref{sec:anal-sakes}, \gls{sakes} has a broad set of possible protocol traces. Partially because of bad protocol design, and partially because of the amount of entities and message passing that has to be done in order for the session key to be computed and distributed.  
+
+\section{Improvements}
+
+The protocol that has the most potential for improvement is \gls{sakes}, where there are multiple steps that can improve or provide a higher level of authentication.
+
+
+
+
+
+
+
 
 
 \subsection{Limitations / Not covered by Scyther}
@@ -25,3 +78,32 @@
 \gls{apkes} has support for avoiding replay attacks through the use of frame counters. Replay attacks, or \emph{injectivity} is impossible to model in Scyther, hence the formal security analysis has not covered this class of possible attacks on the protocol. 
 
 When using pluggable scheme. Have to store key. Apkes + leap: Delete masterkey after establishing pairwise keys with all nodes. What happens if a node goes down, replaced, and rebooted? No masterkey to use. Can't establish keys with that node. hmm. Fuck this.
+
+
+
+
+
+
+
+
+%\begin{table}[h]
+%\centering
+%\resizebox{\textwidth}{!}{%
+%\begin{tabular}{lcccccccccc}
+%\multicolumn{1}{p{1.3cm}}{Protocol}
+%& \multicolumn{4}{p{1.5cm}}{Entity\newline authentication}
+%& \multicolumn{1}{p{2.2cm}}{Implicit key\newline authentication}
+%& \multicolumn{4}{p{2.2cm}}{Explicit key\newline authentication}
+%& \multicolumn{1}{p{2.6cm}}{Key compromise impersonation}
+%& \multicolumn{1}{p{1.1cm}}{Forward\newline Secrecy}
+%& \multicolumn{1}{p{1.75cm}}{Known-key\newline security}
+%& \multicolumn{1}{p{1cm}}{Key\newline control}
+%& \multicolumn{1}{p{1.0cm}}{Secrecy\newline of key}\\
+% & Of A & Of B & Of C & Of D &  & Of A & Of B & Of C & Of D &  &  & &\\ \hline
+% APKES & \checkmark & \checkmark & - & - & \checkmark & \checkmark & x & x & x & x & \checkmark & \checkmark & \checkmark\\
+% AKES & \checkmark & \checkmark & - & - & \checkmark & \checkmark & \checkmark & x & x & \checkmark & \checkmark & \checkmark\\
+% SAKES & x & - & - & x & x  & - & - & x & x & x & x & x & x & x\\ \hline
+%\end{tabular}}
+%\caption{Table of the security properties that are satisfied in the different protocols.}
+%\label{tab:scyther-results}
+%\end{table}

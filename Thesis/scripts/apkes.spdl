@@ -3,75 +3,75 @@
 */
 
 usertype Index;
-
 hashfunction MIC;
 
-macro PairwiseKey = {Ru, Rv}k(U, V);
-macro Hello = (Ru, SAu);
-macro HelloAck = (Ru, Rv, Iuv, SAv);
-macro HelloAckMIC = MIC(HelloAck,  k(U,V)); # Use PairwiseKey to achieve explicit key authentication?
-macro Ack = (AckMsg, Ivu);
-macro AckMIC = MIC(Ack, PairwiseKey);
+macro PairwiseKey = {Na, Nb}k(A, B);
 
-const SAu; # U's Short Address
-const SAv; # V's Short Address
+macro Message1 = (Na, AddressA);
+macro Message2 = (Na, Nb, Iab, AddressB);
+macro Message2-MIC = MIC(Message2,  k(A,B));
+macro Message3 = (Msg, Iba);
+macro Message3-MIC = MIC(Message3, PairwiseKey);
 
-const Iuv: Index; # U's index in V's list of neighbours
-const Ivu: Index; # V's index in U's list of neighbours
+const Msg;
+const AddressA; # A's Short Address
+const AddressB; # B's Short Address
+const Iab: Index; # A's index in B's list of neighbours
+const Iba: Index; # B's index in A's list of neighbours
 
-const AckMsg;
-
-protocol APKES(U, V)
+protocol APKES(A, B)
 {
-	role U
+	role A
 	{
-		fresh Ru: Nonce;
-		var Rv: Nonce;
+		fresh Na: Nonce;
+		var Nb: Nonce;
 
-		#send_!0(U, U, k(U, V)); #To model if the adversary has obtained the preshared secret in LEAP.
+
 		# HELLO
-		send_1(U, V, Ru, SAu);
+		send_1(A, B, Message1);
 
 		# HELLOACK
-		recv_2(V, U, HelloAck, HelloAckMIC);
+		recv_2(B, A, Message2, Message2-MIC);
+		claim(A, Running, B, PairwiseKey);
 
 		#ACK
-		send_3(U, V, (Ack, AckMIC));
-		
-		# Claims:
-		claim_U1(U, Alive); # V was "alive" as U was able to execute the protocol correctly
-		claim_U2(U, Weakagree);
-		claim_U3(U, Niagree); # Non-injective agreement
-		claim_U4(U, Nisynch); # Non-injective synchronization
-		claim_U5(U, Commit, V, Ru); # claim that the recv2 value of Ru has not been changed from the send_1 Ru-value
-		claim_U6(U, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
+		send_3(A, B, (Message3, Message3-MIC));
 
-
+		claim(A, Alive); # B was "alive" as A was able to execute the protocol correctly
+		claim(A, Weakagree);
+		claim(A, Niagree); # Non-injective agreement
+		claim(A, Nisynch); # Non-injective synchronization
+		claim(A, Commit, B, Na); # claim that the recv2 value of Na has not been changed from the send_1 Na-value
+		claim(A, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
+		claim(A, Commit, B, PairwiseKey); # Explicit key authentication
 	}
 
-	role V
+	role B
 	{
-		fresh Rv: Nonce;
-		var Ru: Nonce;
+		fresh Nb: Nonce;
+		var Na: Nonce;
 
 		# HELLO
-		recv_1(U, V, Ru, SAu);
-		claim_V6(V, Running, U, Ru); # To make sure that the Ru is not tampered with.
+		recv_1(A, B, Message1);
+		claim(B, Running, A, Na); # To make sure that the Na is not tampered with.
 
 		# HELLOACK
-		send_2(V, U, HelloAck, HelloAckMIC);
+		send_2(B, A, Message2, Message2-MIC);
 
 		# ACK
-		recv_3(U,V, Ack, AckMIC);
+		recv_3(A,B, Message3, Message3-MIC);
+		claim(B, Running, A, PairwiseKey);
 
-		# Claims
-		claim_V1(V, Alive);
-		claim_V2(V, Weakagree);
-		claim_V3(V, Niagree);
-		claim_V4(V, Nisynch);
-		claim_V5(V, Secret, PairwiseKey);
 
+
+
+
+
+		claim(B, Alive);
+		claim(B, Weakagree);
+		claim(B, Niagree);
+		claim(B, Nisynch);
+		claim(B, Secret, PairwiseKey);
+		claim(B, Commit, A, PairwiseKey); # explicit key authentication
 	}
 }
-
-

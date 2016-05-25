@@ -2,57 +2,58 @@
 Secure Authentication and Key Establishment Scheme (SAKES)
 */
 
-hashfunction hash;
+hashfunction HASH;
 hashfunction MAC;
 
 hashfunction g1, g2;
 
-const G; # Generator
-const P; # Prime modulus
+const P, G;
 
 macro Message1 = Na;
-macro Message2 = Nb;
+macro Message2-MAC = MAC(Nb, k(A,B));
+macro Message2 = (Nb, Message2-MAC);
 
 macro Message3-Cipher = {A, B, D, Na}k(A, C);
-macro Message3-MAC = MAC(Message3-Cipher, A, Na, k(A, B));
-#macro Message3 = (Message3-Cipher, A, Na, Message3-MAC);
+macro Message3-MAC = MAC(Message3-Cipher, A, Na, Nb, k(A, B)); # Added Nb
 macro Message3 = (Message3-Cipher, A, Na, Nb, Message3-MAC); # Added Nb
-
 
 macro Message4-MAC = MAC(Message3-Cipher, k(B, C), B, Nb);
 macro Message4 = (Message3-Cipher, Message4-MAC, B, Nb);
 
 macro Message5-Signed = {A, B, D}sk(C);
-#macro Message5 = {Message5-Signed, Pk, Sk, Nc}k(B, C);
 macro Message5 = {Message5-Signed, Pk, Sk, Nb, Nc}k(B, C); # Added Nb
 
-macro Message6-MAC = MAC(B, Nc, k(A,B));
-#macro Message6 = (B, Nc, Message6-MAC);
-macro Message6 = (B, Na, Nc, Message6-MAC); # Added Na
+macro Message6-MAC = MAC(B, Na, Nb, Nc, k(A,B)); # Added Na
+macro Message6 = (B, Na, Nb, Nc, Message6-MAC); # Added Na
+
+macro Message7 = (Message5-Signed, B, Nb2, Pk, g1(Sk));
+macro Message7-HASH = (Message7);
+macro Message7-Signed = {Message7, Message7-HASH}Sk;
+
+#macro Message7-HASH = HASH(Message5-Signed, B, Nb2, Pk); # Use fresh Nb2 instead of old Nb gives Weakagree for  D
+#macro Message7 = {Message5-Signed, Message7-HASH, B, Nb2}Sk;
+
+macro Message8 = (D, Nd, Nb2, pk(D), g1(sk(D)));
+macro Message8-HASH = HASH(Message8);
+macro Message8-Signed = {Message8, Message8-HASH}sk(D);
+
+macro SessionKeyA = g2(g1(sk(D)), Sk);
+macro SessionKeyD = g2(g1(Sk), sk(D));
+
+#macro Message8-hash = hash(D, pk(D), P, G, Nd, Nb2);
+#macro Message8 = {Message8-hash, D, P, G, Nd, Nb2}sk(D);
+
+macro Message9 = {Na, Nb, SessionKeyA}k(A,B); # Include the Na nonce in the message.
 
 
 
-macro Message7-hash = hash(Message5-Signed, B, Nb, Pk);
-macro Message7 = {Message5-Signed, Message7-hash, B, Nb}Sk;
-
-macro SessionKeyA = g2(g1(pk(D)), Sk);
-macro SessionKeyD = g2(g1(Pk), sk(D));
-
-macro Message8-hash = hash(D, pk(D), P, G, Nd);
-macro Message8 = {Message8-hash, D, P, G, Nd}sk(D);
-
-macro Message9 = {Nb, SessionKeyA}k(A,B);
-
-
-
-protocol SAKES(A, B, C, D) {
+protocol EIRIK(A, B, C, D) {
 
 	role A {
 		# 6LoWPAN End Device (A)
 
 		fresh Na: Nonce;
-		var Nb: Nonce;
-		var Nc: Nonce;
+		var Nb, Nc, Nb2, Nd: Nonce;
 		var Pk, Sk;
 
 		# HELLO
@@ -60,6 +61,10 @@ protocol SAKES(A, B, C, D) {
 		recv_2(B, A, Message2);
 		send_3(A, B, Message3, Message3-MAC);
 		recv_6(C, A, Message6);
+			
+		claim(A, Niagree);
+		claim(A, Nisynch);
+
 		recv_9(B, A, Message9);
 
 		claim_A1(A, Alive, B);
@@ -68,13 +73,13 @@ protocol SAKES(A, B, C, D) {
 		claim_A4(A, Weakagree, C);
 		claim_A5(A, Niagree);
 		claim_A6(A, Nisynch);
-		claim_A7(A, SKR, SessionKey);
+		claim_A7(A, SKR, SessionKeyA);
 	}
 
 	role B {
 		# 6LoWPAN Router (B)
 
-		fresh Nb: Nonce;
+		fresh Nb, Nb2: Nonce;
 		var Na, Nc, Nd: Nonce;
 		var Pk, Sk;
 
@@ -86,21 +91,13 @@ protocol SAKES(A, B, C, D) {
 		send_4(B, C, Message4, Message4-MAC);
 		recv_5(C, B, Message5);
 
-		#claim_B1(B, Alive, A);
-		#claim_B2(B, Alive, C);
-		#claim_B3(B, Weakagree, A);
-		#claim_B4(B, Weakagree, C);
+		claim(B, Niagree);
+		claim(B, Nisynch);
 
-		#claim_B5(B, Niagree);
-		#claim_B6(B, Nisynch);
-		#claim_B7(B, Secret, Pk);
-		#claim_B8(B, Secret, Sk);
-
-		send_7(B, D, Message7);
-		recv_8(D, B, Message8);
+		send_7(B, D, Message7, Message7-HASH, Message7-Signed);
+		recv_8(D, B, Message8, Message8-HASH, Message8-Signed);
 		send_9(B, A, Message9);
 
-		claim_B7(B, Secret, Pk);
 		claim_B8(B, Secret, Sk);
 		claim_B9(B, Alive, A);
 		claim_B10(B, Alive, C);
@@ -138,11 +135,11 @@ protocol SAKES(A, B, C, D) {
 
 	role D {
 		fresh Nd: Nonce;
-		var Nb: Nonce;
+		var Nb2: Nonce;
 		var Pk, Sk;
 
-		recv_7(B, D, Message7);
-		send_8(D, B, Message8);
+		recv_7(B, D, Message7, Message7-HASH, Message7-Signed);
+		send_8(D, B, Message8, Message8-HASH, Message8-Signed);
 
 		claim(D, Alive, B);
 		claim(D, Weakagree, B);

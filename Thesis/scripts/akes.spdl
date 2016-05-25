@@ -4,76 +4,86 @@
 
 hashfunction MIC;
 
-macro PairwiseSessionKey = {Ru, Rv}k(U,V); # Where k(U,V) is the key from the plugged-in scheme
-macro HelloAckMIC = MIC(PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, PairwiseSessionKey);
-macro AckMIC = MIC(PANv, IDv, PANu, IDu, Ivu, Cu, PairwiseSessionKey);
+const Msg;
 
-const PANu; # U's Personal Area Network (PAN) Id
-const PANv; # V's Personal Area Network (PAN) Id
+const PANa; # A's Personal Area Network (PAN) Id
+const PANb; # B's Personal Area Network (PAN) Id
 
-const IDu: Agent; # U's extended, short or simple address
-const IDv: Agent; # V's extended, short or simple address
+const IDa: Agent; # A's extended, short or simple address
+const IDb: Agent; # B's extended, short or simple address
 
-const Cu; # V's frame counter of the last accepted frame from U
-const Cv; # U's frame counter of the last accepted frame from V
+const Ca; # B's frame counter of the last accepted frame from A
+const Cb; # A's frame counter of the last accepted frame from B
 
-const Pu; # Flag indicating whether or not U is currently one of V's permanent neighbours
+const Pa; # Flag indicating whether or not A is currently one of B's permanent neighbours
 
-const SAu; # U's Short Address
-const SAv; # V's Short Address
+const AddressA; # A's Short Address
+const AddressB; # B's Short Address
 
-const Iuv; # U's index in V's list of neighbours (EBEAP)
-const Ivu; # V's index in U's list of neighbours (EBEAP)
-
-const ack-msg;
+const Iab; # A's index in B's list of neighbours (EBEAP)
+const Iba; # B's index in A's list of neighbours (EBEAP)
 
 
-protocol AKES(U, V)
+
+macro SessionKey = {Na, Nb}k(A,B); # Where k(A,B) is the key from the plugged-in scheme
+
+macro Message1 = (Na, PANa, IDa, Ca);
+macro Message2 = (Nb, PANa, IDa, PANb, IDb, Iab, Cb, Pa);
+macro Message2-MIC = MIC(Message2, SessionKey);
+macro Message3 = (Msg, PANb, IDb, PANa, IDa, Iba, Ca);
+macro Message3-MIC = MIC(Message3, SessionKey);
+
+
+protocol AKES(A, B)
 {
-	role U
+	role A
 	{
-	fresh Ru: Nonce;
-	var Rv: Nonce;
+	fresh Na: Nonce;
+	var Nb: Nonce;
 
 	# HELLO
-	send_1(U, V, PANu, IDu, Ru);
+	send_1(A, B, Message1);
 
 	# HELLOACK
-	recv_2(V, U, (PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, HelloAckMIC));
+	recv_2(B, A, Message2, Message2-MIC);
+	claim(A, Running, B, SessionKey);
 
 	# ACK
-	send_3(U, V, (ack-msg, PANv, IDv, PANu, IDu, Ivu, Cu, AckMIC));
+	send_3(A, B, Message3, Message3-MIC);
 
-	# Claims
-	claim_U1(U, SKR, PairwiseSessionKey); # The pairwise session key is kept secret from adversary
-	claim_U2(U, Alive); # V was "alive" as U was able to execute the protocol correctly
-	claim_U3(U, Weakagree);
-	claim_U4(U, Niagree); # Non-injective agreement
-	claim_U5(U, Nisynch); # Non-injective synchronization
-
+	claim(A, SKR, SessionKey);
+	claim(A, Alive);
+	claim(A, Weakagree);
+	claim(A, Niagree);
+	claim(A, Nisynch);
+	claim(A, Commit, B, SessionKey);
 	}
 
-  role V
+  role B
 	{
-	var Ru: Nonce;
-	fresh Rv: Nonce;
+	fresh Nb: Nonce;
+	var Na: Nonce;
+
+
+
 
 	# HELLO
-	recv_1(U, V, PANu, IDu, Ru);
+	recv_1(A, B, Message1);
+	claim(B, Running, A, SessionKey);
 
 	# HELLOACK
-	send_2(V, U, (PANu, IDu, PANv, IDv, Rv, Iuv, Cv, Pu, HelloAckMIC));
+	send_2(B, A, Message2, Message2-MIC);
 
 	# ACK
-	recv_3(U, V, (ack-msg, PANv, IDv, PANu, IDu, Ivu, Cu, AckMIC));
+	recv_3(A, B, Message3, Message3-MIC);
+	claim(B, Running, A, SessionKey);
 
-	# Claims
-	claim_V1(V, SKR, PairwiseSessionKey);
-	claim_V2(V, Alive); # V was "alive" as U was able to execute the protocol correctly
-	claim_V3(V, Weakagree);
-	claim_V4(V, Niagree); # Non-injective agreement
-	claim_V5(V, Nisynch); # Non-injective synchronization
 
+	claim(B, SKR, SessionKey);
+	claim(B, Alive);
+	claim(B, Weakagree);
+	claim(B, Niagree);
+	claim(B, Nisynch);
+	claim(B, Commit, A, SessionKey);
 	}
-
 }

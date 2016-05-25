@@ -18,12 +18,14 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{38}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during APKES' three-way handshake.}}{40}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{43}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment.}}{45}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{47}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D).}}{48}{figure.4.6}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{44}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment.}}{46}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{48}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D).}}{49}{figure.4.6}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Result of verifying APKES' security claims using Scyther.}}{54}{figure.5.1}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Result of verifying APKES' security claims using Scyther.}}{56}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Result of verifying AKES' security claims using Scyther.}}{58}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Result of verifying SAKES' security claims using Scyther.}}{63}{figure.5.3}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

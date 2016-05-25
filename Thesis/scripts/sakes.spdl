@@ -2,10 +2,8 @@
 Secure Authentication and Key Establishment Scheme (SAKES)
 */
 
-hashfunction hash;
-hashfunction MAC;
-
-hashfunction g1, g2;
+hashfunction HASH, MAC;
+hashfunction g1, g2; # Hash functions to model Diffie-Hellman
 
 const G; # Generator
 const P; # Prime modulus
@@ -21,135 +19,127 @@ macro Message4-MAC = MAC(Message3-Cipher, k(B, C), B, Nb);
 macro Message4 = (Message3-Cipher, Message4-MAC, B, Nb);
 
 macro Message5-Signed = {A, B, D}sk(C);
-#macro Message5-Signature = {A, B, D}sk(C); 
-macro Message5 = {Message5-Signed, Pk, Sk, Nc}k(B, C); 
+macro Message5 = {Message5-Signed, Pk, Sk, Nc}k(B, C);
 
 macro Message6-MAC = MAC(B, Nc, k(A,B));
 macro Message6 = (B, Nc, Message6-MAC);
 
+#macro Message7-HASH = HASH(Message5-Signed, B, Nb, Pk);
+#macro Message7 = {Message5-Signed, Message7-HASH, B, Nb, Pk}Sk;
 
+macro Message7 = (Message5-Signed, B, Nb, Pk, g1(Sk));
+macro Message7-HASH = HASH(Message7);
+macro Message7-Signed = {Message7, Message7-HASH}Sk;
 
-macro Message7-hash = hash(Message5-Signed, B, Nb, Pk);
-macro Message7 = {Message5-Signed, Message7-hash, B, Nb}Sk;
+#macro Message8-HASH = HASH(D, pk(D), P, G, Nd);
+#macro Message8 = {Message8-HASH, D, P, G, Nd}sk(D);
 
-macro SessionKeyA = g2(g1(pk(D)), Sk);
-macro SessionKeyD = g2(g1(Pk), sk(D));
+macro Message8 = (D, Nd, pk(D, g1(sk(D))));
+macro Message8-HASH = HASH(Message8);
+macro Message8-Signed = {Message8, Message8-HASH}sk(D);
 
-macro Message8-hash = hash(D, pk(D), P, G, Nd);
-macro Message8 = {Message8-hash, D, P, G, Nd}sk(D);
+macro SessionKeyA = g2(g1(sk(D)), Sk);
+macro SessionKeyD = g2(g1(Sk), sk(D));
 
 macro Message9 = {Nb, SessionKeyA}k(A,B);
-
-
 
 protocol SAKES(A, B, C, D) {
 
 	role A {
-		# 6LoWPAN End Device (A)
+		# 6LoWPAN End Device
 
 		fresh Na: Nonce;
 		var Nb: Nonce;
 		var Nc: Nonce;
 		var Pk, Sk;
 
-		# HELLO
 		send_1(A, B, Message1);
 		recv_2(B, A, Message2);
 		send_3(A, B, Message3, Message3-MAC);
 		recv_6(C, A, Message6);
 		recv_9(B, A, Message9);
 
-		claim_A1(A, Alive, B);
-		claim_A2(A, Alive, C);
-		claim_A3(A, Weakagree, B);
-		claim_A4(A, Weakagree, C);
-		claim_A5(A, Niagree);
-		claim_A6(A, Nisynch);
-		claim_A7(A, SKR, SessionKey);
+		claim(A, Alive, B);
+		claim(A, Alive, C);
+		claim(A, Weakagree, B);
+		claim(A, Weakagree, C);
+		claim(A, Niagree);
+		claim(A, Nisynch);
+		claim(A, SKR, SessionKeyA);
 	}
 
 	role B {
-		# 6LoWPAN Router (B)
+		# 6LoWPAN Router
 
 		fresh Nb: Nonce;
 		var Na, Nc, Nd: Nonce;
 		var Pk, Sk;
 
-		# HELLO
 		recv_1(A, B, Na);
-		send_2(B, A, Message2); 
-
+		send_2(B, A, Message2);
 		recv_3(A, B, Message3, Message3-MAC);
 		send_4(B, C, Message4, Message4-MAC);
 		recv_5(C, B, Message5);
+		#send_7(B, D, Message7);
+		send_7(B, D, Message7, Message7-HASH, Message7-Signed);
 
-		#claim_B1(B, Alive, A);
-		#claim_B2(B, Alive, C);
-		#claim_B3(B, Weakagree, A);
-		#claim_B4(B, Weakagree, C);
-
-		#claim_B5(B, Niagree);
-		#claim_B6(B, Nisynch);
-		#claim_B7(B, Secret, Pk);
-		#claim_B8(B, Secret, Sk);
-
-		send_7(B, D, Message7);
-		recv_8(D, B, Message8);
+		#recv_8(D, B, Message8);
+		recv_8(D, B, Message8, Message8-HASH, Message8-Signed);
 		send_9(B, A, Message9);
 
-		claim_B7(B, Secret, Pk);
-		claim_B8(B, Secret, Sk);
-		claim_B9(B, Alive, D);
-		claim_B10(B, Alive, A);
-		claim_B11(B, Weakagree, D);
-		claim_B12(B, Weakagree, A);
-		claim_B13(B, Niagree);
-		claim_B14(B, Nisynch);
+		claim(B, Secret, Sk);
+		claim(B, Alive, A);
+		claim(B, Alive, C);
+		claim(B, Alive, D);
+		claim(B, Weakagree, A);
+		claim(B, Weakagree, C);
+		claim(B, Weakagree, D);
+		claim(B, Niagree);
+		claim(B, Nisynch);
 	}
 
 	role C {
-		# 6LoWPAN Border Router (C)
+		# 6LoWPAN Border Router
 
 		fresh Nc: Nonce;
-		var Nb: Nonce;
-		var Na: Nonce;
+		var Na, Nb: Nonce;
 
 		const Pk: Function;
 		secret Sk: Function;
 		inversekeys (Pk, Sk);
 
 		recv_4(B, C, Message4, Message4-MAC);
-
 		send_5(C, B, Message5);
 		send_6(C, A, Message6);
 
-		claim_C1(C, Alive, A);
-		claim_C2(C, Alive, B);
-		claim_C3(C, Weakagree, A);
-		claim_C4(C, Weakagree, B);
-		claim_C5(C, Niagree);
-		claim_C6(C, Nisynch);
+		claim(C, Alive, A);
+		claim(C, Alive, B);
+		claim(C, Weakagree, A);
+		claim(C, Weakagree, B);
+		claim(C, Niagree);
+		claim(C, Nisynch);
 	}
 
 	role D {
+		# Remote Server
+
 		fresh Nd: Nonce;
 		var Nb: Nonce;
 		var Pk, Sk;
-		
-		recv_7(B, D, Message7);
-		send_8(D, B, Message8);
-		
+
+		#recv_7(B, D, Message7);
+		recv_7(B, D, Message7, Message7-HASH, Message7-Signed);
+		#send_8(D, B, Message8);
+		send_8(D, B, Message8, Message8-HASH, Message8-Signed);
 		claim(D, Alive, B);
 		claim(D, Weakagree, B);
 		claim(D, Niagree);
 		claim(D, Nisynch);
 		claim(D, SKR, SessionKeyD);
 	}
-	
-
 }
 
-// Hack for Diffie Hellman where g^ab = g^ba
+// Hack to model Diffie-Hellman where g^ab = g^ba
 
 protocol @exponentiation(RA)
 {
