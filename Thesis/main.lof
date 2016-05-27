@@ -16,12 +16,12 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Results of a verification process using Scyther when a claim fails.}}{34}{figure.3.3}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces When Scyther finds an attack on a protocol, if will also provide a graph of the attack.}}{35}{figure.3.4}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{38}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during APKES' three-way handshake.}}{40}{figure.4.2}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{39}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during APKES' three-way handshake.}}{41}{figure.4.2}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{44}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment.}}{46}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{48}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D).}}{49}{figure.4.6}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite {hussen2013sakes}.}}{47}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{50}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In \gls {sakes} the session key is established between the router and the server, before the router distributes the session key to the end device.}}{51}{figure.4.6}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Result of verifying APKES' security claims using Scyther.}}{56}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Result of verifying AKES' security claims using Scyther.}}{58}{figure.5.2}

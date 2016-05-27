@@ -21,7 +21,7 @@ macro Message4 = (Message3-Cipher, Message4-MAC, B, Nb);
 macro Message5-Signed = {A, B, D}sk(C);
 macro Message5 = {Message5-Signed, Pk, Sk, Nc}k(B, C);
 
-macro Message6-MAC = MAC(B, Nc, k(A,B));
+macro Message6-MAC = MAC(B, Nc, k(A,C));
 macro Message6 = (B, Nc, Message6-MAC);
 
 #macro Message7-HASH = HASH(Message5-Signed, B, Nb, Pk);
@@ -49,9 +49,8 @@ protocol SAKES(A, B, C, D) {
 		# 6LoWPAN End Device
 
 		fresh Na: Nonce;
-		var Nb: Nonce;
-		var Nc: Nonce;
-		var Pk, Sk;
+		var Nb, Nc: Nonce;
+		var Sk;
 
 		send_1(A, B, Message1);
 		recv_2(B, A, Message2);
@@ -75,7 +74,7 @@ protocol SAKES(A, B, C, D) {
 		var Na, Nc, Nd: Nonce;
 		var Pk, Sk;
 
-		recv_1(A, B, Na);
+		recv_1(A, B, Message1);
 		send_2(B, A, Message2);
 		recv_3(A, B, Message3, Message3-MAC);
 		send_4(B, C, Message4, Message4-MAC);

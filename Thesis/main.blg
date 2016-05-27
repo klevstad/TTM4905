@@ -11,12 +11,12 @@ A level-1 auxiliary file: Chapter7//conclusion.aux
 The style file: chicago.bst
 A level-1 auxiliary file: Appendix/Appendix.aux
 Database file #1: main.bib
-You're missing a field name---line 407 of file main.bib
+You're missing a field name---line 370 of file main.bib
  : 
  : ,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 666 of file main.bib
+Repeated entry---line 630 of file main.bib
  : @incollection{cremers2014improving
  :                                   ,
 I'm skipping whatever remains of this entry
@@ -34,21 +34,21 @@ Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei
 while executing---line 1608 of file chicago.bst
 Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
 while executing---line 1608 of file chicago.bst
-Warning--empty year in zigbee
 Warning--empty year in iot-phrase-2
+Warning--empty year in avispa
 Warning--no journal in basin2011model
 Warning--no number and no volume in basin2011model
 Warning--page numbers missing in basin2011model
 Warning--empty year in proverif
 Warning--can't use both volume and number fields in burrows1989logic
-Warning--can't use both author and editor fields in Cremers2011
 Warning--empty year in scyther
 Warning--empty year in cremers2009comparing
 Warning--empty booktitle in cremers2003defining
-Warning--empty year in wirelesshart
 Warning--empty year in iot-gartner
+Warning--empty year in wirelesshart
 Warning--no number and no volume in rfc6282
 Warning--page numbers missing in rfc6282
+Warning--empty year in isa100
 Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
 while executing---line 1645 of file chicago.bst
 Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
@@ -58,51 +58,50 @@ while executing---line 1645 of file chicago.bst
 Warning--no number and no volume in levis2011trickle
 Warning--page numbers missing in levis2011trickle
 Warning--empty year in sony-lens
-Warning--page numbers missing in Needham:1978
-Warning--empty year in isa100
-Warning--empty year in avispa
-Warning--empty year in iot-phrase-1
 Warning--empty year in miwi
+Warning--page numbers missing in Needham:1978
+Warning--empty year in iot-phrase-1
+Warning--empty year in zigbee
 Warning--empty year in samsung-lens
 You've used 70 entries,
             2861 wiz_defined-function locations,
-            1007 strings with 17303 characters,
-and the built_in function-call counts, 51846 in all, are:
-= -- 4468
-> -- 3703
-< -- 36
-+ -- 1104
-- -- 1260
-* -- 4295
-:= -- 9218
-add.period$ -- 247
+            1003 strings with 17069 characters,
+and the built_in function-call counts, 51104 in all, are:
+= -- 4435
+> -- 3573
+< -- 34
++ -- 1066
+- -- 1210
+* -- 4286
+:= -- 8932
+add.period$ -- 248
 call.type$ -- 70
-change.case$ -- 513
+change.case$ -- 508
 chr.to.int$ -- 69
-cite$ -- 94
-duplicate$ -- 1613
-empty$ -- 3165
-format.name$ -- 1432
-if$ -- 9990
+cite$ -- 93
+duplicate$ -- 1612
+empty$ -- 3227
+format.name$ -- 1382
+if$ -- 9958
 int.to.chr$ -- 2
 int.to.str$ -- 0
 missing$ -- 61
-newline$ -- 364
-num.names$ -- 698
-pop$ -- 593
+newline$ -- 365
+num.names$ -- 648
+pop$ -- 584
 preamble$ -- 1
 purify$ -- 938
 quote$ -- 0
-skip$ -- 1530
+skip$ -- 1517
 stack$ -- 0
-substring$ -- 2658
-swap$ -- 623
-text.length$ -- 36
+substring$ -- 2618
+swap$ -- 617
+text.length$ -- 34
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 1346
-warning$ -- 24
-while$ -- 710
+warning$ -- 23
+while$ -- 657
 width$ -- 0
-write$ -- 985
+write$ -- 990
 (There were 12 error messages)

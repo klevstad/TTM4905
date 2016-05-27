@@ -4,17 +4,17 @@
 
 \section{Modelling Security Claims}
 
-As mentioned in Section \ref{sec:attributes}, key establishment schemes desire certain security properties. In the verification of the security protocols of this thesis, the following properties are verified: \emph{Entity authentication}, \emph{Implicit key authentication}, \emph{Explicit key authentication}, \emph{Known-key secrecy}, \emph{Key control}, and \emph{Secrecy of key}. As mentioned in Section \ref{sec:attributes}, symmetric key establishment schemes are not resilient against \gls{kci} attacks, and do not provide forward secrecy. These properties are nevertheless included in the models as \gls{sakes} uses a lightweight version of public-key cryptography which is used to establish session keys.
+As mentioned in Section \ref{sec:attributes}, key establishment schemes desire certain security properties. In the verification of the security protocols of this thesis, the following properties are verified: \emph{Entity authentication}, \emph{Implicit key authentication}, \emph{Explicit key authentication}, \emph{Known-key secrecy}, \emph{Key control}, and \emph{Secrecy of key}. As mentioned in Section \ref{sec:attributes}, symmetric key establishment schemes are not resilient against \gls{kci} attacks, and do not provide forward secrecy. These properties are nevertheless included in the models as \gls{sakes} uses a lightweight version of public-key cryptography and the type of Diffie-Hellman key agreement to establish session keys.
 
 \paragraph{Entity authentication:} Entity authentication between nodes corresponds to the security claim \texttt{Alive}, and can also be verified through stronger claims such as \texttt{Weakagree}. This property can only be violated if the adversary is able to inject or tamper with messages that are transmitted over the network, which we assume that the adversary in a \gls{6lowpan} network is.
 
 \paragraph{Implicit key authentication} Implicit key authentication is modelled through the settings of the adversary compromise model described in Section \ref{sec:adversary}. The property is modelled by allowing the adversary to obtain the long-term keys and impersonate anyone except for the nodes that are supposedly establishing keys.
 
-\paragraph{Explicit key authentication} Is achieved when the protocol satisfied both implicit key authentication and key confirmation. This is modelled through the security claim for \emph{non-injective agreement} denoted as \texttt{ni-agree}, but can also be modelled by using \texttt{running} and \texttt{commit} claims.
+\paragraph{Explicit key authentication} Is achieved when the protocol satisfied both implicit key authentication and key confirmation. This is modelled through the security claim for non-injective agreement denoted as \texttt{ni-agree}, but can also be modelled by using \texttt{running} and \texttt{commit} claims.
 
 \paragraph{Known-key security} By revealing session keys to the adversary after usage (i.e. the session key is expired, and will never be used again) known-key security can be modelled. This is done by setting the \emph{Session-key reveal} rule in the adversary compromise model.
 
-\paragraph{Key control} Scyther has no support for verifying key control. Therefore, this security property has to verified by hand. 
+\paragraph{Key control} Scyther has no support for verifying key control. Therefore, this security property has to be verified by hand. 
 
 \paragraph{Secrecy of key} To model a key (or any other property) as secret, the \texttt{secrecy} claim is used in Scyther.
 
@@ -80,7 +80,7 @@ Figure \ref{fig:apkes-verified} shows the verification result from running the m
 
 \subsection{Security Claims}
 
-From the protocol specification in Section \ref{subsec:akes-specs} and the assumed security properties in Section \ref{subsec:akes-props}, the following security claims are claimed to hold for the two roles in \gls{akes}, as seen in Listing \ref{lst:claims-a-akes} and Listing \ref{lst:claims-b-akes}. In addition to claiming authentication for the other party, we also claim that the protocol has been executed as intended by adding claims for non-injective synchronization and agreement. \gls{apkes} was not able to provide explicit key authentication of role $B$ for the initiator $A$. In \gls{akes}, however, the received \texttt{HELLOACK} is authenticated using the session key. Therefore, we model a \texttt{Running} claim 
+From the protocol specification in Section \ref{subsec:akes-specs} and the assumed security properties in Section \ref{subsec:akes-props}, the security claims that are claimed to hold for the two roles in \gls{akes} are listed in Listing \ref{lst:claims-a-akes} and Listing \ref{lst:claims-b-akes}. In addition to claiming authentication for the other party, we also claim that the protocol has been executed as intended by adding claims for non-injective synchronization and agreement. \gls{apkes} was not able to provide explicit key authentication of role $B$ for the initiator $A$. In \gls{akes}, however, the received \texttt{HELLOACK} is authenticated using the session key. Therefore, we model a \texttt{Running} claim to indicate that the role $B$ has computed the key at this point in time.
 
 \begin{lstlisting}[caption={Security claims for role A in AKES.}, label={lst:claims-a-akes}]
 	claim(A, SKR, SessionKey);
@@ -121,7 +121,7 @@ Figure \ref{fig:akes-verified} shows the result of running the model of \gls{ake
 
 From the protocol specification in Section \ref{subsec:sakes-spec} and the assumed security properties in Section \ref{subsec:sakes-props} \gls{sakes} have been modelled into four roles $A$ (End device), $B$ (Router), $C$ (Border router), and $D$ (Server). The authentication phase is carried out between $A$, $B$, and $C$, before $B$ and $D$ establishes the session key. As the protocol specification presented in the original protocol proposal can be considered inconsistent, some assumptions have been made in the model. For starters, it is assumed that the Diffie-Hellman key agreement is completed correctly by letting $B$ and $D$ share their secret key to the power of the generator $g$. In addition, it is also assumed that when the authors use notion of ``decrypting the ciphertext encrypted with the private key of $X$'', they actually mean that the message is signed using the private key of $X$, and that the signature can be verified by applying the corresponding public key. When it comes to the notation of \gls{mac-auth}s, an assumption is that the alleged \gls{mac-auth} that is sent between the router and the server that do not share any symmetric key is simply a hash of the message. 
 
-As \gls{sakes} uses Diffie-Hellman, which Scyther does not originally support, a ``hack'' have been introduced to model that it is not possible for the adversary to compute the session key by possessing either one of the two secret keys that are used in the computation. This can be modelled by introducing a helper protocol in Scyther that underapproximates $g^{x}$ into $hashfunction(g, x)$. The helper protocol is shown in Listing \ref{lst:helper} and is marked with the at-symbol (@). This states that the two terms $g2(g1(T1),T2)$ and $g2(g1(T2), T1)$ are approximate equal.
+As \gls{sakes} uses Diffie-Hellman, which Scyther does not originally support, a ``hack'' have been introduced to model that it is not possible for the adversary to compute the session key by possessing either one of the two secret keys that are used in the computation. This can be modelled by introducing a helper protocol in Scyther that underapproximates $g^{x}$ into $hashfunction(g, x)$. The helper protocol is shown in Listing \ref{lst:helper} and is marked with the at-symbol (@). This allows Scyther to interpret the two terms $g2(g1(T1),T2)$ and $g2(g1(T2), T1)$ as approximate equal \cite{scyther-manual}.
 
 \begin{lstlisting}[caption={Helper protocol to model Diffie-Hellman in SAKES.}, label={lst:helper}]
 hashfunction g1, g2;
@@ -213,6 +213,9 @@ As with the end device and the router, the border router $C$ is also able to pro
 
 
 \subsubsection{D - Remote Server}
+
+
+
 
 \begin{figure}[h]
 	\centering

@@ -1,11 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\citeauthoryear{Alliance}{Alliance}{}]{zigbee}
-Alliance, T.~Z.
-\newblock {Zigbee}.
-\newblock \url{http://www.zigbee.org/}.
-\newblock Accessed: 2016-04-15.
-
 \bibitem[\protect\citeauthoryear{Anderson and Kuhn}{Anderson and
   Kuhn}{1996}]{anderson1996tamper}
 Anderson, R. and M.~Kuhn (1996).
@@ -17,14 +11,20 @@ Anderson, R. and M.~Kuhn (1996).
   Mj{\o}lsnes, and Radomirovi{\'c}}{Andova et~al.}{2008}]{andova2008framework}
 Andova, S., C.~Cremers, K.~Gj{\o}steen, S.~Mauw, S.~F. Mj{\o}lsnes, and
   S.~Radomirovi{\'c} (2008).
-\newblock A framework for compositional verification of security protocols.
+\newblock {A Framework for Compositional Verification of Security Protocols}.
 \newblock {\em Information and Computation\/}~{\em 206\/}(2), 425--459.
 
 \bibitem[\protect\citeauthoryear{Ashton}{Ashton}{}]{iot-phrase-2}
 Ashton, K.
-\newblock {That ``Internet of Things'' Thing}.
+\newblock {That ``Internet of Things'' Thing\\}.
 \newblock http://www.rfidjournal.com/articles/view?4986.
 \newblock Accessed: 2016-03-31.
+
+\bibitem[\protect\citeauthoryear{AVISPA Project}{AVISPA Project}{}]{avispa}
+AVISPA Project.
+\newblock {\em {AVISPA}}.
+\newblock \url{http://www.avispa-project.org/}: AVISPA Project.
+\newblock Accessed: 2016-02-23.
 
 \bibitem[\protect\citeauthoryear{Barker}{Barker}{2016}]{nist2016}
 Barker, E. (2016).
@@ -57,14 +57,14 @@ Blanchet, B. (2012).
 
 \bibitem[\protect\citeauthoryear{Blom}{Blom}{1984}]{blom1984optimal}
 Blom, R. (1984).
-\newblock An optimal class of symmetric key generation systems.
+\newblock {An Optimal Class of Symmetric Key Generation Systems}.
 \newblock In {\em Advances in cryptology}, pp.\  335--338. Springer.
 
 \bibitem[\protect\citeauthoryear{Bos, Halderman, Heninger, Moore, Naehrig, and
   Wustrow}{Bos et~al.}{2014}]{bos2014elliptic}
 Bos, J.~W., J.~A. Halderman, N.~Heninger, J.~Moore, M.~Naehrig, and E.~Wustrow
   (2014).
-\newblock Elliptic curve cryptography in practice.
+\newblock {Elliptic Curve Cryptography in Practice}.
 \newblock In {\em Financial Cryptography and Data Security}, pp.\  157--175.
   Springer.
 
@@ -79,7 +79,7 @@ Burrows, M., M.~Abadi, and R.~M. Needham (1989).
 \bibitem[\protect\citeauthoryear{Chan, Perrig, and Song}{Chan
   et~al.}{2003}]{chan2003random}
 Chan, H., A.~Perrig, and D.~Song (2003).
-\newblock Random key predistribution schemes for sensor networks.
+\newblock {Random Key Predistribution Schemes for Sensor Networks}.
 \newblock In {\em Security and Privacy, 2003. Proceedings. 2003 Symposium on},
   pp.\  197--213. IEEE.
 
@@ -92,11 +92,9 @@ Cortier, V., S.~Kremer, and B.~Warinschi (2011).
 
 \bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2011}]{Cremers2011}
 Cremers, C. (2011).
-\newblock {\em Computer Security -- ESORICS 2011: 16th European Symposium on
-  Research in Computer Security, Leuven, Belgium, September 12-14,2011.
-  Proceedings}, Chapter Key Exchange in IPsec Revisited: Formal Analysis of
-  IKEv1 and IKEv2, pp.\  315--334.
-\newblock Berlin, Heidelberg: Springer Berlin Heidelberg.
+\newblock {\em {Key Exchange in IPsec Revisited: Formal Analysis of IKEv1 and
+  IKEv2}}.
+\newblock Springer.
 
 \bibitem[\protect\citeauthoryear{Cremers and Horvat}{Cremers and
   Horvat}{2014}]{cremers2014improving}
@@ -196,12 +194,6 @@ Eschenauer, L. and V.~D. Gligor (2002).
 \newblock In {\em Proceedings of the 9th ACM Conference on Computer and
   Communications Security}, CCS '02, pp.\  41--47. ACM.
 
-\bibitem[\protect\citeauthoryear{Foundation}{Foundation}{}]{wirelesshart}
-Foundation, H.~C.
-\newblock Wireless{HART}.
-\newblock \url{http://en.hartcomm.org/main_article/wirelesshart.html}.
-\newblock Accessed: 2016-04-15.
-
 \bibitem[\protect\citeauthoryear{Gartner}{Gartner}{}]{iot-gartner}
 Gartner.
 \newblock {Gartner Says 6.4 Billion Connected ``Things'' Will Be in Use in
@@ -230,6 +222,14 @@ Hankerson, D., A.~J. Menezes, and S.~Vanstone (2006).
 \newblock {\em {Guide to Elliptic Curve Cryptography}}.
 \newblock Springer Science \& Business Media.
 
+\bibitem[\protect\citeauthoryear{HART Communication Foundation}{HART
+  Communication Foundation}{}]{wirelesshart}
+HART Communication Foundation.
+\newblock {\em Wireless{HART}}.
+\newblock \url{http://en.hartcomm.org/main_article/wirelesshart.html}: HART
+  Communication Foundation.
+\newblock Accessed: 2016-04-15.
+
 \bibitem[\protect\citeauthoryear{Hui and Thubert}{Hui and
   Thubert}{2011}]{rfc6282}
 Hui, J. and P.~Thubert (2011).
@@ -244,6 +244,14 @@ Hussen, H.~R., G.~A. Tizazu, M.~Ting, T.~Lee, Y.~Choi, and K.-H. Kim (2013).
   Communication in the IP-Based Wireless Sensor Network (6LoWPAN)}.
 \newblock In {\em Ubiquitous and Future Networks (ICUFN), 2013 Fifth
   International Conference on}, pp.\  246--251. IEEE.
+
+\bibitem[\protect\citeauthoryear{International Society of
+  Automation}{International Society of Automation}{}]{isa100}
+International Society of Automation.
+\newblock {\em ISA100.11a}.
+\newblock \url{http://www.nivis.com/technology/ISA100.11a.php}: International
+  Society of Automation.
+\newblock Accessed: 2016-04-15.
 
 \bibitem[\protect\citeauthoryear{Jing, Vasilakos, Wan, Lu, and Qiu}{Jing
   et~al.}{2014}]{Jing2014}
@@ -290,21 +298,21 @@ Krentz, K.-F., H.~Rafiee, and C.~Meinel (2013).
 \bibitem[\protect\citeauthoryear{Krentz and Wunder}{Krentz and
   Wunder}{2014}]{krentz20146lowpan}
 Krentz, K.-F. and G.~Wunder (2014).
-\newblock 6lowpan security: avoiding hidden wormholes using channel
-  reciprocity.
+\newblock {6LoWPAN Security: Avoiding Hidden Wormholes Using Channel
+  Reciprocity}.
 \newblock In {\em Proceedings of the 4th International Workshop on Trustworthy
   Embedded Devices}, pp.\  13--22. ACM.
 
 \bibitem[\protect\citeauthoryear{Levis, Clausen, Hui, Gnawali, and Ko}{Levis
   et~al.}{2011}]{levis2011trickle}
 Levis, P., T.~Clausen, J.~Hui, O.~Gnawali, and J.~Ko (2011).
-\newblock The trickle algorithm.
+\newblock {The Trickle Algorithm}.
 \newblock {\em Internet Engineering Task Force, RFC6206\/}.
 
 \bibitem[\protect\citeauthoryear{Liu, Ning, and Li}{Liu
   et~al.}{2005}]{liu2005establishing}
 Liu, D., P.~Ning, and R.~Li (2005).
-\newblock Establishing pairwise keys in distributed sensor networks.
+\newblock {Establishing Pairwise Keys in Distributed Sensor Networks}.
 \newblock {\em ACM Transactions on Information and System Security
   (TISSEC)\/}~{\em 8\/}(1), 41--77.
 
@@ -341,6 +349,15 @@ Michallon, C.
   \url{http://www.dailymail.co.uk/sciencetech/article-3567402/Sony-patent-application-reveals-new-contact-lenses-record-video-store-play-adjust-zoom-focus-aperture-automatically.html}.
 \newblock Accessed: 2016-05-04.
 
+\bibitem[\protect\citeauthoryear{Microchip Technology}{Microchip
+  Technology}{}]{miwi}
+Microchip Technology.
+\newblock {\em {MiWi}}.
+\newblock
+  \url{http://www.microchip.com/wwwAppNotes/AppNotes.aspx?appnote=en536181}:
+  Microchip Technology.
+\newblock Accessed: 2016-04-15.
+
 \bibitem[\protect\citeauthoryear{Mulligan}{Mulligan}{2007}]{Mulligan2007}
 Mulligan, G. (2007).
 \newblock The {6L}o{WPAN} {A}rchitecture.
@@ -357,7 +374,7 @@ Needham, R.~M. and M.~D. Schroeder (1978).
 \bibitem[\protect\citeauthoryear{Needham and Schroeder}{Needham and
   Schroeder}{1987}]{needham1987authentication}
 Needham, R.~M. and M.~D. Schroeder (1987).
-\newblock Authentication revisited.
+\newblock {Authentication Revisited}.
 \newblock {\em ACM SIGOPS Operating Systems Review\/}~{\em 21\/}(1), 7--7.
 
 \bibitem[\protect\citeauthoryear{Neuman and Ts'~O}{Neuman and
@@ -366,17 +383,11 @@ Neuman, B.~C. and T.~Ts'~O (1994).
 \newblock {Kerberos: An Authentication Service for Computer Networks}.
 \newblock {\em Communications Magazine, IEEE\/}~{\em 32\/}(9), 33--38.
 
-\bibitem[\protect\citeauthoryear{of~Automation}{of~Automation}{}]{isa100}
-of~Automation, I.~S.
-\newblock {ISA100.11a}.
-\newblock \url{http://www.nivis.com/technology/ISA100.11a.php}.
-\newblock Accessed: 2016-04-15.
-
 \bibitem[\protect\citeauthoryear{Olsson}{Olsson}{2014}]{olsson20146lowpan}
 Olsson, J. (2014).
-\newblock 6lowpan demystified.
-\newblock {\em Texas Instruments. Saatavissa: http://www. ti.
-  com/lit/wp/swry013/swry013. pdf. Hakup{\"a}iv{\"a}\/}~{\em 29}, 2015.
+\newblock {6LoWPAN Demystified}.
+\newblock {\em Texas Instruments\/}~{\em 29}, 2015.
+\newblock \url{http://www.ti.com/lit/wp/swry013/swry013.pdf}.
 
 \bibitem[\protect\citeauthoryear{Perrig, Stankovic, and Wagner}{Perrig
   et~al.}{2004}]{perrig2004security}
@@ -388,12 +399,6 @@ Perrig, A., J.~Stankovic, and D.~Wagner (2004).
 Popper, K. (2005).
 \newblock {\em {The Logic of Scientific Discovery}}.
 \newblock Routledge.
-
-\bibitem[\protect\citeauthoryear{Project}{Project}{}]{avispa}
-Project, A.
-\newblock {AVISPA}.
-\newblock \url{http://www.avispa-project.org/}.
-\newblock Accessed: 2016-02-23.
 
 \bibitem[\protect\citeauthoryear{Roman, Alcaraz, Lopez, and Sklavos}{Roman
   et~al.}{2011}]{Roman2011147}
@@ -408,8 +413,8 @@ Roman, R., C.~Alcaraz, J.~Lopez, and N.~Sklavos (2011).
 \bibitem[\protect\citeauthoryear{Ryan and Schneider}{Ryan and
   Schneider}{2001}]{ryan2001modelling}
 Ryan, P. and S.~A. Schneider (2001).
-\newblock {\em The modelling and analysis of security protocols: the csp
-  approach}.
+\newblock {\em {The Modelling and Analysis of Security Protocols: The CSP
+  Approach}}.
 \newblock Addison-Wesley Professional.
 
 \bibitem[\protect\citeauthoryear{Sastry and Wagner}{Sastry and
@@ -433,11 +438,11 @@ Steiner, J.~G., B.~C. Neuman, and J.~I. Schiller (1988).
 \newblock {Kerberos: An Authentication Service for Open Network Systems.}
 \newblock In {\em USENIX Winter}, pp.\  191--202.
 
-\bibitem[\protect\citeauthoryear{Technology}{Technology}{}]{miwi}
-Technology, M.
-\newblock {MiWi}.
-\newblock
-  \url{http://www.microchip.com/wwwAppNotes/AppNotes.aspx?appnote=en536181}.
+\bibitem[\protect\citeauthoryear{The Zigbee Alliance}{The Zigbee
+  Alliance}{}]{zigbee}
+The Zigbee Alliance.
+\newblock {\em {Zigbee}}.
+\newblock \url{http://www.zigbee.org/}: The Zigbee Alliance.
 \newblock Accessed: 2016-04-15.
 
 \bibitem[\protect\citeauthoryear{Wander, Gura, Eberle, Gupta, and
