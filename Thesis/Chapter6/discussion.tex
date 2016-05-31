@@ -1,12 +1,13 @@
-\chapter{Discussion and Evaluation}
+\chapter{Discussion}
 \label{chp:discussion}
 
+Summary of this chapter.
 
 
-\section{Evaluation}
+\section{Evaluation of Authentication Properties}
 
 
-Table \ref{tab:scyther-results-auth} shows the security properties related to authentication that are verified by Scyther. In the section for entity authentication, we assume that successful verification of the weakest property in the hierarchy of authentication properties, Aliveness, is enough to earn a checkmark in the column. However, Aliveness has to hold for the role in the claims of all the other roles, meaning that all roles that claim aliveness for role $A$ has to be successfully verified to obtain the checkmark. In cases where the property is not applicable, for instance claiming entity authentication for role $C$ in \gls{apkes} or \gls{akes}, a dash is inserted.
+Table \ref{tab:scyther-results-auth} shows the security properties related to authentication for the three protocols that have been verified by Scyther. In the section for entity authentication, we assume that successful verification of the weakest property in the hierarchy of authentication properties, Aliveness, is enough to earn a check-mark in the column. However, Aliveness has to hold for the role in the claims of all the other roles, meaning that all roles that claim aliveness for role $A$ has to be successfully verified to obtain the check mark. In cases where the property is not applicable, for instance claiming entity authentication for role $C$ in \gls{apkes} or \gls{akes}, a dash is inserted. The authentication phase in \gls{sakes} only includes $A$, $B$, and $C$, while the key establishment phase includes the claim for entity authentication of role $D$.
 
 \begin{table}[h]
 \centering
@@ -19,16 +20,17 @@ Table \ref{tab:scyther-results-auth} shows the security properties related to au
  & Of A & Of B & Of C & Of D & Of A & Of B & Of C & Of D & Of A & Of B & Of C & Of D\\ \hline
 APKES & \checkmark & \checkmark & $-$ & $-$ & \checkmark & \checkmark & $-$ & $-$ & $\times$ & \checkmark & $-$ & $-$\\
 AKES & \checkmark & \checkmark & $-$ & $-$ & \checkmark & \checkmark & $-$ & $-$ & \checkmark & \checkmark & $-$ & $-$\\
-SAKES & \checkmark & \checkmark & $\times$ & \checkmark & \checkmark & \checkmark & $-$ & \checkmark & $\times$ & $\times$ & $-$ & $\times$ \\ \hline
+SAKES & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & $-$ & \checkmark & $\times$ & $\times$ & $-$ & $\times$ \\ \hline
 \end{tabular}}
 \caption{Table of the security properties for authentication that are satisfied in the different protocols.}
 \label{tab:scyther-results-auth}
 \end{table}
 
-\gls{apkes} is only able to achieve explicit key authentication for the responding role $B$, because the \texttt{HELLOACK} that is sent from $B$ to $A$ is authenticated by using the shared secret from the pluggable scheme. \gls{akes} fixes this by computing the session key before sending the \texttt{HELLOACK}, and use the session key to compute the \gls{mac-auth}. Hence it achieves explicit key authentication. As for \gls{sakes}, the session key can not be computed without the other side of the key establishment sending its secret key to the power of the generator. There is not, however, any message passing proving that the session key is in fact computed, and therefore no explicit key authentication is provided for either party.
+\gls{apkes} is only able to achieve explicit key authentication for the responding role $B$, because the \texttt{HELLOACK} that is sent from $B$ to $A$ is authenticated by using the shared secret from the pluggable scheme. \gls{akes} fixes this by computing the session key before sending the \texttt{HELLOACK}, and use the session key to compute the \gls{mac-auth}. Hence it achieves explicit key authentication. As for \gls{sakes}, the session key can not be computed without the other side of the key establishment sending its secret key to the power of the generator. There is not, however, any message passing proving that the session key is in fact computed, and therefore no explicit key authentication is provided for either party, which means that during its key establishment process, \gls{sakes} is only able to provide implicit key authentication. $A$ is included in this process even though it is not directly computing the key, but receives it from the router $B$.
 
+\section{Evaluation of Key Secrecy Properties}
 
-Table \ref{tab:scyther-results-sec} shows the results related to the secrecy of the computed keys in the various schemes. In all three schemes, the computed key is verified to be secret, which is the most important property in key establishment schemes. Key control is not directly modelled and verified, but can verified manually by confirming that each side in the key establishment phase have to contribute to the computation of the key. By allowing the adversary to obtain session keys from other sessions than the current one, known-key security is modelled. The importance of verifying this property is so that there is not possible to compute future session keys from knowledge of previous ones. \gls{akes} holds for this property, as well as \gls{sakes}, while \gls{apkes} does not claim this property as it computes a long-term pairwise key rather than session keys.
+Table \ref{tab:scyther-results-sec} shows the results related to the secrecy of the computed keys in the various schemes. In all three schemes, the computed key is verified to be secret, which is the most important property in key establishment schemes. Key control is not directly modelled and verified, but can verified manually by confirming that each side in the key establishment phase have to contribute to the computation of the key. Known-key security is modelled by allowing the adversary to obtain session keys from other sessions than the current one. The importance of verifying this property is so that there is not possible to compute future session keys from knowledge of previous ones. \gls{akes} holds for this property, as well as \gls{sakes}, while \gls{apkes} does not claim this property as it computes a long-term pairwise key rather than session keys.
 
 \begin{table}[h]
 \centering
@@ -42,48 +44,124 @@ Table \ref{tab:scyther-results-sec} shows the results related to the secrecy of 
 & \multicolumn{1}{p{3cm}}{Key compromise\newline impersonation}\\
  \hline
 APKES & \checkmark & \checkmark & $-$ & $-$ & $-$ \\
-AKES & \checkmark & \checkmark & \checkmark & $\times$ & $\times$ \\
-SAKES & \checkmark & \checkmark & $\times$  & $\times$ & $\times$ \\ \hline
+AKES & \checkmark & \checkmark & \checkmark & $-$ & $-$ \\
+SAKES & \checkmark & \checkmark & \checkmark & $\times$ & $\times$ \\ \hline
 \end{tabular}}
 \caption{Table of the security properties for secrecy that are satisfied in the different protocols.}
 \label{tab:scyther-results-sec}
 \end{table}
 
-As explained in Section \ref{sec:attributes}, forward secrecy is a property where the compromise of the long-term key used to generate session keys does not lead to compromise of previous sessions. The Diffie-Hellman key agreement is one of the most well-known schemes that provide forward secrecy. \gls{sakes} leverages this type of agreement, and therefore it should provide forward \gls{pfs} or at least \gls{wpfs}. As seen in Table \ref{tab:scyther-results-sec}, this is not the case based on the model that this thesis presents.  
+As explained in Section \ref{sec:attributes}, forward secrecy is a property where the compromise of the long-term key used to generate session keys does not lead to compromise of previous sessions. The Diffie-Hellman key agreement is one of the most well-known schemes that provide forward secrecy. \gls{sakes} leverage this type of agreement, and therefore it should provide forward \gls{pfs} or at least \gls{wpfs}.
+
+When looking at Table \ref{tab:scyther-results-sec}, this is not the case based on the models that this thesis presents. If we observe the protocol more closely, we see that the server has in fact a fixed public key pair $(Pk_D, Sk_D)$, and do not generate anything fresh for each session. This means that if the key pair of the remote server is compromised, all previous sessions would be compromised as well, given that the adversary has recorded the messages passed in previous session key establishments. \gls{akes} generates session keys as well, but as these keys are computed using a symmetric key, it is infeasible for the protocol to achieve forward secrecy. Forward secrecy is not, however, a claimed secrecy property of either \gls{apkes} nor {akes}.
 
 
 \section{Comparison}
 
+% Resultater
 
-\gls{akes} is merely an improvement of \gls{apkes} which addresses the issues that was discovered. While relying on the same three-way handshake and the use of pluggable scheme, it introduces more properties for handling mobility, as well as different protocols for discovering and deleting nodes at runtime.
+% Hvor de egner seg best
+
+% 
 
 
-\gls{sakes} consists of more infrastructure than what \gls{akes} and \gls{sakes} has described, which makes the key establishment process more complicated. As seen in the analysis presented in Section \ref{sec:anal-sakes}, \gls{sakes} has a broad set of possible protocol traces. Partially because of bad protocol design, and partially because of the amount of entities and message passing that has to be done in order for the session key to be computed and distributed.  
+\gls{akes} is merely an improvement of \gls{apkes} and addresses the issues that was originally discovered in \gls{apkes}. While relying on the same three-way handshake and the use of pluggable scheme, \gls{akes} introduces more parameters for handling mobility, as well as additional protocols for discovering and deleting nodes at runtime. Table \ref{tab:scyther-results-auth} shows that \gls{akes} achieves a stronger notion of key authentication over \gls{apkes}, namely explicit key authentication for both parties. The main difference between these two schemes is the keys that are generated. \gls{akes} generates a fresh session key, while \gls{apkes} generates a pairwise, long-term key. The advantages with \gls{akes} is that using a session key solves multiple of the weaknesses with \gls{apkes}, especially those related to mobility and deadlocks that occurs on reboots.
+
+However, as the session keys are generated 
+
+
+\gls{sakes} consists of more infrastructure than what \gls{akes} and \gls{sakes} has described, which makes the key establishment process more complicated. As seen in the analysis presented in Section \ref{sec:anal-sakes}, \gls{sakes} has a broad set of possible protocol traces. Partially because of bad protocol design, and partially because of the amount of entities and message passing that has to be done to compute and distribute the session key.
+
+
+\subsection{Use cases}
+
+% More on use cases / comparison?
+
+\gls{akes} and \gls{apkes} describe communication between low-power devices without any centralized routers or authentication modules, and no remote server that provides services to network compared to \gls{sakes}. This makes \gls{akes} and \gls{apkes} a more suitable option for systems that have special requirements to low-power infrastructure, and which are not able to provide more powerful devices to act as routers and border routers. Also, as \gls{akes} and \gls{apkes} is targeted on device-to-device communication, it enables the network to act more as a unit that exchanges information across devices. Seen in connection with the scenario presented in Section \ref{sec:iot}, these protocols would enable the garage door and car to communicate directly with each other. \gls{akes} was successfully verified for an unbounded state space in Section \ref{sec:akes-analysis}, which may indicate that it is an applicable scheme for \gls{6lowpan} networks that target communication directly between the devices.
+
+\gls{sakes}, as it is suggested, allows for devices to connect directly to the remote server, but there are no specifications on how to provide device-to-device communication, which means that communication between the two doors has to go through the remote server. \gls{sakes}, if implemented correctly and efficiently could be used in larger systems where each end device have a certain task, and only needs to communicate its sensor data to the remote server. Examples of such networks could be smart grids which sends data to the control center that instructs the sensors where the end devices collect information and sends it to the control center (i.e. the remote server)
+
+
 
 \section{Improvements}
 
 The protocol that has the most potential for improvement is \gls{sakes}, where there are multiple steps that can improve or provide a higher level of authentication.
 
+\subsection{APKES}
+
+\subsubsection{Use the Pairwise Session Key to Authenticate the HELLOACK}
+
+\gls{apkes} does provide verifiable and secure key establishment. One improvement, however, could be to use the pairwise session key to authenticate the \texttt{HELLOACK} that is sent between $B$ and $A$ in Figure \ref{fig:apkes-handshake}, instead of the shared secret. By doing so, the scheme would achieve explicit key authentication of $B$ to $A$ as well, and behave much like \gls{akes}.
+
+
+%\subsection{AKES}
+
+\subsection{SAKES}
+
+\gls{sakes} contains numerous flaws as presented in Chapter \ref{chp:analysis}. In this subsection, improvements to the protocol is proposed, implemented, and verified.
+
+\subsubsection{Achieve Authentication by Returning Nonces}
+
+As presented in Section \ref{subsec:sakes-auth}, certain authentication claims fails in \gls{sakes}. Two of them are \texttt{Weakagree} claims in role $A$ for the router $B$ and the border router $C$. These can be fixed by adding the nonce $N_A$, which was initially generated by the end device to the response that is sent from the border router to the end device for confirming the identity of the router $B$. Listing \ref{lst:fix-weakagree-auth} shows how this is implemented in the improved model of \gls{sakes}, which can be found in Appendix \ref{app:sakes-fixed-auth}.\\
+
+\begin{lstlisting}[caption={Fix to the SAKES protocol to provide weak agreement for the end device in the authentication phase.}, label={lst:fix-weakagree-auth}]
+	# Previous:
+	send_6(C, A, B, Nc, MAC(B, Nc, k(A, C)); # In role C
+	recv_6(C, A, B, Nc, MAC(B, Nc, k(A, C)); # In role A
+	
+	# Fix:
+	send_6(C, A, B, Na, Nc, MAC(B, Na, Nc, k(A, C)); # In role C
+	recv_6(C, A, B, Na, Nc, MAC(B, Na, Nc, k(A, C)); # In role A
+\end{lstlisting}
+
+The next step is to acheive non-injective synchronization and data agreement for the authentication phase. As discovered in the attacks from Section \ref{subsec:sakes-auth}, the issue lies in two messages. The first message is the request that is created at the end device and sent to the router. To avoid that the request can be reused in pair with an unrelated nonce $N_{B2}$ from another session, we have to add the received nonce $N_{B1}$ in the initial request as seen in Listing \ref{lst:fix-nisynch-ac-auth}. By adding this nonce, the protocol achieves both non-injective synchronization and data agreement for the end device $A$ and the border router $C$.\\
+
+\begin{lstlisting}[caption={Fix to the SAKES protocol to provide non-injective synchronization and data agreement for the end device and the border router during the authentication phase.}, label={lst:fix-nisynch-ac-auth}]
+	# Previous
+	send_3(A, B, {A, B, D}k(A,C), A, Na, MAC); # In role A
+	recv_3(A, B, {A, B, D}k(A,C), A, Na, MAC); # In role B
+
+	# Fix
+	send_3(A, B, {A, B, D}k(A,C), A, Na, Nb, MAC); # In Role A
+	recv_3(A, B, {A, B, D}k(A,C), A, Na, Nb, MAC); # In Role B
+\end{lstlisting}
+
+
+Lastly, the protocol lacks non-injective synchronization and data agreement for the router $B$. When the router relays the request from the end device to the border router, it receives a signed proof of identities and an ephemeral public key pair from the border router. There is, however, no measures for enforcing that it is the intended response for that particular request. It may be possible that the returned identities and key pair are actually from a different session, hence the protocol is not able to fulfil the two claims non-injective synchronization and data agreement for the router $B$. If the border router $C$ is instructed to return the nonce $N_B$ that was generated by the router and sent with the request, the router is able to verify that the response corresponds to the initial request, and not a different session. Listing \ref{lst:fix-nisynch-b-auth} shows how this improvement can be added to the message.\\
+
+\begin{lstlisting}[caption={Fix to the SAKES protocol to provide non-injective synchronization and data agreement for the end router $B$ during the authentication phase.}, label={lst:fix-nisynch-b-auth}]
+	# Previous
+	send_5(C, B, {Signed-Proof, Pk, Sk, Nc}k(B, C)); # In role C
+	recv_5(C, B, {Signed-Proof, Pk, Sk, Nc}k(B, C)); # In role B
+	
+	# Fix
+	send_5(C, B, {Signed-Proof, Pk, Sk, Nb, Nc}k(B, C)); # In role C
+	recv_5(C, B, {Signed-Proof, Pk, Sk, Nb, Nc}k(B, C)); # In role B
+\end{lstlisting}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.80]{analysis/sakes-fix-auth-verified.png}
+	\caption{Result of verifying the fixed version of SAKES' authentication claims using Scyther.}
+	\label{fig:sakes-fix-verified-auth}
+\end{figure}
 
 
 
+\subsubsection{Use Nonces Instead of Secret Keys in Diffie-Hellman Key Agreement}
+
+\gls{sakes} uses the private key of an ephemeral key pair at the router side and the private of the server to generate the session key in a Diffie-Hellman manner. The reason for generating the key pair in the first place is to sign the messages that are sent between the router and the server using the private key, and verify them with the public key. Generating public key pairs is a time consuming process for a server to do, especially if it has to do so for each session, and if the network of end devices that request services is large. Therefore, random nonces could be generated in addition to improve the security of the session keys that are generated in the key establishment phase. This approach will also allow for maintaining the signing capability of the server and the router.
+
+Generating random nonces is relatively inexpensive compared to generating public key pairs. Let both $B$ and $D$ generate one nonce each, $N_{B2}$ and $N_{D2}$, to use in the key establishment phase. When $B$ sends its request to $D$, it also sends $g^{N_{B2}}$ to the server. At the server side, the server sends $g^{N_{D2}}$ in return to $B$, and computes the session key as $(g^{N_{B2}})^{N_{D2}}$. The advantage with this approach is that in the case of the server being compromised, the adversary would not be able to decrypt previous sessions since the nonces used to generate the session key are fresh each time. The adversary may still use the signing key pair of $D$ to impersonate $D$ to the network and establish new sessions, but previous communication would be secure.
 
 
+\subsubsection{Use Elliptic Curve Diffie-Hellman and ECDSA Signature Algorithm}
+
+Another suggestion is to use the \gls{ecdh}
 
 
-
-\subsection{Limitations / Not covered by Scyther}
-
-
-\gls{apkes} has support for avoiding replay attacks through the use of frame counters. Replay attacks, or \emph{injectivity} is impossible to model in Scyther, hence the formal security analysis has not covered this class of possible attacks on the protocol. 
-
-When using pluggable scheme. Have to store key. Apkes + leap: Delete masterkey after establishing pairwise keys with all nodes. What happens if a node goes down, replaced, and rebooted? No masterkey to use. Can't establish keys with that node. hmm. Fuck this.
-
-
-
-
-
-
+\section{Concluding Remarks}
 
 
 %\begin{table}[h]

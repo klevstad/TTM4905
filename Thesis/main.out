@@ -4,65 +4,75 @@
 \BOOKMARK [0][-]{section*.4}{List of Acronyms}{}% 4
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 5
 \BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.2}{Scope}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.3}{Method}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.4}{Outline}{chapter.1}% 9
-\BOOKMARK [0][-]{chapter.2}{Background and Related Work}{}% 10
-\BOOKMARK [1][-]{section.2.1}{Internet of Things}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.2}{The IEEE 802.15.4 Standard}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.3}{6LoWPAN: Putting IP on Top of 802.15.4}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.4}{Key Establishment and Key Management}{chapter.2}% 14
-\BOOKMARK [2][-]{subsection.2.4.1}{Long-Term and Session Keys}{section.2.4}% 15
-\BOOKMARK [2][-]{subsection.2.4.2}{Security Attributes in Key Establishment Schemes}{section.2.4}% 16
-\BOOKMARK [2][-]{subsection.2.4.3}{Key Establishment Architectures}{section.2.4}% 17
-\BOOKMARK [2][-]{subsection.2.4.4}{Key Establishment Schemes}{section.2.4}% 18
-\BOOKMARK [2][-]{subsection.2.4.5}{Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{section.2.4}% 19
-\BOOKMARK [1][-]{section.2.5}{Formal Security Analysis}{chapter.2}% 20
-\BOOKMARK [1][-]{section.2.6}{Related Work}{chapter.2}% 21
-\BOOKMARK [0][-]{chapter.3}{Symbolic Security Analysis Using Scyther}{}% 22
-\BOOKMARK [1][-]{section.3.1}{The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.2}{Scyther Syntax}{chapter.3}% 24
-\BOOKMARK [2][-]{subsection.3.2.1}{Security Claims}{section.3.2}% 25
-\BOOKMARK [1][-]{section.3.3}{Defining an Adversary Compromise Model}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.4}{Scyther's Graphical User Interface}{chapter.3}% 27
-\BOOKMARK [0][-]{chapter.4}{Three Protocols for Key Establishment in 6LoWPAN}{}% 28
-\BOOKMARK [1][-]{section.4.1}{General Properties of }{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.2}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{chapter.4}% 30
-\BOOKMARK [2][-]{subsection.4.2.1}{Protocol specification}{section.4.2}% 31
-\BOOKMARK [2][-]{subsection.4.2.2}{Assumptions of Security Properties}{section.4.2}% 32
-\BOOKMARK [2][-]{subsection.4.2.3}{Weaknesses and Challenges with APKES}{section.4.2}% 33
-\BOOKMARK [1][-]{section.4.3}{Adaptable Key Establishment Scheme \(AKES\)}{chapter.4}% 34
-\BOOKMARK [2][-]{subsection.4.3.1}{Protocol Specification}{section.4.3}% 35
-\BOOKMARK [2][-]{subsection.4.3.2}{Assumptions of Security Properties}{section.4.3}% 36
-\BOOKMARK [2][-]{subsection.4.3.3}{Weaknesses}{section.4.3}% 37
-\BOOKMARK [1][-]{section.4.4}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{chapter.4}% 38
-\BOOKMARK [2][-]{subsection.4.4.1}{Protocol Specification}{section.4.4}% 39
-\BOOKMARK [2][-]{subsection.4.4.2}{Assumptions of Security Properties}{section.4.4}% 40
-\BOOKMARK [2][-]{subsection.4.4.3}{Weaknesses and Challenges With SAKES}{section.4.4}% 41
-\BOOKMARK [0][-]{chapter.5}{Formal Security Analysis of Three Key Establishment Protocols}{}% 42
-\BOOKMARK [1][-]{section.5.1}{Modelling Security Claims}{chapter.5}% 43
-\BOOKMARK [1][-]{section.5.2}{Formal Security Analysis of APKES}{chapter.5}% 44
-\BOOKMARK [2][-]{subsection.5.2.1}{Security Claims}{section.5.2}% 45
-\BOOKMARK [2][-]{subsection.5.2.2}{Adversary}{section.5.2}% 46
-\BOOKMARK [2][-]{subsection.5.2.3}{Results}{section.5.2}% 47
-\BOOKMARK [1][-]{section.5.3}{Formal Security Analysis of AKES}{chapter.5}% 48
-\BOOKMARK [2][-]{subsection.5.3.1}{Security Claims}{section.5.3}% 49
-\BOOKMARK [2][-]{subsection.5.3.2}{Adversary}{section.5.3}% 50
-\BOOKMARK [2][-]{subsection.5.3.3}{Results}{section.5.3}% 51
-\BOOKMARK [1][-]{section.5.4}{Formal Security Analysis of SAKES}{chapter.5}% 52
-\BOOKMARK [2][-]{subsection.5.4.1}{Security Claims}{section.5.4}% 53
-\BOOKMARK [2][-]{subsection.5.4.2}{Adversary}{section.5.4}% 54
-\BOOKMARK [2][-]{subsection.5.4.3}{Results}{section.5.4}% 55
-\BOOKMARK [0][-]{chapter.6}{Discussion and Evaluation}{}% 56
-\BOOKMARK [1][-]{section.6.1}{Evaluation}{chapter.6}% 57
-\BOOKMARK [1][-]{section.6.2}{Comparison}{chapter.6}% 58
-\BOOKMARK [1][-]{section.6.3}{Improvements}{chapter.6}% 59
-\BOOKMARK [2][-]{subsection.6.3.1}{Limitations / Not covered by Scyther}{section.6.3}% 60
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 61
-\BOOKMARK [0][-]{section*.40}{References}{}% 62
-\BOOKMARK [0][-]{appendix.A}{Scyther Scripts}{}% 63
-\BOOKMARK [1][-]{section.A.1}{Scyther - APKES}{appendix.A}% 64
-\BOOKMARK [1][-]{section.A.2}{Scyther - AKES}{appendix.A}% 65
-\BOOKMARK [1][-]{section.A.3}{Scyther - SAKES}{appendix.A}% 66
-\BOOKMARK [0][-]{appendix.B}{Notations}{}% 67
-\BOOKMARK [1][-]{section.B.1}{Notations}{appendix.B}% 68
+\BOOKMARK [1][-]{section.1.2}{Scope and Objectives}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Methodology}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.4}{Contribution}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.5}{Outline}{chapter.1}% 10
+\BOOKMARK [0][-]{chapter.2}{Background and Related Work}{}% 11
+\BOOKMARK [1][-]{section.2.1}{Internet of Things}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.2}{The IEEE 802.15.4 Standard}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.3}{6LoWPAN: Putting IP on Top of 802.15.4}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.4}{Key Establishment and Key Management}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.4.1}{Long-Term and Session Keys}{section.2.4}% 16
+\BOOKMARK [2][-]{subsection.2.4.2}{Security Attributes in Key Establishment Schemes}{section.2.4}% 17
+\BOOKMARK [2][-]{subsection.2.4.3}{Key Establishment Architectures}{section.2.4}% 18
+\BOOKMARK [2][-]{subsection.2.4.4}{Key Establishment Schemes}{section.2.4}% 19
+\BOOKMARK [2][-]{subsection.2.4.5}{Key Establishment Schemes in Wireless Sensor Networks and the Internet of Things}{section.2.4}% 20
+\BOOKMARK [1][-]{section.2.5}{Formal Security Analysis}{chapter.2}% 21
+\BOOKMARK [1][-]{section.2.6}{Related Work}{chapter.2}% 22
+\BOOKMARK [0][-]{chapter.3}{Symbolic Security Analysis Using Scyther}{}% 23
+\BOOKMARK [1][-]{section.3.1}{The Scyther Tool: Verification, Falsification, and Analysis of Security Protocols}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.2}{Scyther Syntax}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.2.1}{Security Claims}{section.3.2}% 26
+\BOOKMARK [1][-]{section.3.3}{Defining an Adversary Compromise Model}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.4}{Scyther's Graphical User Interface}{chapter.3}% 28
+\BOOKMARK [0][-]{chapter.4}{Three Protocols for Key Establishment in 6LoWPAN}{}% 29
+\BOOKMARK [1][-]{section.4.1}{General Properties of }{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.2.1}{Protocol specification}{section.4.2}% 32
+\BOOKMARK [2][-]{subsection.4.2.2}{Assumptions of Security Properties}{section.4.2}% 33
+\BOOKMARK [2][-]{subsection.4.2.3}{Weaknesses and Challenges with APKES}{section.4.2}% 34
+\BOOKMARK [1][-]{section.4.3}{Adaptable Key Establishment Scheme \(AKES\)}{chapter.4}% 35
+\BOOKMARK [2][-]{subsection.4.3.1}{Protocol Specification}{section.4.3}% 36
+\BOOKMARK [2][-]{subsection.4.3.2}{Assumptions of Security Properties}{section.4.3}% 37
+\BOOKMARK [2][-]{subsection.4.3.3}{Weaknesses and Challenges with AKES}{section.4.3}% 38
+\BOOKMARK [1][-]{section.4.4}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{chapter.4}% 39
+\BOOKMARK [2][-]{subsection.4.4.1}{Protocol Specification}{section.4.4}% 40
+\BOOKMARK [2][-]{subsection.4.4.2}{Assumptions of Security Properties}{section.4.4}% 41
+\BOOKMARK [2][-]{subsection.4.4.3}{Weaknesses and Challenges with SAKES}{section.4.4}% 42
+\BOOKMARK [0][-]{chapter.5}{Formal Security Analysis of Three Key Establishment Protocols}{}% 43
+\BOOKMARK [1][-]{section.5.1}{Modelling Security Properties}{chapter.5}% 44
+\BOOKMARK [1][-]{section.5.2}{Formal Security Analysis of APKES}{chapter.5}% 45
+\BOOKMARK [2][-]{subsection.5.2.1}{Security Claims}{section.5.2}% 46
+\BOOKMARK [2][-]{subsection.5.2.2}{Adversary}{section.5.2}% 47
+\BOOKMARK [2][-]{subsection.5.2.3}{Results}{section.5.2}% 48
+\BOOKMARK [1][-]{section.5.3}{Formal Security Analysis of AKES}{chapter.5}% 49
+\BOOKMARK [2][-]{subsection.5.3.1}{Security Claims}{section.5.3}% 50
+\BOOKMARK [2][-]{subsection.5.3.2}{Adversary}{section.5.3}% 51
+\BOOKMARK [2][-]{subsection.5.3.3}{Results}{section.5.3}% 52
+\BOOKMARK [1][-]{section.5.4}{Formal Security Analysis of SAKES}{chapter.5}% 53
+\BOOKMARK [2][-]{subsection.5.4.1}{Authentication Phase}{section.5.4}% 54
+\BOOKMARK [2][-]{subsection.5.4.2}{Key Establishment Phase}{section.5.4}% 55
+\BOOKMARK [2][-]{subsection.5.4.3}{Results}{section.5.4}% 56
+\BOOKMARK [1][-]{section.5.5}{Limitations in the Analysis}{chapter.5}% 57
+\BOOKMARK [0][-]{chapter.6}{Discussion}{}% 58
+\BOOKMARK [1][-]{section.6.1}{Evaluation of Authentication Properties}{chapter.6}% 59
+\BOOKMARK [1][-]{section.6.2}{Evaluation of Key Secrecy Properties}{chapter.6}% 60
+\BOOKMARK [1][-]{section.6.3}{Comparison}{chapter.6}% 61
+\BOOKMARK [2][-]{subsection.6.3.1}{Use cases}{section.6.3}% 62
+\BOOKMARK [1][-]{section.6.4}{Improvements}{chapter.6}% 63
+\BOOKMARK [2][-]{subsection.6.4.1}{APKES}{section.6.4}% 64
+\BOOKMARK [2][-]{subsection.6.4.2}{SAKES}{section.6.4}% 65
+\BOOKMARK [1][-]{section.6.5}{Concluding Remarks}{chapter.6}% 66
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 67
+\BOOKMARK [0][-]{section*.45}{References}{}% 68
+\BOOKMARK [0][-]{appendix.A}{Scyther Scripts}{}% 69
+\BOOKMARK [1][-]{section.A.1}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{appendix.A}% 70
+\BOOKMARK [1][-]{section.A.2}{Adaptable Key Establishment Scheme \(AKES\)}{appendix.A}% 71
+\BOOKMARK [1][-]{section.A.3}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{appendix.A}% 72
+\BOOKMARK [2][-]{subsection.A.3.1}{SAKES - Authentication}{section.A.3}% 73
+\BOOKMARK [2][-]{subsection.A.3.2}{SAKES - Key Establishment}{section.A.3}% 74
+\BOOKMARK [1][-]{section.A.4}{Secure Authentication and Key Establishment Scheme \(SAKES\) \204 Improved}{appendix.A}% 75
+\BOOKMARK [0][-]{appendix.B}{Attacks}{}% 76
+\BOOKMARK [0][-]{appendix.C}{Notations}{}% 77
+\BOOKMARK [1][-]{section.C.1}{Notations}{appendix.C}% 78

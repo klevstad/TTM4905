@@ -1,0 +1,93 @@
+/*
+Secure Authentication and Key Establishment Scheme (SAKES) - Authentication
+*/
+
+hashfunction MAC;
+
+macro Message1 = Na;
+macro Message2 = Nb;
+macro Message2-MAC = MAC(Nb, k(A,B));
+
+macro Message3-Cipher = {A, B, D, Na}k(A, C);
+macro Message3 = Message3-Cipher, A, Na, Nb; # ADD Nb = Achieves nisynch, niagree for A and C
+macro Message3-MAC = MAC(Message3, k(A, B));
+
+macro Message4 = (Message3-Cipher, B, Nb);
+macro Message4-MAC = MAC(Message4, k(B, C));
+
+macro Message5-Signed = {A, B, D}sk(C);
+macro Message5 = {Message5-Signed, Pk, Sk, Nb, Nc}k(B, C); # ADD Nb = Achieves nisynch, niagree for B
+
+macro Message6 = B, Na, Nc; # ADD Na = Achieves Weakagree B & C for A
+macro Message6-MAC = MAC(Message6, k(A,C));
+
+protocol SAKES-AUTH(A, B, C, D) {
+
+	role A {
+		# 6LoWPAN End Device (A)
+
+		fresh Na: Nonce;
+		var Nb, Nc: Nonce;
+		var Pk, Sk;
+
+		send_1(A, B, Message1);
+		recv_2(B, A, Message2);
+		send_3(A, B, Message3, Message3-MAC);
+		recv_6(C, A, Message6, Message6-MAC);
+
+		claim_A1(A, Alive, B);
+		claim_A2(A, Alive, C);
+		claim_A3(A, Weakagree, B);
+		claim_A4(A, Weakagree, C);
+		claim_A5(A, Niagree);
+		claim_A6(A, Nisynch);
+	}
+
+	role B {
+		# 6LoWPAN Router (B)
+
+		fresh Nb: Nonce;
+		var Na, Nc: Nonce;
+		var Pk, Sk;
+
+		recv_1(A, B, Na);
+		send_2(B, A, Message2);
+		recv_3(A, B, Message3, Message3-MAC);
+		send_4(B, C, Message4, Message4-MAC);
+		recv_5(C, B, Message5);
+
+		claim(B, Secret, Sk);
+		claim(B, Alive, A);
+		claim(B, Alive, C);
+		claim(B, Weakagree, A);
+		claim(B, Weakagree, C);
+		claim(B, Niagree);
+		claim(B, Nisynch);
+	}
+
+	role C {
+		# 6LoWPAN Border Router (C)
+
+		fresh Nc: Nonce;
+		var Na, Nb: Nonce;
+
+		const Pk: Function;
+		secret Sk: Function;
+		inversekeys (Pk, Sk);
+
+		recv_4(B, C, Message4, Message4-MAC);
+		send_5(C, B, Message5);
+		send_6(C, A, Message6, Message6-MAC);
+
+		claim_C1(C, Alive, A);
+		claim_C2(C, Alive, B);
+		claim_C3(C, Weakagree, A);
+		claim_C4(C, Weakagree, B);
+		claim_C5(C, Niagree);
+		claim_C6(C, Nisynch);
+	}
+
+	role D {
+		# Remote Server (D)
+	}
+}

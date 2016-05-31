@@ -193,7 +193,7 @@ In \gls{akes}, the key establishment process consists of a three-way handshake w
 
 
 
-\subsection{Weaknesses}
+\subsection{Weaknesses and Challenges with AKES}
 
 As previously mentioned, \gls{apkes} introduced some protocol weaknesses that \gls{akes} aims to fix. While repairing most of these issues, \gls{akes} is still not perfect. For example, all addressing information (i.e. the \gls{pan} identifier, short address, and other parameters used for identifying nodes in \gls{6lowpan} networks) have to be preloaded into the node. The 802.15.4 standard has support for auto-configuring such address information at runtime, but these protocols require that the 802.15.4 security is up and running before being able to execute \cite{krentz2015handling}. \gls{akes} modifies the security sublayer of 802.15.4, which means that \gls{akes} is running before the 802.15.4 addressing protocols are running, hence they are not applicable with \gls{akes}. When \gls{akes} establishes session keys with a node, it sends the node's address and identity to the pluggable scheme in order to obtain the shared secret. This means that if \gls{akes} did not have the address of the node when it was booted up, it is not able to establish keys with it. Therefore, \gls{akes} does only support mobility for devices that are known to the node at startup.
 
@@ -230,23 +230,44 @@ Session key establishment between the end device and remote server is done by th
 
 \gls{sakes} consists of two phases: Authentication and session key establishment. Figure \ref{fig:sakes-auth} describes the messages exchanged between the end device ($A$), the \gls{6lowpan} router ($B$), and the border router ($C$) in the authentication phase of \gls{sakes}.
 
+\begin{figure}[h]
+\begin{tcolorbox}[title=Authentication in SAKES]
+\begin{align*}
+A:\ & Generate\ N_A\ randomly\\
+A \rightarrow B:\ & \langle{N_A}\rangle{}\\
+B:\ & Generate\ N_B\ randomly\\
+B \rightarrow A:\ & \langle{N_B}\rangle{}\\
+A:\ & Construct\ C_{A}:\ \{ID_A, ID_B, ID_D\}_{K_{A,C}}\\
+A \rightarrow B:\ & \langle{C_A, ID_A, N_A}\rangle{K_{A,B}}\\
+B \rightarrow C:\ & \langle{C_A, ID_B, N_B}\rangle{K_{B,C}}\\
+C:\ & Verify\ the\ identity\ of\ A,\ B,\ and\ D\\
+C: \ & Construct\ S_C: \{ID_A, ID_B, ID_D\}_{Sk_{C}}\\
+C:\ & Generate\ N_C\ randomly\ and\ a\ public\ key\ pair\ (Pk_B, Sk_B)\\
+C \rightarrow B:\ & \{N_C, S_C, Pk_B, Sk_B\}_{K_{B,C}}\\
+C \rightarrow A:\ & \langle{ID_B, N_C}\rangle{K_{A,C}}\\
+\end{align*}
+\end{tcolorbox}
+\caption{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}
+\label{fig:sakes-auth}
+\end{figure}
+
 \begin{enumerate}
 
 \item $A$ starts the authentication by generating a random nonce $N_A$, which it transmits to its closest router $B$.
 
 \item The router responds by generating its own random nonce $N_B$, and sends this back to $A$.
 
-\item The identities of the end device, the nearest router of the end device, and the remote server the device wants to connect to is then encrypted into the ciphertext $C_A$ by $A$ using the symmetric key $K_{AC}$, which is shared between the end device and the border router. $A$ also then sends this ciphertext along with its identity and previously computed nonce to the router after adding a \gls{mac-auth} of the message using the shared key $K_{AB}$.
+\item The identities of the end device, the nearest router of the end device, and the remote server the device wants to connect to is then encrypted into the ciphertext $C_A$ by $A$ using the symmetric key $K_{A,C}$, which is shared between the end device and the border router. $A$ also then sends this ciphertext along with its identity and previously computed nonce to the router after adding a \gls{mac-auth} of the message using the shared key $K_{A,B}$.
 
-\item Upon receiving the request from $A$, $B$ authenticates the \gls{mac-auth} of the message by using its copy of the secret key $K_{AB}$, and adds its nonce $N_B$ to the message. The request is authenticated by $B$, who generates a \gls{mac-auth} using $K_{BC}$ and relays it to the border router $C$.
+\item Upon receiving the request from $A$, $B$ authenticates the \gls{mac-auth} of the message by using its copy of the secret key $K_{A,B}$, and adds its nonce $N_B$ to the message. The request is authenticated by $B$, who generates a \gls{mac-auth} using $K_{B,C}$ and relays it to the border router $C$.
 
-\item When the request is received by $C$, it verifies the attached \gls{mac-auth} by using its copy of the symmetric key that it shares with $B$. It then decrypts the ciphertext created by $A$ containing the identity of the end device, the router, and the remote server by using the symmetric key $K_{AC}$.
+\item When the request is received by $C$, it verifies the attached \gls{mac-auth} by using its copy of the symmetric key that it shares with $B$. It then decrypts the ciphertext created by $A$ containing the identity of the end device, the router, and the remote server by using the symmetric key $K_{A,C}$.
 
 \item The border router then checks with its authentication module whether the message is sent by the end device $A$, and if the identity of its nearest neighbour router $B$ is correct. If these checks are successful, the border router creates a signed message $S_C$ containing the identities of the end device, router, and remote server. It also generates a public key pair $(Pk_B, Sk_B)$ based on \gls{ecc}, and random nonce $N_D$.
 
-\item It then sends two messages: one to the router, and one to the end device. The message sent to $B$ contains the nonce $N_D$, the signed message $S_C$ containing the verified identities of the request, and the public key pair for $B$ to use in the key establishment phase. To provide secrecy for the generated key pair, the entire message is encrypted under the shared symmetric key $K_{BC}$ to ensure that the key pair is only accessible to $B$.
+\item It then sends two messages: one to the router, and one to the end device. The message sent to $B$ contains the nonce $N_D$, the signed message $S_C$ containing the verified identities of the request, and the public key pair for $B$ to use in the key establishment phase. To provide secrecy for the generated key pair, the entire message is encrypted under the shared symmetric key $K_{B,C}$ to ensure that the key pair is only accessible to $B$.
 
-\item The end device $A$ also receives a confirmation message from $C$ containing the identity of the router, as well as the random nonce $N_D$ to prevent replaying. The message is authenticated using a \gls{mac-auth} with the shared secret $K_{AC}$ as the key to ensure its authenticity.
+\item The end device $A$ also receives a confirmation message from $C$ containing the identity of the router, as well as the random nonce $N_D$ to prevent replaying. The message is authenticated using a \gls{mac-auth} with the shared secret $K_{A,C}$ as the key to ensure its authenticity.
 
 \end{enumerate}
 
@@ -257,26 +278,7 @@ Session key establishment between the end device and remote server is done by th
 %Upon receiving the request from $A$, $B$ authenticates the \gls{mac-auth} of the message by using its copy of the secret key $K_{AB}$, and adds its nonce $N_B$ to the message. The request is authenticated by $B$, who generates a \gls{mac-auth} using $K_{BC}$ and relays it to the border router $C$. When the request is received by $C$, it verifies the attached \gls{mac-auth} by using its copy of the symmetric key that it shares with $B$. It then decrypts the ciphertext created by $A$ containing the identity of the end device, the router, and the remote server by using the symmetric key $K_{AC}$.
 
 
-\begin{figure}[h]
-\begin{tcolorbox}[title=Authentication in SAKES]
-\begin{align*}
-A:\ & Generate\ N_A\ randomly\\
-A \rightarrow B:\ & N_A\\
-B:\ & Generate\ N_B\ randomly\\
-B \rightarrow A:\ & N_B\\
-A:\ & Construct\ C_{A}:\ \{ID_A, ID_B, ID_D\}_{K_{AC}}\\
-A \rightarrow B:\ & \langle{C_A, ID_A, N_A}\rangle{K_{AB}}\\
-B \rightarrow C:\ & \langle{C_A, ID_B, N_B}\rangle{K_{BC}}\\
-C:\ & Verify\ the\ identity\ of\ A,\ B,\ and\ D\\
-C: \ & Construct\ S_C: \{ID_A, ID_B, ID_D\}_{Sk_{C}}\\
-C:\ & Generate\ N_C\ randomly\ and\ a\ public\ key\ pair\ (Pk_B, Sk_B)\\
-C \rightarrow B:\ & \{N_C, S_C, Pk_B, Sk_B\}_{K_{BC}}\\
-C \rightarrow A:\ & \langle{ID_B, N_C}\rangle{K_{AC}}\\
-\end{align*}
-\end{tcolorbox}
-\caption{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}
-\label{fig:sakes-auth}
-\end{figure}
+
 
 %The border router then checks with its authentication module whether the message is sent by the end device $A$, and if the identity of its nearest neighbour router $B$ is correct. If these checks are successful, the border router creates a signed message $S_C$ containing the identities of the end device, router, and remote server. It also generates a public key pair $(Pk_B, Sk_B)$ based on \gls{ecc}, and random nonce $N_D$. It then sends two messages: one to the router, and one to the end device. The message sent to $B$ contains the nonce $N_D$, the signed message $S_C$ containing the verified identities of the request, and the public key pair for $B$ to use in the key establishment phase. To provide secrecy for the generated key pair, the entire message is encrypted under the shared symmetric key $K_BC$ to ensure that the key pair is only accessible to $B$. The end device $A$ also receives a confirmation message from $C$ containing the identity of the router, as well as the random nonce $N_D$ to prevent replaying. The message is authenticated using a \gls{mac-auth} with the shared secret $K_{AC}$ as the key to ensure its authenticity.
 
@@ -290,7 +292,7 @@ D:\ & Calculate\ Session\ Key\ (SK_D):\ SK_D = g^{Pk_B * Sk_D} \mod{P}\\
 D:\ & Generate\ N_D\ randomly\\
 D \rightarrow B:\ & \{Pk_D, P, g, N_D, hash\}_{Sk_D}\\
 B:\ & Calculate\ Session\ Key\ for\ A\ (SK_A):\ SK_A = g^{Pk_D * Sk_B} \mod{P}\\
-B \rightarrow A:\ & \{SK_A, N_B\}_{K_{AB}}\\
+B \rightarrow A:\ & \{SK_A, N_B\}_{K_{A,B}}\\
 Claim:\ & SK_A = SK_D\\
 \end{align*}
 \end{tcolorbox}
@@ -322,7 +324,7 @@ SK_D = g^{\ Pk_{B}\ *\ Sk_D} \mod P
 SK_A = g^{\ Pk_{D}\ *\ Sk_B} \mod P
 \end{equation}
 
-\item In order to distribute the session key securely to the end device $A$, the key is encrypted along with the nonce $N_B$ under the symmetric key $K_{AB}$, and sent to $A$.
+\item In order to distribute the session key securely to the end device $A$, the key is encrypted along with the nonce $N_B$ under the symmetric key $K_{A,B}$, and sent to $A$.
 
 \item After the end device successfully decrypts and retrieves its session key, future communication between $A$ and $D$ will be encrypted using the session key. 
 
@@ -354,7 +356,7 @@ SK_A = g^{\ Pk_{D}\ *\ Sk_B} \mod P
 As \gls{sakes} makes use of both pairwise keys and public key pairs, the generated session keys should, of course, be claimed to be secret. Also, the private key of the ephemeral key pair generated the authentication module should be secret to ensure the secrecy of the generated session key. In modern key establishment schemes, the Diffie-Hellman key agreement process can be used to provide forward secrecy for communicating parties. In \gls{sakes}, the remote server holds a long-term public key pair, while the border router generates a fresh ephemeral key pair for each session. Nevertheless, forward secrecy should be a desirable property for protocols that leverage Diffie-Hellmen. 
 
 
-\subsection{Weaknesses and Challenges With SAKES}
+\subsection{Weaknesses and Challenges with SAKES}
 
 The major downside with \gls{sakes} is that the authors have misunderstood the concept of Diffie-Hellman key agreement. If we look closer at the two equations that derive the alleged identical session keys, we observe that they are in fact unequal. The mathematical equation for Diffie-Hellman is listed in Equation \ref{eq:dh} below.
 

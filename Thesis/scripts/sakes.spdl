@@ -24,15 +24,9 @@ macro Message5 = {Message5-Signed, Pk, Sk, Nc}k(B, C);
 macro Message6-MAC = MAC(B, Nc, k(A,C));
 macro Message6 = (B, Nc, Message6-MAC);
 
-#macro Message7-HASH = HASH(Message5-Signed, B, Nb, Pk);
-#macro Message7 = {Message5-Signed, Message7-HASH, B, Nb, Pk}Sk;
-
 macro Message7 = (Message5-Signed, B, Nb, Pk, g1(Sk));
 macro Message7-HASH = HASH(Message7);
 macro Message7-Signed = {Message7, Message7-HASH}Sk;
-
-#macro Message8-HASH = HASH(D, pk(D), P, G, Nd);
-#macro Message8 = {Message8-HASH, D, P, G, Nd}sk(D);
 
 macro Message8 = (D, Nd, pk(D, g1(sk(D))));
 macro Message8-HASH = HASH(Message8);
@@ -79,10 +73,7 @@ protocol SAKES(A, B, C, D) {
 		recv_3(A, B, Message3, Message3-MAC);
 		send_4(B, C, Message4, Message4-MAC);
 		recv_5(C, B, Message5);
-		#send_7(B, D, Message7);
 		send_7(B, D, Message7, Message7-HASH, Message7-Signed);
-
-		#recv_8(D, B, Message8);
 		recv_8(D, B, Message8, Message8-HASH, Message8-Signed);
 		send_9(B, A, Message9);
 
@@ -126,27 +117,13 @@ protocol SAKES(A, B, C, D) {
 		var Nb: Nonce;
 		var Pk, Sk;
 
-		#recv_7(B, D, Message7);
 		recv_7(B, D, Message7, Message7-HASH, Message7-Signed);
-		#send_8(D, B, Message8);
 		send_8(D, B, Message8, Message8-HASH, Message8-Signed);
+
 		claim(D, Alive, B);
 		claim(D, Weakagree, B);
 		claim(D, Niagree);
 		claim(D, Nisynch);
 		claim(D, SKR, SessionKeyD);
-	}
-}
-
-// Hack to model Diffie-Hellman where g^ab = g^ba
-
-protocol @exponentiation(RA)
-{
-	role RA
-	{
-		var T1,T2: Ticket;
-
-		recv_!1(RA,RA, g2(g1(T1),T2) );
-		send_!2(RA,RA, g2(g1(T2),T1) );
 	}
 }
