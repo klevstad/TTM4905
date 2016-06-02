@@ -59,20 +59,23 @@
 \BOOKMARK [1][-]{section.6.1}{Evaluation of Authentication Properties}{chapter.6}% 59
 \BOOKMARK [1][-]{section.6.2}{Evaluation of Key Secrecy Properties}{chapter.6}% 60
 \BOOKMARK [1][-]{section.6.3}{Comparison}{chapter.6}% 61
-\BOOKMARK [2][-]{subsection.6.3.1}{Use cases}{section.6.3}% 62
-\BOOKMARK [1][-]{section.6.4}{Improvements}{chapter.6}% 63
-\BOOKMARK [2][-]{subsection.6.4.1}{APKES}{section.6.4}% 64
-\BOOKMARK [2][-]{subsection.6.4.2}{SAKES}{section.6.4}% 65
-\BOOKMARK [1][-]{section.6.5}{Concluding Remarks}{chapter.6}% 66
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 67
-\BOOKMARK [0][-]{section*.45}{References}{}% 68
-\BOOKMARK [0][-]{appendix.A}{Scyther Scripts}{}% 69
-\BOOKMARK [1][-]{section.A.1}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{appendix.A}% 70
-\BOOKMARK [1][-]{section.A.2}{Adaptable Key Establishment Scheme \(AKES\)}{appendix.A}% 71
-\BOOKMARK [1][-]{section.A.3}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{appendix.A}% 72
-\BOOKMARK [2][-]{subsection.A.3.1}{SAKES - Authentication}{section.A.3}% 73
-\BOOKMARK [2][-]{subsection.A.3.2}{SAKES - Key Establishment}{section.A.3}% 74
-\BOOKMARK [1][-]{section.A.4}{Secure Authentication and Key Establishment Scheme \(SAKES\) \204 Improved}{appendix.A}% 75
-\BOOKMARK [0][-]{appendix.B}{Attacks}{}% 76
-\BOOKMARK [0][-]{appendix.C}{Notations}{}% 77
-\BOOKMARK [1][-]{section.C.1}{Notations}{appendix.C}% 78
+\BOOKMARK [2][-]{subsection.6.3.1}{APKES versus AKES}{section.6.3}% 62
+\BOOKMARK [2][-]{subsection.6.3.2}{AKES versus SAKES}{section.6.3}% 63
+\BOOKMARK [2][-]{subsection.6.3.3}{SAKES versus APKES}{section.6.3}% 64
+\BOOKMARK [2][-]{subsection.6.3.4}{Use cases}{section.6.3}% 65
+\BOOKMARK [1][-]{section.6.4}{Improvements}{chapter.6}% 66
+\BOOKMARK [2][-]{subsection.6.4.1}{Possible improvements for APKES}{section.6.4}% 67
+\BOOKMARK [2][-]{subsection.6.4.2}{Possible improvements for SAKES}{section.6.4}% 68
+\BOOKMARK [1][-]{section.6.5}{Concluding Remarks}{chapter.6}% 69
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 70
+\BOOKMARK [0][-]{section*.45}{References}{}% 71
+\BOOKMARK [0][-]{appendix.A}{Scyther Scripts}{}% 72
+\BOOKMARK [1][-]{section.A.1}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{appendix.A}% 73
+\BOOKMARK [1][-]{section.A.2}{Adaptable Key Establishment Scheme \(AKES\)}{appendix.A}% 74
+\BOOKMARK [1][-]{section.A.3}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{appendix.A}% 75
+\BOOKMARK [2][-]{subsection.A.3.1}{SAKES - Authentication}{section.A.3}% 76
+\BOOKMARK [2][-]{subsection.A.3.2}{SAKES - Key Establishment}{section.A.3}% 77
+\BOOKMARK [1][-]{section.A.4}{Secure Authentication and Key Establishment Scheme \(SAKES\) \204 Improved}{appendix.A}% 78
+\BOOKMARK [0][-]{appendix.B}{Attacks}{}% 79
+\BOOKMARK [0][-]{appendix.C}{Notations}{}% 80
+\BOOKMARK [1][-]{section.C.1}{Notations}{appendix.C}% 81

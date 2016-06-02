@@ -260,6 +260,13 @@ Jing, Q., A.~V. Vasilakos, J.~Wan, J.~Lu, and D.~Qiu (2014).
   {C}hallenges.
 \newblock {\em Wireless Networks\/}~{\em 20\/}(8), 2481--2501.
 
+\bibitem[\protect\citeauthoryear{Johnson, Menezes, and Vanstone}{Johnson
+  et~al.}{2001}]{johnson2001elliptic}
+Johnson, D., A.~Menezes, and S.~Vanstone (2001).
+\newblock {The Elliptic Curve Digital Signature Algorithm (ECDSA)}.
+\newblock {\em International Journal of Information Security\/}~{\em 1\/}(1),
+  36--63.
+
 \bibitem[\protect\citeauthoryear{Khan, Khan, Zaheer, and Khan}{Khan
   et~al.}{2012}]{iot-layers2012}
 Khan, R., S.~U. Khan, R.~Zaheer, and S.~Khan (2012).

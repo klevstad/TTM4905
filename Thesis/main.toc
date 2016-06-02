@@ -97,25 +97,28 @@
 \contentsline {section}{\numberline {6.1}Evaluation of Authentication Properties}{71}{section.6.1}
 \contentsline {section}{\numberline {6.2}Evaluation of Key Secrecy Properties}{72}{section.6.2}
 \contentsline {section}{\numberline {6.3}Comparison}{73}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Use cases}{73}{subsection.6.3.1}
-\contentsline {section}{\numberline {6.4}Improvements}{74}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}APKES}{74}{subsection.6.4.1}
-\contentsline {subsubsection}{Use the Pairwise Session Key to Authenticate the HELLOACK}{74}{section*.40}
-\contentsline {subsection}{\numberline {6.4.2}SAKES}{74}{subsection.6.4.2}
-\contentsline {subsubsection}{Achieve Authentication by Returning Nonces}{74}{section*.41}
-\contentsline {subsubsection}{Use Nonces Instead of Secret Keys in Diffie-Hellman Key Agreement}{76}{section*.42}
-\contentsline {subsubsection}{Use Elliptic Curve Diffie-Hellman and ECDSA Signature Algorithm}{76}{section*.43}
-\contentsline {section}{\numberline {6.5}Concluding Remarks}{77}{section.6.5}
-\contentsline {chapter}{\chapternumberline {7}Conclusion}{79}{chapter.7}
-\contentsline {chapter}{References}{81}{section*.45}
+\contentsline {subsection}{\numberline {6.3.1}APKES versus AKES}{73}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}AKES versus SAKES}{73}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}SAKES versus APKES}{74}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.4}Use cases}{74}{subsection.6.3.4}
+\contentsline {section}{\numberline {6.4}Improvements}{75}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Possible improvements for APKES}{75}{subsection.6.4.1}
+\contentsline {subsubsection}{Use the Pairwise Session Key to Authenticate the HELLOACK}{75}{section*.40}
+\contentsline {subsection}{\numberline {6.4.2}Possible improvements for SAKES}{75}{subsection.6.4.2}
+\contentsline {subsubsection}{Achieve Authentication by Returning Nonces}{75}{section*.41}
+\contentsline {subsubsection}{Use Nonces Instead of Secret Keys in Diffie-Hellman Key Agreement}{78}{section*.42}
+\contentsline {subsubsection}{Use Elliptic Curve Diffie-Hellman and the Elliptic Curve Digital Signature Algorithm}{79}{section*.43}
+\contentsline {section}{\numberline {6.5}Concluding Remarks}{80}{section.6.5}
+\contentsline {chapter}{\chapternumberline {7}Conclusion}{81}{chapter.7}
+\contentsline {chapter}{References}{83}{section*.45}
 \vspace {1em}\noindent \bfseries Appendices\par \vspace {-.5em}
-\contentsline {appendix}{\chapternumberline {A}Scyther Scripts}{87}{appendix.A}
-\contentsline {section}{\numberline {A.1}Adaptable Pairwise Key Establishment Scheme (APKES)}{87}{section.A.1}
-\contentsline {section}{\numberline {A.2}Adaptable Key Establishment Scheme (AKES)}{89}{section.A.2}
-\contentsline {section}{\numberline {A.3}Secure Authentication and Key Establishment Scheme (SAKES)}{91}{section.A.3}
-\contentsline {subsection}{\numberline {A.3.1}SAKES - Authentication}{91}{subsection.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}SAKES - Key Establishment}{94}{subsection.A.3.2}
-\contentsline {section}{\numberline {A.4}Secure Authentication and Key Establishment Scheme (SAKES) --- Improved}{94}{section.A.4}
-\contentsline {appendix}{\chapternumberline {B}Attacks}{97}{appendix.B}
-\contentsline {appendix}{\chapternumberline {C}Notations}{101}{appendix.C}
-\contentsline {section}{\numberline {C.1}Notations}{101}{section.C.1}
+\contentsline {appendix}{\chapternumberline {A}Scyther Scripts}{89}{appendix.A}
+\contentsline {section}{\numberline {A.1}Adaptable Pairwise Key Establishment Scheme (APKES)}{89}{section.A.1}
+\contentsline {section}{\numberline {A.2}Adaptable Key Establishment Scheme (AKES)}{91}{section.A.2}
+\contentsline {section}{\numberline {A.3}Secure Authentication and Key Establishment Scheme (SAKES)}{93}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}SAKES - Authentication}{93}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}SAKES - Key Establishment}{96}{subsection.A.3.2}
+\contentsline {section}{\numberline {A.4}Secure Authentication and Key Establishment Scheme (SAKES) --- Improved}{96}{section.A.4}
+\contentsline {appendix}{\chapternumberline {B}Attacks}{99}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Notations}{103}{appendix.C}
+\contentsline {section}{\numberline {C.1}Notations}{103}{section.C.1}

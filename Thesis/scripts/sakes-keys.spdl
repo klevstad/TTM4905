@@ -5,20 +5,20 @@
 hashfunction HASH;
 hashfunction g1, g2;
 
-macro Proof = {A, B, D, Pk}sk(C);
+macro Proof = {A, B, D}sk(C);
 
 macro Message1 = (Proof, B, Nb, g1(Sk));
 macro Message1-HASH = HASH(Message1);
 macro Message1-Signed = {Message1, Message1-HASH}Sk;
 
-macro Message2 = (D, Nd, pk(D), g1(sk(D)));
+macro Message2 = (D, Nd, Proof, pk(D), g1(sk(D)));
 macro Message2-HASH = HASH(Message2);
 macro Message2-Signed = {Message2, Message2-HASH}sk(D);
 
 macro SessionKeyA = g2(g1(sk(D)), Sk);
 macro SessionKeyD = g2(g1(Sk), sk(D));
 
-macro Message3 = {A, B, Nb, SessionKeyA}k(A,B);
+macro Message3 = {Nb, SessionKeyA}k(A,B);
 
 
 protocol SAKES-KEYS(A, B, C, D) {
@@ -41,7 +41,7 @@ protocol SAKES-KEYS(A, B, C, D) {
 		fresh Nb, Nc: Nonce;
 		var Nd: Nonce;
 
-		const Pk: Function;
+		fresh Pk: Function;
 		secret Sk: Function;
 		inversekeys (Pk, Sk);
 

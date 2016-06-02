@@ -25,23 +25,11 @@ The scope of this thesis is to give an formal security analysis of three key est
 
 \section{Methodology}
 
-The first part of this thesis has been a background study of wireless networks such as the \gls{ieee} and the \gls{6lowpan} to better understand how they provide different types of security services. In addition, different key establishment schemes have been assessed to better understand the what types of properties that are desirable for key establishment schemes in a sensor network setting.
+The first part of this thesis has been a background study of wireless networks such as the \gls{ieee} 802.15.4 and the \gls{6lowpan} to better understand how they provide different types of security services. In addition, different key establishment schemes have been assessed to increase the understanding the properties that are desirable for key establishment schemes in a sensor network setting.
 
-To be able to formally analyse key establishment protocols, a part of the thesis has also involved learning how to implement and verify security protocols using the formal security tool known as Scyther. This have resulted in a chapter describing the different properties of the tool, and examples on how to write scripts that model security protocols.
+To be able to formally analyse key establishment protocols, a part of the thesis has involved learning how to implement and verify security protocols using the formal security tool known as Scyther. This includes understanding the connection between security properties for key establishment and how Scyther interprets and verifies these properties.
 
-The protocols that this thesis assess have been carefully reviewed to implement a most accurate model as possible. 
-
-
-
-Lese protokollen
-
-Forstå protokollen. Identifisere sikkerhet.
-
-Modellere protokollen som en interaksjon mellom forskjellige roller.
-
-Verifisere modellen ved bruk av verktøyet Scyther
-
-Evaluere resultater.
+Three protocols for key establishment without any previous formal security analysis have been chosen for this thesis. These are reviewed and discussed to establish their various security properties, as well as security properties that they should possess. The protocols have been modelled using the Scyther tool, and formally verified by. When Scyther verifies a protocol, it returns a table of all the claimed security properties, and an indication whether the property was successfully verified or falsified. In the event of a property being falsified, the attacks have been inspected, and changes to the protocol have been made to achieve the claimed security property. 
 
 \section{Contribution}
 

@@ -32,6 +32,7 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Graph of the attack discovered on the weakagree property of the role A in the authentication phase of SAKES.}}{98}{figure.B.1}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Graph of the attack discovered on the nisynch property of the role A, B, and C in the authentication phase of SAKES.}}{99}{figure.B.2}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Graph of the attack discovered on the nisynch property of the role A, B, and D from B's point of view in the key establishment phase of SAKES.}}{99}{figure.B.1}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Graph of the attack discovered on the weakagree property of the role A in the authentication phase of SAKES.}}{100}{figure.B.2}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Graph of the attack discovered on the nisynch property of the roles A, B, and C from A's point of view in the authentication phase of SAKES.}}{101}{figure.B.3}
 \addvspace {10pt}
