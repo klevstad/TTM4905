@@ -5,10 +5,17 @@
 \@writefile{lot}{\addvspace {10pt}}
 \@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}Three Protocols for Key Establishment in 6LoWPAN}{39}{chapter.4}}
 \newlabel{chp:protocols}{{\M@TitleReference {4}{Three Protocols for Key Establishment in 6LoWPAN}}{39}{Three Protocols for Key Establishment in 6LoWPAN}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}General Properties of }{39}{section.4.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Adaptable Pairwise Key Establishment Scheme (APKES)}{39}{section.4.2}}
-\citation{krentz20136lowpan}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}General Properties}{39}{section.4.1}}
+\@writefile{toc}{\contentsline {paragraph}{Key scheme}{39}{section*.27}}
+\@writefile{toc}{\contentsline {paragraph}{Replay Protection}{39}{section*.28}}
+\@writefile{toc}{\contentsline {paragraph}{Resilience against node compromises}{39}{section*.29}}
 \citation{anderson1996tamper}
+\citation{krentz20146lowpan}
+\@writefile{toc}{\contentsline {paragraph}{Key revocation}{40}{section*.30}}
+\@writefile{toc}{\contentsline {paragraph}{Tamper resistance}{40}{section*.31}}
+\@writefile{toc}{\contentsline {paragraph}{\gls {dos} attacks}{40}{section*.32}}
+\@writefile{toc}{\contentsline {paragraph}{Wormhole attacks}{40}{section*.33}}
+\citation{krentz20136lowpan}
 \citation{krentz20136lowpan}
 \citation{krentz20136lowpan}
 \citation{krentz20136lowpan}
@@ -16,56 +23,59 @@
 \citation{zhu2006leap+}
 \citation{blom1984optimal}
 \citation{chan2003random}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite  {krentz20136lowpan}.}}{41}{figure.4.1}}
-\newlabel{fig:6lowpan-krentz}{{\M@TitleReference {4.1}{APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite  {krentz20136lowpan}.}}{41}{APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}}{figure.4.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Adaptable Pairwise Key Establishment Scheme (APKES)}{41}{section.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite  {krentz20136lowpan}.}}{42}{figure.4.1}}
+\newlabel{fig:6lowpan-krentz}{{\M@TitleReference {4.1}{APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite  {krentz20136lowpan}.}}{42}{APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}}{figure.4.1}{}}
 \citation{krentz20136lowpan}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Protocol specification}{42}{subsection.4.2.1}}
-\newlabel{subsec:apkes-spec}{{\M@TitleReference {4.2.1}{Protocol specification}}{42}{Protocol specification}{subsection.4.2.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during APKES' three-way handshake.}}{43}{figure.4.2}}
-\newlabel{fig:apkes-handshake}{{\M@TitleReference {4.2}{Figure of the messages sent between communicating parties during APKES' three-way handshake.}}{43}{Figure of the messages sent between communicating parties during APKES' three-way handshake}{figure.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Assumptions of Security Properties}{43}{subsection.4.2.2}}
-\newlabel{subsec:apkes-prop}{{\M@TitleReference {4.2.2}{Assumptions of Security Properties}}{43}{Assumptions of Security Properties}{subsection.4.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Protocol specification}{43}{subsection.4.2.1}}
+\newlabel{subsec:apkes-spec}{{\M@TitleReference {4.2.1}{Protocol specification}}{43}{Protocol specification}{subsection.4.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during APKES' three-way handshake.}}{44}{figure.4.2}}
+\newlabel{fig:apkes-handshake}{{\M@TitleReference {4.2}{Figure of the messages sent between communicating parties during APKES' three-way handshake.}}{44}{Figure of the messages sent between communicating parties during APKES' three-way handshake}{figure.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Assumptions of Security Properties}{44}{subsection.4.2.2}}
+\newlabel{subsec:apkes-prop}{{\M@TitleReference {4.2.2}{Assumptions of Security Properties}}{44}{Assumptions of Security Properties}{subsection.4.2.2}{}}
 \citation{krentz2015handling}
 \citation{dunkels2004contiki}
 \citation{krentz2015handling}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Weaknesses and Challenges with APKES}{44}{subsection.4.2.3}}
-\newlabel{subsec:apkes-weakness}{{\M@TitleReference {4.2.3}{Weaknesses and Challenges with APKES}}{44}{Weaknesses and Challenges with APKES}{subsection.4.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Weaknesses and Challenges with APKES}{45}{subsection.4.2.3}}
+\newlabel{subsec:apkes-weakness}{{\M@TitleReference {4.2.3}{Weaknesses and Challenges with APKES}}{45}{Weaknesses and Challenges with APKES}{subsection.4.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Storing frame counters in case of reboot}{45}{section*.34}}
+\@writefile{toc}{\contentsline {subsubsection}{Deadlock with previous neighbours after reboot}{45}{section*.35}}
 \citation{krentz2015handling}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Adaptable Key Establishment Scheme (AKES)}{45}{section.4.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Adaptable Key Establishment Scheme (AKES)}{46}{section.4.3}}
 \citation{levis2011trickle}
 \citation{krentz20136lowpan}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{46}{figure.4.3}}
-\newlabel{fig:akes-handshake}{{\M@TitleReference {4.3}{Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{46}{Figure of the messages sent between communicating parties during AKES' three-way handshake}{figure.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Protocol Specification}{46}{subsection.4.3.1}}
-\newlabel{subsec:akes-specs}{{\M@TitleReference {4.3.1}{Protocol Specification}}{46}{Protocol Specification}{subsection.4.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Protocol Specification}{47}{subsection.4.3.1}}
+\newlabel{subsec:akes-specs}{{\M@TitleReference {4.3.1}{Protocol Specification}}{47}{Protocol Specification}{subsection.4.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{48}{figure.4.3}}
+\newlabel{fig:akes-handshake}{{\M@TitleReference {4.3}{Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{48}{Figure of the messages sent between communicating parties during AKES' three-way handshake}{figure.4.3}{}}
 \citation{krentz2015handling}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Assumptions of Security Properties}{47}{subsection.4.3.2}}
-\newlabel{subsec:akes-props}{{\M@TitleReference {4.3.2}{Assumptions of Security Properties}}{47}{Assumptions of Security Properties}{subsection.4.3.2}{}}
 \citation{krentz20146lowpan}
 \citation{hussen2013sakes}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Assumptions of Security Properties}{49}{subsection.4.3.2}}
+\newlabel{subsec:akes-props}{{\M@TitleReference {4.3.2}{Assumptions of Security Properties}}{49}{Assumptions of Security Properties}{subsection.4.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Weaknesses and Challenges with AKES}{49}{subsection.4.3.3}}
 \citation{hussen2013sakes}
 \citation{hussen2013sakes}
 \citation{olsson20146lowpan}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Weaknesses and Challenges with AKES}{48}{subsection.4.3.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Secure Authentication and Key Establishment Scheme (SAKES)}{48}{section.4.4}}
-\newlabel{sec:sakes}{{\M@TitleReference {4.4}{Secure Authentication and Key Establishment Scheme (SAKES)}}{48}{Secure Authentication and Key Establishment Scheme (SAKES)}{section.4.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite  {hussen2013sakes}.}}{49}{figure.4.4}}
-\newlabel{fig:sakes-arch}{{\M@TitleReference {4.4}{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite  {hussen2013sakes}.}}{49}{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite {hussen2013sakes}}{figure.4.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Protocol Specification}{50}{subsection.4.4.1}}
-\newlabel{subsec:sakes-spec}{{\M@TitleReference {4.4.1}{Protocol Specification}}{50}{Protocol Specification}{subsection.4.4.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{51}{figure.4.5}}
-\newlabel{fig:sakes-auth}{{\M@TitleReference {4.5}{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{51}{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase}{figure.4.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In \gls {sakes} the session key is established between the router and the server, before the router distributes the session key to the end device.}}{52}{figure.4.6}}
-\newlabel{fig:sakes-keys}{{\M@TitleReference {4.6}{Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In \gls {sakes} the session key is established between the router and the server, before the router distributes the session key to the end device.}}{52}{Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In \gls {sakes} the session key is established between the router and the server, before the router distributes the session key to the end device}{figure.4.6}{}}
-\newlabel{eq:skd}{{4.1}{53}{Protocol Specification}{equation.4.1}{}}
-\newlabel{eq:ska}{{4.2}{53}{Protocol Specification}{equation.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Assumptions of Security Properties}{53}{subsection.4.4.2}}
-\newlabel{subsec:sakes-props}{{\M@TitleReference {4.4.2}{Assumptions of Security Properties}}{53}{Assumptions of Security Properties}{subsection.4.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Weaknesses and Challenges with SAKES}{54}{subsection.4.4.3}}
-\newlabel{eq:dh}{{4.3}{54}{Weaknesses and Challenges with SAKES}{equation.4.3}{}}
-\newlabel{eq:dh-wrong}{{4.4}{54}{Weaknesses and Challenges with SAKES}{equation.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Secure Authentication and Key Establishment Scheme (SAKES)}{50}{section.4.4}}
+\newlabel{sec:sakes}{{\M@TitleReference {4.4}{Secure Authentication and Key Establishment Scheme (SAKES)}}{50}{Secure Authentication and Key Establishment Scheme (SAKES)}{section.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite  {hussen2013sakes}.}}{50}{figure.4.4}}
+\newlabel{fig:sakes-arch}{{\M@TitleReference {4.4}{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite  {hussen2013sakes}.}}{50}{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite {hussen2013sakes}}{figure.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Protocol Specification}{51}{subsection.4.4.1}}
+\newlabel{subsec:sakes-spec}{{\M@TitleReference {4.4.1}{Protocol Specification}}{51}{Protocol Specification}{subsection.4.4.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{52}{figure.4.5}}
+\newlabel{fig:sakes-auth}{{\M@TitleReference {4.5}{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{52}{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase}{figure.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In \gls {sakes} the session key is established between the router and the server, before the router distributes the session key to the end device.}}{54}{figure.4.6}}
+\newlabel{fig:sakes-keys}{{\M@TitleReference {4.6}{Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In \gls {sakes} the session key is established between the router and the server, before the router distributes the session key to the end device.}}{54}{Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In \gls {sakes} the session key is established between the router and the server, before the router distributes the session key to the end device}{figure.4.6}{}}
+\newlabel{eq:skd}{{4.1}{54}{Protocol Specification}{equation.4.1}{}}
+\newlabel{eq:ska}{{4.2}{54}{Protocol Specification}{equation.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Assumptions of Security Properties}{55}{subsection.4.4.2}}
+\newlabel{subsec:sakes-props}{{\M@TitleReference {4.4.2}{Assumptions of Security Properties}}{55}{Assumptions of Security Properties}{subsection.4.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Weaknesses and Challenges with SAKES}{55}{subsection.4.4.3}}
+\newlabel{eq:dh}{{4.3}{55}{Weaknesses and Challenges with SAKES}{equation.4.3}{}}
+\newlabel{eq:dh-wrong}{{4.4}{55}{Weaknesses and Challenges with SAKES}{equation.4.4}{}}
 \@setckpt{Chapter4//protocols}{
-\setcounter{page}{56}
+\setcounter{page}{57}
 \setcounter{equation}{4}
 \setcounter{enumi}{8}
 \setcounter{enumii}{0}
@@ -112,7 +122,7 @@
 \setcounter{cmsm@mctr}{0}
 \setcounter{bsm@mctr}{0}
 \setcounter{workm@mctr}{0}
-\setcounter{sheetsequence}{72}
+\setcounter{sheetsequence}{73}
 \setcounter{lastsheet}{119}
 \setcounter{lastpage}{103}
 \setcounter{figure}{6}

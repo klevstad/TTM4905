@@ -4,30 +4,53 @@
 In this chapter, three proposed protocols for key establishment in 6LoWPAN networks will be introduced. The chapter also contains an assumption of the different security properties that would be natural to assume for the respective protocols, and a summary of the immediate weaknesses of the protocol. The notations that are used for describing the presented protocols can be reviewed in Appendix \ref{app:notations}.
 
 
-\section{General Properties of }
+\section{General Properties}
 
+REPHRASE
 
-\begin{list}{•}{}
+General properties are properties that affects key establishment schemes at generally basis, Specific properties for key establishment schemes are mentioned Chapter \ref{chp:analysis}.
 
+\paragraph{Key scheme} As mentioned in Section \ref{subsec:keys-schems}, multiple versions of key establishment schemes exist. The network-wide shared key and pairwise keys are commonly used for symmetric key schemes, while public-key schemes is another option where encryption and decryption is done using separate, but mathematically tied, keys. Session keys are symmetric keys which are used for a single session, before never to be used again. These are often used in conjunction with public-key cryptography.
 
-\item Key scheme
+\paragraph{Replay Protection} Replay protection is a general property for a network which prevents an adversary from capturing a data frame and injecting (\emph{replaying}) at a later time. Fortunately, the \gls{ieee} 802.15.4 security sub-layer is capable of filtering out replayed frames and preventing injection \cite{krentz20136lowpan}.
 
-\item Replay protection
+\paragraph{Resilience against node compromises}
 
-\item Resilience against node compromises and revocation
+In \gls{6lowpan} networks, nodes are potentially deployed in hostile areas, which gives an adversary another way into the node, in addition to regular hacking. Therefore, it is important for key establishment schemes to discover and avoid establishing sessions with compromised nodes. In the case of a network shared key, the whole network would be compromised in the event of a node compromise. Also, the attacker would be able to add new nodes to the network as the upper-layer protocols rely on the 802.15.4 security sub-layer. For schemes using pairwise schemes, however, only communication going between a node pair would be compromised in the case where an adversary obtains the secret pairwise keys of the node. For schemes utilizing public-key schemes, only information going \emph{to} the compromised node would be vulnerable, as the attacker only possesses the private key which can be used to decrypt information that is encrypted using the corresponding public key.
 
-\item \gls{dos} attacks
+\paragraph{Key revocation}
 
-\item Wormhole attacks
+When a node is compromised for a public-key scheme, this usually includes the adversary to obtain the private key of the device. Key revocation is to retire the public key of this device by marking them as revoked, to avoid that other devices encrypts data using the compromised node's public key. 
 
-\end{list}
+\paragraph{Tamper resistance} Devices in \gls{6lowpan} networks are often deployed in hostile areas, where attackers may physically tamper with the devices. This is an issues that is not easily resolved, but can be avoided by constructing tampering resilient devices. For physical tampering with the device to be avoided, it has to be hermetically sealed, as well as providing strong cryptography for keeping the key secret from side-channel attacks and hostile testing. Devices used in \gls{6lowpan} networks is considered to be small, cheap, and with no infinite battery supply, hence they are difficult to provide sufficient countermeasures against tampering. This is expensive and challenging, and therefore not a preferable solution \cite{anderson1996tamper}. Therefore, it is important for the network being able to provide node compromise resilience while storing the minimum amount of sensitive keying material on the device.
+
+\paragraph{\gls{dos} attacks}
+
+\gls{dos} attacks are essentially flooding an entity with more requests than it is able to handle to force it to break down. In a key establishment setting, this would be to overwhelm a device with key establishment requests. The goal with such a \gls{dos} attack could be to drain drain the device for battery, but also to keep the device from establishing keys with other devices in the network.
+
+\paragraph{Wormhole attacks}
+
+As explained, \gls{dos} attacks actively target an entity to deny it from providing a service or performing a certain operation. Wormhole attacks are more passive attacks, where the adversary announces its node as the best route between two nodes $A$ and $B$ to trick the network into choosing the path through the adversary. By announcing exceptional good signal between two nodes, the adversary creates a non-existent path between the two nodes referred to as a \emph{wormhole}. Now the attacker can turn a link in the network on and off at its own choosing, and also drop specific frames, for example those initiating key establishments. How to avoid such attacks is the topic of current research \cite{krentz20146lowpan}.
+
 
 \section{Adaptable Pairwise Key Establishment Scheme (APKES)}
 
+\begin{table}[h]
+\begin{tabular}{lr}
+\textbf{Key scheme:} & Pairwise keys  \\
+\textbf{Replay protection:}	 & Yes  \\
+\textbf{Node compromise resilient:} & Yes  \\
+\textbf{Key revocation:} & No \\
+\textbf{Tamper resistant} & No \\
+\textbf{\gls{dos} resilient:} & Yes \\
+\textbf{Wormhole resilient:} & No \\
+\end{tabular}
+\end{table}
 
-The \gls{apkes} is a proposed protocol by Krentz et al. for handling key establishment and key management in \gls{6lowpan} \cite{krentz20136lowpan}. It is currently implemented in the operating system Contiki, which is targeted at the sensor network community. As previously described in section \ref{sec:6lowpan}, \gls{6lowpan} is a protocol stack for integrating \gls{wsn}s running on 802.15.4 with \gls{ip}v6 networks, and enables the nodes in the network to communicate with each other, or remote hosts, over \gls{ip}. \gls{apkes} provides a framework for establishing pairwise keys for nodes in \gls{6lowpan} networks. The advantage of pairwise keys over other key schemes, such as a network-shared key, is related to node compromises. In \gls{6lowpan} networks, devices are often placed in potentially hostile and unattended areas, significantly increasing the possibility of being tampered with by attackers.
 
-In the case of a network shared key, the whole network would be compromised in the event of a node compromise. Also, the attacker would be able to add new nodes to the network as the upper-layer protocols rely on the 802.15.4 security sub-layer. The 802.15.4 security sub-layer can filter out replayed packets and prevent injection, but it is not able to discover node compromises \cite{krentz20136lowpan}. To solve the problem related to tampering with nodes, nodes that are resilient to tampering could be constructed. For physical tampering with the device to be avoided, it has to be hermetically sealed, as well as providing strong cryptography for keeping the key secret from side-channel attacks and hostile testing. Devices used in \gls{6lowpan} networks is considered to be small, cheap, and with no infinite battery supply, hence they are difficult to provide sufficient countermeasures against tampering. This is expensive and challenging, hence not a preferable solution \cite{anderson1996tamper}. For schemes using pairwise schemes, however, only communication going between a node pair would be compromised in the case where an adversary obtains the secret pairwise key, and the establishment of such keys is the primary focus of \gls{apkes}.
+
+The \gls{apkes} is a proposed protocol by Krentz et al. for handling key establishment and key management in \gls{6lowpan} \cite{krentz20136lowpan}. It is currently implemented in the operating system Contiki, which is targeted at the sensor network community. As previously described in section \ref{sec:6lowpan}, \gls{6lowpan} is a protocol stack for integrating \gls{wsn}s running on 802.15.4 with \gls{ip}v6 networks, and enables the nodes in the network to communicate with each other, or remote hosts, over \gls{ip}. \gls{apkes} provides a framework for establishing pairwise keys for nodes in \gls{6lowpan} networks. In \gls{6lowpan} networks, devices are often placed in potentially hostile and unattended areas, significantly increasing the possibility of being tampered with by attackers.
+
 
 Figure \ref{fig:6lowpan-krentz} illustrates how \gls{apkes} is implemented at the link layer along with the 802.15.4 security sublayer. In its implementation, \gls{apkes} introduces three special messages which are used in the key establishment process, namely \texttt{HELLO}, \texttt{HELLOACK}, and \texttt{ACK} \cite{krentz20136lowpan}. These are defined as 802.15.4 command messages, which are only processed by the data link layer (i.e. they are not passed to upper layers). Hence \gls{apkes} can establish pairwise keys for networks building on 802.15.4 independently from the protocols running in the upper layers.
 
@@ -108,13 +131,18 @@ A \rightarrow B:\ & \texttt{ACK}\langle{}\rangle{K'_{A,B}}
 \subsection{Assumptions of Security Properties}
 \label{subsec:apkes-prop}
 
-One focus of \gls{apkes} is to provide authentication of parties during the key establishment process. By inspecting the messages that are exchanged between the two sides in Figure \ref{fig:apkes-handshake}, we observe that no encryption is involved in the handshake, but messages are authenticated by the use of \gls{mic}s. These \gls{mic}s are either computed using $K_{A,B}$ (the pre-shared secret) or $K'_{A,B}$ (the established pairwise key). Therefore, we can assume that entity authentication has to hold for the two communicating parties. Also, as mentioned in Section \ref{sec:attributes}, \emph{implicit} and \emph{explicit} key authentication are two of the other attributes within authentication. For a three-way handshake such as the one used by \gls{apkes}, the initiator achieves \emph{implicit} key authentication, while the responder ($B$) achieves \emph{explicit} key authentication. As the pairwise key is computed from the two nonces that are shared between $A$ and $B$, and the secret from the pluggable scheme (which we assume is secure), both know that the only parties that can compute the pairwise key are those possessing the pre-shared secret, giving them both implicit key authentication. $B$ also receives an \texttt{ACK} which is authenticated using the pairwise key $K'_{A,B}$, effectively meaning that $A$ has computed the pairwise key. $B$ can confirm this by verifying the attached \gls{mic}, hence $B$ can be said to achieve explicit key authentication of $A$. From $A$'s point of view, however, it has no confirmation of that $B$ has in fact computed the pairwise key, other than it knows that $B$ has to in order to verify the authenticity of the \texttt{ACK}. Also, as \gls{apkes} is a key establishment protocol, the established key is of course assumed to be secret from the adversary.
+One focus of \gls{apkes} is to provide authentication of parties during the key establishment process. By inspecting the messages that are exchanged between the two sides in Figure \ref{fig:apkes-handshake}, we observe that no encryption is involved in the handshake, but messages are authenticated by the use of \gls{mic}s. These \gls{mic}s are either computed using $K_{A,B}$ (the pre-shared secret) or $K'_{A,B}$ (the established pairwise key). Therefore, we can assume that entity authentication has to hold for the two communicating parties. Also, as mentioned in Section \ref{sec:attributes}, \emph{implicit} and \emph{explicit} key authentication are two of the other attributes within authentication.
+
+For a three-way handshake such as the one used by \gls{apkes}, the initiator achieves \emph{implicit} key authentication, while the responder ($B$) achieves \emph{explicit} key authentication. As the pairwise key is computed from the two nonces that are shared between $A$ and $B$, and the secret from the pluggable scheme (which we assume is secure), both know that the only parties that can compute the pairwise key are those possessing the pre-shared secret, giving them both implicit key authentication. $B$ also receives an \texttt{ACK} which is authenticated using the pairwise key $K'_{A,B}$, effectively meaning that $A$ has computed the pairwise key. $B$ can confirm this by verifying the attached \gls{mic}, hence $B$ can be said to achieve explicit key authentication of $A$. From $A$'s point of view, however, it has no confirmation of that $B$ has in fact computed the pairwise key, other than it knows that $B$ has to in order to verify the authenticity of the \texttt{ACK}. Also, as \gls{apkes} is a key establishment protocol, the established key is of course assumed to be secret from the adversary.
 
 \subsection{Weaknesses and Challenges with APKES}
 \label{subsec:apkes-weakness}
-% MOVE THIS TO DISCUSSION?
+
+\subsubsection{Storing frame counters in case of reboot}
 
 \gls{apkes} establishes a shared symmetric key between nodes, which is used to encrypt and decrypt data that is sent between them. One issue that the protocol does not address is the case where, for some reason, the node is forced to do a reboot. To avoid replay attacks, a node needs to keep control over the frame counters of the nodes it communicates with. These frame counters need to be swapped from the \gls{ram} memory of the device to a non-volatile storage over time. Such storages are for most 802.15.4 devices flash memory, making the swapping process both energy and time consuming \cite{krentz2015handling}. In the Contiki operating system (where \gls{apkes} is implemented), reboot commands are issued whenever processes get stuck or when replacing the battery of the device \cite{dunkels2004contiki}. In the case of a reboot without storing the frame counter, neighbouring nodes would just discard all messages from the node as the frame counter would start at zero, and the frames would be considered replayed. Another issue with storing anti-replay data is that \gls{apkes} does not remove information of disappeared neighbours (nor does it discover that a node has left the neighbourhood), which may unnecessarily seize a large part of the node's memory over time.  
+
+\subsubsection{Deadlock with previous neighbours after reboot}
 
 In addition to the weaknesses related to frame counters and storing anti-replay protection data, \gls{apkes} has issues related to its usage of temporary and permanent neighbours. As mentioned, the life cycle of a neighbour node ranges from not being associated at all to becoming a temporary neighbour, and finally a permanent neighbour during the key establishment process. However, \gls{apkes} discards \texttt{HELLO} messages from permanent neighbours to prevent \gls{dos} attacks. This means that if a neighbour reboots, it goes into a deadlock with former neighbours, where it is not able to establish any new keys with these nodes as its \texttt{HELLO}s would silently be discarded \cite{krentz2015handling}. The broadcasting of \texttt{HELLO}s occurs immediately after the node is booted up, which means that after the node is up and running, it will not attempt to connect to any new neighbours that may have been deployed afterwards. One can argue that it is the responsibility of the post-deployed nodes to establish contact with ``early birds'', but deployed nodes should nevertheless be able to discover new nodes during runtime. 
 
@@ -195,9 +223,10 @@ In \gls{akes}, the key establishment process consists of a three-way handshake w
 
 \subsection{Weaknesses and Challenges with AKES}
 
-As previously mentioned, \gls{apkes} introduced some protocol weaknesses that \gls{akes} aims to fix. While repairing most of these issues, \gls{akes} is still not perfect. For example, all addressing information (i.e. the \gls{pan} identifier, short address, and other parameters used for identifying nodes in \gls{6lowpan} networks) have to be preloaded into the node. The 802.15.4 standard has support for auto-configuring such address information at runtime, but these protocols require that the 802.15.4 security is up and running before being able to execute \cite{krentz2015handling}. \gls{akes} modifies the security sublayer of 802.15.4, which means that \gls{akes} is running before the 802.15.4 addressing protocols are running, hence they are not applicable with \gls{akes}. When \gls{akes} establishes session keys with a node, it sends the node's address and identity to the pluggable scheme in order to obtain the shared secret. This means that if \gls{akes} did not have the address of the node when it was booted up, it is not able to establish keys with it. Therefore, \gls{akes} does only support mobility for devices that are known to the node at startup.
+\subsubsection{Addressing information has to be loaded in node at start-up}
 
-In addition to the addressing issues, \gls{akes} is also vulnerable to attacks known has \emph{hidden wormhole attacks}. Malicious nodes may convince a node pair $A$ and $B$ that they are in fact only one hop away from each other, which is through the malicious node. This creates a ``wormhole'' between non-neighbour nodes where the attacker may disable the link to disrupt network flow, or even deny to forward certain types of frames. \gls{akes} is able to establish session keys through these wormholes, and how to mitigate them is the topic of current research \cite{krentz20146lowpan}. 
+As previously mentioned, \gls{apkes} introduced some protocol weaknesses that \gls{akes} aims to fix. While repairing most of these issues, \gls{akes} is still not perfect. For example, all addressing information (i.e. the \gls{pan} identifier, short address, and other parameters used for identifying nodes in \gls{6lowpan} networks) have to be preloaded into the node. The 802.15.4 standard has support for auto-configuring such address information at runtime, but these protocols require that the 802.15.4 security is up and running before being able to execute \cite{krentz2015handling}. \gls{akes} modifies the security sublayer of 802.15.4, which means that \gls{akes} is running before the 802.15.4 addressing protocols are running, hence they are not applicable with \gls{akes}. When \gls{akes} establishes session keys with a node, it sends the node's address and identity to the pluggable scheme in order to obtain the shared secret. This means that if \gls{akes} did not have the address of the node when it was booted up, it is not able to establish keys with it. Therefore, \gls{akes} does only support mobility for devices that are known to the node at startup.
+ 
 
 \section{Secure Authentication and Key Establishment Scheme (SAKES)}
 \label{sec:sakes}
@@ -290,7 +319,7 @@ After both the end device and the router receives their confirmation messages an
 B \rightarrow D:\ & \{C_C, N_B, Pk_B, B, hash\}_{Sk_B} \\
 D:\ & Calculate\ Session\ Key\ (SK_D):\ SK_D = g^{Pk_B * Sk_D} \mod{P}\\
 D:\ & Generate\ N_D\ randomly\\
-D \rightarrow B:\ & \{Pk_D, P, g, N_D, hash\}_{Sk_D}\\
+D \rightarrow B:\ & \{Pk_D, D, P, g, N_D, hash\}_{Sk_D}\\
 B:\ & Calculate\ Session\ Key\ for\ A\ (SK_A):\ SK_A = g^{Pk_D * Sk_B} \mod{P}\\
 B \rightarrow A:\ & \{SK_A, N_B\}_{K_{A,B}}\\
 Claim:\ & SK_A = SK_D\\

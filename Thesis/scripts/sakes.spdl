@@ -24,18 +24,19 @@ macro Message5 = {Message5-Signed, Pk, Sk, Nc}k(B, C);
 macro Message6-MAC = MAC(B, Nc, k(A,C));
 macro Message6 = (B, Nc, Message6-MAC);
 
-macro Message7 = (Message5-Signed, B, Nb, Pk, g1(Sk));
+macro Message7 = (Message5-Signed, B, Nb, Pk);
 macro Message7-HASH = HASH(Message7);
 macro Message7-Signed = {Message7, Message7-HASH}Sk;
 
-macro Message8 = (D, Nd, pk(D, g1(sk(D))));
+macro Message8 = (D, Nd, pk(D));
 macro Message8-HASH = HASH(Message8);
 macro Message8-Signed = {Message8, Message8-HASH}sk(D);
 
-macro SessionKeyA = g2(g1(sk(D)), Sk);
-macro SessionKeyD = g2(g1(Sk), sk(D));
+macro SessionKeyA = g2(pk(D), Sk);
+macro SessionKeyD = g2(Pk, sk(D));
 
 macro Message9 = {Nb, SessionKeyA}k(A,B);
+
 
 protocol SAKES(A, B, C, D) {
 
@@ -94,7 +95,7 @@ protocol SAKES(A, B, C, D) {
 		fresh Nc: Nonce;
 		var Na, Nb: Nonce;
 
-		const Pk: Function;
+		fresh Pk: Function;
 		secret Sk: Function;
 		inversekeys (Pk, Sk);
 

@@ -52,29 +52,38 @@
 \contentsline {section}{\numberline {3.3}Defining an Adversary Compromise Model}{33}{section.3.3}
 \contentsline {section}{\numberline {3.4}Scyther's Graphical User Interface}{35}{section.3.4}
 \contentsline {chapter}{\chapternumberline {4}Three Protocols for Key Establishment in 6LoWPAN}{39}{chapter.4}
-\contentsline {section}{\numberline {4.1}General Properties of }{39}{section.4.1}
-\contentsline {section}{\numberline {4.2}Adaptable Pairwise Key Establishment Scheme (APKES)}{39}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Protocol specification}{42}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Assumptions of Security Properties}{43}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Weaknesses and Challenges with APKES}{44}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Adaptable Key Establishment Scheme (AKES)}{45}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Protocol Specification}{46}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Assumptions of Security Properties}{47}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Weaknesses and Challenges with AKES}{48}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Secure Authentication and Key Establishment Scheme (SAKES)}{48}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Protocol Specification}{50}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Assumptions of Security Properties}{53}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Weaknesses and Challenges with SAKES}{54}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.1}General Properties}{39}{section.4.1}
+\contentsline {paragraph}{Key scheme}{39}{section*.27}
+\contentsline {paragraph}{Replay Protection}{39}{section*.28}
+\contentsline {paragraph}{Resilience against node compromises}{39}{section*.29}
+\contentsline {paragraph}{Key revocation}{40}{section*.30}
+\contentsline {paragraph}{Tamper resistance}{40}{section*.31}
+\contentsline {paragraph}{\gls {dos} attacks}{40}{section*.32}
+\contentsline {paragraph}{Wormhole attacks}{40}{section*.33}
+\contentsline {section}{\numberline {4.2}Adaptable Pairwise Key Establishment Scheme (APKES)}{41}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Protocol specification}{43}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Assumptions of Security Properties}{44}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Weaknesses and Challenges with APKES}{45}{subsection.4.2.3}
+\contentsline {subsubsection}{Storing frame counters in case of reboot}{45}{section*.34}
+\contentsline {subsubsection}{Deadlock with previous neighbours after reboot}{45}{section*.35}
+\contentsline {section}{\numberline {4.3}Adaptable Key Establishment Scheme (AKES)}{46}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Protocol Specification}{47}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Assumptions of Security Properties}{49}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Weaknesses and Challenges with AKES}{49}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Secure Authentication and Key Establishment Scheme (SAKES)}{50}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Protocol Specification}{51}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Assumptions of Security Properties}{55}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Weaknesses and Challenges with SAKES}{55}{subsection.4.4.3}
 \contentsline {chapter}{\chapternumberline {5}Formal Security Analysis of Three Key Establishment Protocols}{57}{chapter.5}
 \contentsline {section}{\numberline {5.1}Modelling Security Properties}{57}{section.5.1}
-\contentsline {paragraph}{Entity authentication:}{57}{section*.27}
-\contentsline {paragraph}{Implicit key authentication}{57}{section*.28}
-\contentsline {paragraph}{Explicit key authentication}{57}{section*.29}
-\contentsline {paragraph}{Known-key security}{57}{section*.30}
-\contentsline {paragraph}{Key control}{58}{section*.31}
-\contentsline {paragraph}{Secrecy of key}{58}{section*.32}
-\contentsline {paragraph}{Forward secrecy}{58}{section*.33}
-\contentsline {paragraph}{Key compromise impersonation}{58}{section*.34}
+\contentsline {paragraph}{Entity authentication}{57}{section*.36}
+\contentsline {paragraph}{Implicit key authentication}{57}{section*.37}
+\contentsline {paragraph}{Explicit key authentication}{57}{section*.38}
+\contentsline {paragraph}{Known-key security}{57}{section*.39}
+\contentsline {paragraph}{Key control}{58}{section*.40}
+\contentsline {paragraph}{Secrecy of key}{58}{section*.41}
+\contentsline {paragraph}{Forward secrecy}{58}{section*.42}
+\contentsline {paragraph}{Key compromise impersonation}{58}{section*.43}
 \contentsline {section}{\numberline {5.2}Formal Security Analysis of APKES}{58}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}Security Claims}{58}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Adversary}{59}{subsection.5.2.2}
@@ -85,32 +94,30 @@
 \contentsline {subsection}{\numberline {5.3.3}Results}{62}{subsection.5.3.3}
 \contentsline {section}{\numberline {5.4}Formal Security Analysis of SAKES}{63}{section.5.4}
 \contentsline {subsection}{\numberline {5.4.1}Authentication Phase}{63}{subsection.5.4.1}
-\contentsline {subsubsection}{Security Claims}{63}{section*.35}
-\contentsline {subsubsection}{Adversary}{64}{section*.36}
-\contentsline {subsubsection}{Results}{64}{section*.37}
+\contentsline {subsubsection}{Security Claims}{63}{section*.44}
+\contentsline {subsubsection}{Adversary}{64}{section*.45}
+\contentsline {subsubsection}{Results}{64}{section*.46}
 \contentsline {subsection}{\numberline {5.4.2}Key Establishment Phase}{66}{subsection.5.4.2}
-\contentsline {subsubsection}{Security Claims}{67}{section*.38}
-\contentsline {subsubsection}{Adversary}{68}{section*.39}
+\contentsline {subsubsection}{Security Claims}{67}{section*.47}
+\contentsline {subsubsection}{Adversary}{68}{section*.48}
 \contentsline {subsection}{\numberline {5.4.3}Results}{68}{subsection.5.4.3}
 \contentsline {section}{\numberline {5.5}Limitations in the Analysis}{69}{section.5.5}
 \contentsline {chapter}{\chapternumberline {6}Discussion}{71}{chapter.6}
 \contentsline {section}{\numberline {6.1}Evaluation of Authentication Properties}{71}{section.6.1}
 \contentsline {section}{\numberline {6.2}Evaluation of Key Secrecy Properties}{72}{section.6.2}
 \contentsline {section}{\numberline {6.3}Comparison}{73}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}APKES versus AKES}{73}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}AKES versus SAKES}{73}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}SAKES versus APKES}{74}{subsection.6.3.3}
-\contentsline {subsection}{\numberline {6.3.4}Use cases}{74}{subsection.6.3.4}
-\contentsline {section}{\numberline {6.4}Improvements}{75}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Possible improvements for APKES}{75}{subsection.6.4.1}
-\contentsline {subsubsection}{Use the Pairwise Session Key to Authenticate the HELLOACK}{75}{section*.40}
-\contentsline {subsection}{\numberline {6.4.2}Possible improvements for SAKES}{75}{subsection.6.4.2}
-\contentsline {subsubsection}{Achieve Authentication by Returning Nonces}{75}{section*.41}
-\contentsline {subsubsection}{Use Nonces Instead of Secret Keys in Diffie-Hellman Key Agreement}{78}{section*.42}
-\contentsline {subsubsection}{Use Elliptic Curve Diffie-Hellman and the Elliptic Curve Digital Signature Algorithm}{79}{section*.43}
-\contentsline {section}{\numberline {6.5}Concluding Remarks}{80}{section.6.5}
+\contentsline {subsubsection}{APKES versus AKES}{73}{section*.49}
+\contentsline {subsection}{\numberline {6.3.1}AKES versus SAKES}{73}{subsection.6.3.1}
+\contentsline {section}{\numberline {6.4}Improvements}{74}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Possible improvements for APKES}{74}{subsection.6.4.1}
+\contentsline {subsubsection}{Use the Pairwise Session Key to Authenticate the HELLOACK}{74}{section*.50}
+\contentsline {subsection}{\numberline {6.4.2}Possible improvements for SAKES}{74}{subsection.6.4.2}
+\contentsline {subsubsection}{Achieve Authentication by Returning Nonces}{74}{section*.51}
+\contentsline {subsubsection}{Use Nonces Instead of Secret Keys in Diffie-Hellman Key Agreement}{77}{section*.52}
+\contentsline {subsubsection}{Use Elliptic Curve Diffie-Hellman and the Elliptic Curve Digital Signature Algorithm}{78}{section*.53}
+\contentsline {section}{\numberline {6.5}Concluding Remarks}{79}{section.6.5}
 \contentsline {chapter}{\chapternumberline {7}Conclusion}{81}{chapter.7}
-\contentsline {chapter}{References}{83}{section*.45}
+\contentsline {chapter}{References}{83}{section*.55}
 \vspace {1em}\noindent \bfseries Appendices\par \vspace {-.5em}
 \contentsline {appendix}{\chapternumberline {A}Scyther Scripts}{89}{appendix.A}
 \contentsline {section}{\numberline {A.1}Adaptable Pairwise Key Establishment Scheme (APKES)}{89}{section.A.1}

@@ -58,30 +58,19 @@ When looking at Table \ref{tab:scyther-results-sec}, this is not the case based 
 
 \section{Comparison}
 
-\subsection{APKES versus AKES}
+\subsubsection{APKES versus AKES}
 
-Both infrastructures focus on device-to-device communication without any in-between routers to forward and route messages. This allows for networks with very low-powered devices. 
-
-\gls{akes} is merely an improvement over \gls{apkes} which addresses its known issues. From the results in Table \ref{tab:scyther-results-auth} and Table \ref{tab:scyther-results-sec}, we see that the security properties provided in both protocols are almost identical, but as we know: \gls{akes} generates session keys. The advantage with \gls{akes} is its support for mobility in terms of handling reboot of nodes and deleting disappeared neighbours to save precious storage space on devices that these protocols target.
+Both infrastructures focus on device-to-device communication without any in-between routers to forward messages. \gls{akes} is merely an improvement over \gls{apkes} which addresses its known issues. From the results in Table \ref{tab:scyther-results-auth} and Table \ref{tab:scyther-results-sec}, we see that the security properties provided in both protocols are almost identical, but as we know: \gls{akes} generates session keys. The advantage with \gls{akes} is its support for mobility in terms of handling reboot of nodes and deleting disappeared neighbours to save precious storage space on devices that these protocols target.
 
 Also, \gls{akes} uses its derived session key to authenticate the message providing the initiating party with its nonce, which eventually ends in the protocol achieving explicit key authentication. Overall, \gls{akes} is naturally the best choice of the two based on its security properties and built in mechanisms which gives it more robustness when deployed in a dynamic \gls{6lowpan} network.
 
 \subsection{AKES versus SAKES}
 
-Both \gls{akes} and \gls{sakes} are protocols for establishing session keys in \gls{6lowpan} networks, but the infrastructure for the latter protocol includes both \gls{6lowpan} routers and border routers.
+Both \gls{akes} and \gls{sakes} are protocols for establishing session keys in \gls{6lowpan} networks, but the infrastructure for the latter protocol includes both \gls{6lowpan} routers and border routers, as well as an remote server which the devices connect to. Based on the security properties in Table \ref{tab:scyther-results-auth} and Table \ref{tab:scyther-results-sec}, we see that both protocols provide the same security properties. However, based on the the Scyther analysis presented in Section \ref{sec:akes-analysis} and Section \ref{sec:sakes-analysis}, \gls{akes} seems to be the protocol that is most carefully designed. Multiple attacks are introduced that target different phases of \gls{sakes}, which may indicate that the suggested protocol is not a preferable protocol to use for key establishment in your next \gls{6lowpan} network.
 
-Based on the security properties in Table \ref{tab:scyther-results-auth} and Table \ref{tab:scyther-results-sec}, we see that
+Apart from the attacks discovered in the analysis, \gls{sakes} have a more thorough authentication hierarchy, where the trusted authentication module provides authentication of each device and router in the network for each session key establishment. Authentication in \gls{akes} is solely based on that if the node is capable of establishing keys using the shared secret, it is authenticated.
 
-
-When comparing use cases for the two protocols, \gls{akes} seems to be a better choice for networks utilizing device-to-device communication rather than transferring data between and \gls{6lowpan} end device and a remote server. Also, \gls{akes}
-
-
-* SAKES bedre autentisering. Vanskelig å anbefale basert på at protokollen i utagangsopunkte er feil, og siden modellen ble for innviklet og unøyaktig til å kunne verifisiers i en porsjon.
-
-
-
-\subsection{SAKES versus APKES}
-
+It is difficult to recommend \gls{sakes} over \gls{akes} as a protocol to use in \gls{6lowpan} as it is wrong in its original proposed form, and since its complexity lead to a security analysis where the model had to be split into separate phases. Also, as they are proposed for different infrastructures. However, \gls{akes} is able to successfully establish session keys for device-to-device communication, and is also implemented in the Contiki operating system, and tested \cite{krentz2015handling}.
 
 % Resultater
 
@@ -90,33 +79,31 @@ When comparing use cases for the two protocols, \gls{akes} seems to be a better 
 % 
 
 
-\gls{akes} is merely an improvement of \gls{apkes} and addresses the issues that was originally discovered in \gls{apkes}. While relying on the same three-way handshake and the use of pluggable scheme, \gls{akes} introduces more parameters for handling mobility, as well as additional protocols for discovering and deleting nodes at runtime. Table \ref{tab:scyther-results-auth} shows that \gls{akes} achieves a stronger notion of key authentication over \gls{apkes}, namely explicit key authentication for both parties. The main difference between these two schemes is the keys that are generated. \gls{akes} generates a fresh session key, while \gls{apkes} generates a pairwise, long-term key. The advantages with \gls{akes} is that using a session key solves multiple of the weaknesses with \gls{apkes}, especially those related to mobility and deadlocks that occurs on reboots.
-
-However, as the session keys are generated 
+%\gls{akes} is merely an improvement of \gls{apkes} and addresses the issues that was originally discovered in \gls{apkes}. While relying on the same three-way handshake and the use of pluggable scheme, \gls{akes} introduces more parameters for handling mobility, as well as additional protocols for discovering and deleting nodes at runtime. Table \ref{tab:scyther-results-auth} shows that \gls{akes} achieves a stronger notion of key authentication over \gls{apkes}, namely explicit key authentication for both parties. The main difference between these two schemes is the keys that are generated. \gls{akes} generates a fresh session key, while \gls{apkes} generates a pairwise, long-term key. The advantages with \gls{akes} is that using a session key solves multiple of the weaknesses with \gls{apkes}, especially those related to mobility and deadlocks that occurs on reboots.
 
 
-\gls{sakes} consists of more infrastructure than what \gls{akes} and \gls{sakes} have described, which makes the key establishment process more complicated. As seen in the analysis presented in Section \ref{sec:anal-sakes}, \gls{sakes} has a broad set of possible protocol traces. Partially because of bad protocol design, and partially because of the amount of entities and message passing that has to be done to compute and distribute the session key.
+%\gls{sakes} consists of more infrastructure than what \gls{akes} and \gls{sakes} have described, which makes the key establishment process more complicated. As seen in the analysis presented in Section \ref{sec:anal-sakes}, \gls{sakes} has a broad set of possible protocol traces. Partially because of bad protocol design, and partially because of the amount of entities and message passing that has to be done to compute and distribute the session key.
 
 
-\subsection{Use cases}
+%\subsection{Use cases}
 
 % More on use cases / comparison?
 
-\gls{akes} and \gls{apkes} describe communication between low-power devices without any centralized routers or authentication modules, and no remote server that provides services to network compared to \gls{sakes}. This makes \gls{akes} and \gls{apkes} a more suitable option for systems that have special requirements to low-power infrastructure, and which are not able to provide more powerful devices to act as routers and border routers. Also, as \gls{akes} and \gls{apkes} is targeted on device-to-device communication, it enables the network to act more as a unit that exchanges information across devices. Seen in connection with the scenario presented in Section \ref{sec:iot}, these protocols would enable the garage door and car to communicate directly with each other. \gls{akes} was successfully verified for an unbounded state space in Section \ref{sec:akes-analysis}, which may indicate that it is an applicable scheme for \gls{6lowpan} networks that target communication directly between the devices.
+%\gls{akes} and \gls{apkes} describe communication between low-power devices without any centralized routers or authentication modules, and no remote server that provides services to network compared to \gls{sakes}. This makes \gls{akes} and \gls{apkes} a more suitable option for systems that have special requirements to low-power infrastructure, and which are not able to provide more powerful devices to act as routers and border routers. Also, as \gls{akes} and \gls{apkes} is targeted on device-to-device communication, it enables the network to act more as a unit that exchanges information across devices. Seen in connection with the scenario presented in Section \ref{sec:iot}, these protocols would enable the garage door and car to communicate directly with each other. \gls{akes} was successfully verified for an unbounded state space in Section \ref{sec:akes-analysis}, which may indicate that it is an applicable scheme for \gls{6lowpan} networks that target communication directly between the devices.
 
-\gls{sakes}, as it is suggested, allows for devices to connect directly to the remote server, but there are no specifications on how to provide device-to-device communication, which means that communication between the two doors has to go through the remote server. \gls{sakes}, if implemented correctly and efficiently could be used in larger systems where each end device have a certain task, and only needs to communicate its sensor data to the remote server. Examples of such networks could be smart grids which sends data to the control center, where the control center proceeds to instruct the sensors on what to do next.
+%\gls{sakes}, as it is suggested, allows for devices to connect directly to the remote server, but there are no specifications on how to provide device-to-device communication, which means that communication between the two doors has to go through the remote server. \gls{sakes}, if implemented correctly and efficiently could be used in larger systems where each end device have a certain task, and only needs to communicate its sensor data to the remote server. Examples of such networks could be smart grids which sends data to the control center, where the control center proceeds to instruct the sensors on what to do next.
 
 
 
 \section{Improvements}
 
-The protocol that has the most potential for improvement is \gls{sakes}, where there are multiple steps that can improve or provide a higher level of authentication.
+Flaws for both \gls{apkes} and \gls{sakes} have been discovered in the formal analysis presented in this thesis. This section aims to propose possible improvements to the protocols that could fix or improve the protocol.
 
 \subsection{Possible improvements for APKES}
 
 \subsubsection{Use the Pairwise Session Key to Authenticate the HELLOACK}
 
-\gls{apkes} does provide verifiable and secure key establishment. One improvement, however, could be to use the pairwise session key to authenticate the \texttt{HELLOACK} that is sent between $B$ and $A$ in Figure \ref{fig:apkes-handshake}, instead of the shared secret. By doing so, the scheme would achieve explicit key authentication of $B$ to $A$ as well, and behave much like \gls{akes}.
+\gls{apkes} does provide verifiable and secure key establishment. One improvement, however, could be to use the pairwise session key to authenticate the \texttt{HELLOACK} that is sent between $B$ and $A$ in Figure \ref{fig:apkes-handshake}, instead of the shared secret. By doing so, the scheme would achieve explicit key authentication of $B$ to $A$ as well, and behave much like \gls{akes} while still generating a pairwise symmetric key.
 
 
 %\subsection{AKES}
@@ -179,7 +166,7 @@ Lastly, the protocol lacks non-injective synchronization and data agreement for 
 
 \gls{sakes} uses the private key of an ephemeral key pair at the router side and the private of the server to generate the session key in a Diffie-Hellman manner. The reason for generating the key pair in the first place is to use them in the computation of the session key. Another usage is to sign the messages that are sent between the router and the server using the private key, and verify them with the public key. Generating public key pairs is a time consuming process for a server to do, especially if it has to do so for each session, and if the network of end devices that request services is large. Therefore, random nonces could be generated in addition to improve the security of the session keys that are generated in the key establishment phase. This approach will also allow for maintaining the signing capability of the server and the router.
 
-Generating random nonces is relatively inexpensive compared to generating public key pairs. Let both $B$ and $D$ generate one nonce each, $N_{B2}$ and $N_{D2}$, to use in the key establishment phase. When $B$ sends its request to $D$, it also sends $g^{N_{B2}}$ to the server. At the server side, the server sends $g^{N_{D2}}$ in return to $B$, and computes the session key as $(g^{N_{B2}})^{N_{D2}}$. The advantage with this approach is that in the case of the server being compromised, the adversary would not be able to decrypt previous sessions since the nonces used to generate the session key are fresh each time. The adversary may still use the signing key pair of $D$ to impersonate $D$ to the network and establish new sessions, but previous communication would be secure.
+Generating random nonces is relatively inexpensive compared to generating public key pairs. Let both $B$ and $D$ generate one nonce each, $N_{B2}$ and $N_{D2}$, to use in the key establishment phase. When $B$ sends its request to $D$, it also sends $g^{N_{B2}}$ to the server. At the server side, the server sends $g^{N_{D2}}$ in return to $B$, and computes the session key as $(g^{N_{B2}})^{N_{D2}}$. The advantage with this approach is that in the case of the server being compromised, the adversary would not be able to decrypt previous sessions since the nonces used to generate the session key are fresh at both sides each time. %The adversary may still use the signing key pair of $D$ to impersonate $D$ to the network and establish new sessions, but previous communication would be secure.
 
 
 \subsubsection{Use Elliptic Curve Diffie-Hellman and the Elliptic Curve Digital Signature Algorithm}
