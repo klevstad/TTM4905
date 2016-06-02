@@ -7,27 +7,26 @@ hashfunction g1, g2;
 
 macro Proof = {A, B, D}sk(C);
 
-macro Message1 = (Proof, B, Nb, pk(B));
+macro Message1 = (Proof, B, Nb, Pk);
 macro Message1-HASH = HASH(Message1);
-macro Message1-Signed = {Message1, Message1-HASH}sk(B);
+macro Message1-Signed = {Message1, Message1-HASH}Sk;
 
-macro Message2 = (Nd, Proof, pk(D));
+macro Message2 = (D, Nd, Proof, pk(D), g1(sk(D)));
 macro Message2-HASH = HASH(Message2);
 macro Message2-Signed = {Message2, Message2-HASH}sk(D);
 
-macro SessionKeyA = g2(pk(D), sk(B));
-macro SessionKeyD = g2(pk(B), sk(D));
+macro SessionKeyA = g2(g1(sk(D)), Sk);
+macro SessionKeyD = g2(Pk, sk(D));
 
-macro Message3 = {Na, Nb, SessionKeyA}k(A,B);
+macro Message3 = {Nb, SessionKeyA}k(A,B);
 
 
 protocol SAKES-KEYS(A, B, C, D) {
 
 	role A {
 		# 6LoWPAN End Device (A)
-		var Na: Ticket;
 		var Nb: Nonce;
-		var Sk;
+		#var Sk;
 
 		recv_3(B, A, Message3);
 
@@ -39,7 +38,6 @@ protocol SAKES-KEYS(A, B, C, D) {
 	role B {
 		# 6LoWPAN Router (B)
 
-		const Na: Ticket;
 		fresh Nb, Nc: Nonce;
 		var Nd: Nonce;
 
@@ -66,7 +64,7 @@ protocol SAKES-KEYS(A, B, C, D) {
 		# Remote Server (D)
 
 		fresh Nd: Nonce;
-		var Pk: Function;
+		var Pk, Sk: Ticket;
 		var Nb, Nc: Nonce;
 
 		recv_1(B, D, Message1, Message1-HASH, Message1-Signed);
