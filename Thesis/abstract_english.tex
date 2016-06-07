@@ -1,5 +1,23 @@
 \pagestyle{empty}
 \begin{abstract}
+
+% Background
 \noindent
-Oh yeah, an abstract should probably be written at some point.
+Wireless networks for low-power device-to-device communications have other requirements to energy consumption, complexity, and computational power than conventional wireless networks standards which have been used high success in the 802.11 standards. \gls{6lowpan} is a concept that enables \gls{ip} connection over the \gls{ieee} 802.15.4 standard, with a focus on low-power devices with limited computational power. This has made \gls{6lowpan} an exciting technology for future device-to-device communications and the Internet of Things.
+
+\noindent
+In order to meet the requirements of \gls{6lowpan} devices, security analysis of protocols that target low-power devices may not always be conducted properly, or critical security properties may be forgotten in the chase for the most energy-efficient and low-complexity scheme. This thesis aims to provide a formal security analysis of three proposed key establishment protocols for \gls{6lowpan}, by using the protocol verification tool Scyther. To be able to formally verify the selected protocols, this thesis also contains an introduction to Scyther as a tool.
+
+\noindent
+In addition to formally verify the suggested key establishment protocols, the thesis has also reviewed general security properties for key establishment schemes, and how the chosen protocols aim to achieve these properties. In the case of the discovery of an attack on a security property within a protocol, possible protocol improvements have been suggested to protect the protocol from such attacks in the future.
+
+% Results
+\noindent
+This thesis presents, to the author's knowledge, the first formal security analysis of three proposed protocols for establishing keys in \gls{ieee} 802.15.4 networks that utilize the \gls{6lowpan}. Two of the protocols had none or few protocols errors and hence were not in need of any major protocol corrections. Multiple weaknesses were discovered in the third protocol, where this thesis has aimed to improve the protocol by implementing necessary measures and validate them using Scyther. The author stresses that due to an infeasible large state space of this very protocol, the protocol was separated into two models to narrow the possible protocol execution traces. While this provides useful insight on the separate phases of the key establishment protocol, there may still exist attacks that have gone through the analysis undiscovered.
+
+
+
+% Conclusion
+In the conclusion of this thesis, two of the protocols are formally verified and proven to be a possible scheme for key establishment in \gls{6lowpan} networks, while the third protocol contains flaws in the protocol execution which can allow for malicious behaviour and possibly leakage of sensitive data in a network. Also, this thesis substantiates the importance of formal security analysis to avoid deployment of protocols that have serious security flaws.
+
 \end{abstract}

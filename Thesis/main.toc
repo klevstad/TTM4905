@@ -1,13 +1,14 @@
 \select@language {norsk}
+\select@language {norsk}
 \select@language {english}
 \select@language {english}
 \select@language {english}
 \select@language {norsk}
 \select@language {english}
-\contentsline {chapter}{List of Figures}{xiii}{section*.1}
-\contentsline {chapter}{List of Tables}{xv}{section*.2}
-\contentsline {chapter}{Listings}{xvii}{section*.3}
-\contentsline {chapter}{List of Acronyms}{xix}{section*.4}
+\contentsline {chapter}{List of Figures}{xi}{section*.1}
+\contentsline {chapter}{List of Tables}{xiii}{section*.2}
+\contentsline {chapter}{Listings}{xv}{section*.3}
+\contentsline {chapter}{List of Acronyms}{xvii}{section*.4}
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Scope and Objectives}{2}{section.1.2}

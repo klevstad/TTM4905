@@ -1,6 +1,6 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 25.05.2016  19:02:38
-;; Indexstyle: "/tmp/niRY4UYObv", Rawindex: "/tmp/w9K5cxSMwa", Output: "main.acr"
+;; at 07.06.2016  16:00:11
+;; Indexstyle: "/tmp/_st4YCG1g0", Rawindex: "/tmp/GqkvBFMfD2", Output: "main.acr"
 
 
 Building indexentry-tree:
@@ -58,9 +58,12 @@ sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 
 Forming letter-groups:
 Letter-group: "¨ÃÚ" -> "I"
+Letter-group: "¼Ú¼à" -> "N"
+Letter-group: "Ð€®—Ð" -> "S"
 Letter-group: "¨———" -> "I"
 Letter-group: "6´ÃæÈ€¼" -> "glsnumbers"
 Letter-group: "¨È" -> "I"
@@ -105,13 +108,12 @@ Letter-group: "ÐÈ´" -> "S"
 Letter-group: "»Ð†" -> "M"
 Letter-group: "»¨†" -> "M"
 Letter-group: "Ð®Ë" -> "S"
+Letter-group: "ÃÐ" -> "D"
 Letter-group: "€È®—Ð" -> "A"
 Letter-group: "´—€È" -> "L"
-Letter-group: "ÃÐ" -> "D"
+Letter-group: "—„—€È" -> "E"
 Letter-group: "€®—Ð" -> "A"
 Letter-group: "È€¼" -> "P"
-Letter-group: "—„—€È" -> "E"
-Letter-group: "Ð€®—Ð" -> "S"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "6´ÃæÈ€¼" -> "glsnumbers"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -135,6 +137,8 @@ Letter-group: "´—€È" -> "L"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "»€†" -> "M"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "¼Ú¼à" -> "N"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "ÃÐ¨" -> "O"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "È€¼" -> "P"
@@ -149,3 +153,4 @@ Letter-group: "àÈ" -> "U"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "æ´€¼" -> "W"
 WARNING: location-reference "{}{i}" did match multiple location-classes! (taking first one)
+WARNING: location-reference "{}{v}" did match multiple location-classes! (taking first one)
