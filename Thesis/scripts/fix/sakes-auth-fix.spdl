@@ -1,5 +1,5 @@
 /*
-Secure Authentication and Key Establishment Scheme (SAKES) - Authentication
+Secure Authentication and Key Establishment Scheme (SAKES) - Authentication - Improved
 */
 
 hashfunction MAC;
@@ -35,12 +35,12 @@ protocol SAKES-AUTH(A, B, C, D) {
 		send_3(A, B, Message3, Message3-MAC);
 		recv_6(C, A, Message6, Message6-MAC);
 
-		claim_A1(A, Alive, B);
-		claim_A2(A, Alive, C);
-		claim_A3(A, Weakagree, B);
-		claim_A4(A, Weakagree, C);
-		claim_A5(A, Niagree);
-		claim_A6(A, Nisynch);
+		claim(A, Alive, B);
+		claim(A, Alive, C);
+		claim(A, Weakagree, B);
+		claim(A, Weakagree, C);
+		claim(A, Niagree);
+		claim(A, Nisynch);
 	}
 
 	role B {
@@ -79,12 +79,12 @@ protocol SAKES-AUTH(A, B, C, D) {
 		send_5(C, B, Message5);
 		send_6(C, A, Message6, Message6-MAC);
 
-		claim_C1(C, Alive, A);
-		claim_C2(C, Alive, B);
-		claim_C3(C, Weakagree, A);
-		claim_C4(C, Weakagree, B);
-		claim_C5(C, Niagree);
-		claim_C6(C, Nisynch);
+		claim(C, Alive, A);
+		claim(C, Alive, B);
+		claim(C, Weakagree, A);
+		claim(C, Weakagree, B);
+		claim(C, Niagree);
+		claim(C, Nisynch);
 	}
 
 	role D {

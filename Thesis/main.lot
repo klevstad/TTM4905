@@ -2,6 +2,8 @@
 \select@language {english}
 \select@language {english}
 \select@language {english}
+\select@language {norsk}
+\select@language {english}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
@@ -9,8 +11,8 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {6.1}{\ignorespaces Table of the security properties for authentication that are satisfied in the different protocols.}}{71}{table.6.1}
-\contentsline {table}{\numberline {6.2}{\ignorespaces Table of the security properties for secrecy that are satisfied in the different protocols.}}{72}{table.6.2}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Table of the security properties for authentication that are satisfied in the different protocols.}}{73}{table.6.1}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Table of the security properties for secrecy that are satisfied in the different protocols.}}{74}{table.6.2}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

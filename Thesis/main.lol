@@ -13,9 +13,11 @@
 \contentsline {lstlisting}{\numberline {5.5}Security claims for role A during the authentication phase in SAKES.}{63}{lstlisting.5.5}
 \contentsline {lstlisting}{\numberline {5.6}Security claims for role B during the authentication phase in SAKES.}{64}{lstlisting.5.6}
 \contentsline {lstlisting}{\numberline {5.7}Security claims for role C during key establishment in SAKES.}{64}{lstlisting.5.7}
-\contentsline {lstlisting}{\numberline {5.8}Security claims for role A during key establishment in SAKES.}{67}{lstlisting.5.8}
-\contentsline {lstlisting}{\numberline {5.9}Security claims for role B during key establishment in SAKES.}{67}{lstlisting.5.9}
+\contentsline {lstlisting}{\numberline {5.8}Security claims for role A during key establishment in SAKES.}{68}{lstlisting.5.8}
+\contentsline {lstlisting}{\numberline {5.9}Security claims for role B during key establishment in SAKES.}{68}{lstlisting.5.9}
 \contentsline {lstlisting}{\numberline {5.10}Security claims for role D during key establishment in SAKES.}{68}{lstlisting.5.10}
-\contentsline {lstlisting}{\numberline {6.1}Fix to the SAKES protocol to provide weak agreement for the end device in the authentication phase.}{74}{lstlisting.6.1}
-\contentsline {lstlisting}{\numberline {6.2}Fix to the SAKES protocol to provide non-injective synchronization and data agreement for the end device and the border router during the authentication phase.}{75}{lstlisting.6.2}
-\contentsline {lstlisting}{\numberline {6.3}Fix to the SAKES protocol to provide non-injective synchronization and data agreement for the end router $B$ during the authentication phase.}{75}{lstlisting.6.3}
+\contentsline {lstlisting}{\numberline {6.1}Fix to the SAKES protocol to provide weak agreement for the end device in the authentication phase.}{77}{lstlisting.6.1}
+\contentsline {lstlisting}{\numberline {6.2}Fix to the SAKES protocol to provide non-injective synchronization and data agreement for the end device and the border router during the authentication phase.}{77}{lstlisting.6.2}
+\contentsline {lstlisting}{\numberline {6.3}Fix to the SAKES protocol to provide non-injective synchronization and data agreement for the router $B$ during the authentication phase.}{78}{lstlisting.6.3}
+\contentsline {lstlisting}{\numberline {6.4}Fix to the SAKES protocol to provide non-injective synchronization and data agreement for the end device $A$ during the key distribution.}{80}{lstlisting.6.4}
+\contentsline {lstlisting}{\numberline {6.5}Fix to the SAKES protocol to provide authentication of the remote server D to the router B in the key establishment phase.}{82}{lstlisting.6.5}

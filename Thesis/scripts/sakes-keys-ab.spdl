@@ -1,0 +1,66 @@
+usertype key;
+hashfunction HASH;
+hashfunction MAC;
+hashfunction g1, g2;
+var A, B, C, D: Agent;
+
+
+macro Proof = {A, B, D}sk(C);
+macro Message1 = (Na, MAC(A, Na, k(A,B)));
+macro Message2 = (Nb, MAC(B, Nb, k(A,B)));
+
+macro Message3 = (Proof, B, Nb, g1(sk(B)));
+macro Message3-HASH = HASH(Message3);
+macro Message3-Signed = {Message3, Message3-HASH}sk(B);
+
+macro Message4 = (Nd,  g1(sk(D)));
+macro Message4-HASH = HASH(Message4);
+macro Message4-Signed = {Message4, Message4-HASH}sk(D);
+
+macro Message5 = {Nb, SessionKeyA}k(A,B);
+
+
+protocol SAKES-KEYS(A, B, C, D) {
+
+	role A {
+		# 6LoWPAN End Device (A)
+		var Nb: Nonce;
+		fresh Na: Nonce;
+		var SessionKeyA: key;
+
+		send_1(A, B, Message1);
+		recv_2(B, A, Message2);
+		recv_3(B, A, Message5);
+
+		claim(A, Alive, B);
+		claim(A, Weakagree, B);
+		claim(A, Niagree);
+		claim(A, Nisynch);
+		claim(A, SKR, SessionKeyA);
+	}
+
+	role B {
+		# 6LoWPAN Router (B)
+		fresh Nb: Nonce;
+		var Na, Nd: Nonce;
+		fresh SessionKeyA: key;
+
+		recv_1(A, B, Message1);
+		send_2(B, A, Message2);
+		send_3(B, A, Message5);
+
+		claim(B, Alive, A);
+		claim(B, Weakagree, A);
+		claim(B, Niagree);
+		claim(B, Nisynch);
+		claim(B, SKR, SessionKeyA);
+	}
+
+	role C {
+		# 6LoWPAN Border Router (C)
+	}
+
+	role D {
+		# Remote Server (D)
+	}
+}

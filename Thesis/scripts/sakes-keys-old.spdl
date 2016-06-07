@@ -17,15 +17,15 @@ macro Message2-Signed = {Message2, Message2-HASH}sk(D);
 
 macro SessionKey = g2(g1(sk(D)), sk(B));
 
-macro Message3 = {Na, Nb, SessionKey}k(A,B);
+macro Message3 = {Nb, SessionKey}k(A,B);
 
 
 protocol SAKES-KEYS(A, B, C, D) {
 
 	role A {
 		# 6LoWPAN End Device (A)
-		var Na: Ticket;
 		var Nb: Nonce;
+		var Sk;
 
 		recv_3(B, A, Message3);
 
@@ -36,9 +36,7 @@ protocol SAKES-KEYS(A, B, C, D) {
 
 	role B {
 		# 6LoWPAN Router (B)
-
-		const Na: Ticket;
-		fresh Nb, Nc: Nonce;
+		fresh Nb: Nonce;
 		var Nd: Nonce;
 
 		send_1(B, D, Message1, Message1-HASH, Message1-Signed);
@@ -61,7 +59,7 @@ protocol SAKES-KEYS(A, B, C, D) {
 		# Remote Server (D)
 
 		fresh Nd: Nonce;
-		var Nb, Nc: Nonce;
+		var Nb: Nonce;
 
 		recv_1(B, D, Message1, Message1-HASH, Message1-Signed);
 		claim(D, Running, B, g1(sk(B)));
@@ -72,17 +70,11 @@ protocol SAKES-KEYS(A, B, C, D) {
 		claim(D, Niagree);
 		claim(D, Nisynch);
 		claim(D, SKR, SessionKey);
-
 	}
-}
-
-
-protocol @DHapproximation(DH) {
 
 	role DH {
 		var x, y: Nonce;
 		recv_!DH1(DH, DH, g2(g1(x),y));
 		send_!DH2(DH, DH, g2(g1(y),x));
 	}
-
 }

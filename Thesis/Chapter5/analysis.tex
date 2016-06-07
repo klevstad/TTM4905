@@ -4,35 +4,35 @@
 
 \section{Modelling Security Properties}
 
-As mentioned in Section \ref{sec:attributes}, key establishment schemes desire certain security properties. In the verification of the security protocols of this thesis, the following properties are verified: \emph{Entity authentication}, \emph{Implicit key authentication}, \emph{Explicit key authentication}, \emph{Known-key secrecy}, \emph{Key control}, and \emph{Secrecy of key}. As mentioned in Section \ref{sec:attributes}, symmetric key establishment schemes are not resilient against \gls{kci} attacks, and do not provide forward secrecy. These properties are nevertheless included in the models as \gls{sakes} uses a lightweight version of public-key cryptography and the type of Diffie-Hellman key agreement to establish session keys.
+As mentioned in Section \ref{sec:attributes}, key establishment schemes desire certain security properties. In the verification of the security protocols of this thesis, the following properties are verified: \emph{Entity authentication}, \emph{Implicit key authentication}, \emph{Explicit key authentication}, \emph{Known-key secrecy}, \emph{Key control}, and \emph{Secrecy of key}. As mentioned in Section \ref{sec:attributes}, symmetric key establishment schemes are not resilient against \gls{kci} attacks and do not provide forward secrecy. These properties are nevertheless included in the models as \gls{sakes} uses a lightweight version of public-key cryptography and the type of Diffie-Hellman key agreement to establish session keys.
 
-\paragraph{Entity authentication} Entity authentication between nodes corresponds to the security claim \texttt{Alive}, and can also be verified through stronger claims such as \texttt{Weakagree}. This property can only be violated if the adversary is able to inject or tamper with messages that are transmitted over the network, which we assume that the adversary in a \gls{6lowpan} network is.
+\paragraph{Entity authentication} Entity authentication between nodes corresponds to the security claim \texttt{Alive}, and can also be verified through stronger claims such as \texttt{Weakagree}. This property can only be violated if the adversary can inject or tamper with messages that are transmitted over the network, which we assume that the adversary in a \gls{6lowpan} network is.
 
 \paragraph{Implicit key authentication} Implicit key authentication is modelled through the settings of the adversary compromise model described in Section \ref{sec:adversary}. The property is modelled by allowing the adversary to obtain the long-term keys and impersonate anyone except for the nodes that are supposedly establishing keys.
 
-\paragraph{Explicit key authentication} Is achieved when the protocol satisfied both implicit key authentication and key confirmation. This is modelled through the security claim for non-injective agreement denoted as \texttt{ni-agree}, but can also be modelled by using \texttt{running} and \texttt{commit} claims.
+\paragraph{Explicit key authentication} Is achieved when the protocol satisfied both implicit key authentication and key confirmation. Explicit key authentication is modelled through the security claim for non-injective agreement denoted as \texttt{ni-agree}, but can also be modelled by using \texttt{running} and \texttt{commit} claims.
 
 \paragraph{Known-key security} By revealing session keys to the adversary after usage (i.e. the session key is expired, and will never be used again) known-key security can be modelled. This is done by setting the \emph{Session-key reveal} rule in the adversary compromise model.
 
-\paragraph{Key control} Scyther has no support for verifying key control. Therefore, this security property has to be verified by hand. 
+\paragraph{Key control} Scyther has no support for verifying key control. Therefore, this security property has to be checked by hand. 
 
 \paragraph{Secrecy of key} To model a key (or any other property) as secret, the \texttt{secrecy} claim is used in Scyther.
 
-\paragraph{Forward secrecy} Both \gls{pfs} and \gls{wpfs} are related to active adversaries, and is modelled through the adversary compromise model, which can be configured to leak the long-term private key which the session keys are derived from.
+\paragraph{Forward secrecy} Both \gls{pfs} and \gls{wpfs} are related to active adversaries and is modelled through the adversary compromise model, which can be configured to leak the long-term private key which the session keys are derived from.
 
-\paragraph{Key compromise impersonation} \gls{kci} is also a property related to an active adversary, and is therefore available through the adversary model where the adversary can be allowed to obtain the long-term private key of the actors.
+\paragraph{Key compromise impersonation} \gls{kci} is also a property related to an active adversary and is, therefore, available through the adversary model where the adversary can be allowed to obtain the long-term private key of the actors.
 
 
 \section{Formal Security Analysis of APKES}
 \label{sec:apkes-analysis}
 
-\gls{apkes} is modelled as two roles, the initiator $A$ and the responder $B$, agreeing upon a pairwise key through the message exchange that is presented in Figure \ref{fig:apkes-handshake}. There is not specified any concrete type of pluggable scheme (i.e. the scheme where \gls{apkes} obtains the shared secret between two nodes), hence we assume that whatever scheme is used is secure. In the model, the shared secret obtained from the pluggable scheme has been modelled using Scyther's built-in support for shared symmetric keys, where the two nodes $A$ and $B$ both possesses the shared secret at start-up.
+\gls{apkes} is modelled as two roles, the initiator $A$ and the responder $B$, agreeing upon a pairwise key through the message exchange that is presented in Figure \ref{fig:apkes-handshake}. There is not specified any concrete type of pluggable scheme (i.e. the scheme where \gls{apkes} obtains the shared secret between two nodes). Hence we assume that whatever scheme is used is secure. In the model, the shared secret derived from the pluggable scheme has been modelled using Scyther's built-in support for shared symmetric keys, where the two nodes $A$ and $B$ both possesses the shared secret at start-up.
 
-\gls{apkes} states that the $R_A$ value has to be checked whether or not it has been tampered with, before the pairwise key can be derived at the initiating side. This can be verified by modelling the protocol to agree upon the $R_A$ value during the protocol execution, and committing to this. In addition, we model agreement over the pairwise key by using a \texttt{Running} claim in role $B$ after receiving the \texttt{ACK} authenticated with the pairwise key, and \texttt{Commit} claims in both roles to claim explicit key authentication on the pairwise key. As $B$ authenticates the $HELLOACK$ by using the shared secret, we do not claim that the pairwise key is created before $A$ receives the $HELLOACK$ from B. The Scyther model of \gls{apkes} can be viewed in its entirety in Appendix \ref{app:apkes}.
+\gls{apkes} states that the $N_A$ value has to be checked whether or not it has been tampered with before the pairwise key can be derived on the initiating side. This can be verified by modelling the protocol to agree upon the $N_A$ value during the protocol execution, and committing to this. In addition, we model agreement over the pairwise key by using a \texttt{Running} claim in role $B$ after receiving the \texttt{ACK} authenticated with the pairwise key, and \texttt{Commit} claims in both roles to claim explicit key authentication on the pairwise key. As $B$ authenticates the $HELLOACK$ by using the shared secret, we do not claim that the pairwise key is created before $A$ receives the $HELLOACK$ from B. The Scyther model of \gls{apkes} can be viewed in its entirety in Appendix \ref{app:apkes}.
 
 \subsection{Security Claims}
 
-By taking starting point in the protocol specification from Section \ref{subsec:apkes-spec} and the alleged security properties from Section \ref{subsec:apkes-prop}, the protocol is modelled as an \gls{spdl}-script, which can be verified by Scyther. Listing \ref{lst:claims-a-apkes} describes the various security claims that is chosen for $A$. In these claims, we verify that the other party in the protocol is authentic, and that the pairwise key is secret. Claims for non-injective synchronization and agreement is also added to verify that the protocol executes as expected. The security claims for role $B$ in \gls{apkes} are stated in Listing \ref{lst:claims-b-apkes}. Compared to the claims for $A$, $B$ does not contain the \texttt{Commit} claim for the variable $N_A$, as the \texttt{Running}, \texttt{Commit} approach is used in role $A$ to provide agreement (i.e. confirm that the nonce has not been altered by $B$) over the nonce $N_A$. We also claim non-injective synchronization and agreement.\\
+By taking a starting point in the protocol specification from Section \ref{subsec:apkes-spec} and the alleged security properties from Section \ref{subsec:apkes-prop}, the protocol is modelled as an \gls{spdl}-script, which can be verified by Scyther. Listing \ref{lst:claims-a-apkes} describes the various security claims that are chosen for $A$. In these claims; we verify that the other party in the protocol is authentic and that the pairwise key is secret. Claims for non-injective synchronization and agreement is also added to verify that the protocol executes as expected. The security claims for role $B$ in \gls{apkes} are stated in Listing \ref{lst:claims-b-apkes}. Compared to the claims for $A$, $B$ does not contain the \texttt{Commit} claim for the variable $N_A$, as the \texttt{Running}, \texttt{Commit} approach is used in role $A$ to provide agreement (i.e. confirm that the nonce has not been altered by $B$) over the nonce $N_A$. We also claim non-injective synchronization and data agreement.\\
 
 \begin{lstlisting}[caption={Security claims for role A in APKES.}, label={lst:claims-a-apkes}]
 	claim(A, Alive);
@@ -57,11 +57,11 @@ By taking starting point in the protocol specification from Section \ref{subsec:
 
 \subsection{Adversary}
 
-In the description of \gls{apkes}, no specific adversary is mentioned. We assume that such a protocol would be used for key establishment in \gls{6lowpan} networks, which are potentially deployed in hostile areas. Therefore, we can assume that the adversary would be able to observe, inject, and tamper with messages that are sent over the network. As \gls{apkes} does not utilize any session keys, but rather agreeing upon a fixed long-term key, we model the adversary in a Dolev-Yao way without giving it any active capabilities other than being able to obtain the long-term keys of nodes not participating in the current key establishment process. 
+In the description of \gls{apkes}, no particular adversary is mentioned. We assume that such a protocol would be used for key establishment in \gls{6lowpan} networks, which are potentially deployed in hostile areas. Therefore, we can assume that the adversary would be able to observe, inject, and tamper with messages that are sent over the network. As \gls{apkes} does not utilize any session keys, but rather agreeing upon a fixed long-term key, we model the adversary in a Dolev-Yao way without giving it any active capabilities other than being able to obtain the long-term keys of nodes not participating in the current key establishment process. 
 
 \subsection{Results}
 
-Figure \ref{fig:apkes-verified} shows the verification result from running the model of \gls{apkes} through Scyther in the presence of the adversary described above. Scyther was able to perform an unbounded verification of the model where all claims but one were successfully verified. \gls{apkes} provides verifiable entity authentication, explicit key authentication for role $B$ (implicit for $A$), and holds the non-injective synchronization property, which means that every message in protocol is executed as expected, even in the presence of the adversary. When looking at the characterization of the protocol, there exist only one executable trace for each of the roles. Hence, there does not exist any malicious behaviour that can force the modelled protocol to misbehave. The attack proposed by Scyther on $Commit\ B, \{Na, Nb\}k(A,B)$ is not a direct attack on the protocol, but it shows that it is not possible to achieve explicit key authentication for the role $A$, as it has no knowledge of if $B$ has computed the pairwise key. 
+Figure \ref{fig:apkes-verified} shows the verification result from running the model of \gls{apkes} through Scyther in the presence of the adversary described above. Scyther was able to perform an unbounded verification of the model where all claims but one were successfully verified. \gls{apkes} provides valid entity authentication, explicit key authentication for role $B$ (implicit for $A$), and holds the non-injective synchronization property, which means that every message in the protocol is executed as expected, even in the presence of the adversary. When looking at the characterization of the protocol, there exist only one executable trace for each of the roles. Hence, there does not exist any malicious behaviour that can force the modelled protocol to misbehave. The attack proposed by Scyther on $Commit\ B, \{N_A, N_B\}k(A,B)$ is not a direct attack on the protocol, but shows that it is not possible to achieve explicit key authentication for the role $A$, as it has no knowledge of if $B$ has computed the pairwise key. 
 
 
 \begin{figure}[h]
@@ -76,11 +76,11 @@ Figure \ref{fig:apkes-verified} shows the verification result from running the m
 \section{Formal Security Analysis of AKES}
 \label{sec:akes-analysis}
 
-\gls{akes} is modelled almost as its predecessor, but with additional content that is used to allow mobility for the devices. As \gls{akes} is used for establishing session keys, the \texttt{SKR} claim is used emphasize that the key is in fact a session key. The pluggable scheme is assumed to be secure, and is modelled as a symmetric key shared between the two communicating parties using Scyther's built-in symmetric key support. Appendix \ref{app:akes} contains the model in its entirety. \gls{apkes} was not able to provide explicit key authentication of role $B$ for the initiator $A$. In \gls{akes}, however, the received \texttt{HELLOACK} is authenticated using the session key. Therefore, we model a \texttt{Running} claim (not present in Listing \ref{lst:claims-a-akes} or \ref{lst:claims-b-akes} - See Appendix \ref{app:akes}) to indicate that the role $B$ has computed the key at this point in time and a \texttt{Commit} claim to state that the two parties agree that the session key has been computed.
+\gls{akes} is modelled almost like its predecessor, but with additional content that is used to allow mobility for the devices. As \gls{akes} is used for establishing session keys, the \texttt{SKR} claim is used emphasize that the key is, in fact, a session key. The pluggable scheme is assumed to be secure and is modelled as a symmetric key shared between the two communicating parties using Scyther's built-in symmetric key support. Appendix \ref{app:akes} contains the model in its entirety. \gls{apkes} was not able to provide explicit key authentication of role $B$ for the initiator $A$. In \gls{akes}, however, the received \texttt{HELLOACK} is authenticated using the session key. Therefore, we model a \texttt{Running} claim (not present in Listing \ref{lst:claims-a-akes} or \ref{lst:claims-b-akes} - See Appendix \ref{app:akes}) to indicate that the role $B$ has computed the key at this point and a \texttt{Commit} claim to state that the two parties agree that the session key has been derived.
 
 \subsection{Security Claims}
 
-From the protocol specification in Section \ref{subsec:akes-specs} and the assumed security properties in Section \ref{subsec:akes-props}, the security claims that are claimed to hold for the two roles in \gls{akes} are listed in Listing \ref{lst:claims-a-akes} and Listing \ref{lst:claims-b-akes}. In addition to claiming authentication for the other party, we also claim that the protocol has been executed as intended by adding claims for non-injective synchronization and agreement.\\
+From the protocol specification in Section \ref{subsec:akes-specs} and the assumed security properties in Section \ref{subsec:akes-props}, the security claims that are claimed to hold for the two roles in \gls{akes} are listed in Listing \ref{lst:claims-a-akes} and Listing \ref{lst:claims-b-akes}. In addition to claiming authentication for the other party, we also argue that the protocol has been executed as intended by adding claims for non-injective synchronization and agreement.\\
 
 \begin{lstlisting}[caption={Security claims for role A in AKES.}, label={lst:claims-a-akes}]
 	claim(A, SKR, SessionKey);
@@ -103,11 +103,11 @@ From the protocol specification in Section \ref{subsec:akes-specs} and the assum
 
 \subsection{Adversary}
 
-The adversary in this model is nearly the same adversary as the one introduced in the verification of \gls{apkes}. However, in order to model session keys, the adversary is allowed to obtain all session keys whose identifier differs from the current protocol execution. 
+The adversary in this model is nearly the same adversary as the one introduced in the verification of \gls{apkes}. However, to model session keys, the adversary is allowed to obtain all session keys whose identifier differs from the current protocol execution. 
 
 \subsection{Results}
 
-Figure \ref{fig:akes-verified} shows the result of running the model of \gls{akes} through Scyther in the presence of the adversary presented above, where \gls{akes} is verified for an unbounded state space and all the claimed security properties are successfully verified. \gls{akes} provides provable authentication for both roles, as well as explicit key authentication. In addition, \gls{akes} is proved to hold the non-injective synchronization and data agreement claims which state that the protocol was executed as intended. When looking at the characterization of \gls{akes} only one possible trace is returned for each role, which means that there exists only one way to execute the protocol.
+Figure \ref{fig:akes-verified} shows the result of running the model of \gls{akes} through Scyther in the presence of the adversary presented above, where \gls{akes} is verified for an unbounded state space and all the claimed security properties are successfully verified. \gls{akes} provides provable authentication for both roles, as well as explicit key authentication. In addition, \gls{akes} is proved to hold the non-injective synchronization and data agreement claims which state that the protocol was executed as intended. When looking at the characterization of \gls{akes}, only one possible trace is returned for each role, which means that there exists only one way to execute the protocol.
 
 \begin{figure}[h]
 	\centering
@@ -120,9 +120,9 @@ Figure \ref{fig:akes-verified} shows the result of running the model of \gls{ake
 \section{Formal Security Analysis of SAKES}
 \label{sec:sakes-analysis}
 
-From the protocol specification in Section \ref{subsec:sakes-spec} and the assumed security properties in Section \ref{subsec:sakes-props}, \gls{sakes} have been modelled into four roles: $A$ (End device), $B$ (Router), $C$ (Border router), and $D$ (Server). The authentication phase is carried out between $A$, $B$, and $C$, before $B$ and $D$ establish the session key, which is distributed from the router $B$ to the end device $A$. As the protocol specification presented in the original protocol proposal can be considered inconsistent, some assumptions have been made in the model.
+From the protocol specification in Section \ref{subsec:sakes-spec} and the assumed security properties in Section \ref{subsec:sakes-props}, \gls{sakes} have been modelled into four roles: $A$ (End device), $B$ (Router), $C$ (Border router), and $D$ (Server). The authentication phase is carried out between $A$, $B$, and $C$ before $B$ and $D$ establish the session key, which is distributed from the router $B$ to the end device $A$. As the protocol specification presented in the original protocol proposal can be considered inconsistent, some assumptions have been made in the model.
 
-The verification of the original protocol in its entirety takes over 72 hours to complete on a workstation with an Intel Core i7 processor with four cores and 12 GB \gls{ram} (The experiment was aborted at this point). Therefore, it has been infeasible to formally verify the complete protocol in one round, hence the two phases have been separated into different models to be able to provide some insight on the weaknesses of \gls{sakes}. The two models are available in Appendix \ref{app:sakes-auth} and \ref{app:sakes-keys}. There may, however, be additional attacks on the protocol that the analysis of these models is unable to detect. Especially as the nonces $N_A$, $N_B$, and $N_C$ are re-used in the key establishment phase, but the models are unable to link these values between protocols, the usage of these nonces in the key establishment phase may lead to attacks as they are freshly generated.
+The verification of the original protocol in its entirety takes over 72 hours to complete on a workstation equipped with an Intel Core i7 processor with four cores and 12 GB \gls{ram} (The experiment was aborted at this point). Therefore, it has been infeasible to formally verify the complete protocol in one round, and the two phases have been separated into two different models to be able to provide some insight on the weaknesses of \gls{sakes}. The two models are available in Appendix \ref{app:sakes-auth} and \ref{app:sakes-keys}.
 
 
 \subsection{Authentication Phase}
@@ -142,7 +142,7 @@ The end device $A$ is only in direct communication with the router $B$ and the b
 \end{lstlisting}
 
 
-Listing \ref{lst:claims-b-sakes-auth} contains the claims that are stated for role $B$ (i.e. the \gls{6lowpan} router) in \gls{sakes} during the authentication phase. The router is originally interacting with all the other entities in the network, but during the authentication it only interacts with the end device $A$, and the border router $C$. Hence we are claiming authentication for only these roles. In addition, we state that the ephemeral key $Sk_B$, which is generated by the border router during the authentication phase and which is to be used in the key establishment, is secret. To verify that the role behaves as intended, we add claims for non-injective synchronization and agreement.\\
+Listing \ref{lst:claims-b-sakes-auth} contains the claims that are stated for role $B$ (i.e. the \gls{6lowpan} router) in \gls{sakes} during the authentication phase. The router is originally interacting with all the other entities in the network, but during the authentication, it only interacts with the end device $A$, and the border router $C$. Hence we are claiming authentication for only these roles. In addition, we state that the ephemeral key $Sk_B$, which is generated by the border router during the authentication phase and which is to be used in the key establishment, is secret. To verify that the role behaves as intended, we add claims for non-injective synchronization and agreement.\\
 
 \begin{lstlisting}[caption={Security claims for role B during the authentication phase in SAKES.}, label={lst:claims-b-sakes-auth}]
 	claim(B, Secret, Sk);
@@ -154,7 +154,7 @@ Listing \ref{lst:claims-b-sakes-auth} contains the claims that are stated for ro
 	claim(B, Nisynch);
 \end{lstlisting}
 
-The border router $C$ does only participate in the authentication phase with $A$ and $B$, hence we claim authentication for these two parties. In addition we add claims for non-injective synchronization and agreement to state that the protocol was executed as expected as seen in Listing \ref{lst:claims-c-sakes-auth}.\\
+The border router $C$ does only participate in the authentication phase with $A$ and $B$; hence we claim authentication for these two parties. In addition, we add claims for non-injective synchronization and agreement to state that the protocol was executed as expected as seen in Listing \ref{lst:claims-c-sakes-auth}.\\
 
 \begin{lstlisting}[caption={Security claims for role C during key establishment in SAKES.}, label={lst:claims-c-sakes-auth}]
 	claim(C, Alive, A);
@@ -171,15 +171,15 @@ For the authentication phase in \gls{sakes} we assume a Dolev-Yao adversary whic
 
 \subsubsection{Results}
 
-Figure \ref{fig:sakes-verified-auth} shows the result of verifying \gls{sakes}' authentication phase, where multiple of the claimed security properties are falsified. Scyther is able to verify that \gls{sakes} provides entity authentication for the end device, router, and border router, but fails to provide stronger notions of authentication such as weak agreement for the end device. Also, the authentication phase in \gls{sakes} does not provide non-injective synchronization nor non-injective data agreement for either of the three roles. The attacks presented below are described more thoroughly in Section \ref{subsec:sakes-fix}, and improvements are suggested to achieve the claimed security properties.
+Figure \ref{fig:sakes-verified-auth} shows the result of verifying \gls{sakes}' authentication phase, where multiple of the claimed security properties are falsified. Scyther can verify that \gls{sakes} provides entity authentication for the end device, router, and border router, but fails to provide stronger notions of authentication such as weak agreement for the end device. Also, the authentication phase in \gls{sakes} does not provide non-injective synchronization nor non-injective data agreement for either of the three roles. The attacks presented below are described more thoroughly in Section \ref{subsec:sakes-fix}, and improvements are suggested to achieve the claimed security properties.
 
 \begin{list}{•}{}
 
-\item \texttt{SAKES\_AUTH, A3 \& A4 Weakagree B \& C}: The attacks proposed by Scyther that falsifies the \texttt{weakagree} claims for the end device leverage the last message that is sent between the end device and the border router, and can be seen in Appendix \ref{fig:sakes-attack-weakagree}. When the border router receives the relayed request from router, it has to confirm the identity of the router to the end device. There are, however, flaws in the messages that are exchanged, which enables an adversary to use the request created by the end device and the nonce generated by the router to change a different end device's perception of its closest router.
+\item \texttt{SAKES\_AUTH, A3 \& A4 Weakagree B \& C}: The attacks proposed by Scyther that falsifies the \texttt{weakagree} claims for the end device leverage the last message that is sent between the end device and the edge router, and can be seen in Appendix \ref{fig:sakes-attack-weakagree}. When the border router receives the relayed request from router, it has to confirm the identity of the router to the end device. There are, however, flaws in the messages that are exchanged, which enables an adversary to use the request created by the end device and the nonce generated by the router to change a different end device's perception of its closest router.
 
-\item \texttt{SAKES\_AUTH, A6 \& B7 \& C6 Nisynch}: Neither $A$, $B$, or $C$ is able to hold the non-injective synchronization property. If we study the attack proposed in Appendix \ref{fig:sakes-attack-nisynch}, we see that the adversary is using the same approach as in the attack on the \texttt{weakagree} above. In the original protocol description of \gls{sakes}, the adversary is able to combine the information sent in the second and third message into a message that is sent directly to the border router. Such an alternation is the message flow is not allowed in the model of the protocol, and hence the \texttt{nisynch} properties are falsified.
+\item \texttt{SAKES\_AUTH, A6 \& B7 \& C6 Nisynch}: Neither $A$, $B$, or $C$ hold the non-injective synchronization property. If we study the attack proposed in Appendix \ref{fig:sakes-attack-nisynch}, we see that the adversary is using the same approach as in the attack on the \texttt{weakagree} above. In the original protocol description of \gls{sakes}, the adversary is able to combine the information sent in the second and third message into a message that is sent directly to the border router. Such an alternation is the message flow is not allowed in the model of the protocol, and hence the \texttt{nisynch} properties are falsified.
 
-\item \texttt{SAKES\_AUTH, A6 \& B7 \& C6 Niagree}: Scyther also proposes attacks targeting the non-injective agreement claims. These attacks are of the same flavour as the attacks targeted at the \texttt{nisynch} property above, and the claims are falsified as the adversary is able to combine information in observed messages into valid new messages. Generation of new messages lead to a different set of data items, hence the protocol is not able to agree upon the data that is exchanged throughout the protocol.
+\item \texttt{SAKES\_AUTH, A6 \& B7 \& C6 Niagree}: Scyther also proposes attacks targeting the non-injective agreement claims. These attacks are of the same flavour as the attacks aimed at the \texttt{nisynch} property above, and the claims are falsified as the adversary is able to combine information in observed messages into valid new messages. Generation of new messages leads to a different set of data items, hence, the protocol is not able to agree upon the data that is exchanged throughout the protocol.
 
 \end{list}
 
@@ -193,15 +193,21 @@ Figure \ref{fig:sakes-verified-auth} shows the result of verifying \gls{sakes}' 
 \newpage
 
 \subsection{Key Establishment Phase}
+\label{subsec:sakes-keys}
+To model the key establishment phase in \gls{sakes}, it is assumed that the Diffie-Hellman key agreement is done correctly by letting $B$ and $D$ share their secret key to the power of the generator $g$. Also, it is assumed that when the authors use a notion of ``decrypting the ciphertext encrypted with the private key of $X$'', they mean that the message is signed using the private key of $X$ and that the signature can be verified by applying the corresponding public key. When it comes to the notation of \gls{mac-auth}s, an assumption is that the alleged \gls{mac-auth} that is sent between the router and the server that do not share any symmetric key is simply a hash of the message.
 
-In order to model the key establishment phase in \gls{sakes}, it is assumed that the Diffie-Hellman key agreement is done correctly by letting $B$ and $D$ share their secret key to the power of the generator $g$. In addition, it is assumed that when the authors use notion of ``decrypting the ciphertext encrypted with the private key of $X$'', they actually mean that the message is signed using the private key of $X$, and that the signature can be verified by applying the corresponding public key. When it comes to the notation of \gls{mac-auth}s, an assumption is that the alleged \gls{mac-auth} that is sent between the router and the server that do not share any symmetric key is simply a hash of the message.
+Originally, the server distributes the generator $g$ and the prime modulus $P$ to the router. This means that a new message needs to be introduced to allow for the Diffie-Hellman procedure to be executed correctly. If the router $B$ either has these two cryptographic numbers preloaded in its memory or if the numbers get distributed from the border server, then the router can send $g^{Sk_B}$ to the server in its first message. As the original protocol specification got the Diffie-Hellman part wrong, the models presented in this section assume that the router has access to both $g$ and $P$ before initiating the key establishment process with the remote server $D$. Therefore, these two elements have been omitted from the key establishment phase in the model presented in this thesis.
 
-Originally, the server distributes the generator $g$ and the prime modulus $P$ to the router. This means that a new message needs to be introduces to allow for the Diffie-Hellman procedure to be executed correctly. If the router $B$ either has the these two cryptographic numbers preloaded in its memory, or if they get distributed from the border server, the router is able to send $g^{Sk_B}$ to the server in its first message. As the original protocol specification got the Diffie-Hellman part wrong, the models presented in this section assume that the router has access to both $g$ and $P$ before initiating the key establishment process with the remote server $D$.
+
+Also, the border router $C$ generates an ephemeral public-key pair for the router to use in the key establishment process. This, however, leads to challenges when separating the two phases. Thus, the ephemeral key pair is modelled as the regular public-key pair of the entity $B$. We can argue that this appropriate as the trusted authentication module have authenticated the ephemeral key pair, and transmitted to $B$ under the secret symmetric key $K_{B,C}$.
+
+
+To improve the accuracy of the analysis, the generated session key has been split into two separate keys, namely \texttt{SessionKeyA} and \texttt{SessionKeyD}. \texttt{SessionKeyA} is a fresh session key generated by the router $B$ and transported to $A$ to model the distribution of the session key from the router to end device. \texttt{SessionKeyD} is the key that is computed in the Diffie-Hellman key agreement between the router and the remote server. As it is not possible to directly model a Diffie-Hellman exponentiation in Scyther, session keys are computed by using the two hash functions $g1$ and $g2$. More specifically, instead of transmitting $g^{Sk_B}$, the router sends $g1(Sk_B)$ to the remote server, which returns $g1(Sk_D)$ to $B$. The session key is then derived by applying these two terms in a new hash function $g2$: $g2(g1(Sk_B), Sk_D)$. This gives an \emph{under-approximation} of that the two computed session keys are equal.
 
 
 \subsubsection{Security Claims}
 
-The session key establishment in \gls{sakes} is conducted between the router $B$ and the server $D$, before the session key is distributed from the router to the end device $A$. We assume that $A$ and $B$ have authenticated each other before the key establishment process is engaged. Listing \ref{lst:claims-a-sakes-key} shows the claims that is stated for the end device in the key establishment phase of \gls{sakes}. Since the only message that is sent between the two contains the session key, which is encrypted with their shared symmetric key $K_{A,B}$, we assume that the session key is secret by using the \gls{skr} claim. In addition, claims for non-injective synchronization and agreement have been added to ensure that the protocol is executing as expected based on the model.\\
+The session key establishment in \gls{sakes} is conducted between the router $B$ and the server $D$ before the session key is distributed from the router to the end device $A$. We assume that $A$ and $B$ have authenticated each other before the key establishment process is engaged. Listing \ref{lst:claims-a-sakes-key} shows the claims that are stated for the end device in the key establishment phase of \gls{sakes}. Since the only message that is sent between the two contains the session key, which is encrypted with their shared symmetric key $K_{A,B}$, we assume that the session key is secret by using the \gls{skr} claim. In addition, claims for non-injective synchronization and agreement have been added to ensure that the protocol is executing as expected based on the model.\\
 
 \begin{lstlisting}[caption={Security claims for role A during key establishment in SAKES.}, label={lst:claims-a-sakes-key}]
 	claim(A, Niagree);
@@ -209,18 +215,21 @@ The session key establishment in \gls{sakes} is conducted between the router $B$
 	claim(A, SKR, SessionKeyA);
 \end{lstlisting}
 
-As the router generates the session key on behalf of the end device $B$, we also state that the session key should be secret at the router side using the \gls{skr} claim as seen in Listing \ref{lst:claims-b-sakes-key}. As the router interacts with the remote server $D$, we also add claims for entity authentication. Finally, claims for non-injective synchronization and data agreement are added to verify that the protocols behaves as specified in the protocol model. \\
+As the router generates the session key on behalf of the end device $B$, we also state that the session key should be secret at the router side using the \gls{skr} claim as seen in Listing \ref{lst:claims-b-sakes-key}. As the router interacts with the remote server $D$, we also add claims for entity authentication. Finally, claims for non-injective synchronization and data agreement are added to verify that the protocols behave as specified in the protocol model. \\
 
 \begin{lstlisting}[caption={Security claims for role B during key establishment in SAKES.}, label={lst:claims-b-sakes-key}]
 	claim(B, Alive, D);
-	claim(B, Weakagree, D);
+	claim(B, Alive, B);		
+	claim(B, Weakagree, D);	
+	claim(B, Weakagree, B);
 	claim(B, Niagree);
 	claim(B, Nisynch);
 	claim(B, SKR, SessionKeyA);
+	claim(B, SKR, SessionKeyD);
 \end{lstlisting}
 
 
-For the remote server, authentication is claimed only between it and the router which is establishes session keys with. The end device is indirectly authenticated through the proof that is signed by the authentication module in the border router, but this is not modelled as a direct authentication claim in this model. The generated session key $SessionKeyD$ is claimed to be secret using the \texttt{SKR} notation. In addition, we also claim non-injective synchronization and agreement for the role as seen in Listing \ref{lst:claims-d-sakes-key}.\\
+For the remote server, authentication is claimed only between it and the router which it establishes session keys with. The end device is indirectly authenticated through the proof that is signed by the authentication module in the border router, but this is not modelled as a direct authentication claim in this model. The generated session key is claimed to be secret using the \texttt{SKR} notation. In addition, we also claim non-injective synchronization and agreement for the role as seen in Listing \ref{lst:claims-d-sakes-key}.\\
 
 
 % run verification with Alive, Weakagree, for A?
@@ -234,11 +243,12 @@ For the remote server, authentication is claimed only between it and the router 
 
 \subsubsection{Adversary}
 
-For the key establishment phase, we assume a Dolev-Yao adversary which is capable of eavesdropping, delete messages, compute cryptographic analysis on intercepted messages, forge new messages from its knowledge, and insert them into the network. It is allowed for the adversary to obtain the session keys for all sessions whose identifier differs from the current session's identity. As \gls{sakes} utilizes a form of Diffie-Hellman key agreement, it is also assumed that the protocol should possess forward secrecy, especially since the half of the key is fixed as the remote server uses a permanent public key pair.
+For the key establishment phase, we assume a Dolev-Yao adversary who is capable of eavesdropping, delete messages, compute cryptographic analysis on intercepted messages, forge new messages from its knowledge, and insert them into the network. It is allowed for the adversary to obtain the session keys for all sessions whose identifier differs from the current session's identity. As \gls{sakes} utilizes a form of Diffie-Hellman key agreement, it is also assumed that the protocol should possess forward secrecy, especially since the half of the key is fixed as the remote server uses a permanent public key pair.
 
 \subsection{Results}
+\label{subsec:sakes-keys-results}
 
-The results of verifying the model of the key establishment phase in \gls{sakes} using Scyther is presented in Figure \ref{fig:sakes-verified-keys}. Entity authentication of both the router and the server is provided and verified in the key establishment process, but stronger notion such as \texttt{Weakagree} for the server $D$ is falsified for the router $B$ in this model. Both non-injective synchronization and data agreement are falsified for each of the roles in the key establishment phase. \gls{sakes} achieves known-key secrecy of the computed session key for both the router and the server, as well as the end device who receives the session key from the router.  If the model is run in presence of an adversary that is allowed to obtain the long-term private key, the generated session key is falsified, as \gls{sakes} does not provide forward secrecy.
+The results of verifying the model of the key establishment phase in \gls{sakes} using Scyther is presented in Figure \ref{fig:sakes-verified-keys}. Entity authentication of both the router and the server is provided and verified in the key establishment process but is falsified for the end device. Stronger notions of authentication such as \texttt{Weakagree} for the end device $A$ and the server $D$ are falsified for the router $B$ in this model. Both non-injective synchronization and data agreement are falsified for the end device and the router in the key establishment phase.
 
 \begin{figure}[h]
 	\centering
@@ -249,21 +259,44 @@ The results of verifying the model of the key establishment phase in \gls{sakes}
 
 \begin{list}{•}{}
 
-\item \texttt{SAKES\_KEYS, A2 \& B4 \& D4 Nisynch}: The attacks on the non-injective synchronization claim are shown in Figure \#. In this attack, the adversary extracts the proof from the intercepted message, and generates its own public key pair and nonces in order to 	forge a message to the remote server. However, as the server verifies the identities within the the proof it is questionable whether this attack manifests in a full-size model of the protocol which includes both phases.
 
-\item \texttt{SAKES\_KEYS, A1 \& B3 \& D3 Niagree}:
+\item \texttt{SAKES\_KEYS, A1 \& A2, Niagree \& Nisynch}: The attack on the non-injective synchronization and the data agreement claims for the end device $A$ is shown in Figure \ref{fig:sakes-attack-keys-a-niagree-nisynch} in Appendix \ref{app:attacks}. Non-injective synchronization and data agreement are falsified because the adversary can generate its response to the message that is sent between the router $B$ and the remote server $D$. This attack occurs because the remote server does not authenticate itself to the router, which can be problematic. Given that the remote server's public key is not published (not mentioned in the specifications), then there is not possible for the router to verify that the received response does, in fact, originate from the trusted remote server $D$. Another important part of this attack, is that there is no linkage between the message that is sent from the router to the server and the response that is received following this message. 
 
-\item \texttt{SAKES\_KEYS, B2 Weakagree D}: Because the proof is not returned.
+\item \texttt{SAKES\_KEYS, B2 \& B4, Alive A \& Weakagree A}: Entity authentication is for the end device is falsified by Scyther. However, if the attack in Figure \ref{fig:sakes-attack-keys-b-alive-a} in Appendix \ref{app:attacks} is inspected, we see that it does not involve the end device at all. In the model of the key establishment phase, the end device does not contribute to the protocol, and hence, it is impossible for the router to determine whether the end device has ever participated in the protocol runs at all. This attack will be inspected more carefully in the next subsection.
+
+\item \texttt{SAKES\_KEYS, B4, Weakagree D}: Scyther also discovers an attack on the weakagree claim of the remote server at the router, as seen in Figure \ref{fig:sakes-attack-keys-b-weakagree-d} in Appendix \ref{app:attacks}. This attack indicates that the adversary is able to impersonate the remote server $D$, and forge response messages that are sent to the router during the key establishment phase. As the responses are not authenticated, nor contains a linkage to the previous request, there is no way for the router to detect if the message originates from the remote server, nor which request it is tied to.
+
+\item \texttt{SAKES\_KEYS, B5 \& B6 Niagree \& Nisynch}: The attacks targeted at the non-injective synchronization and data agreement claims are identical.  This is essentially the same attack as the one Scyther proposed on the \texttt{weakagree} claim above, which can be reviewed in Figure \ref{fig:sakes-attack-keys-b-weakagree-d} in Appendix \ref{app:attacks}. In this attack, the adversary can use the computed part of the session key $g1(Sk_B)$ in a new message that is sent from the remote server $D$ to the router $B$ that differs from what was originally sent, as the responses from the server is not authenticated or linked to a request.
+
 \end{list}
 
 
-\section{Limitations in the Analysis}
+\subsubsection{Deeper analysis of the entity authentication of the end device at the router}
 
-Even though Scyther is a powerful tool for formal security analysis, there are certain types of attacks that it is not able to model. Replay attacks, where the adversary saves a captured frame for injecting it into the network at a later time, are not possible to model in Scyther. Both \gls{akes} and \gls{apkes} claim to avoid replay attacks through the 802.15.4 security sub-layer and the use of frame counters to discover frames that have been previously observed \cite{krentz2015handling, krentz20136lowpan}.
+Above, Scyther discovered an attack that falsified the entity authentication of the end device (\texttt{SAKES\_KEYS, B2 \& B4, Alive A \& Weakagree A}). Apparently, there is no evidence for that the end device has ever run the protocol. However, the end device is the entity that kicks off the protocol, but due to a large state-space, the key establishment model is not able to capture this. Therefore, this part of the protocol is analysed more carefully. By isolating the two roles $A$ and $B$ in the key establishment, another model is presented in Appendix \ref{app:sakes-keys-ab}. This captures the interaction between the end device and the router and includes the exchanging of the two nonces $N_A$ and $N_B$ from the authentication phase.
 
-\gls{sakes} claims to prevent replay attacks by adding nonces and \gls{mac-auth}s to prevent messages from being tampered with and to ensure freshness \cite{hussen2013sakes}. This analysis does not, however, verify these claims. As the \gls{sakes} protocol proved to be computational expensive to verify on the available equipment, it has been divided into two separate protocols. While the analysis finds certain attacks on the two phases, there may be additional attacks that the models are unable to detect.
+In this model, the interaction between the router and the remote server in establishing the session key is omitted. Instead, the router generates a fresh key, without giving it any specific properties. This key is used to illustrate the last part of the key establishment phase, where the router distributes the computed session key to the end device.
 
-The big weakness with this analysis is that the mutual authentication that is achieved between $A$, $B$, and $C$ in the authentication phase is not transferable to the key establishment phase. Therefore, the necessary values are freshly generated at the appropriate places. For example are the nonce $N_C$ generated at the router $B$ before the router sends its first message in the key establishment phase.  
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.70]{analysis/sakes-keys-ab-verified.png}
+	\caption{Result of verifying SAKES' the key distribution between the router $B$ and the end device $A$ in the key establishment phase.}
+	\label{fig:sakes-verified-keys-ab}
+\end{figure}
+
+The results of using Scyther to verify this model is presented in Figure \ref{fig:sakes-verified-keys-ab} below. As observed, this part of the protocol is able to provide entity authentication of the end device, which was falsified in the model that captured the entire key establishment phase. This is because in the model only focusing on the end device and the router contains the nonce $N_A$, which indicates that the end device must have run the protocol at some point. We observe that stronger notions of authentication such as Weakagree are falsified, as well as non-injective synchronization and data agreement. These attacks will be addressed in Section \ref{subsec:sakes-fix} in Chapter \ref{chp:discussion}. Also, the freshly generated session key is distributed securely to the end device.
+
+
+Therefore, it is fair to assume that the key establishment phase of \gls{sakes} actually provides entity authentication when it is protocol is verified in a complete model containing the entire protocol execution. 
+
+
+\subsection{Incompleteness in the Analysis of SAKES}
+
+As the \gls{sakes} protocol proved to be computational and time expensive to verify on the available equipment, it has been divided into two separate protocols for the analysis to provide some insight in \gls{sakes} security. Therefore, the mutual authentication that is achieved between $A$, $B$, and $C$ in the authentication phase is not transferable to the key establishment phase. The separation may or may not cause some of the attacks that are discovered because of lack of authentication, and could also lead to attacks that bypass the analysis undiscovered.
+
+\section{General Limitations in the Analysis}
+
+Even though Scyther is a powerful tool for formal security analysis, there are certain types of attacks that Scyther is not able to model. Replay attacks, where the adversary saves a captured frame for injecting it into the network at a later time, are not possible to model in Scyther. Both \gls{akes} and \gls{apkes} claim to avoid replay attacks through the 802.15.4 security sub-layer and the use of frame counters to discover frames that have been previously observed \cite{krentz2015handling, krentz20136lowpan}. \gls{sakes} claims to prevent replay attacks by adding nonces and \gls{mac-auth}s to prevent messages from being tampered with and to ensure freshness \cite{hussen2013sakes}. However, the presented analyses do not verify such security properties.
 
 
 % Litt mer?
@@ -291,6 +324,9 @@ The big weakness with this analysis is that the mutual authentication that is ac
 % Explicit. Implicit + key confirmation
 
 
+%\item \texttt{No matching of session keys}: The key establishment model presented in this section does not verify whether the computed session keys at $B$ and $D$'s side are equal. The \gls{skr} claim for the end device and router are assessing the same session key, but there is not modelled any connection to the session key that is derived at the remote server's end. This is because the session keys are computed in a Diffie-Hellman manner which, which is not directly supported in Scyther. As there has not been modelled any computability to match these keys, these 
+%
+
 
 
 %As \gls{sakes} uses Diffie-Hellman, which Scyther does not originally support, a ``hack'' has been introduced to enable Scyther to interpret $(g^a)^b$ and $(g^b)^a$ as equal. Diffie-Hellman can be modelled by introducing a helper protocol in Scyther that underapproximates $g^{x}$ into $hashfunction(g, x)$. The helper protocol is shown in Listing \ref{lst:helper} and is marked with the at-symbol (@). This allows Scyther to interpret the two terms $g2(g1(T1),T2)$ and $g2(g1(T2), T1)$ as approximate equal \cite{scyther-manual}.\\
@@ -309,3 +345,15 @@ The big weakness with this analysis is that the mutual authentication that is ac
 %	}
 %}
 %\end{lstlisting}
+
+
+
+%\item \texttt{SAKES\_KEYS, A3 \& B6 \& D6 SKR g2(g1(sk(D)), sk(B))}: The model prese-\\nted to analyse the key establishment phase of \gls{sakes} finds an attack on the computed session keys, claiming that they are not secret. Figure \ref{fig:sakes-attack-keys-skr} in Appendix \ref{app:attacks} shows the discovered attack. If we inspect the attack, we see that it is directed on the last message of the protocol, where the session key is sent from the router $B$ to the end device $A$. Because of the absence of authentication as the protocol is divided into two models, the session key may be distributed to the wrong party. This assumption is confirmed by removing the last part of the protocol (i.e. the distribution of the session key from $B$ to $A$) in the model. Figure \ref{fig:sakes-verified-keys-2} shows the result of the analysis, where the generated sessions keys are now secure.
+%
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[scale=0.668]{analysis/sakes-keys-verified-without-a.png}
+%	\caption{Result of verifying SAKES' key establishment without the final protocol message using Scyther.}
+%	\label{fig:sakes-verified-keys-2}
+%\end{figure}

@@ -6,10 +6,6 @@ In this chapter, three proposed protocols for key establishment in 6LoWPAN netwo
 
 \section{General Properties}
 
-REPHRASE
-
-General properties are properties that affects key establishment schemes at generally basis, Specific properties for key establishment schemes are mentioned Chapter \ref{chp:analysis}.
-
 \paragraph{Key scheme} As mentioned in Section \ref{subsec:keys-schems}, multiple versions of key establishment schemes exist. The network-wide shared key and pairwise keys are commonly used for symmetric key schemes, while public-key schemes is another option where encryption and decryption is done using separate, but mathematically tied, keys. Session keys are symmetric keys which are used for a single session, before never to be used again. These are often used in conjunction with public-key cryptography.
 
 \paragraph{Replay Protection} Replay protection is a general property for a network which prevents an adversary from capturing a data frame and injecting (\emph{replaying}) at a later time. Fortunately, the \gls{ieee} 802.15.4 security sub-layer is capable of filtering out replayed frames and preventing injection \cite{krentz20136lowpan}.
@@ -26,20 +22,21 @@ When a node is compromised for a public-key scheme, this usually includes the ad
 
 \paragraph{\gls{dos} attacks}
 
-\gls{dos} attacks are essentially flooding an entity with more requests than it is able to handle to force it to break down. In a key establishment setting, this would be to overwhelm a device with key establishment requests. The goal with such a \gls{dos} attack could be to drain drain the device for battery, but also to keep the device from establishing keys with other devices in the network.
+\gls{dos} attacks are essentially flooding an entity with more requests than it is able to handle to force the entity to break down. In a key establishment setting, this would be to overwhelm a device with key establishment requests. The goal with such a \gls{dos} attack could be to drain the device for battery, but also to keep the device from establishing keys with other devices in the network.
 
 \paragraph{Wormhole attacks}
 
-As explained, \gls{dos} attacks actively target an entity to deny it from providing a service or performing a certain operation. Wormhole attacks are more passive attacks, where the adversary announces its node as the best route between two nodes $A$ and $B$ to trick the network into choosing the path through the adversary. By announcing exceptional good signal between two nodes, the adversary creates a non-existent path between the two nodes referred to as a \emph{wormhole}. Now the attacker can turn a link in the network on and off at its own choosing, and also drop specific frames, for example those initiating key establishments. How to avoid such attacks is the topic of current research \cite{krentz20146lowpan}.
+As explained, \gls{dos} attacks actively target an entity to deny it from providing a service or performing a certain operation. Wormhole attacks are more passive attacks, where the adversary announces itself as the best path between two nodes $A$ and $B$ to trick the network into choosing the path through the adversary. By announcing exceptional good signal between two nodes, the adversary creates a non-existent path between the two nodes referred to as a \emph{wormhole}. Now the attacker can turn a link in the network on and off at its own choosing, and also drop specific frames, for example those initiating key establishments. How to avoid such attacks is the topic of current research \cite{krentz20146lowpan}.
 
+\newpage
 
 \section{Adaptable Pairwise Key Establishment Scheme (APKES)}
 
 \begin{table}[h]
 \begin{tabular}{lr}
-\textbf{Key scheme:} & Pairwise keys  \\
+\textbf{Key scheme:} & Pairwise symmetric keys  \\
 \textbf{Replay protection:}	 & Yes  \\
-\textbf{Node compromise resilient:} & Yes  \\
+\textbf{Node compromise resilient:} & Yes, with EBEAP  \\
 \textbf{Key revocation:} & No \\
 \textbf{Tamper resistant} & No \\
 \textbf{\gls{dos} resilient:} & Yes \\
@@ -61,11 +58,20 @@ Figure \ref{fig:6lowpan-krentz} illustrates how \gls{apkes} is implemented at th
 	\label{fig:6lowpan-krentz}
 \end{figure}
 
+
+\subsection{Allowing ``Pluggable'' Schemes to Increase Universality} 
+
 \gls{apkes} provides a ``pluggable'' key establishment scheme for \gls{6lowpan} networks using pairwise keys, where the developer of a \gls{6lowpan} network picks an appropriate key establishment scheme and delegates \gls{apkes} into handling the key establishment with other nodes \cite{krentz20136lowpan}. As there is no general scheme for \gls{6lowpan} networks, the use of pluggable schemes enhance the overall usability of the protocol, as the developer can use the most appropriate scheme based on the challenges he faces. The only function of the plugged-in scheme is to feed \gls{apkes} with the shared secret for the communicating nodes, and \gls{apkes} will handle both key establishment and key management. Examples of pluggable schemes that have been suggested for \gls{apkes} are \gls{leap} \cite{zhu2006leap+}, Blom's Scheme \cite{blom1984optimal}, and random pairwise keys \cite{chan2003random}. In the case of random pairwise keys, path key establishment has to be implemented in addition to \gls{apkes}.
+
+\subsection{Avoiding Denial of Service Attacks}
 
 During the key establishment process, a responding node goes from not being a neighbour to a tentative neighbour, before ending up as a permanent neighbour, given that the key establishment was successfully executed. The change of neighbour status is implemented to prevent \gls{dos} attacks on nodes by flooding them with messages for starting key establishments (\texttt{HELLO} messages), which would force them to reply to each message (denoted as \texttt{HELLOACK}), potentially draining their battery. Also, injecting and replaying these responses could aid an attacker in draining the network-nodes for batteries. Upon receiving a \texttt{HELLO} message, the responder ($B$) checks if the initiator ($A$) is already a neighbour, and that it has available space in its list of tentative neighbours, which is limited to $M_t$ neighbours. 
 
-\gls{apkes} modifies the security sub-layer of 802.15.4 to instantly discard data frames that arrive from non-permanent neighbours, only accepting \texttt{HELLO}s, \texttt{HELLOACK}s, or \texttt{ACK}s. By limiting the number of tentative neighbours, $B$ is protected against consecutive \texttt{HELLO} messages, which are discarded without being processed when the number of tentative neighbours exceeds $M_t$. The list of tentative neighbours is processed for each \texttt{HELLO}, where neighbours whose expiration time has expired are deleted. The \gls{ebeap} is a suggested protocol for authenticating broadcast frames in \gls{6lowpan} networks which use \gls{apkes} as their key establishment scheme, and is implemented along with \gls{apkes} in the data link layer. \gls{ebeap} does not have any direct influence of the key establishment process, but runs in cooperation with \gls{apkes} to provide node compromise resilience to network. 
+\gls{apkes} modifies the security sub-layer of 802.15.4 to instantly discard data frames that arrive from non-permanent neighbours, only accepting \texttt{HELLO}s, \texttt{HELLOACK}s, or \texttt{ACK}s. By limiting the number of tentative neighbours, $B$ is protected against consecutive \texttt{HELLO} messages, which are discarded without being processed when the number of tentative neighbours exceeds $M_t$. The list of tentative neighbours is processed for each \texttt{HELLO}, where neighbours whose expiration time has expired are deleted.
+
+\subsection{Node Compromise Resilience}
+
+The \gls{ebeap} is a suggested protocol for authenticating broadcast frames in \gls{6lowpan} networks which use \gls{apkes} as their key establishment scheme, and is implemented along with \gls{apkes} in the data link layer. \gls{ebeap} does not have any direct influence of the key establishment process, but runs in cooperation with \gls{apkes} to provide node compromise resilience to network. When \gls{apkes} is run in conjunction with \gls{ebeap}, compromised nodes are only able to decrypt broadcast frames of its neighbours, but are not capable of impersonating the compromised node. However, \gls{ebeap} and its contribution is outside of the scope of this thesis.
 
 %The status change from a tentative to a permanent neighbour is potentially done upon receiving a valid, non-replayed \texttt{HELLOACK} or \texttt{ACK} from a non-permanent neighbour.
 
@@ -81,19 +87,19 @@ Key establishment in \gls{apkes} consists of a three-way handshake, as described
 
 \begin{enumerate}
 
-\item When a node $A$ in a \gls{6lowpan} network running \gls{apkes} wants to establish contact with other nodes, it broadcasts an unauthenticated \texttt{HELLO} message containing a random nonce $R_A$.
+\item When a node $A$ in a \gls{6lowpan} network running \gls{apkes} wants to establish contact with other nodes, it broadcasts an unauthenticated \texttt{HELLO} message containing a random nonce $N_A$.
 
-\item Upon receiving a \texttt{HELLO}, $B$ computes a random nonce, $R_B$, as well, and stores the concatenation of the two.
+\item Upon receiving a \texttt{HELLO}, $B$ computes a random nonce, $N_B$, as well, and stores the concatenation of the two.
 
 \item $B$ then waits for a random time $T_w$. The waiting period is introduced to avoid flooding $A$ with responses, as there may be an unknown number of nodes that received the broadcasted \texttt{HELLO} message.
 
-\item After $T_w$, $B$ loads its key $K_{B,A}$ from the pluggable key scheme, and uses this key to authenticate a \texttt{HELLOACK} message containing the generated $R_B$ nonce and the received $R_A$ by computing \gls{mic}s. \gls{mic}s are generated by the 802.15.4 security sublayer, through the use of \gls{ccm}* operation mode in a block cipher. \gls{ccm}* is a modified version of the regular \gls{ccm} which allows for the payload of the frame to be encrypted using \gls{aes} with a 128-bit key \cite{krentz20136lowpan} \gls{ccm}* has additional capabilities, where the sender can choose whether to encrypt or authenticate the data.
+\item After $T_w$, $B$ loads its key $K_{B,A}$ from the pluggable key scheme, and uses this key to authenticate a \texttt{HELLOACK} message containing the generated $N_B$ nonce and the received $N_A$ by computing \gls{mic}s. \gls{mic}s are generated by the 802.15.4 security sublayer, through the use of \gls{ccm}* operation mode in a block cipher. \gls{ccm}* is a modified version of the regular \gls{ccm} which allows for the payload of the frame to be encrypted using \gls{aes} with a 128-bit key \cite{krentz20136lowpan} \gls{ccm}* has additional capabilities, where the sender can choose whether to encrypt or authenticate the data.
 
 \item \gls{apkes} uses $K_{B,A}$ to authenticate the \texttt{HELLOACK}, and sends it to $A$. Afterwards, $B$ obtains the pairwise key $K'_{B,A}$ for future communication with $A$, by plugging $K_{B,A}$ it into the \gls{aes} algorithm along with the two nonces.
 
-\item When $A$ receives a \texttt{HELLOACK} message, it verifies the attached \gls{mic} by extracting its key $K_{A,B}$ from the pluggable scheme and computing the \gls{mic} for the concatenation of $R_A$ and $R_B$.
+\item When $A$ receives a \texttt{HELLOACK} message, it verifies the attached \gls{mic} by extracting its key $K_{A,B}$ from the pluggable scheme and computing the \gls{mic} for the concatenation of $N_A$ and $N_B$.
 
-\item $A$ then computes the pairwise key for communicating with $B$ by plugging it into the \gls{aes} algorithm. $A$ also checks that the $R_A$ value has not been tampered with, and is equal to the value it initially sent in its \texttt{HELLO} broadcast.
+\item $A$ then computes the pairwise key for communicating with $B$ by plugging it into the \gls{aes} algorithm. $A$ also checks that the $N_A$ value has not been tampered with, and is equal to the value it initially sent in its \texttt{HELLO} broadcast.
 
 \item The three-way handshake ends with $A$ sending an \texttt{ACK} to $B$ that is authenticated using the pairwise key $K'_{A,B}$.
 
@@ -101,7 +107,7 @@ Key establishment in \gls{apkes} consists of a three-way handshake, as described
 
 \end{enumerate}
 
-%Key establishment in \gls{apkes} consists of a three-way handshake, as described in Figure \ref{fig:apkes-handshake}. When a node $A$ in a \gls{6lowpan} network running \gls{apkes} wants to establish contact with other nodes, it broadcasts an unauthenticated \texttt{HELLO} message containing a random nonce $Ra$. Upon receiving a \texttt{HELLO}, $B$ computes a random nonce, $Ra$, as well, and stores the concatenation of the two. $B$ then waits for a random time $T_w$. The waiting period is introduced to avoid flooding $A$ with responses, as there may be an unknown number of nodes that received the broadcasted \texttt{HELLO} message. After $T_w$, $B$ loads its key $K_{B,A}$ from the pluggable key scheme, and uses this key to authenticate a \texttt{HELLOACK} message containing the computed $R_B$ nonce and the received $R_A$. \gls{mic}s are generated by the 802.15.4 security sublayer, through the use of \gls{ccm}* operation mode in a block cipher. \gls{ccm}* is a modified version of the regular \gls{ccm} allowing for the payload of the frame to be encrypted using \gls{aes} with a 128-bit key \cite{krentz20136lowpan}. \gls{apkes} uses $K_{B,A}$ to authenticate the \texttt{HELLOACK}, and sends it to $A$. Afterwards, $B$ obtains the pairwise key $K'_{B,A}$ for future communication with $A$, by plugging $K_{B,A}$ it into the \gls{aes} algorithm along with the two nonces.
+%Key establishment in \gls{apkes} consists of a three-way handshake, as described in Figure \ref{fig:apkes-handshake}. When a node $A$ in a \gls{6lowpan} network running \gls{apkes} wantsSymmetric and  to establish contact with other nodes, it broadcasts an unauthenticated \texttt{HELLO} message containing a random nonce $Ra$. Upon receiving a \texttt{HELLO}, $B$ computes a random nonce, $Ra$, as well, and stores the concatenation of the two. $B$ then waits for a random time $T_w$. The waiting period is introduced to avoid flooding $A$ with responses, as there may be an unknown number of nodes that received the broadcasted \texttt{HELLO} message. After $T_w$, $B$ loads its key $K_{B,A}$ from the pluggable key scheme, and uses this key to authenticate a \texttt{HELLOACK} message containing the computed $R_B$ nonce and the received $R_A$. \gls{mic}s are generated by the 802.15.4 security sublayer, through the use of \gls{ccm}* operation mode in a block cipher. \gls{ccm}* is a modified version of the regular \gls{ccm} allowing for the payload of the frame to be encrypted using \gls{aes} with a 128-bit key \cite{krentz20136lowpan}. \gls{apkes} uses $K_{B,A}$ to authenticate the \texttt{HELLOACK}, and sends it to $A$. Afterwards, $B$ obtains the pairwise key $K'_{B,A}$ for future communication with $A$, by plugging $K_{B,A}$ it into the \gls{aes} algorithm along with the two nonces.
 
 
 %When $A$ receives a \texttt{HELLOACK} message, it verifies the attached \gls{mic} by extracting its key $K_{A,B}$ from the pluggable scheme and computing the \gls{mic} for the concatenation of $R_A$ and $R_B$. $A$ then computes the pairwise key for communicating with $B$ by plugging it into the \gls{aes} algorithm. $A$ also checks that the $R_A$ value has not been tampered with, and is equal to the value it initially sent in its \texttt{HELLO} broadcast. The three-way handshake ends with $A$ sending an \texttt{ACK} to $B$ that is authenticated using the pairwise key $K'_{A,B}$. When $B$ receives the \texttt{ACK}, it verifies the \gls{mic} by using its derived pairwise key $K'_{B,A}$. After this process, $A$ and $B$ have successfully agreed upon a shared pairwise key where $K'_{A,B} = K'_{B,A}$, which is to be used for encrypting all future communication between the two nodes.
@@ -113,14 +119,14 @@ Key establishment in \gls{apkes} consists of a three-way handshake, as described
 \begin{figure}[h]
 \begin{tcolorbox}[title=Three-way handshake in APKES]
 \begin{align*}
-A:\ & Generate\ R_A\ randomly\\
-A \rightarrow *:\ & \texttt{HELLO}\langle{R_A}\rangle{}\\
-B:\ & Generate\ R_B\ randomly.\ Wait\ T_w \leq M_w\\
+A:\ & Generate\ N_A\ randomly\\
+A \rightarrow *:\ & \texttt{HELLO}\langle{N_A}\rangle{}\\
+B:\ & Generate\ N_B\ randomly.\ Wait\ T_w \leq M_w\\
 B:\ & K_{B,A}\ from\ pluggable\ scheme\\
-B \rightarrow A:\ & \texttt{HELLOACK}\langle{R_A, R_B}\rangle{K_{B,A}}\\
-B:\ & K'_{B,A}\ =\ AES(K_{B,A}, R_A || R_B)\\
+B \rightarrow A:\ & \texttt{HELLOACK}\langle{N_A, N_B}\rangle{K_{B,A}}\\
+B:\ & K'_{B,A}\ =\ AES(K_{B,A}, N_A || N_B)\\
 A:\ & K_{A,B}\ from\ pluggable\ scheme\\
-A:\ & K'_{A,B}\ =\ AES(K_{A,B}, R_A || R_B)\\
+A:\ & K'_{A,B}\ =\ AES(K_{A,B}, N_A || N_B)\\
 A \rightarrow B:\ & \texttt{ACK}\langle{}\rangle{K'_{A,B}}
 \end{align*}
 \end{tcolorbox}
@@ -133,7 +139,7 @@ A \rightarrow B:\ & \texttt{ACK}\langle{}\rangle{K'_{A,B}}
 
 One focus of \gls{apkes} is to provide authentication of parties during the key establishment process. By inspecting the messages that are exchanged between the two sides in Figure \ref{fig:apkes-handshake}, we observe that no encryption is involved in the handshake, but messages are authenticated by the use of \gls{mic}s. These \gls{mic}s are either computed using $K_{A,B}$ (the pre-shared secret) or $K'_{A,B}$ (the established pairwise key). Therefore, we can assume that entity authentication has to hold for the two communicating parties. Also, as mentioned in Section \ref{sec:attributes}, \emph{implicit} and \emph{explicit} key authentication are two of the other attributes within authentication.
 
-For a three-way handshake such as the one used by \gls{apkes}, the initiator achieves \emph{implicit} key authentication, while the responder ($B$) achieves \emph{explicit} key authentication. As the pairwise key is computed from the two nonces that are shared between $A$ and $B$, and the secret from the pluggable scheme (which we assume is secure), both know that the only parties that can compute the pairwise key are those possessing the pre-shared secret, giving them both implicit key authentication. $B$ also receives an \texttt{ACK} which is authenticated using the pairwise key $K'_{A,B}$, effectively meaning that $A$ has computed the pairwise key. $B$ can confirm this by verifying the attached \gls{mic}, hence $B$ can be said to achieve explicit key authentication of $A$. From $A$'s point of view, however, it has no confirmation of that $B$ has in fact computed the pairwise key, other than it knows that $B$ has to in order to verify the authenticity of the \texttt{ACK}. Also, as \gls{apkes} is a key establishment protocol, the established key is of course assumed to be secret from the adversary.
+For a three-way handshake such as the one used by \gls{apkes}, the initiator achieves implicit key authentication, while the responder ($B$) achieves explicit key authentication. As the pairwise key is computed from the two nonces that are shared between $A$ and $B$, and the secret from the pluggable scheme (which we assume is secure), both know that the only parties that can compute the pairwise key are those possessing the pre-shared secret, giving them both implicit key authentication. $B$ also receives an \texttt{ACK} which is authenticated using the pairwise key $K'_{A,B}$, effectively meaning that $A$ has computed the pairwise key. $B$ can confirm this by verifying the attached \gls{mic}, hence $B$ can be said to achieve explicit key authentication of $A$. From $A$'s point of view, however, it has no confirmation of that $B$ has in fact computed the pairwise key, other than it knows that $B$ has to in order to verify the authenticity of the \texttt{ACK}. Also, as \gls{apkes} is a key establishment protocol, the established key is of course assumed to be secret from the adversary.
 
 \subsection{Weaknesses and Challenges with APKES}
 \label{subsec:apkes-weakness}
@@ -152,11 +158,30 @@ These issues can be applied to a real life scenario to better understand the lim
 
 \section{Adaptable Key Establishment Scheme (AKES)}
 
+
+\begin{table}[h]
+\begin{tabular}{lr}
+\textbf{Key scheme:} & Symmetric and session keys  \\
+\textbf{Replay protection:}	 & Yes  \\
+\textbf{Node compromise resilient:} & Yes, with \gls{ebeap}  \\
+\textbf{Key revocation:} & No \\
+\textbf{Tamper resistant} & No \\
+\textbf{\gls{dos} resilient:} & Yes \\
+\textbf{Wormhole resilient:} & No \\
+\end{tabular}
+\end{table}
+
 The \gls{akes} aims to improve and fix the weaknesses that were introduced in \gls{apkes} and is currently implemented in the Contiki operating system \cite{krentz2015handling}. Its primary goal is to establish session keys between devices in a \gls{6lowpan} network while being able to withstand reboots and movement from one network to another. As described in Section \ref{subsec:apkes-weakness}, \gls{apkes} suffered from issues when restarting the device, and it was not able to provide any mobility. Most of these problems can be solved by one ``simple'' adjustment: Establishing session keys between nodes instead of long-term keys. By establishing session keys, \gls{mic}s from previous sessions would be invalidated, which enables the node to delete data used for providing replay protection (such as frame counters), and will also filter out old frames. Also, this removes the problem related to frame counters being reset after a reboot, as mentioned in Section \ref{subsec:apkes-weakness}. 
 
 \gls{akes} builds on the approach from \gls{apkes}, where the underlying scheme is pluggable, and provides \gls{akes} with the secret that is pre-shared between the nodes. Before an 802.15.4 node can run \gls{akes}, addressing information (which uniquely identifies a node within an 802.15.4 network and is used by the pluggable scheme when establishing the shared secret) and keying material has to be preloaded into it. \gls{akes} also has access to the same command frames \texttt{HELLO}, \texttt{HELLOACK}, and \texttt{ACK}, which are used to establish session keys, and only processed by the data link layer. Figure \ref{fig:6lowpan-krentz} describes where \gls{apkes} is implemented in the \gls{6lowpan} stack, and as \gls{akes} is merely an improvement over \gls{apkes}, it is implemented in the same layer as the 802.15.4 Security Sublayer. 
 
-As in \gls{apkes}, \gls{akes} also utilizes a differentiation between non-neighbours, temporary neighbours, and permanent neighbours. When a node sends a \texttt{HELLO}, it obtains a temporary node status at the receiver. This status will be changed to a permanent neighbour upon receipt of an authentic \texttt{ACK} message as part of the final step in the session key establishment. Keep in mind that one of the issues with \gls{apkes} was the deadlock state rebooted nodes would start in with previously permanent neighbours. In \gls{akes}, a permanent neighbour who transmits a \texttt{HELLO} message will obtain a status as a temporary neighbour in addition to its old permanent neighbour status until the \texttt{ACK} is received. After receiving the \texttt{ACK}, the permanent neighbour status is deleted, and the temporary neighbour is turned into a permanent one, which effectively renews the session between the two nodes. When a permanent neighbour (i.e. a session key) is established, the neighbour is assigned an expiration time when the key becomes invalid. The lifetime of a session is, however, prolonged for each received, authentic frame from the particular session, and can also be extended by issuing individual commands. 
+\subsection{Renewing a Session}
+
+As in \gls{apkes}, \gls{akes} also utilizes a differentiation between non-neighbours, temporary neighbours, and permanent neighbours. When a node sends a \texttt{HELLO}, it obtains a temporary node status at the receiver. This status will be changed to a permanent neighbour upon receipt of an authentic \texttt{ACK} message as part of the final step in the session key establishment. Keep in mind that one of the issues with \gls{apkes} was the deadlock state rebooted nodes would start in with previously permanent neighbours.
+
+In \gls{akes}, a permanent neighbour who transmits a \texttt{HELLO} message will obtain status as a temporary neighbour in addition to its old permanent neighbour status until the \texttt{ACK} is received. After receiving the \texttt{ACK}, the permanent neighbour status is deleted, and the temporary neighbour is turned into a permanent one, which effectively renews the session between the two nodes. When a permanent neighbour (i.e. a session key) is established, the neighbour is assigned an expiration time when the key becomes invalid. The lifetime of a session is, however, prolonged for each received, authentic frame from the particular session, and can also be extended by issuing individual commands. 
+
+\subsection{Preventing Deadlocks and Removing Neighbours}
 
 \gls{akes} introduces two tasks for preventing deadlocks and increasing mobility for devices while still keeping \gls{dos} attacks in mind: Periodically pinging its permanent neighbours to delete disappeared nodes, and discover new neighbours by routinely broadcasting \texttt{HELLO}s. When a session with a neighbour expires, the node issues an authenticated \texttt{UPDATE} command and sends it to the node, which potentially responds with an \texttt{UPDATEACK}. A received \texttt{UPDATEACK} leads to both parties of the session extending the lifetime of their key, while the absence of such an acknowledgement, it will try a few times before eventually giving up and deleting the neighbour from its view of the network.
 
@@ -165,14 +190,14 @@ Trickle, which is an algorithm for distributing information in \gls{wsn}s \cite{
 \begin{figure}[h]
 \begin{tcolorbox}[title=Three-way handshake in AKES]
 \begin{align*}
-A:\ & Generate\ R_A\ randomly\\
-A \rightarrow *:\ & \texttt{HELLO}\langle{PAN_A, ID_A, R_A, C_A}\rangle{}\\
+A:\ & Generate\ N_A\ randomly\\
+A \rightarrow *:\ & \texttt{HELLO}\langle{PAN_A, ID_A, N_A, C_A}\rangle{}\\
 B:\ & K_{B,A}\ from\ pluggable\ scheme\\
-B:\ & Generate\ R_B\ randomly.\ Wait\ for\ T_w \leq M_w\\
-B:\ & K'_{B,A}\ =\ AES(K_{B,A}, R_A || R_B)\\
-B \rightarrow A:\ & \texttt{HELLOACK}\langle{PAN_A, ID_A, PAN_B, ID_B, R_B, I_{A,B}, C_B, P_A}\rangle{K_{B,A}}\\
+B:\ & Generate\ N_B\ randomly.\ Wait\ for\ T_w \leq M_w\\
+B:\ & K'_{B,A}\ =\ AES(K_{B,A}, N_A || N_B)\\
+B \rightarrow A:\ & \texttt{HELLOACK}\langle{PAN_A, ID_A, PAN_B, ID_B, N_B, I_{A,B}, C_B, P_A}\rangle{K_{B,A}}\\
 A:\ & K_{A,B}\ from\ pluggable\ scheme\\
-A:\ & K'_{A,B}\ =\ AES(K_{A,B}, R_A || R_B)\\
+A:\ & K'_{A,B}\ =\ AES(K_{A,B}, N_A || N_B)\\
 A \rightarrow B:\ & \texttt{ACK}\langle{PAN_B, ID_B, PAN_A, ID_A, I_{B,A}, C_A}\rangle{K'_{A,B}}
 \end{align*}
 \end{tcolorbox}
@@ -187,13 +212,13 @@ In \gls{akes}, the key establishment process consists of a three-way handshake w
 
 \begin{enumerate}
 
-\item  Initially, the node $A$ broadcasts a \texttt{HELLO} message to its neighbours containing a randomly generated nonce value $R_A$ along with the identity of the node, its \gls{pan} address, and the frame counter $C_A$. The \texttt{HELLO} broadcast is authenticated using \gls{ebeap} \cite{krentz20136lowpan}, which is a protocol for authenticating broadcast frames in \gls{6lowpan} networks, or a pre-distributed group session key.
+\item  Initially, the node $A$ broadcasts a \texttt{HELLO} message to its neighbours containing a randomly generated nonce value $N_A$ along with the identity of the node, its \gls{pan} address, and the frame counter $C_A$. The \texttt{HELLO} broadcast is authenticated using \gls{ebeap} \cite{krentz20136lowpan}, which is a protocol for authenticating broadcast frames in \gls{6lowpan} networks, or a pre-distributed group session key.
 
-\item When $B$ receives a \texttt{HELLO} transmission, generates a random nonce as well, denoted as $R_B$.
+\item When $B$ receives a \texttt{HELLO} transmission, generates a random nonce as well, denoted as $N_B$.
 
-\item It then proceeds to request the shared secret $K_{B,A}$ from its pluggable scheme, and uses this key to derive the pairwise session key $K'_{B,A}$ as\\ $AES-128(K_{B,A}, R_A || R_B)$.
+\item It then proceeds to request the shared secret $K_{B,A}$ from its pluggable scheme, and uses this key to derive the pairwise session key $K'_{B,A}$ as\\ $AES-128(K_{B,A}, N_A || N_B)$.
 
-\item $B$ then crafts a \texttt{HELLOACK} response which is sent to $A$ containing $R_B$. The \texttt{HELLOACK} is authenticated by adding a \gls{mic} generated with $K_{B,A}$, in addition to $B$'s \gls{pan} address, identity, and other values related to frame counters and \gls{ebeap} authentication.
+\item $B$ then crafts a \texttt{HELLOACK} response which is sent to $A$ containing $N_B$. The \texttt{HELLOACK} is authenticated by adding a \gls{mic} generated with $K_{B,A}$, in addition to $B$'s \gls{pan} address, identity, and other values related to frame counters and \gls{ebeap} authentication.
 
 \item In the response, $B$ attaches a field $P_A$ as well to indicate whether or not $A$ is currently registered as a permanent neighbour of $B$, and is also capable of piggybacking group session keys. If the $P_A$ field is set, $A$ can choose to abort the session key establishment, which would be normal if the \texttt{HELLO} was just a regular broadcast.
 
@@ -230,6 +255,19 @@ As previously mentioned, \gls{apkes} introduced some protocol weaknesses that \g
 
 \section{Secure Authentication and Key Establishment Scheme (SAKES)}
 \label{sec:sakes}
+
+
+\begin{table}[h]
+\begin{tabular}{lr}
+\textbf{Key scheme:} & Asymmetric, Symmetric, and Session keys  \\
+\textbf{Replay protection:}	 & Yes  \\
+\textbf{Node compromise resilient:} & No  \\
+\textbf{Key revocation:} & No \\
+\textbf{Tamper resistant} & No \\
+\textbf{\gls{dos} resilient:} & No \\
+\textbf{Wormhole resilient:} & Yes \\
+\end{tabular}
+\end{table}
 
 The third, and last protocol which will be discussed in this thesis is the \gls{sakes}. \gls{sakes} claims to provide secure authentication and key establishment for nodes in a device-to-device network running on \gls{6lowpan} \cite{hussen2013sakes}. Previous described protocols such as \gls{apkes} and \gls{akes} enables devices to communicate directly with each other without any previous authentication have taken place. The architecture in \gls{sakes} as seen in Figure \ref{fig:sakes-arch} consists of end devices, \gls{6lowpan} routers, \gls{6lowpan} border routers, and remote servers providing services to the devices. End devices are typically sensors, with very limited computational power. Border routers and conventional \gls{6lowpan} routers are more powerful entities which can perform lightweight public key cryptography operations.
 
@@ -270,9 +308,9 @@ A:\ & Construct\ C_{A}:\ \{ID_A, ID_B, ID_D\}_{K_{A,C}}\\
 A \rightarrow B:\ & \langle{C_A, ID_A, N_A}\rangle{K_{A,B}}\\
 B \rightarrow C:\ & \langle{C_A, ID_B, N_B}\rangle{K_{B,C}}\\
 C:\ & Verify\ the\ identity\ of\ A,\ B,\ and\ D\\
-C: \ & Construct\ S_C: \{ID_A, ID_B, ID_D\}_{Sk_{C}}\\
+C: \ & Construct\ C_C: \{ID_A, ID_B, ID_D\}_{Sk_{C}}\\
 C:\ & Generate\ N_C\ randomly\ and\ a\ public\ key\ pair\ (Pk_B, Sk_B)\\
-C \rightarrow B:\ & \{N_C, S_C, Pk_B, Sk_B\}_{K_{B,C}}\\
+C \rightarrow B:\ & \{N_C, C_C, Pk_B, Sk_B\}_{K_{B,C}}\\
 C \rightarrow A:\ & \langle{ID_B, N_C}\rangle{K_{A,C}}\\
 \end{align*}
 \end{tcolorbox}
@@ -292,9 +330,9 @@ C \rightarrow A:\ & \langle{ID_B, N_C}\rangle{K_{A,C}}\\
 
 \item When the request is received by $C$, it verifies the attached \gls{mac-auth} by using its copy of the symmetric key that it shares with $B$. It then decrypts the ciphertext created by $A$ containing the identity of the end device, the router, and the remote server by using the symmetric key $K_{A,C}$.
 
-\item The border router then checks with its authentication module whether the message is sent by the end device $A$, and if the identity of its nearest neighbour router $B$ is correct. If these checks are successful, the border router creates a signed message $S_C$ containing the identities of the end device, router, and remote server. It also generates a public key pair $(Pk_B, Sk_B)$ based on \gls{ecc}, and random nonce $N_D$.
+\item The border router then checks with its authentication module whether the message is sent by the end device $A$, and if the identity of its nearest neighbour router $B$ is correct. If these checks are successful, the border router creates a signed message $C_C$ containing the identities of the end device, router, and remote server. It also generates a public key pair $(Pk_B, Sk_B)$ based on \gls{ecc}, and random nonce $N_D$.
 
-\item It then sends two messages: one to the router, and one to the end device. The message sent to $B$ contains the nonce $N_D$, the signed message $S_C$ containing the verified identities of the request, and the public key pair for $B$ to use in the key establishment phase. To provide secrecy for the generated key pair, the entire message is encrypted under the shared symmetric key $K_{B,C}$ to ensure that the key pair is only accessible to $B$.
+\item It then sends two messages: one to the router, and one to the end device. The message sent to $B$ contains the nonce $N_D$, the signed message $C_C$ containing the verified identities of the request, and the public key pair for $B$ to use in the key establishment phase. To provide secrecy for the generated key pair, the entire message is encrypted under the shared symmetric key $K_{B,C}$ to ensure that the key pair is only accessible to $B$.
 
 \item The end device $A$ also receives a confirmation message from $C$ containing the identity of the router, as well as the random nonce $N_D$ to prevent replaying. The message is authenticated using a \gls{mac-auth} with the shared secret $K_{A,C}$ as the key to ensure its authenticity.
 

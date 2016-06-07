@@ -29,50 +29,57 @@
 \BOOKMARK [0][-]{chapter.4}{Three Protocols for Key Establishment in 6LoWPAN}{}% 29
 \BOOKMARK [1][-]{section.4.1}{General Properties}{chapter.4}% 30
 \BOOKMARK [1][-]{section.4.2}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{chapter.4}% 31
-\BOOKMARK [2][-]{subsection.4.2.1}{Protocol specification}{section.4.2}% 32
-\BOOKMARK [2][-]{subsection.4.2.2}{Assumptions of Security Properties}{section.4.2}% 33
-\BOOKMARK [2][-]{subsection.4.2.3}{Weaknesses and Challenges with APKES}{section.4.2}% 34
-\BOOKMARK [1][-]{section.4.3}{Adaptable Key Establishment Scheme \(AKES\)}{chapter.4}% 35
-\BOOKMARK [2][-]{subsection.4.3.1}{Protocol Specification}{section.4.3}% 36
-\BOOKMARK [2][-]{subsection.4.3.2}{Assumptions of Security Properties}{section.4.3}% 37
-\BOOKMARK [2][-]{subsection.4.3.3}{Weaknesses and Challenges with AKES}{section.4.3}% 38
-\BOOKMARK [1][-]{section.4.4}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{chapter.4}% 39
-\BOOKMARK [2][-]{subsection.4.4.1}{Protocol Specification}{section.4.4}% 40
-\BOOKMARK [2][-]{subsection.4.4.2}{Assumptions of Security Properties}{section.4.4}% 41
-\BOOKMARK [2][-]{subsection.4.4.3}{Weaknesses and Challenges with SAKES}{section.4.4}% 42
-\BOOKMARK [0][-]{chapter.5}{Formal Security Analysis of Three Key Establishment Protocols}{}% 43
-\BOOKMARK [1][-]{section.5.1}{Modelling Security Properties}{chapter.5}% 44
-\BOOKMARK [1][-]{section.5.2}{Formal Security Analysis of APKES}{chapter.5}% 45
-\BOOKMARK [2][-]{subsection.5.2.1}{Security Claims}{section.5.2}% 46
-\BOOKMARK [2][-]{subsection.5.2.2}{Adversary}{section.5.2}% 47
-\BOOKMARK [2][-]{subsection.5.2.3}{Results}{section.5.2}% 48
-\BOOKMARK [1][-]{section.5.3}{Formal Security Analysis of AKES}{chapter.5}% 49
-\BOOKMARK [2][-]{subsection.5.3.1}{Security Claims}{section.5.3}% 50
-\BOOKMARK [2][-]{subsection.5.3.2}{Adversary}{section.5.3}% 51
-\BOOKMARK [2][-]{subsection.5.3.3}{Results}{section.5.3}% 52
-\BOOKMARK [1][-]{section.5.4}{Formal Security Analysis of SAKES}{chapter.5}% 53
-\BOOKMARK [2][-]{subsection.5.4.1}{Authentication Phase}{section.5.4}% 54
-\BOOKMARK [2][-]{subsection.5.4.2}{Key Establishment Phase}{section.5.4}% 55
-\BOOKMARK [2][-]{subsection.5.4.3}{Results}{section.5.4}% 56
-\BOOKMARK [1][-]{section.5.5}{Limitations in the Analysis}{chapter.5}% 57
-\BOOKMARK [0][-]{chapter.6}{Discussion}{}% 58
-\BOOKMARK [1][-]{section.6.1}{Evaluation of Authentication Properties}{chapter.6}% 59
-\BOOKMARK [1][-]{section.6.2}{Evaluation of Key Secrecy Properties}{chapter.6}% 60
-\BOOKMARK [1][-]{section.6.3}{Comparison}{chapter.6}% 61
-\BOOKMARK [2][-]{subsection.6.3.1}{AKES versus SAKES}{section.6.3}% 62
-\BOOKMARK [1][-]{section.6.4}{Improvements}{chapter.6}% 63
-\BOOKMARK [2][-]{subsection.6.4.1}{Possible improvements for APKES}{section.6.4}% 64
-\BOOKMARK [2][-]{subsection.6.4.2}{Possible improvements for SAKES}{section.6.4}% 65
-\BOOKMARK [1][-]{section.6.5}{Concluding Remarks}{chapter.6}% 66
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 67
-\BOOKMARK [0][-]{section*.55}{References}{}% 68
-\BOOKMARK [0][-]{appendix.A}{Scyther Scripts}{}% 69
-\BOOKMARK [1][-]{section.A.1}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{appendix.A}% 70
-\BOOKMARK [1][-]{section.A.2}{Adaptable Key Establishment Scheme \(AKES\)}{appendix.A}% 71
-\BOOKMARK [1][-]{section.A.3}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{appendix.A}% 72
-\BOOKMARK [2][-]{subsection.A.3.1}{SAKES - Authentication}{section.A.3}% 73
-\BOOKMARK [2][-]{subsection.A.3.2}{SAKES - Key Establishment}{section.A.3}% 74
-\BOOKMARK [1][-]{section.A.4}{Secure Authentication and Key Establishment Scheme \(SAKES\) \204 Improved}{appendix.A}% 75
-\BOOKMARK [0][-]{appendix.B}{Attacks}{}% 76
-\BOOKMARK [0][-]{appendix.C}{Notations}{}% 77
-\BOOKMARK [1][-]{section.C.1}{Notations}{appendix.C}% 78
+\BOOKMARK [2][-]{subsection.4.2.1}{Allowing ``Pluggable'' Schemes to Increase Universality}{section.4.2}% 32
+\BOOKMARK [2][-]{subsection.4.2.2}{Avoiding Denial of Service Attacks}{section.4.2}% 33
+\BOOKMARK [2][-]{subsection.4.2.3}{Node Compromise Resilience}{section.4.2}% 34
+\BOOKMARK [2][-]{subsection.4.2.4}{Protocol specification}{section.4.2}% 35
+\BOOKMARK [2][-]{subsection.4.2.5}{Assumptions of Security Properties}{section.4.2}% 36
+\BOOKMARK [2][-]{subsection.4.2.6}{Weaknesses and Challenges with APKES}{section.4.2}% 37
+\BOOKMARK [1][-]{section.4.3}{Adaptable Key Establishment Scheme \(AKES\)}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.3.1}{Renewing a Session}{section.4.3}% 39
+\BOOKMARK [2][-]{subsection.4.3.2}{Preventing Deadlocks and Removing Neighbours}{section.4.3}% 40
+\BOOKMARK [2][-]{subsection.4.3.3}{Protocol Specification}{section.4.3}% 41
+\BOOKMARK [2][-]{subsection.4.3.4}{Assumptions of Security Properties}{section.4.3}% 42
+\BOOKMARK [2][-]{subsection.4.3.5}{Weaknesses and Challenges with AKES}{section.4.3}% 43
+\BOOKMARK [1][-]{section.4.4}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{chapter.4}% 44
+\BOOKMARK [2][-]{subsection.4.4.1}{Protocol Specification}{section.4.4}% 45
+\BOOKMARK [2][-]{subsection.4.4.2}{Assumptions of Security Properties}{section.4.4}% 46
+\BOOKMARK [2][-]{subsection.4.4.3}{Weaknesses and Challenges with SAKES}{section.4.4}% 47
+\BOOKMARK [0][-]{chapter.5}{Formal Security Analysis of Three Key Establishment Protocols}{}% 48
+\BOOKMARK [1][-]{section.5.1}{Modelling Security Properties}{chapter.5}% 49
+\BOOKMARK [1][-]{section.5.2}{Formal Security Analysis of APKES}{chapter.5}% 50
+\BOOKMARK [2][-]{subsection.5.2.1}{Security Claims}{section.5.2}% 51
+\BOOKMARK [2][-]{subsection.5.2.2}{Adversary}{section.5.2}% 52
+\BOOKMARK [2][-]{subsection.5.2.3}{Results}{section.5.2}% 53
+\BOOKMARK [1][-]{section.5.3}{Formal Security Analysis of AKES}{chapter.5}% 54
+\BOOKMARK [2][-]{subsection.5.3.1}{Security Claims}{section.5.3}% 55
+\BOOKMARK [2][-]{subsection.5.3.2}{Adversary}{section.5.3}% 56
+\BOOKMARK [2][-]{subsection.5.3.3}{Results}{section.5.3}% 57
+\BOOKMARK [1][-]{section.5.4}{Formal Security Analysis of SAKES}{chapter.5}% 58
+\BOOKMARK [2][-]{subsection.5.4.1}{Authentication Phase}{section.5.4}% 59
+\BOOKMARK [2][-]{subsection.5.4.2}{Key Establishment Phase}{section.5.4}% 60
+\BOOKMARK [2][-]{subsection.5.4.3}{Results}{section.5.4}% 61
+\BOOKMARK [2][-]{subsection.5.4.4}{Incompleteness in the Analysis of SAKES}{section.5.4}% 62
+\BOOKMARK [1][-]{section.5.5}{General Limitations in the Analysis}{chapter.5}% 63
+\BOOKMARK [0][-]{chapter.6}{Discussion}{}% 64
+\BOOKMARK [1][-]{section.6.1}{Evaluation of Authentication Properties}{chapter.6}% 65
+\BOOKMARK [1][-]{section.6.2}{Evaluation of Key Secrecy Properties}{chapter.6}% 66
+\BOOKMARK [1][-]{section.6.3}{Comparison}{chapter.6}% 67
+\BOOKMARK [2][-]{subsection.6.3.1}{AKES versus SAKES}{section.6.3}% 68
+\BOOKMARK [1][-]{section.6.4}{Suggested Improvements}{chapter.6}% 69
+\BOOKMARK [2][-]{subsection.6.4.1}{Possible Improvements for APKES}{section.6.4}% 70
+\BOOKMARK [2][-]{subsection.6.4.2}{Possible Improvements for SAKES}{section.6.4}% 71
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 72
+\BOOKMARK [1][-]{section.7.1}{Future work}{chapter.7}% 73
+\BOOKMARK [0][-]{section*.59}{References}{}% 74
+\BOOKMARK [0][-]{appendix.A}{Scyther Scripts}{}% 75
+\BOOKMARK [1][-]{section.A.1}{Adaptable Pairwise Key Establishment Scheme \(APKES\)}{appendix.A}% 76
+\BOOKMARK [1][-]{section.A.2}{Adaptable Key Establishment Scheme \(AKES\)}{appendix.A}% 77
+\BOOKMARK [1][-]{section.A.3}{Secure Authentication and Key Establishment Scheme \(SAKES\)}{appendix.A}% 78
+\BOOKMARK [2][-]{subsection.A.3.1}{SAKES - Authentication}{section.A.3}% 79
+\BOOKMARK [2][-]{subsection.A.3.2}{SAKES - Key Establishment}{section.A.3}% 80
+\BOOKMARK [2][-]{subsection.A.3.3}{SAKES - Key Establishment - Interaction Between A and B}{section.A.3}% 81
+\BOOKMARK [1][-]{section.A.4}{Secure Authentication and Key Establishment Scheme \(SAKES\) \204 Improved}{appendix.A}% 82
+\BOOKMARK [0][-]{appendix.B}{Attacks}{}% 83
+\BOOKMARK [0][-]{appendix.C}{Notations}{}% 84
+\BOOKMARK [1][-]{section.C.1}{Notations}{appendix.C}% 85

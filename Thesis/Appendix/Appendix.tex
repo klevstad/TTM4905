@@ -12,6 +12,8 @@
 
 \lstinputlisting{scripts/akes.spdl}
 
+\newpage
+
 \section{Secure Authentication and Key Establishment Scheme (SAKES)}
 \label{app:sakes}
 
@@ -19,37 +21,66 @@
 \label{app:sakes-auth}
 \lstinputlisting{scripts/sakes-auth.spdl}
 
+\newpage
+
 \subsection{SAKES - Key Establishment}
 \label{app:sakes-keys}
-%\lstinputlisting{scripts/sakes.spdl}
+\lstinputlisting{scripts/sakes-keys.spdl}
+
+
+\subsection{SAKES - Key Establishment - Interaction Between A and B}
+\label{app:sakes-keys-ab}
+\lstinputlisting{scripts/sakes-keys-ab.spdl}
 
 \section{Secure Authentication and Key Establishment Scheme (SAKES) --- Improved}
 \label{app:sakes-fixed-auth}
 \lstinputlisting{scripts/fix/sakes-auth-fix.spdl}
 
 \chapter{Attacks}
+\label{app:attacks}
 
-
-\begin{figure}[h]
+\begin{sidewaysfigure}
 	\centering
-	\includegraphics[scale=0.24, angle=90]{analysis/sakes-keys-b-nisynch-attack.png}
-	\caption{Graph of the attack discovered on the nisynch property of the role A, B, and D from B's point of view in the key establishment phase of SAKES.}
-	\label{fig:sakes-attack-keys-nisynch}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.20, angle=90]{analysis/sakes-auth-a-weakagree-attack.png}
-	\caption{Graph of the attack discovered on the weakagree property of the role A in the authentication phase of SAKES.}
+	\includegraphics[scale=0.20]{attacks/sakes-auth-a-weakagree-attack2.png}
+	\caption{Graph of the attack discovered on the Weakagree property of the role A in the authentication phase of SAKES.}
 	\label{fig:sakes-attack-weakagree}
-\end{figure}
+\end{sidewaysfigure}
 
-\begin{figure}[h]
+\begin{sidewaysfigure}
 	\centering
-	\includegraphics[scale=0.20, angle=90]{analysis/sakes-auth-a-nisynch-attack.png}
-	\caption{Graph of the attack discovered on the nisynch property of the roles A, B, and C from A's point of view in the authentication phase of SAKES.}
+	\includegraphics[scale=0.30]{attacks/sakes-auth-a-nisynch-attack2.png}
+	\caption{Graph of the attack discovered on the Nisynch property of the roles A, B, and C from A's point of view in the authentication phase of SAKES.}
 	\label{fig:sakes-attack-nisynch}
-\end{figure}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[scale=0.19]{attacks/sakes-keys-b-alive-a-attack.png}
+	\caption{Graph of the attack discovered on the entity authentication of the end device in role B in the key establishment phase of SAKES.}
+	\label{fig:sakes-attack-keys-b-alive-a}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[scale=0.27]{attacks/sakes-keys-a-niagree-nisynch-attack.png}
+	\caption{Graph of the attack discovered on the Niagree and Nisynch properties in the role A in the key establishment phase of SAKES.}
+	\label{fig:sakes-attack-keys-a-niagree-nisynch}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[scale=0.13]{attacks/sakes-keys-b-weakagree-d-attack.png}
+	\caption{Graph of the attack discovered on the weakagree property of D in role B in the key establishment phase of SAKES.}
+	\label{fig:sakes-attack-keys-b-weakagree-d}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[scale=0.35]{attacks/sakes-keys-a-weakagree-b-attack.png}
+	\caption{Graph of the attack discovered on the weakagree property of B in role A in the key establishment phase of SAKES.}
+	\label{fig:sakes-attack-keys-a-weakagree-b}
+\end{sidewaysfigure}
+
 
 \chapter{Notations}
 
