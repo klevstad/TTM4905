@@ -2,23 +2,23 @@
 
 \bibitem[\protect\citeauthoryear{Anderson and Kuhn}{Anderson and
   Kuhn}{1996}]{anderson1996tamper}
-Anderson, R. and M.~Kuhn (1996).
+Anderson, R. and M.~Kuhn.
 \newblock {Tamper Resistance - A Cautionary Note}.
 \newblock In {\em Proceedings of the second Usenix workshop on electronic
-  commerce}, Volume~2, pp.\  1--11.
+  commerce}, Volume~2, pp.\  1--11 (1996).
 
 \bibitem[\protect\citeauthoryear{Andova, Cremers, Gj{\o}steen, Mauw,
-  Mj{\o}lsnes, and Radomirovi{\'c}}{Andova et~al.}{2008}]{andova2008framework}
-Andova, S., C.~Cremers, K.~Gj{\o}steen, S.~Mauw, S.~F. Mj{\o}lsnes, and
-  S.~Radomirovi{\'c} (2008).
+  Mj{\o}lsnes, and Radomirovic}{Andova et~al.}{2008}]{andova2008framework}
+Andova, S., C.~J.~F. Cremers, K.~Gj{\o}steen, S.~Mauw, S.~F. Mj{\o}lsnes, and
+  S.~Radomirovic.
 \newblock {A Framework for Compositional Verification of Security Protocols}.
-\newblock {\em Information and Computation\/}~{\em 206\/}(2), 425--459.
+\newblock {\em Inf. Comput.\/}~{\em 206\/}(2-4), 425--459 (2008).
 
-\bibitem[\protect\citeauthoryear{Ashton}{Ashton}{}]{iot-phrase-2}
+\bibitem[\protect\citeauthoryear{Ashton}{Ashton}{2009}]{iot-phrase-2}
 Ashton, K.
 \newblock {That ``Internet of Things'' Thing\\}.
 \newblock http://www.rfidjournal.com/articles/view?4986.
-\newblock Accessed: 2016-03-31.
+\newblock Accessed: 2016-03-31 (2009).
 
 \bibitem[\protect\citeauthoryear{AVISPA Project}{AVISPA Project}{}]{avispa}
 AVISPA Project.
@@ -27,21 +27,23 @@ AVISPA Project.
 \newblock Accessed: 2016-02-23.
 
 \bibitem[\protect\citeauthoryear{Barker}{Barker}{2016}]{nist2016}
-Barker, E. (2016).
+Barker, E.
 \newblock {Recommendation for Key Management Part 1: General}.
-\newblock {\em NIST Special Publication\/}~{\em 800\/}(4), 57.
+\newblock {\em NIST Special Publication\/}~{\em 800\/}(4), 57 (2016).
 
 \bibitem[\protect\citeauthoryear{Basin and Cremers}{Basin and
   Cremers}{2010}]{basin2010modeling}
-Basin, D. and C.~Cremers (2010).
+Basin, D. and C.~J.~F. Cremers.
 \newblock {Modeling and Analyzing Security in the Presence of Compromising
   Adversaries}.
-\newblock In {\em Computer Security--ESORICS 2010}, pp.\  340--356. Springer.
+\newblock In {\em Computer Security--ESORICS 2010}, pp.\  340--356. Springer
+  (2010).
 
 \bibitem[\protect\citeauthoryear{Basin, Cremers, and Meadows}{Basin
-  et~al.}{2012}]{basin2011model}
-Basin, D., C.~J. Cremers, and C.~Meadows (2012).
+  et~al.}{2015}]{basin2011model}
+Basin, D., C.~J.~F. Cremers, and C.~Meadows.
 \newblock {Model Checking Security Protocols}.
+\newblock {\em Handbook of Model Checking\/} (2015).
 
 \bibitem[\protect\citeauthoryear{Blanchet}{Blanchet}{}]{proverif}
 Blanchet, B.
@@ -50,149 +52,157 @@ Blanchet, B.
 \newblock Accessed: 2016-02-23.
 
 \bibitem[\protect\citeauthoryear{Blanchet}{Blanchet}{2012}]{blanchet2012security}
-Blanchet, B. (2012).
+Blanchet, B.
 \newblock {Security Protocol Verification: Symbolic and Computational Models}.
-\newblock In {\em Proceedings of the First international conference on
-  Principles of Security and Trust}, pp.\  3--29. Springer-Verlag.
+\newblock In {\em Principles of Security and Trust - First International
+  Conference, {POST} 2012, Held as Part of the European Joint Conferences on
+  Theory and Practice of Software, {ETAPS} 2012, Proceedings}, pp.\  3--29
+  (2012).
 
 \bibitem[\protect\citeauthoryear{Blom}{Blom}{1984}]{blom1984optimal}
-Blom, R. (1984).
+Blom, R.
 \newblock {An Optimal Class of Symmetric Key Generation Systems}.
-\newblock In {\em Advances in cryptology}, pp.\  335--338. Springer.
+\newblock In {\em Advances in Cryptology: Proceedings of {EUROCRYPT} 84, {A}
+  Workshop on the Theory and Application of of Cryptographic Techniques, 1984,
+  Proceedings}, pp.\  335--338 (1984).
 
 \bibitem[\protect\citeauthoryear{Bos, Halderman, Heninger, Moore, Naehrig, and
-  Wustrow}{Bos et~al.}{2014}]{bos2014elliptic}
-Bos, J.~W., J.~A. Halderman, N.~Heninger, J.~Moore, M.~Naehrig, and E.~Wustrow
-  (2014).
+  Wustrow}{Bos et~al.}{2013}]{bos2014elliptic}
+Bos, J.~W., J.~A. Halderman, N.~Heninger, J.~Moore, M.~Naehrig, and E.~Wustrow.
 \newblock {Elliptic Curve Cryptography in Practice}.
-\newblock In {\em Financial Cryptography and Data Security}, pp.\  157--175.
-  Springer.
+\newblock {\em {IACR} Cryptology ePrint Archive\/}~{\em 2013}, 734 (2013).
 
 \bibitem[\protect\citeauthoryear{Burrows, Abadi, and Needham}{Burrows
-  et~al.}{1989}]{burrows1989logic}
-Burrows, M., M.~Abadi, and R.~M. Needham (1989).
-\newblock A {Lo}gic of {A}uthentication.
-\newblock In {\em Proceedings of the Royal Society of London A: Mathematical,
-  Physical and Engineering Sciences}, Volume 426, pp.\  233--271. The Royal
-  Society.
+  et~al.}{1990}]{burrows1989logic}
+Burrows, M., M.~Abadi, and R.~M. Needham.
+\newblock {A Logic of Authentication}.
+\newblock {\em {ACM} Trans. Comput. Syst.\/}~{\em 8\/}(1), 18--36 (1990).
 
 \bibitem[\protect\citeauthoryear{Chan, Perrig, and Song}{Chan
   et~al.}{2003}]{chan2003random}
-Chan, H., A.~Perrig, and D.~Song (2003).
+Chan, H., A.~Perrig, and D.~X. Song.
 \newblock {Random Key Predistribution Schemes for Sensor Networks}.
-\newblock In {\em Security and Privacy, 2003. Proceedings. 2003 Symposium on},
-  pp.\  197--213. IEEE.
+\newblock In {\em 2003 {IEEE} Symposium on Security and Privacy (S{\&}P 2003)},
+  pp.\  197 (2003).
 
 \bibitem[\protect\citeauthoryear{Cortier, Kremer, and Warinschi}{Cortier
   et~al.}{2011}]{cortier2011survey}
-Cortier, V., S.~Kremer, and B.~Warinschi (2011).
+Cortier, V., S.~Kremer, and B.~Warinschi.
 \newblock {A Survey of Symbolic Methods in Computational Analysis of
   Cryptographic Systems}.
-\newblock {\em Journal of Automated Reasoning\/}~{\em 46\/}(3-4), 225--259.
-
-\bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2011}]{Cremers2011}
-Cremers, C. (2011).
-\newblock {\em {Key Exchange in IPsec Revisited: Formal Analysis of IKEv1 and
-  IKEv2}}.
-\newblock Springer.
-
-\bibitem[\protect\citeauthoryear{Cremers and Horvat}{Cremers and
-  Horvat}{2014}]{cremers2014improving}
-Cremers, C. and M.~Horvat (2014).
-\newblock {Improving the ISO/IEC 11770 Standard for Key Management Techniques}.
-\newblock In {\em Security Standardisation Research}, pp.\  215--235. Springer.
+\newblock {\em J. Autom. Reasoning\/}~{\em 46\/}(3-4), 225--259 (2011).
 
 \bibitem[\protect\citeauthoryear{Cremers}{Cremers}{}]{scyther}
-Cremers, C.~J.
+Cremers, C. J.~F.
 \newblock {Scyther}.
 \newblock \url{https://www.cs.ox.ac.uk/people/cas.cremers/scyther/index.html}.
 \newblock Accessed: 2016-02-23.
 
 \bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2006}]{cremers2006scyther}
-Cremers, C.~J. (2006).
-\newblock {\em {Scyther: Semantics and Verification of Security Protocols}}.
-\newblock Ph.\ D. thesis, Eindhoven University of Technology.
+Cremers, C. J.~F.
+\newblock {\em {Scyther - Semantics and Verification of Security Protocols}}.
+\newblock {Ph.D.} dissertation, Eindhoven University of Technology (2006).
 
 \bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2008a}]{cremers2008scyther}
-Cremers, C.~J. (2008a).
-\newblock The {S}cyther {T}ool: {V}erification, {F}alsification, and {A}nalysis
-  of {S}ecurity {P}rotocols.
-\newblock In {\em Computer aided verification}, pp.\  414--418. Springer.
+Cremers, C. J.~F.
+\newblock {The Scyther Tool: Verification, Falsification, and Analysis of
+  Security Protocols}.
+\newblock In {\em Computer Aided Verification, 20th International Conference,
+  {CAV} 2008, Proceedings}, pp.\  414--418 (2008a).
 
 \bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2008b}]{cremers2008unbounded}
-Cremers, C.~J. (2008b).
-\newblock Unbounded {V}erification, {F}alsification, and {C}haracterization of
-  {S}ecurity {P}rotocols by {P}attern {R}efinement.
-\newblock In {\em Proceedings of the 15th ACM conference on Computer and
-  communications security}, pp.\  119--128. ACM.
+Cremers, C. J.~F.
+\newblock {Unbounded Verification, Falsification, and Characterization of
+  Security Protocols by Pattern Refinement}.
+\newblock In {\em Proceedings of the 2008 {ACM} Conference on Computer and
+  Communications Security, {CCS} 2008}, pp.\  119--128 (2008b).
+
+\bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2011}]{Cremers2011}
+Cremers, C. J.~F.
+\newblock {Key Exchange in IPsec Revisited: Formal Analysis of IKEv1 and
+  IKEv2}.
+\newblock In {\em Computer Security - {ESORICS} 2011 - 16th European Symposium
+  on Research in Computer Security. Proceedings}, pp.\  315--334 (2011).
 
 \bibitem[\protect\citeauthoryear{Cremers}{Cremers}{2014}]{scyther-manual}
-Cremers, C.~J. (2014).
+Cremers, C. J.~F.
 \newblock {\em {Scyther User Manual}}.
-\newblock Oxford University.
+\newblock Oxford University (2014).
+
+\bibitem[\protect\citeauthoryear{Cremers and Horvat}{Cremers and
+  Horvat}{2014}]{cremers2014improving}
+Cremers, C. J.~F. and M.~Horvat.
+\newblock {Improving the {ISO/IEC} 11770 Standard for Key Management
+  Techniques}.
+\newblock In {\em Security Standardisation Research - First International
+  Conference, {SSR} 2014, Proceedings}, pp.\  215--235 (2014).
 
 \bibitem[\protect\citeauthoryear{Cremers, Lafourcade, and Nadeau}{Cremers
-  et~al.}{}]{cremers2009comparing}
-Cremers, C.~J., P.~Lafourcade, and P.~Nadeau.
+  et~al.}{2009}]{cremers2009comparing}
+Cremers, C. J.~F., P.~Lafourcade, and P.~Nadeau.
 \newblock {Comparing State Spaces in Automatic Security Protocol Analysis}.
-\newblock {\em Formal to Practical Security\/}~{\em 5458}, 70--94.
+\newblock In {\em Formal to Practical Security - Papers Issued from the
+  2005-2008 French-Japanese Collaboration}, pp.\  70--94 (2009).
 
 \bibitem[\protect\citeauthoryear{Cremers and Mauw}{Cremers and
-  Mauw}{2005}]{cremers2005operational}
-Cremers, C.~J. and S.~Mauw (2005).
-\newblock Operational {S}emantics of {S}ecurity {P}rotocols.
-\newblock In {\em Scenarios: Models, Transformations and Tools}, pp.\  66--89.
-  Springer.
+  Mauw}{2003}]{cremers2005operational}
+Cremers, C. J.~F. and S.~Mauw.
+\newblock {Operational Semantics of Security Protocols}.
+\newblock In {\em Scenarios: Models, Transformations and Tools, International
+  Workshop, 2003, Revised Selected Papers}, pp.\  66--89 (2003).
 
 \bibitem[\protect\citeauthoryear{Cremers, Mauw, and De~Vink}{Cremers
   et~al.}{2003}]{cremers2003defining}
-Cremers, C.~J., S.~Mauw, and E.~De~Vink (2003).
+Cremers, C. J.~F., S.~Mauw, and E.~De~Vink.
 \newblock {Defining Authentication in a Trace Model}.
+\newblock In {\em 1st International Workshop on Formal Aspects in Security and
+  Trust (FAST '03)} (2003).
 
 \bibitem[\protect\citeauthoryear{Cremers, Mauw, and de~Vink}{Cremers
   et~al.}{2006}]{cremers2006injective}
-Cremers, C.~J., S.~Mauw, and E.~P. de~Vink (2006).
+Cremers, C. J.~F., S.~Mauw, and E.~P. de~Vink.
 \newblock {Injective Synchronisation: An Extension of the Authentication
   Hierarchy}.
-\newblock {\em Theoretical Computer Science\/}~{\em 367\/}(1), 139--161.
+\newblock {\em Theor. Comput. Sci.\/}~{\em 367\/}(1-2), 139--161 (2006).
 
 \bibitem[\protect\citeauthoryear{Diffie and Hellman}{Diffie and
   Hellman}{1976}]{diffie1976new}
-Diffie, W. and M.~E. Hellman (1976).
+Diffie, W. and M.~E. Hellman.
 \newblock {New Directions in Cryptography}.
-\newblock {\em Information Theory, IEEE Transactions on\/}~{\em 22\/}(6),
-  644--654.
+\newblock {\em {IEEE} Trans. Information Theory\/}~{\em 22\/}(6), 644--654
+  (1976).
 
 \bibitem[\protect\citeauthoryear{Dolev and Yao}{Dolev and
   Yao}{1983}]{dolev1983security}
-Dolev, D. and A.~C. Yao (1983).
-\newblock On the {S}ecurity of {P}ublic {K}ey {P}rotocols.
-\newblock {\em Information Theory, IEEE Transactions on\/}~{\em 29\/}(2),
-  198--208.
+Dolev, D. and A.~C. Yao.
+\newblock {On the Security of Public Key Protocols}.
+\newblock {\em {IEEE} Trans. Information Theory\/}~{\em 29\/}(2), 198--207
+  (1983).
 
-\bibitem[\protect\citeauthoryear{Dunkels, Gr{\"o}nvall, and Voigt}{Dunkels
+\bibitem[\protect\citeauthoryear{Dunkels, Gr{\"{o}}nvall, and Voigt}{Dunkels
   et~al.}{2004}]{dunkels2004contiki}
-Dunkels, A., B.~Gr{\"o}nvall, and T.~Voigt (2004).
+Dunkels, A., B.~Gr{\"{o}}nvall, and T.~Voigt.
 \newblock {Contiki - A Lightweight and Flexible Operating System for Tiny
   Networked Sensors}.
-\newblock In {\em Local Computer Networks, 2004. 29th Annual IEEE International
-  Conference on}, pp.\  455--462. IEEE.
+\newblock In {\em 29th Annual {IEEE} Conference on Local Computer Networks
+  {(LCN} 2004), 16-18 November 2004, Tampa, FL, USA, Proceedings}, pp.\
+  455--462 (2004).
 
 \bibitem[\protect\citeauthoryear{Durumeric, Kasten, Adrian, Halderman, Bailey,
   Li, Weaver, Amann, Beekman, Payer, et~al.}{Durumeric
   et~al.}{2014}]{durumeric2014matter}
 Durumeric, Z., J.~Kasten, D.~Adrian, J.~A. Halderman, M.~Bailey, F.~Li,
-  N.~Weaver, J.~Amann, J.~Beekman, M.~Payer, et~al. (2014).
+  N.~Weaver, J.~Amann, J.~Beekman, M.~Payer, et~al.
 \newblock {The Matter of Heartbleed}.
 \newblock In {\em Proceedings of the 2014 Conference on Internet Measurement
-  Conference}, pp.\  475--488. ACM.
+  Conference}, pp.\  475--488. ACM (2014).
 
 \bibitem[\protect\citeauthoryear{Eschenauer and Gligor}{Eschenauer and
   Gligor}{2002}]{Eschenauer2002}
-Eschenauer, L. and V.~D. Gligor (2002).
+Eschenauer, L. and V.~D. Gligor.
 \newblock {A Key-Management Scheme for Distributed Sensor Networks}.
-\newblock In {\em Proceedings of the 9th ACM Conference on Computer and
-  Communications Security}, CCS '02, pp.\  41--47. ACM.
+\newblock In {\em Proceedings of the 9th {ACM} Conference on Computer and
+  Communications Security, {CCS} 2002}, pp.\  41--47 (2002).
 
 \bibitem[\protect\citeauthoryear{Gartner}{Gartner}{}]{iot-gartner}
 Gartner.
@@ -203,24 +213,23 @@ Gartner.
 
 \bibitem[\protect\citeauthoryear{Gaubatz, Kaps, and Sunar}{Gaubatz
   et~al.}{2004}]{gaubatz2004public}
-Gaubatz, G., J.-P. Kaps, and B.~Sunar (2004).
-\newblock {Public Key Cryptography in Sensor Networks — Revisited}.
-\newblock In {\em Security in Ad-hoc and Sensor Networks}, pp.\  2--18.
-  Springer.
+Gaubatz, G., J.~Kaps, and B.~Sunar.
+\newblock {Public Key Cryptography in Sensor Networks - Revisited}.
+\newblock In {\em Security in Ad-hoc and Sensor Networks, First European
+  Workshop, {ESAS} 2004, Revised Selected Papers}, pp.\  2--18 (2004).
 
 \bibitem[\protect\citeauthoryear{Gutierrez, Naeve, Callaway, Bourgeois, Mitter,
   and Heile}{Gutierrez et~al.}{2001}]{gutierrez2001ieee}
-Gutierrez, J.~A., M.~Naeve, E.~Callaway, M.~Bourgeois, V.~Mitter, and B.~Heile
-  (2001).
-\newblock {IEEE} 802.15.4: {A} {D}eveloping {S}tandard for {L}ow-power
-  {L}ow-cost {W}ireless {P}ersonal {A}rea {N}etworks.
-\newblock {\em network, IEEE\/}~{\em 15\/}(5), 12--19.
+Gutierrez, J.~A., M.~Naeve, E.~Callaway, M.~Bourgeois, V.~Mitter, and B.~Heile.
+\newblock {IEEE 802.15.4: A Developing Standard for Low-power Low-cost Wireless
+  Personal Area Networks}.
+\newblock {\em network, IEEE\/}~{\em 15\/}(5), 12--19 (2001).
 
 \bibitem[\protect\citeauthoryear{Hankerson, Menezes, and Vanstone}{Hankerson
   et~al.}{2006}]{hankerson2006guide}
-Hankerson, D., A.~J. Menezes, and S.~Vanstone (2006).
+Hankerson, D., A.~J. Menezes, and S.~Vanstone.
 \newblock {\em {Guide to Elliptic Curve Cryptography}}.
-\newblock Springer Science \& Business Media.
+\newblock Springer Science \& Business Media (2006).
 
 \bibitem[\protect\citeauthoryear{HART Communication Foundation}{HART
   Communication Foundation}{}]{wirelesshart}
@@ -232,18 +241,19 @@ HART Communication Foundation.
 
 \bibitem[\protect\citeauthoryear{Hui and Thubert}{Hui and
   Thubert}{2011}]{rfc6282}
-Hui, J. and P.~Thubert (2011).
+Hui, J. and P.~Thubert.
 \newblock {Compression Format for IPv6 Datagrams over IEEE 802.15.4-Based
   Networks}.
-\newblock {\em RFC6282\/}.
+\newblock {RFC} 6282, {Internet Engineering Task Force (IETF)},
+  https://tools.ietf.org/html/rfc6282 (2011).
 
 \bibitem[\protect\citeauthoryear{Hussen, Tizazu, Ting, Lee, Choi, and
   Kim}{Hussen et~al.}{2013}]{hussen2013sakes}
-Hussen, H.~R., G.~A. Tizazu, M.~Ting, T.~Lee, Y.~Choi, and K.-H. Kim (2013).
+Hussen, H.~R., G.~A. Tizazu, M.~Ting, T.~Lee, Y.~Choi, and K.-H. Kim.
 \newblock {SAKES: Secure Authentication and Key Establishment Scheme for M2M
   Communication in the IP-Based Wireless Sensor Network (6LoWPAN)}.
 \newblock In {\em Ubiquitous and Future Networks (ICUFN), 2013 Fifth
-  International Conference on}, pp.\  246--251. IEEE.
+  International Conference on}, pp.\  246--251. IEEE (2013).
 
 \bibitem[\protect\citeauthoryear{International Society of
   Automation}{International Society of Automation}{}]{isa100}
@@ -255,98 +265,98 @@ International Society of Automation.
 
 \bibitem[\protect\citeauthoryear{Jing, Vasilakos, Wan, Lu, and Qiu}{Jing
   et~al.}{2014}]{Jing2014}
-Jing, Q., A.~V. Vasilakos, J.~Wan, J.~Lu, and D.~Qiu (2014).
-\newblock Security of the {I}nternet of {T}hings: {P}erspectives and
-  {C}hallenges.
-\newblock {\em Wireless Networks\/}~{\em 20\/}(8), 2481--2501.
+Jing, Q., A.~V. Vasilakos, J.~Wan, J.~Lu, and D.~Qiu.
+\newblock Security of the internet of things: perspectives and challenges.
+\newblock {\em Wireless Networks\/}~{\em 20\/}(8), 2481--2501 (2014).
 
 \bibitem[\protect\citeauthoryear{Johnson, Menezes, and Vanstone}{Johnson
   et~al.}{2001}]{johnson2001elliptic}
-Johnson, D., A.~Menezes, and S.~Vanstone (2001).
+Johnson, D., A.~Menezes, and S.~A. Vanstone.
 \newblock {The Elliptic Curve Digital Signature Algorithm (ECDSA)}.
-\newblock {\em International Journal of Information Security\/}~{\em 1\/}(1),
-  36--63.
+\newblock {\em Int. J. Inf. Sec.\/}~{\em 1\/}(1), 36--63 (2001).
 
 \bibitem[\protect\citeauthoryear{Khan, Khan, Zaheer, and Khan}{Khan
   et~al.}{2012}]{iot-layers2012}
-Khan, R., S.~U. Khan, R.~Zaheer, and S.~Khan (2012).
+Khan, R., S.~U. Khan, R.~Zaheer, and S.~Khan.
 \newblock {Future Internet: The Internet of Things Architecture, Possible
   Applications and Key Challenges}.
-\newblock In {\em Frontiers of Information Technology (FIT), 2012 10th
-  International Conference on}, pp.\  257--260.
+\newblock In {\em 10th International Conference on Frontiers of Information
+  Technology, {FIT} 2012}, pp.\  257--260 (2012).
 
 \bibitem[\protect\citeauthoryear{Kopetz}{Kopetz}{2011}]{Kopetz2011}
-Kopetz, H. (2011).
-\newblock {\em Real-Time Systems: Design Principles for Distributed Embedded
-  Applications}, Chapter Internet of Things, pp.\  307--323.
-\newblock Springer.
+Kopetz, H.
+\newblock {\em {Real-Time Systems - Design Principles for Distributed Embedded
+  Applications}}.
+\newblock Real-Time Systems Series. Springer (2011).
 
 \bibitem[\protect\citeauthoryear{Krawczyk}{Krawczyk}{2005}]{krawczyk2005hmqv}
-Krawczyk, H. (2005).
+Krawczyk, H.
 \newblock {HMQV: A High-Performance Secure Diffie-Hellman Protocol}.
-\newblock In {\em Advances in Cryptology--CRYPTO 2005}, pp.\  546--566.
-  Springer.
+\newblock In {\em Advances in Cryptology - {CRYPTO} 2005: 25th Annual
+  International Cryptology Conference, Proceedings}, pp.\  546--566 (2005).
 
 \bibitem[\protect\citeauthoryear{Krentz and Meinel}{Krentz and
   Meinel}{2015}]{krentz2015handling}
-Krentz, K.-F. and C.~Meinel (2015).
+Krentz, K. and C.~Meinel.
 \newblock {Handling Reboots and Mobility in 802.15.4 Security}.
 \newblock In {\em Proceedings of the 31st Annual Computer Security Applications
-  Conference}, pp.\  121--130. ACM.
+  Conference, 2015}, pp.\  121--130 (2015).
 
 \bibitem[\protect\citeauthoryear{Krentz, Rafiee, and Meinel}{Krentz
   et~al.}{2013}]{krentz20136lowpan}
-Krentz, K.-F., H.~Rafiee, and C.~Meinel (2013).
-\newblock 6{L}o{WPAN} {S}ecurity: {A}dding {C}ompromise {R}esilience to the
-  802.15.4 {S}ecurity {S}ublayer.
+Krentz, K., H.~Rafiee, and C.~Meinel.
+\newblock {6LoWPAN Security: Adding Compromise Resilience to the 802.15.4
+  Security Sublayer}.
 \newblock In {\em Proceedings of the International Workshop on Adaptive
-  Security}. ACM.
+  Security, ASPI@UbiComp 2013}, pp.\  1:1--1:10 (2013).
 
 \bibitem[\protect\citeauthoryear{Krentz and Wunder}{Krentz and
   Wunder}{2014}]{krentz20146lowpan}
-Krentz, K.-F. and G.~Wunder (2014).
-\newblock {6LoWPAN Security: Avoiding Hidden Wormholes Using Channel
+Krentz, K. and G.~Wunder.
+\newblock {6LoWPAN Security: Avoiding Hidden Wormholes using Channel
   Reciprocity}.
 \newblock In {\em Proceedings of the 4th International Workshop on Trustworthy
-  Embedded Devices}, pp.\  13--22. ACM.
+  Embedded Devices, TrustED '14, 2014}, pp.\  13--22 (2014).
 
 \bibitem[\protect\citeauthoryear{Levis, Clausen, Hui, Gnawali, and Ko}{Levis
   et~al.}{2011}]{levis2011trickle}
-Levis, P., T.~Clausen, J.~Hui, O.~Gnawali, and J.~Ko (2011).
+Levis, P., T.~Clausen, J.~Hui, O.~Gnawali, and J.~Ko.
 \newblock {The Trickle Algorithm}.
-\newblock {\em Internet Engineering Task Force, RFC6206\/}.
+\newblock {RFC} 6206, {Internet Engineering Task Force (IETF)},
+  https://tools.ietf.org/html/rfc6206 (2011).
 
 \bibitem[\protect\citeauthoryear{Liu, Ning, and Li}{Liu
   et~al.}{2005}]{liu2005establishing}
-Liu, D., P.~Ning, and R.~Li (2005).
+Liu, D., P.~Ning, and R.~Li.
 \newblock {Establishing Pairwise Keys in Distributed Sensor Networks}.
-\newblock {\em ACM Transactions on Information and System Security
-  (TISSEC)\/}~{\em 8\/}(1), 41--77.
+\newblock {\em {ACM} Trans. Inf. Syst. Secur.\/}~{\em 8\/}(1), 41--77 (2005).
 
 \bibitem[\protect\citeauthoryear{Lowe}{Lowe}{1996}]{lowe1996}
-Lowe, G. (1996).
-\newblock Breaking and {F}ixing the {N}eedham-{S}chroeder {P}ublic-key
-  {P}rotocol {U}sing {FDR}.
-\newblock In {\em Tools and Algorithms for the Construction and Analysis of
-  Systems}, pp.\  147--166. Springer.
+Lowe, G.
+\newblock {Breaking and Fixing the Needham-Schroeder Public-Key Protocol Using
+  FDR}.
+\newblock In {\em Tools and Algorithms for Construction and Analysis of
+  Systems, Second International Workshop, {TACAS} 1996, Proceedings}, pp.\
+  147--166 (1996).
 
 \bibitem[\protect\citeauthoryear{Lowe}{Lowe}{1997}]{lowe1997hierarchy}
-Lowe, G. (1997).
-\newblock {A Hierarchy of Authentication Specifications}.
-\newblock In {\em Computer Security Foundations Workshop, 1997. Proceedings.,
-  10th}, pp.\  31--43. IEEE.
+Lowe, G.
+\newblock {A Hierarchy of Authentication Specification}.
+\newblock In {\em 10th Computer Security Foundations Workshop {(CSFW} '97)},
+  pp.\  31--44 (1997).
 
 \bibitem[\protect\citeauthoryear{Mao and Boyd}{Mao and Boyd}{1993}]{boyd1993}
-Mao, W. and C.~Boyd (1993).
+Mao, W. and C.~Boyd.
 \newblock {Towards Formal Analysis of Security Protocols}.
-\newblock In {\em Computer Security Foundations Workshop VI, 1993.
-  Proceedings}, pp.\  147--158. IEEE.
+\newblock In {\em 6th {IEEE} Computer Security Foundations Workshop - CSFW'93,
+  Proceedings}, pp.\  147--158 (1993).
 
 \bibitem[\protect\citeauthoryear{Meier, Schmidt, Cremers, and Basin}{Meier
   et~al.}{2013}]{meier2013tamarin}
-Meier, S., B.~Schmidt, C.~Cremers, and D.~Basin (2013).
-\newblock {The Tamarin Prover for the Symbolic Analysis of Security Protocols}.
-\newblock In {\em Computer Aided Verification}, pp.\  696--701. Springer.
+Meier, S., B.~Schmidt, C.~J.~F. Cremers, and D.~A. Basin.
+\newblock {The TAMARIN Prover for the Symbolic Analysis of Security Protocols}.
+\newblock In {\em Computer Aided Verification - 25th International Conference,
+  {CAV} 2013. Proceedings}, pp.\  696--701 (2013).
 
 \bibitem[\protect\citeauthoryear{Michallon}{Michallon}{}]{sony-lens}
 Michallon, C.
@@ -366,84 +376,81 @@ Microchip Technology.
 \newblock Accessed: 2016-04-15.
 
 \bibitem[\protect\citeauthoryear{Mulligan}{Mulligan}{2007}]{Mulligan2007}
-Mulligan, G. (2007).
-\newblock The {6L}o{WPAN} {A}rchitecture.
+Mulligan, G.
+\newblock {The 6LoWPAN architecture}.
 \newblock In {\em Proceedings of the 4th Workshop on Embedded Networked
-  Sensors}, EmNets '07, pp.\  78--82. ACM.
+  Sensors, EmNets 2007}, pp.\  78--82 (2007).
 
 \bibitem[\protect\citeauthoryear{Needham and Schroeder}{Needham and
   Schroeder}{1978}]{Needham:1978}
-Needham, R.~M. and M.~D. Schroeder (1978).
-\newblock Using {E}ncryption for {A}uthentication in {L}arge {N}etworks of
-  {C}omputers.
-\newblock {\em Commun. ACM\/}~{\em 21\/}(12).
+Needham, R.~M. and M.~D. Schroeder.
+\newblock {Using Encryption for Authentication in Large Networks of Computers}.
+\newblock {\em Commun. {ACM}\/}~{\em 21\/}(12), 993--999 (1978).
 
 \bibitem[\protect\citeauthoryear{Needham and Schroeder}{Needham and
   Schroeder}{1987}]{needham1987authentication}
-Needham, R.~M. and M.~D. Schroeder (1987).
+Needham, R.~M. and M.~D. Schroeder.
 \newblock {Authentication Revisited}.
-\newblock {\em ACM SIGOPS Operating Systems Review\/}~{\em 21\/}(1), 7--7.
+\newblock {\em Operating Systems Review\/}~{\em 21\/}(1), 7 (1987).
 
 \bibitem[\protect\citeauthoryear{Neuman and Ts'~O}{Neuman and
   Ts'~O}{1994}]{neuman1994kerberos}
-Neuman, B.~C. and T.~Ts'~O (1994).
+Neuman, B.~C. and T.~Ts'~O.
 \newblock {Kerberos: An Authentication Service for Computer Networks}.
-\newblock {\em Communications Magazine, IEEE\/}~{\em 32\/}(9), 33--38.
+\newblock {\em Communications Magazine, IEEE\/}~{\em 32\/}(9), 33--38 (1994).
 
 \bibitem[\protect\citeauthoryear{Olsson}{Olsson}{2014}]{olsson20146lowpan}
-Olsson, J. (2014).
+Olsson, J.
 \newblock {6LoWPAN Demystified}.
 \newblock {\em Texas Instruments\/}~{\em 29}, 2015.
-\newblock \url{http://www.ti.com/lit/wp/swry013/swry013.pdf}.
+\newblock \url{http://www.ti.com/lit/wp/swry013/swry013.pdf} (2014).
 
 \bibitem[\protect\citeauthoryear{Perrig, Stankovic, and Wagner}{Perrig
   et~al.}{2004}]{perrig2004security}
-Perrig, A., J.~Stankovic, and D.~Wagner (2004).
+Perrig, A., J.~A. Stankovic, and D.~Wagner.
 \newblock {Security in Wireless Sensor Networks}.
-\newblock {\em Communications of the ACM\/}~{\em 47\/}(6), 53--57.
+\newblock {\em Commun. {ACM}\/}~{\em 47\/}(6), 53--57 (2004).
 
 \bibitem[\protect\citeauthoryear{Popper}{Popper}{2005}]{popper2005logic}
-Popper, K. (2005).
+Popper, K.
 \newblock {\em {The Logic of Scientific Discovery}}.
-\newblock Routledge.
+\newblock Routledge (2005).
 
 \bibitem[\protect\citeauthoryear{Roman, Alcaraz, Lopez, and Sklavos}{Roman
   et~al.}{2011}]{Roman2011147}
-Roman, R., C.~Alcaraz, J.~Lopez, and N.~Sklavos (2011).
+Roman, R., C.~Alcaraz, J.~Lopez, and N.~Sklavos.
 \newblock {Key Management Systems for Sensor Networks in the Context of the
   Internet of Things}.
-\newblock {\em Computers \& Electrical Engineering\/}~{\em 37\/}(2), 147 --
-  159.
-\newblock Modern Trends in Applied Security: Architectures, Implementations and
-  Applications.
+\newblock {\em Computers {\&} Electrical Engineering\/}~{\em 37\/}(2), 147--159
+  (2011).
 
 \bibitem[\protect\citeauthoryear{Ryan and Schneider}{Ryan and
   Schneider}{2001}]{ryan2001modelling}
-Ryan, P. and S.~A. Schneider (2001).
-\newblock {\em {The Modelling and Analysis of Security Protocols: The CSP
-  Approach}}.
-\newblock Addison-Wesley Professional.
+Ryan, P. Y.~A. and S.~A. Schneider.
+\newblock {\em {Modelling and Analysis of Security Protocols}}.
+\newblock Addison-Wesley-Longman (2001).
 
 \bibitem[\protect\citeauthoryear{Sastry and Wagner}{Sastry and
   Wagner}{2004}]{sastry2004security}
-Sastry, N. and D.~Wagner (2004).
-\newblock Security {C}onsiderations for {IEEE} 802.15.4 {N}etworks.
-\newblock In {\em Proceedings of the 3rd ACM workshop on Wireless security},
-  pp.\  32--42. ACM.
+Sastry, N. and D.~Wagner.
+\newblock {Security Considerations for IEEE 802.15.4 Networks}.
+\newblock In {\em Proceedings of the 2004 {ACM} Workshop on Wireless Security},
+  pp.\  32--42 (2004).
 
-\bibitem[\protect\citeauthoryear{Simmonds}{Simmonds}{}]{iot-phrase-1}
+\bibitem[\protect\citeauthoryear{Simmonds}{Simmonds}{2015}]{iot-phrase-1}
 Simmonds, C.
 \newblock {``The Internet of Things'': What the Man Who Coined the Phrase Has
   to Say}.
 \newblock
   www.theguardian.com/sustainable-business/2015/feb/27/the-internet-of-things-what-the-man-who-coined-the-phrase-has-to-say.
-\newblock Accessed: 2016-03-31.
+\newblock Accessed: 2016-03-31 (2015).
 
 \bibitem[\protect\citeauthoryear{Steiner, Neuman, and Schiller}{Steiner
   et~al.}{1988}]{steiner1988kerberos}
-Steiner, J.~G., B.~C. Neuman, and J.~I. Schiller (1988).
-\newblock {Kerberos: An Authentication Service for Open Network Systems.}
-\newblock In {\em USENIX Winter}, pp.\  191--202.
+Steiner, J.~G., B.~C. Neuman, and J.~I. Schiller.
+\newblock {Kerberos: An Authentication Service for Open Network Systems}.
+\newblock In {\em Proceedings of the {USENIX} Winter Conference, 1988}, pp.\
+  191--202 (1988).
 
 \bibitem[\protect\citeauthoryear{The Zigbee Alliance}{The Zigbee
   Alliance}{}]{zigbee}
@@ -454,18 +461,18 @@ The Zigbee Alliance.
 
 \bibitem[\protect\citeauthoryear{Wander, Gura, Eberle, Gupta, and
   Shantz}{Wander et~al.}{2005}]{wander2005energy}
-Wander, A.~S., N.~Gura, H.~Eberle, V.~Gupta, and S.~C. Shantz (2005).
-\newblock {Energy Analysis of Public-Key Cryptography for Wireless Sensor
-  Networks}.
-\newblock In {\em Pervasive Computing and Communications, 2005. PerCom 2005.
-  Third IEEE International Conference on}, pp.\  324--328. IEEE.
+Wander, A., N.~Gura, H.~Eberle, V.~Gupta, and S.~C. Shantz.
+\newblock Energy analysis of public-key cryptography for wireless sensor
+  networks.
+\newblock In {\em 3rd {IEEE} International Conference on Pervasive Computing
+  and Communications (PerCom 2005)}, pp.\  324--328 (2005).
 
 \bibitem[\protect\citeauthoryear{Wu, Lu, Ling, Sun, and Du}{Wu
   et~al.}{2010}]{iot-layers2010}
-Wu, M., T.-J. Lu, F.-Y. Ling, J.~Sun, and H.-Y. Du (2010).
+Wu, M., T.-l. Lu, F.-Y. Ling, L.~Sun, and H.-Y. Du.
 \newblock {Research on the Architecture of Internet of Things}.
-\newblock In {\em 2010 3rd International Conference on Advanced Computer Theory
-  and Engineering(ICACTE)}, Volume~5, pp.\  V5--484--V5--487.
+\newblock In {\em Advanced Computer Theory and Engineering (ICACTE), 2010 3rd
+  International Conference on}, Volume~5, pp.\  V5--484. IEEE (2010).
 
 \bibitem[\protect\citeauthoryear{Yadron}{Yadron}{}]{samsung-lens}
 Yadron, D.
@@ -475,11 +482,11 @@ Yadron, D.
 \newblock Accessed: 2016-05-04.
 
 \bibitem[\protect\citeauthoryear{Zhu, Setia, and Jajodia}{Zhu
-  et~al.}{2006}]{zhu2006leap+}
-Zhu, S., S.~Setia, and S.~Jajodia (2006).
-\newblock {LEAP+: Efficient Security Mechanisms for Large-Scale Distributed
+  et~al.}{2003}]{zhu2006leap+}
+Zhu, S., S.~Setia, and S.~Jajodia.
+\newblock {LEAP: Efficient Security Mechanisms for Large-Scale Distributed
   Sensor Networks}.
-\newblock {\em ACM Transactions on Sensor Networks (TOSN)\/}~{\em 2\/}(4),
-  500--528.
+\newblock In {\em Proceedings of the 10th {ACM} Conference on Computer and
+  Communications Security, {CCS} 2003}, pp.\  62--72 (2003).
 
 \end{thebibliography}

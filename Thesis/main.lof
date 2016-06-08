@@ -7,9 +7,9 @@
 \select@language {english}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The OSI stack with layers, the data they carry, and an example of technology running on the different layers.}}{8}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The OSI stack with layers, the data they carry, and example of technology running at the different layers.}}{8}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Figure of IEEE 802.15.4's operational space compared to other wireless standards \cite {gutierrez2001ieee}.}}{9}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Figure of the 6LoWPAN stack, which uses the 802.15.4 physical and link layer, but adds an adoption layer in the network layer.}}{10}{figure.2.3}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Figure of the 6LoWPAN stack, which uses the IEEE 802.15.4 physical and link layer, but adds its own adoption layer at the network layer.}}{10}{figure.2.3}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Figure of a symmetric encryption scheme, where both parties possess the same symmetric key used for encryption and decryption.}}{15}{figure.2.4}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Figure of the interaction between the client, the KDC, and the SS in Kerberos.}}{17}{figure.2.5}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Figure of public-key encryption where a message to Alice is encrypted using her public key, and decrypted with her corresponding private key.}}{18}{figure.2.6}
@@ -19,12 +19,12 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Results of a verification process using Scyther when a claim fails.}}{36}{figure.3.3}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces When Scyther finds an attack on a protocol, if will also provide a graph of the attack.}}{37}{figure.3.4}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces APKES is positioned in the data link layer in the 6LoWPAN stack expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{42}{figure.4.1}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces APKES is positioned in the data link layer in the 6LoWPAN stack, expanding the 802.15.4 security sublayer \cite {krentz20136lowpan}.}}{42}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during APKES' three-way handshake.}}{44}{figure.4.2}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{48}{figure.4.3}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite {hussen2013sakes}.}}{51}{figure.4.4}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{52}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In \gls {sakes} the session key is established between the router and the server, before the router distributes the session key to the end device.}}{54}{figure.4.6}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In SAKES, the session key is established between the router and the server before the router distributes it to the end device.}}{54}{figure.4.6}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Result of verifying APKES' security claims using Scyther.}}{60}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Result of verifying AKES' security claims using Scyther.}}{62}{figure.5.2}

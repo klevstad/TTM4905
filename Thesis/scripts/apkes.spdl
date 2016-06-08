@@ -41,7 +41,7 @@ protocol APKES(A, B)
 		claim(A, Weakagree);
 		claim(A, Niagree); # Non-injective agreement
 		claim(A, Nisynch); # Non-injective synchronization
-		claim(A, Commit, B, Na); # claim that the recv2 value of Na has not been changed from the send_1 Na-value
+		claim(A, Commit, B, Na); # Claim that the recv2 value of Na has not been changed from the send_1 value of Na
 		claim(A, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
 		claim(A, Commit, B, PairwiseKey); # Explicit key authentication
 	}
@@ -71,7 +71,7 @@ protocol APKES(A, B)
 		claim(B, Weakagree);
 		claim(B, Niagree);
 		claim(B, Nisynch);
-		claim(B, Secret, PairwiseKey);
-		claim(B, Commit, A, PairwiseKey); # explicit key authentication
+		claim(B, Secret, PairwiseKey); # Secrecy of the computed pairwise key
+		claim(B, Commit, A, PairwiseKey); # Explicit key authentication
 	}
 }

@@ -24,6 +24,8 @@
 \begin{theglossary}\glossaryheader
 \glsgroupheading{glsnumbers}\relax\glsresetentrylist
 \glossentry{6lowpan}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{i}\delimN 
+\glsXpageXglsnumberformat{}{ii}, 
 \glsXpageXglsnumberformat{}{2}\delimN 
 \glsXpageXglsnumberformat{}{3}\delimN 
 \glsXpageXglsnumberformat{}{6}\delimN 
@@ -121,6 +123,7 @@
 \glsXpageXglsnumberformat{}{35}}}\glsgroupskip
 \glsgroupheading{I}\relax\glsresetentrylist
 \glossentry{ieee}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{i}, 
 \glsXpageXglsnumberformat{}{2}\delimN 
 \glsXpageXglsnumberformat{}{7}\delimN 
 \glsXpageXglsnumberformat{}{8}\delimN 
@@ -141,6 +144,7 @@
 \glsXpageXglsnumberformat{}{20}\delimN 
 \glsXpageXglsnumberformat{}{21}}}\relax\glsresetentrylist
 \glossentry{ip}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{i}, 
 \glsXpageXglsnumberformat{}{2}\delimN 
 \glsXpageXglsnumberformat{}{9}\delimR 
 \glsXpageXglsnumberformat{}{11}\delimN 

@@ -1,6 +1,9 @@
 This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
+A level-1 auxiliary file: abstract_english.aux
+A level-1 auxiliary file: abstract_norwegian.aux
+A level-1 auxiliary file: preface.aux
 A level-1 auxiliary file: Chapter1//introduction.aux
 A level-1 auxiliary file: Chapter2//background.aux
 A level-1 auxiliary file: Chapter3//scyther.aux
@@ -11,97 +14,57 @@ A level-1 auxiliary file: Chapter7//conclusion.aux
 The style file: chicago.bst
 A level-1 auxiliary file: Appendix/Appendix.aux
 Database file #1: main.bib
-You're missing a field name---line 370 of file main.bib
- : 
- : ,
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Repeated entry---line 642 of file main.bib
- : @incollection{cremers2014improving
- :                                   ,
-I'm skipping whatever remains of this entry
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1563 of file chicago.bst
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1563 of file chicago.bst
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1563 of file chicago.bst
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1608 of file chicago.bst
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1608 of file chicago.bst
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1608 of file chicago.bst
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1608 of file chicago.bst
-Warning--empty year in iot-phrase-2
 Warning--empty year in avispa
-Warning--no journal in basin2011model
 Warning--no number and no volume in basin2011model
 Warning--page numbers missing in basin2011model
 Warning--empty year in proverif
-Warning--can't use both volume and number fields in burrows1989logic
 Warning--empty year in scyther
-Warning--empty year in cremers2009comparing
-Warning--empty booktitle in cremers2003defining
 Warning--empty year in iot-gartner
 Warning--empty year in wirelesshart
-Warning--no number and no volume in rfc6282
-Warning--page numbers missing in rfc6282
 Warning--empty year in isa100
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1645 of file chicago.bst
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1645 of file chicago.bst
-Name 1 in "Jing, Qi, and Vasilakos, Athanasios V. and Wan, Jiafu and Lu, Jingwei and Qiu, Dechao" has a comma at the end for entry Jing2014
-while executing---line 1645 of file chicago.bst
-Warning--no number and no volume in levis2011trickle
-Warning--page numbers missing in levis2011trickle
 Warning--empty year in sony-lens
 Warning--empty year in miwi
-Warning--page numbers missing in Needham:1978
-Warning--empty year in iot-phrase-1
 Warning--empty year in zigbee
 Warning--empty year in samsung-lens
 You've used 71 entries,
             2861 wiz_defined-function locations,
-            1008 strings with 17247 characters,
-and the built_in function-call counts, 51845 in all, are:
-= -- 4496
+            1013 strings with 18059 characters,
+and the built_in function-call counts, 51633 in all, are:
+= -- 4445
 > -- 3634
-< -- 34
-+ -- 1084
+< -- 35
++ -- 1078
 - -- 1228
-* -- 4364
-:= -- 9064
-add.period$ -- 251
+* -- 4329
+:= -- 9024
+add.period$ -- 231
 call.type$ -- 71
-change.case$ -- 516
+change.case$ -- 518
 chr.to.int$ -- 70
-cite$ -- 94
-duplicate$ -- 1630
-empty$ -- 3269
+cite$ -- 83
+duplicate$ -- 1646
+empty$ -- 3268
 format.name$ -- 1404
-if$ -- 10097
+if$ -- 10039
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 62
-newline$ -- 370
+missing$ -- 59
+newline$ -- 371
 num.names$ -- 658
-pop$ -- 589
+pop$ -- 593
 preamble$ -- 1
 purify$ -- 952
 quote$ -- 0
-skip$ -- 1534
+skip$ -- 1560
 stack$ -- 0
-substring$ -- 2657
-swap$ -- 623
-text.length$ -- 34
+substring$ -- 2628
+swap$ -- 625
+text.length$ -- 35
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1366
-warning$ -- 23
-while$ -- 665
+type$ -- 1376
+warning$ -- 12
+while$ -- 669
 width$ -- 0
-write$ -- 1003
-(There were 12 error messages)
+write$ -- 989
+(There were 12 warnings)

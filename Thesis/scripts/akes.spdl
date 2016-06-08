@@ -51,7 +51,7 @@ protocol AKES(A, B)
 	# ACK
 	send_3(A, B, Message3, Message3-MIC);
 
-	claim(A, SKR, SessionKey);
+	claim(A, SKR, SessionKey); # Secrecy of session key, where the adversary has access to all previous and future session keys.
 	claim(A, Alive);
 	claim(A, Weakagree);
 	claim(A, Niagree);

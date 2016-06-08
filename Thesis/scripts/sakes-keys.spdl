@@ -7,7 +7,7 @@ hashfunction g1, g2;
 var A, B, C, D: Agent;
 
 
-macro Proof = {A, B, D}sk(C);
+macro Proof = {A, B, D}sk(C); The identities of the end device, router and remote server are verified and signed by the authentication module in the border router C
 
 macro Message1 = (Proof, B, Nb, g1(sk(B)));
 macro Message1-HASH = HASH(Message1);

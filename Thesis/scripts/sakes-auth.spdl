@@ -14,11 +14,11 @@ macro Message3-MAC = MAC(Message3, k(A, B));
 macro Message4 = Message3-Cipher, B, Nb;
 macro Message4-MAC = MAC(Message4, k(B, C));
 
-macro Message5-Signed = {A, B, D}sk(C);
-macro Message5 = {Message5-Signed, Pk, Sk, Nc}k(B, C);
+macro Message5-Signed = {A, B, D}sk(C); # The authentication module at the border router verifies the identites and signs them in a proof to be used in the key establisment phase
+macro Message5 = {Message5-Signed, Pk, Sk, Nc}k(B, C); # Distributes the proof and key pair to the router. Encrypted using symmetric key.
 
 macro Message6 = B, Nc;
-macro Message6-MAC = MAC(Message6, k(A,C));
+macro Message6-MAC = MAC(Message6, k(A,C)); # Confirms the identity of the router to the end device.
 
 protocol SAKES-AUTH(A, B, C, D) {
 
@@ -29,17 +29,17 @@ protocol SAKES-AUTH(A, B, C, D) {
 		var Nb, Nc: Nonce;
 		var Pk, Sk;
 
-		send_1(A, B, Message1);
-		recv_2(B, A, Message2);
-		send_3(A, B, Message3, Message3-MAC);
+		send_1(A, B, Message1); # Initial "Hello" from end device
+		recv_2(B, A, Message2); # Closest router responds.
+		send_3(A, B, Message3, Message3-MAC); # End device crafts a request with the router and its desired server.
 		recv_6(C, A, Message6, Message6-MAC);
 
-		claim_A1(A, Alive, B);
-		claim_A2(A, Alive, C);
+		claim_A1(A, Alive, B); # Entity authentication
+		claim_A2(A, Alive, C); # Entity authentication
 		claim_A3(A, Weakagree, B);
 		claim_A4(A, Weakagree, C);
-		claim_A5(A, Niagree);
-		claim_A6(A, Nisynch);
+		claim_A5(A, Niagree); # Non-injective data agreement
+		claim_A6(A, Nisynch); # Non-injective synchronization
 	}
 
 	role B {

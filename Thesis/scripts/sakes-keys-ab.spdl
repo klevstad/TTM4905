@@ -5,27 +5,27 @@ hashfunction g1, g2;
 var A, B, C, D: Agent;
 
 
-macro Proof = {A, B, D}sk(C);
-macro Message1 = (Na, MAC(A, Na, k(A,B)));
-macro Message2 = (Nb, MAC(B, Nb, k(A,B)));
+macro Proof = {A, B, D}sk(C); # The identities of the end device, router and remote server are verified and signed by the authentication module in the border router C
+macro Message1 = (Na, MAC(A, Na, k(A,B))); # Provide the router with the end device's nonce. MAC added because we assume that the authentication phase has authenticated all parties.
+macro Message2 = (Nb, MAC(B, Nb, k(A,B))); # Provide the end device with the router's nonce. MAC added because we assume that the authentication phase has authenticated all parties.
 
-macro Message3 = (Proof, B, Nb, g1(sk(B)));
+macro Message3 = (Proof, B, Nb, g1(sk(B))); # Request of the key establishment
 macro Message3-HASH = HASH(Message3);
 macro Message3-Signed = {Message3, Message3-HASH}sk(B);
 
-macro Message4 = (Nd,  g1(sk(D)));
+macro Message4 = (D, Nd,  g1(sk(D))); # Response from the server
 macro Message4-HASH = HASH(Message4);
 macro Message4-Signed = {Message4, Message4-HASH}sk(D);
 
-macro Message5 = {Nb, SessionKeyA}k(A,B);
+macro Message5 = {Nb, SessionKeyA}k(A,B); # Distribution of the session key for the end device
 
 
 protocol SAKES-KEYS(A, B, C, D) {
 
 	role A {
 		# 6LoWPAN End Device (A)
-		var Nb: Nonce;
 		fresh Na: Nonce;
+		var Nb: Nonce;
 		var SessionKeyA: key;
 
 		send_1(A, B, Message1);
@@ -43,7 +43,7 @@ protocol SAKES-KEYS(A, B, C, D) {
 		# 6LoWPAN Router (B)
 		fresh Nb: Nonce;
 		var Na, Nd: Nonce;
-		fresh SessionKeyA: key;
+		fresh SessionKeyA: key; # The session key is modelled as a fresh key to verify the secrecy between the end device and the router
 
 		recv_1(A, B, Message1);
 		send_2(B, A, Message2);
