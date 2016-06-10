@@ -2,8 +2,8 @@
 	Adaptive Pairwise Key Establishment Scheme (APKES)
 */
 
-usertype Index;
-hashfunction MIC;
+usertype Index; # User defined type Index
+hashfunction MIC; # Message Integrity Code
 
 macro PairwiseKey = {Na, Nb}k(A, B);
 
@@ -13,7 +13,7 @@ macro Message2-MIC = MIC(Message2,  k(A,B));
 macro Message3 = (Msg, Iba);
 macro Message3-MIC = MIC(Message3, PairwiseKey);
 
-const Msg;
+const Msg; # ACK-message.
 const AddressA; # A's Short Address
 const AddressB; # B's Short Address
 const Iab: Index; # A's index in B's list of neighbours
@@ -26,23 +26,22 @@ protocol APKES(A, B)
 		fresh Na: Nonce;
 		var Nb: Nonce;
 
-
 		# HELLO
 		send_1(A, B, Message1);
 
 		# HELLOACK
 		recv_2(B, A, Message2, Message2-MIC);
-		claim(A, Running, B, PairwiseKey);
+		claim(A, Running, B, PairwiseKey); # Agree upon the value of Na
 
 		#ACK
 		send_3(A, B, (Message3, Message3-MIC));
 
-		claim(A, Alive); # B was "alive" as A was able to execute the protocol correctly
-		claim(A, Weakagree);
+		claim(A, Alive); # Entity authentication
+		claim(A, Weakagree); # Weak agreement, A and B believe they are communicating with each other
 		claim(A, Niagree); # Non-injective agreement
 		claim(A, Nisynch); # Non-injective synchronization
 		claim(A, Commit, B, Na); # Claim that the recv2 value of Na has not been changed from the send_1 value of Na
-		claim(A, Secret, PairwiseKey); # The pairwise key is kept secret from adversary
+		claim(A, Secret, PairwiseKey); # Secrecy of key
 		claim(A, Commit, B, PairwiseKey); # Explicit key authentication
 	}
 
@@ -53,7 +52,7 @@ protocol APKES(A, B)
 
 		# HELLO
 		recv_1(A, B, Message1);
-		claim(B, Running, A, Na); # To make sure that the Na is not tampered with.
+		claim(B, Running, A, Na); # Agree upon the value of Na
 
 		# HELLOACK
 		send_2(B, A, Message2, Message2-MIC);
@@ -62,16 +61,11 @@ protocol APKES(A, B)
 		recv_3(A,B, Message3, Message3-MIC);
 		claim(B, Running, A, PairwiseKey);
 
-
-
-
-
-
 		claim(B, Alive);
 		claim(B, Weakagree);
 		claim(B, Niagree);
 		claim(B, Nisynch);
-		claim(B, Secret, PairwiseKey); # Secrecy of the computed pairwise key
-		claim(B, Commit, A, PairwiseKey); # Explicit key authentication
+		claim(B, Secret, PairwiseKey);
+		claim(B, Commit, A, PairwiseKey);
 	}
 }

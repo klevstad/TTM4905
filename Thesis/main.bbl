@@ -16,8 +16,8 @@ Andova, S., C.~J.~F. Cremers, K.~Gj{\o}steen, S.~Mauw, S.~F. Mj{\o}lsnes, and
 
 \bibitem[\protect\citeauthoryear{Ashton}{Ashton}{2009}]{iot-phrase-2}
 Ashton, K.
-\newblock {That ``Internet of Things'' Thing\\}.
-\newblock http://www.rfidjournal.com/articles/view?4986.
+\newblock {That ``Internet of Things'' Thing}.
+\newblock http://www.rfidjournal.com/\\articles/view?4986.
 \newblock Accessed: 2016-03-31 (2009).
 
 \bibitem[\protect\citeauthoryear{AVISPA Project}{AVISPA Project}{}]{avispa}
@@ -187,6 +187,13 @@ Dunkels, A., B.~Gr{\"{o}}nvall, and T.~Voigt.
 \newblock In {\em 29th Annual {IEEE} Conference on Local Computer Networks
   {(LCN} 2004), 16-18 November 2004, Tampa, FL, USA, Proceedings}, pp.\
   455--462 (2004).
+
+\bibitem[\protect\citeauthoryear{Durgin, Lincoln, and Mitchell}{Durgin
+  et~al.}{2004}]{multiset}
+Durgin, N.~A., P.~Lincoln, and J.~C. Mitchell.
+\newblock {Multiset Rewriting and the Complexity of Bounded Security
+  Protocols}.
+\newblock {\em Journal of Computer Security\/}~{\em 12\/}(2), 247--311 (2004).
 
 \bibitem[\protect\citeauthoryear{Durumeric, Kasten, Adrian, Halderman, Bailey,
   Li, Weaver, Amann, Beekman, Payer, et~al.}{Durumeric
@@ -404,6 +411,14 @@ Olsson, J.
 \newblock {6LoWPAN Demystified}.
 \newblock {\em Texas Instruments\/}~{\em 29}, 2015.
 \newblock \url{http://www.ti.com/lit/wp/swry013/swry013.pdf} (2014).
+
+\bibitem[\protect\citeauthoryear{Patel, Borisaniya, Patel, Patel, Rajarajan,
+  and Zisman}{Patel et~al.}{2010}]{tool-compare}
+Patel, R., B.~Borisaniya, A.~Patel, D.~R. Patel, M.~Rajarajan, and A.~Zisman.
+\newblock {Comparative Analysis of Formal Model Checking Tools for Security
+  Protocol Verification}.
+\newblock In {\em Recent Trends in Network Security and Applications - Third
+  International Conference, {CNSA} 2010. Proceedings}, pp.\  152--163 (2010).
 
 \bibitem[\protect\citeauthoryear{Perrig, Stankovic, and Wagner}{Perrig
   et~al.}{2004}]{perrig2004security}

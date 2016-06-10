@@ -1,23 +1,32 @@
 \pagestyle{empty}
 \begin{abstract}
 
+% Abstract à le Colin
+
+\noindent
+\gls{6lowpan} is a concept that enables an \gls{ip} connection over networks that use the \gls{ieee} 802.15.4 standard and has a focus on low-power devices with limited computational power. This has made \gls{6lowpan} an exciting technology for future device-to-device communications and the Internet of Things.
+
+
+\noindent
+This thesis presents, to the author's knowledge, the first formal security analysis of APKES, AKES, and SAKES, which are proposed protocols for establishing keys in \gls{ieee} 802.15.4 networks that utilize the \gls{6lowpan}. APKES and AKES were proven to have none or few issues that were discovered by the formal security analysis, and may, therefore, be possible schemes for future key establishment in \gls{6lowpan}. Multiple weaknesses were discovered in SAKES, where this thesis has aimed to improve the protocol by implementing necessary measures and validate these improvements using Scyther.
+
+
 % Background
-\noindent
-Wireless networks for low-power device-to-device communications have other requirements to energy consumption, complexity, and computational power than conventional wireless networks standards which have been used with high success in the 802.11 standards. \gls{6lowpan} is a concept that enables an \gls{ip} connection over networks that use the \gls{ieee} 802.15.4 standard, and has a focus on low-power devices with limited computational power. This has made \gls{6lowpan} an exciting technology for future device-to-device communications and the Internet of Things.
-
-\noindent
-In the strive for meeting energy requirements of low-power devices such as those operating in \gls{6lowpan}, security analysis of protocols that target these devices may not always be conducted properly, and critical security properties may be forgotten. This thesis aims to provide a formal security analysis of three proposed key establishment protocols for \gls{6lowpan} by using the protocol verification tool Scyther. To be able to formally verify the selected key establishment protocols, this thesis also contains an introduction to Scyther as a tool.
-
-\noindent
-In addition to formally verify the suggested key establishment protocols, this thesis has also reviewed general security properties for key establishment schemes, and how the chosen protocols aim to achieve these properties. In the case of the discovery of an attack on a security property within a protocol, possible improvements have been suggested to protect the protocol from these attacks in the future.
-
-% Results
-\noindent
-This thesis presents, to the author's knowledge, the first formal security analysis of three proposed protocols for establishing keys in \gls{ieee} 802.15.4 networks that utilize the \gls{6lowpan}. Two of the protocols were proven to have none or few issues that could be proven by the security analysis, and may therefore be possible schemes for future key establishment in \gls{6lowpan}. Multiple weaknesses were discovered in the third protocol, where this thesis has aimed to improve the protocol by implementing necessary measures and validate these improvements using Scyther. The author stresses that due to an infeasible large state space of this very protocol, the protocol was separated into two models to narrow the amount of possible protocol execution traces. While this provides useful insight on the separate phases of the key establishment protocol, there may still exist attacks that have gone through the analysis undiscovered.
-
-
-
-% Conclusion
-In the conclusion of this thesis, two of the protocols are formally verified and proven to be possible schemes for key establishment in the \gls{6lowpan}, while the third protocol contains flaws in the protocol execution which can allow for malicious behaviour and possibly leakage of sensitive data in a network. Also, this thesis substantiates the importance of formal security analysis to avoid deployment of protocols that may have serious security flaws.
+%\noindent
+%Wireless networks for low-power device-to-device communications have other requirements to energy consumption, complexity, and computational power than conventional wireless networks standards which have been used with high success in the \gls{ieee} 802.11 standards. \gls{6lowpan} is a concept that enables an \gls{ip} connection over networks that use the \gls{ieee} 802.15.4 standard and has a focus on low-power devices with limited computational power. This has made \gls{6lowpan} an exciting technology for future device-to-device communications and the Internet of Things.
+%
+%\noindent
+%In the strive for meeting energy requirements of low-power devices such as those operating in \gls{6lowpan}, security analysis of protocols that target these devices may not always be conducted properly, and critical security properties may be forgotten. This thesis aims to provide a formal security analysis of three proposed key establishment protocols for \gls{6lowpan} by using the protocol verification tool Scyther. To be able to formally verify the selected key establishment protocols, this thesis also contains an introduction to Scyther as a tool.
+%
+%\noindent
+%In addition to formally verify the suggested key establishment protocols, this thesis has also reviewed general security properties for key establishment schemes, and how the chosen protocols aim to achieve these properties. In the case of the discovery of an attack on a security property within a protocol, possible improvements have been suggested to protect the protocol from these attacks in the future.
+%
+%% Results
+%\noindent
+%This thesis presents, to the author's knowledge, the first formal security analysis of APKES, AKES, and SAKES, which are proposed protocols for establishing keys in \gls{ieee} 802.15.4 networks that utilize the \gls{6lowpan}. APKES and AKES were proven to have none or few issues that were discovered by the security analysis, and may, therefore, be possible schemes for future key establishment in \gls{6lowpan}. Multiple weaknesses were discovered in SAKES, where this thesis has aimed to improve the protocol by implementing necessary measures and validate these improvements using Scyther. The author stresses that due to an infeasible large state space of this very protocol, the protocol was separated into two models to narrow the amount of possible protocol execution traces. While this provides useful insight on the separate phases of the key establishment protocol, there may still exist attacks that have gone through the analysis undiscovered.
+%
+%% Conclusion
+%\noindent
+%In the conclusion of this thesis, APKES and AKES are formally verified and proven to be possible schemes for key establishment in the \gls{6lowpan}, while SAKES contains flaws in the protocol execution which can allow for malicious behaviour and possibly leakage of sensitive data in \gls{6lowpan}. Also, this thesis substantiates the importance of formal security analysis to avoid deployment of protocols that may have serious security flaws.
 
 \end{abstract}

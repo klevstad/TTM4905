@@ -2,37 +2,27 @@
 	Adaptive Key Establishment Scheme (AKES)
 */
 
-hashfunction MIC;
+hashfunction MIC; # Message Integrity Code
 
-const Msg;
-
+const Msg; # ACK message
 const PANa; # A's Personal Area Network (PAN) Id
 const PANb; # B's Personal Area Network (PAN) Id
-
 const IDa: Agent; # A's extended, short or simple address
 const IDb: Agent; # B's extended, short or simple address
-
 const Ca; # B's frame counter of the last accepted frame from A
 const Cb; # A's frame counter of the last accepted frame from B
-
 const Pa; # Flag indicating whether or not A is currently one of B's permanent neighbours
-
 const AddressA; # A's Short Address
 const AddressB; # B's Short Address
-
 const Iab; # A's index in B's list of neighbours (EBEAP)
 const Iba; # B's index in A's list of neighbours (EBEAP)
 
-
-
 macro SessionKey = {Na, Nb}k(A,B); # Where k(A,B) is the key from the plugged-in scheme
-
 macro Message1 = (Na, PANa, IDa, Ca);
 macro Message2 = (Nb, PANa, IDa, PANb, IDb, Iab, Cb, Pa);
 macro Message2-MIC = MIC(Message2, SessionKey);
 macro Message3 = (Msg, PANb, IDb, PANa, IDa, Iba, Ca);
 macro Message3-MIC = MIC(Message3, SessionKey);
-
 
 protocol AKES(A, B)
 {
@@ -41,22 +31,17 @@ protocol AKES(A, B)
 	fresh Na: Nonce;
 	var Nb: Nonce;
 
-	# HELLO
-	send_1(A, B, Message1);
+	send_1(A, B, Message1); 	# HELLO
+	recv_2(B, A, Message2, Message2-MIC); # HELLOACK
+	claim(A, Running, B, SessionKey); # Claim that the session key is computed
+	send_3(A, B, Message3, Message3-MIC); # ACK
 
-	# HELLOACK
-	recv_2(B, A, Message2, Message2-MIC);
-	claim(A, Running, B, SessionKey);
-
-	# ACK
-	send_3(A, B, Message3, Message3-MIC);
-
-	claim(A, SKR, SessionKey); # Secrecy of session key, where the adversary has access to all previous and future session keys.
-	claim(A, Alive);
-	claim(A, Weakagree);
-	claim(A, Niagree);
-	claim(A, Nisynch);
-	claim(A, Commit, B, SessionKey);
+	claim(A, SKR, SessionKey); # Secrecy of session key
+	claim(A, Alive); # Entity authentication
+	claim(A, Weakagree); # Weak agreement
+	claim(A, Niagree); # Non-injective agreement
+	claim(A, Nisynch); # Non-injective synchronization
+	claim(A, Commit, B, SessionKey); # Secrecy of session key
 	}
 
   role B
@@ -64,26 +49,17 @@ protocol AKES(A, B)
 	fresh Nb: Nonce;
 	var Na: Nonce;
 
+	recv_1(A, B, Message1); # HELLO
+	claim(B, Running, A, SessionKey); # Claim that the session key is computed
+	send_2(B, A, Message2, Message2-MIC); # HELLOACK
+	recv_3(A, B, Message3, Message3-MIC); # ACK
 
-
-
-	# HELLO
-	recv_1(A, B, Message1);
 	claim(B, Running, A, SessionKey);
-
-	# HELLOACK
-	send_2(B, A, Message2, Message2-MIC);
-
-	# ACK
-	recv_3(A, B, Message3, Message3-MIC);
-	claim(B, Running, A, SessionKey);
-
-
 	claim(B, SKR, SessionKey);
 	claim(B, Alive);
 	claim(B, Weakagree);
 	claim(B, Niagree);
 	claim(B, Nisynch);
-	claim(B, Commit, A, SessionKey);
+	claim(B, Commit, A, SessionKey); # Explicit key authentication
 	}
 }

@@ -1,10 +1,12 @@
 \chapter{Three Protocols for Key Establishment in 6LoWPAN}
 \label{chp:protocols}
 
-In this chapter, three proposed protocols for key establishment in \gls{6lowpan}s will be introduced. The chapter also contains an assumption of the different security properties that would be natural to assume for the respective protocols, and a summary of the protocols' immediate weaknesses. The notations that are used for describing the presented protocols can be reviewed in Appendix \ref{app:notations}.
+In this chapter, three proposed protocols for key establishment in \gls{6lowpan}s will be introduced. The chapter also contains an assumption of the different security properties that would be natural to assume for the respective protocols, and a summary of the protocols' immediate weaknesses. The notation that is used for describing the presented protocols can be reviewed in Appendix \ref{app:notations}.
 
 
 \section{General Properties}
+
+Multiple properties are common for all of the protocols that this thesis addresses. These properties are more general than regular key establishment properties and cover a wide area of different schemes and attacks.
 
 \paragraph{Key scheme} As mentioned in Section \ref{subsec:keys-schems}, multiple versions of key establishment schemes exist. The network-wide shared key and pairwise keys are commonly used for symmetric key schemes, while public-key schemes is another option where encryption and decryption is done using separate, but mathematically tied, keys. Session keys are symmetric keys which are used for a single session, and never to be used again. These are often used in conjunction with public-key cryptography.
 
@@ -32,28 +34,29 @@ As explained, \gls{dos} attacks actively target an entity to deny it from provid
 
 \section{Adaptable Pairwise Key Establishment Scheme (APKES)}
 
+The \gls{apkes} is a proposed scheme by Krentz et al. for handling key establishment and key management in \gls{6lowpan}s \cite{krentz20136lowpan}. It is currently implemented in the operating system Contiki, which is targeted at the sensor network community. Table \ref{tab:apkes-props} displays which general security properties that the scheme provides. As previously described in Section \ref{sec:6lowpan}, \gls{6lowpan} is a protocol stack for integrating \gls{wsn}s running on 802.15.4 with \gls{ip}v6 networks, and enables the nodes in the network to communicate with each other, or remote hosts, over \gls{ip}. \gls{apkes} provides a framework for establishing pairwise keys for nodes in \gls{6lowpan}s.
+
 \begin{table}[h]
-\begin{tabular}{lr}
+\centering
+\begin{tabular}{|l|r|}\hline
 \textbf{Key scheme:} & Pairwise symmetric keys  \\
-\textbf{Replay protection:}	 & Yes  \\
+\textbf{Replay protection:}	 & Yes, 802.15.4 security sublayer \\
 \textbf{Node compromise resilient:} & Yes, with EBEAP  \\
 \textbf{Key revocation:} & No \\
 \textbf{Tamper resistant} & No \\
 \textbf{\gls{dos} resilient:} & Yes \\
-\textbf{Wormhole resilient:} & No \\
+\textbf{Wormhole resilient:} & No \\ \hline
 \end{tabular}
+\caption{Overview of if which general security properties that APKES satisfies.}
+\label{tab:apkes-props}
 \end{table}
-
-
-
-The \gls{apkes} is a proposed scheme by Krentz et al. for handling key establishment and key management in \gls{6lowpan}s \cite{krentz20136lowpan}. It is currently implemented in the operating system Contiki, which is targeted at the sensor network community. As previously described in Section \ref{sec:6lowpan}, \gls{6lowpan} is a protocol stack for integrating \gls{wsn}s running on 802.15.4 with \gls{ip}v6 networks, and enables the nodes in the network to communicate with each other, or remote hosts, over \gls{ip}. \gls{apkes} provides a framework for establishing pairwise keys for nodes in \gls{6lowpan}s.
 
 Figure \ref{fig:6lowpan-krentz} illustrates how \gls{apkes} is implemented at the link layer along with the 802.15.4 security sublayer. In its implementation, \gls{apkes} introduces three special messages which are used in the key establishment process, namely \texttt{HELLO}, \texttt{HELLOACK}, and \texttt{ACK} \cite{krentz20136lowpan}. These are defined as 802.15.4 command messages, which are only processed by the data link layer (i.e. they are not passed to upper layers). Hence \gls{apkes} can establish pairwise keys for networks building on 802.15.4 independently from the protocols running in the upper layers.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.60]{6lowpan-krentz.png}
-	\caption{APKES is positioned in the data link layer in the 6LoWPAN stack, expanding the 802.15.4 security sublayer \cite{krentz20136lowpan}.}
+	\caption[APKES is positioned in the data link layer in the 6LoWPAN stack, expanding the 802.15.4 security sublayer.]{APKES is positioned in the data link layer in the 6LoWPAN stack, expanding the 802.15.4 security sublayer \cite{krentz20136lowpan}.}
 	\label{fig:6lowpan-krentz}
 \end{figure}
 
@@ -159,18 +162,22 @@ In addition to the weaknesses related to frame counters and storing anti-replay 
 
 
 \begin{table}[h]
-\begin{tabular}{lr}
+\centering
+\begin{tabular}{|l|l|} \hline
 \textbf{Key scheme:} & Symmetric and session keys  \\
 \textbf{Replay protection:}	 & Yes  \\
 \textbf{Node compromise resilient:} & Yes, with \gls{ebeap}  \\
 \textbf{Key revocation:} & No \\
 \textbf{Tamper resistant} & No \\
 \textbf{\gls{dos} resilient:} & Yes \\
-\textbf{Wormhole resilient:} & No \\
+\textbf{Wormhole resilient:} & No \\ \hline
 \end{tabular}
+\caption{Overview of if which general security properties that AKES satisfies.}
+\label{tab:akes-props}
 \end{table}
 
-The \gls{akes} aims to improve and fix the weaknesses that were introduced in \gls{apkes} and is currently implemented in the Contiki operating system \cite{krentz2015handling}. Its primary goal is to establish session keys between devices in a \gls{6lowpan} while being able to withstand reboots and movement from one network to another. As described in Section \ref{subsec:apkes-weakness}, \gls{apkes} suffered from issues when restarting the device, and it was unable to provide mobility for the devices. Most of these problems can be solved by one ``simple'' adjustment: Establishing session keys between nodes instead of long-term keys. By establishing session keys, \gls{mic}s from previous sessions would be invalidated, which enables the node to delete data used for providing replay protection (such as frame counters), and will also filter out old frames. Also, this removes the problem related to frame counters being reset after a reboot, as mentioned in Section \ref{subsec:apkes-weakness}. 
+
+The \gls{akes} aims to improve and fix the weaknesses that were introduced in \gls{apkes} and is currently implemented in the Contiki operating system \cite{krentz2015handling}. Its primary goal is to establish session keys between devices in a \gls{6lowpan} while being able to withstand reboots and movement from one network to another. The general security properties that \gls{akes} satisfies As described in Section \ref{subsec:apkes-weakness}, \gls{apkes} suffered from issues when restarting the device, and it was unable to provide mobility for the devices. Most of these problems can be solved by one ``simple'' adjustment: Establishing session keys between nodes instead of long-term keys. By establishing session keys, \gls{mic}s from previous sessions would be invalidated, which enables the node to delete data used for providing replay protection (such as frame counters), and will also filter out old frames. Also, this removes the problem related to frame counters being reset after a reboot, as mentioned in Section \ref{subsec:apkes-weakness}. 
 
 \gls{akes} builds on the approach from \gls{apkes}, where the underlying scheme is pluggable, and provides \gls{akes} with the secret that is pre-shared between the nodes. Before an 802.15.4 node can run \gls{akes}, addressing information (which uniquely identifies a node within an 802.15.4 network and is used by the pluggable scheme when establishing the shared secret) and keying material has to be preloaded into it. \gls{akes} also has access to the same command frames \texttt{HELLO}, \texttt{HELLOACK}, and \texttt{ACK}, which are used to establish session keys, and only processed by the data link layer. Figure \ref{fig:6lowpan-krentz} describes where \gls{apkes} is implemented in the \gls{6lowpan} stack, and as \gls{akes} is merely an improvement over \gls{apkes}, it is implemented in the same layer as \gls{apkes} and the 802.15.4 Security Sublayer. 
 
@@ -255,26 +262,28 @@ As previously mentioned, \gls{apkes} introduced some protocol weaknesses that \g
 \section{Secure Authentication and Key Establishment Scheme (SAKES)}
 \label{sec:sakes}
 
+The third, and last protocol which will be discussed in this thesis is the \gls{sakes}. \gls{sakes} aims to provide secure authentication and key establishment for nodes in a device-to-device network running on \gls{6lowpan} \cite{hussen2013sakes}. The general security properties that are provided by the scheme is presented in Table \ref{tab:sakes-props}. Previous described protocols such as \gls{apkes} and \gls{akes} enables devices to communicate directly with each other without any previous authentication have taken place. The architecture in \gls{sakes} as seen in Figure \ref{fig:sakes-arch} consists of end devices, \gls{6lowpan} routers, \gls{6lowpan} border routers, and remote servers providing services to the devices. End devices are typically sensors, with very limited computational power. Border routers and conventional \gls{6lowpan} routers are more powerful entities which can perform lightweight public key cryptography operations.
 
 \begin{table}[h]
-\begin{tabular}{lr}
+\centering
+\begin{tabular}{|l|l|} \hline
 \textbf{Key scheme:} & Asymmetric, Symmetric, and Session keys  \\
 \textbf{Replay protection:}	 & Yes  \\
 \textbf{Node compromise resilient:} & No  \\
 \textbf{Key revocation:} & No \\
 \textbf{Tamper resistant} & No \\
 \textbf{\gls{dos} resilient:} & No \\
-\textbf{Wormhole resilient:} & Yes \\
+\textbf{Wormhole resilient:} & Yes \\ \hline
 \end{tabular}
+\caption{Overview of if which general security properties that SAKES satisfies.}
+\label{tab:sakes-props}
 \end{table}
-
-The third, and last protocol which will be discussed in this thesis is the \gls{sakes}. \gls{sakes} aims to provide secure authentication and key establishment for nodes in a device-to-device network running on \gls{6lowpan} \cite{hussen2013sakes}. Previous described protocols such as \gls{apkes} and \gls{akes} enables devices to communicate directly with each other without any previous authentication have taken place. The architecture in \gls{sakes} as seen in Figure \ref{fig:sakes-arch} consists of end devices, \gls{6lowpan} routers, \gls{6lowpan} border routers, and remote servers providing services to the devices. End devices are typically sensors, with very limited computational power. Border routers and conventional \gls{6lowpan} routers are more powerful entities which can perform lightweight public key cryptography operations.
 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.60]{sakes-arch.png}
-	\caption{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite{hussen2013sakes}.}
+	\caption[Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment.]{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite{hussen2013sakes}.}
 	\label{fig:sakes-arch}
 \end{figure}
 
@@ -362,7 +371,7 @@ B \rightarrow A:\ & \{SK_A, N_B\}_{K_{A,B}}\\
 Claim:\ & SK_A = SK_D\\
 \end{align*}
 \end{tcolorbox}
-\caption{Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In SAKES, the session key is established between the router and the server before the router distributes it to the end device.}
+\caption[Figure of the messages sent between communicating parties in SAKES' key establishment between the end device, the 6LoWPAN router, and the remote server.]{Figure of the messages sent between communicating parties in SAKES' key establishment between the end device (A), the 6LoWPAN router (B), and the remote server (D). In SAKES, the session key is established between the router and the server before the router distributes it to the end device.}
 \label{fig:sakes-keys}
 \end{figure}
 
@@ -378,7 +387,7 @@ Claim:\ & SK_A = SK_D\\
 
 \begin{equation}
 \label{eq:skd}
-SK_D = g^{\ Pk_{B}\ *\ Sk_D} \mod P
+SK_D = g^{\ Pk_{B}\ *\ Sk_D} \bmod P
 \end{equation}
 
 \item Upon receiving the response from the remote server, $B$ computes the hash for the message and compares it to the attached hash value, as well as verifying that the signature matches the public key.
@@ -387,7 +396,7 @@ SK_D = g^{\ Pk_{B}\ *\ Sk_D} \mod P
 
 \begin{equation}
 \label{eq:ska}
-SK_A = g^{\ Pk_{D}\ *\ Sk_B} \mod P
+SK_A = g^{\ Pk_{D}\ *\ Sk_B} \bmod P
 \end{equation}
 
 \item In order to distribute the session key securely to the end device $A$, the key is encrypted along with the nonce $N_B$ under the symmetric key $K_{A,B}$, and sent to $A$.
@@ -428,14 +437,14 @@ The major downside with \gls{sakes} is that the authors have misunderstood the c
 
 \begin{equation}
 \label{eq:dh}
-(g^a \mod p)^b \mod p = (g^b \mod p)^a \mod p
+(g^a \bmod p)^b \bmod p = (g^b \bmod p)^a \bmod p
 \end{equation}
 
 In \gls{sakes}, the private key of the remote server and the ephemeral public key of the router are used to calculate the session key at the server's side. However, the router uses its ephemeral private key and the public key of the server to compute the session key, which gives us two different session keys as shown in Equation \ref{eq:dh-wrong}.
 
 \begin{equation}
 \label{eq:dh-wrong}
-(g^{Pk_B} \mod p)^{Sk_D} \mod p \neq (g^{Pk_D} \mod p)^{Sk_B} \mod p
+(g^{Pk_B} \bmod p)^{Sk_D} \bmod p \neq (g^{Pk_D} \bmod p)^{Sk_B} \bmod p
 \end{equation}
 
 As for the computation of the key, the remote server has a fixed public key pair which is used for generating every session key, while the router uses a freshly generated key pair that it gets from the border router. The Diffie-Hellman key agreement relies on the mathematical challenge in computing discrete logarithms (i.e. finding $x$ when presented with $g^x$), and having half the key fixed for each session key can potentially leak information about the secret key over time.

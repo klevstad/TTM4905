@@ -1,30 +1,25 @@
 /*
 	Secure Authentication and Key Establishment (SAKES) - Session Key Establishment
 */
-usertype key;
-hashfunction HASH;
-hashfunction g1, g2;
-var A, B, C, D: Agent;
+usertype key; # User defined type
+hashfunction HASH; # Un-keyed hash function
+hashfunction g1, g2; # Hash functions to model Diffie-Helmman
+var A, B, C, D: Agent; # Identities of the different entities
 
-
-macro Proof = {A, B, D}sk(C); The identities of the end device, router and remote server are verified and signed by the authentication module in the border router C
-
+macro Proof = {A, B, D}sk(C); The identities of the end device, router and remote server are verified and signed by the authentication module in the border router
 macro Message1 = (Proof, B, Nb, g1(sk(B)));
 macro Message1-HASH = HASH(Message1);
 macro Message1-Signed = {Message1, Message1-HASH}sk(B);
-
-macro Message2 = (Nd, Proof, Nb, g1(sk(D)));
+macro Message2 = (Nd, g1(sk(D)));
 macro Message2-HASH = HASH(Message2);
 macro Message2-Signed = {Message2, Message2-HASH}sk(D);
-
 macro SessionKeyD = g2(g1(sk(B)), sk(D));
-
 macro Message3 = {Nb, SessionKeyA}k(A,B);
 
 protocol SAKES-KEYS(A, B, C, D) {
-
 	role A {
 		# 6LoWPAN End Device (A)
+
 		var Nb: Nonce;
 		var SessionKeyA: key;
 
@@ -46,21 +41,19 @@ protocol SAKES-KEYS(A, B, C, D) {
 		recv_2(D, B, Message2, Message2-HASH, Message2-Signed);
 		send_3(B, A, Message3);
 
-		claim(B, Alive, D);
-		claim(B, Alive, A);
-		claim(B, Weakagree, D);
-		claim(B, Weakagree, A);
-		claim(B, Niagree);
-		claim(B, Nisynch);
-		claim(B, SKR, SessionKeyA);
-		claim(B, SKR, SessionKeyD);
+		claim(B, Alive, D); # Entity authentication of D
+		claim(B, Alive, A); # Entity authentication of A
+		claim(B, Weakagree, D); # Weak agreement of D
+		claim(B, Weakagree, A); # Weakagreement of A
+		claim(B, Niagree); # Non-injective agreement
+		claim(B, Nisynch); # Non-injective synchronization
+		claim(B, SKR, SessionKeyA); # Session key reveal of the fresh key that is distributed from the router to the end device
+		claim(B, SKR, SessionKeyD); # Session key reveal of the session key that is established between the router and the server
 	}
 
 	role C {
 		# 6LoWPAN Border Router (C)
 	}
-
-
 
 	role D {
 		# Remote Server (D)
@@ -78,13 +71,12 @@ protocol SAKES-KEYS(A, B, C, D) {
 	}
 }
 
-
-//Computation from Message 2
+# Helper protocol to model the Diffie-Hellman approximation
 protocol @exp(DH){
 	role DH {
 		var x,y: Agent;
 
-			recv_!DH1(DH, DH, g2(g1(sk(x)),sk(y)));
-			send_!DH2(DH, DH, g2(g1(sk(y)),sk(x)));
-		}
+		recv_!DH1(DH, DH, g2(g1(sk(x)),sk(y)));
+		send_!DH2(DH, DH, g2(g1(sk(y)),sk(x)));
+	}
 }

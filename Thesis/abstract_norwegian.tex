@@ -1,5 +1,30 @@
 \pagestyle{empty}
 \renewcommand{\abstractname}{Sammendrag}
 \begin{abstract}
-\noindent Du verden, abstrakt på norsk også?
+
+
+% Abstrakt på Colinsk
+
+\noindent
+6LoWPAN, av det engelske begrepet ``IPv6 over Low-power Wireless Personal Area Network'', betegner et personlig trådløst nettverk som bygger på \gls{ieee} 802.15.4 standarden. Nyvinningen ved dette nettverket er at det tillater enheter å kommunisere med hverandre og omverdenen gjennom bruk av protokollen Internet Protocol, bedre kjent som bare \gls{ip}. \gls{6lowpan} har et spesielt fokus på å minimalisere energibruken i nettverket. Dette gjør at mindre, billigere og enklere enheter kan kobles med hverandre og omverdenen, noe som har gjort \gls{6lowpan} til en spennende teknologi for fremtidens enhet-til-enhet-kommunikasjon og ``tingenes internett''. 
+
+\noindent
+Denne masteroppgaven presenterer, til forfatterens kjennskap, de første formelle sikkerhetsanalysene av tre protokoller for etablering av krypteringsnøkler i \gls{6lowpan}: APKES, AKES og SAKES. APKES og AKES blir bevist til å inneholde ingen eller få alvorlige feil, noe som gjør dem til aktuelle protokoller for etablering av krypteringsnøkler i \gls{6lowpan}. Det ble oppdaget flere svakheter ved SAKES. Derfor blir flere mulige forbedringer til protokollen presentert, implementert og verifisert ved hjelp av Scyther.
+
+%
+%\noindent
+%Trådløse nettverk for lavenergis enhet-til-enhet-kommunikasjon har andre krav til energibruk, kompleksitet og regnekraft enn konvensjonelle standarder for trådløse nettverk slik som suksessen \gls{ieee} 802.11, også kjent som WiFi. 6LoWPAN, av det engelske begrepet ``IPv6 over Low-power Wireless Personal Area Network'', betegner et personlig trådløst nettverk som bygger på \gls{ieee} 802.15.4 standarden. Nyvinningen ved dette nettverket er at det tillater enheter å kommunisere med hverandre og omverdenen gjennom bruk av protokollen Internet Protocol, bedre kjent som bare \gls{ip}. \gls{6lowpan} har et spesielt fokus på å minimalisere energibruken i nettverket. Dette gjør at mindre, billigere og enklere enheter kan kobles med hverandre og omverdenen, noe som har gjort \gls{6lowpan} til en spennende teknologi for fremtidens enhet-til-enhet-kommunikasjon og ``tingenes internett''. 
+%
+%\noindent
+%I jakten på å møte kravene til energieffektivitet for å kunne være en realiserbar løsning i et nettverk som \gls{6lowpan}, hender det at sikkerhetsanalysen ikke alltid blir gjennomført på en tilfredsstillende måte. En av grunnene til dette kan være at man i fokuset på å gjøre en protokoll mest mulig energibesparende, overser viktige sikkerhetsaspekter. Denne masteroppgaven utfører formell sikkerhetsanalyse av tre foreslåtte protokoller for etablering av krypteringsnøkler i \gls{6lowpan} ved bruk av verifiseringsverktøyet Scyther. De utvalgte protokollene går under akronymene APKES, AKES og SAKES, og er nylig foreslåtte protokoller uten noen formell sikkerhetsanalyse. For å kunne formelt verifisere disse protokollene, har oppgaven også involvert å lage en introduksjon til Scyther som et arbeidsverktøy for formell sikkerhetsanalyse.
+%
+%\noindent
+%I tillegg til å formelt verifisere de foreslåtte protokollene, har denne masteroppgaven også vurdert generelle sikkerhetsegenskaper for design av protokoller for etablering av krypteringsnøkler, og hvordan de aktuelle protokollene oppnår disse. Hvis analysen skulle avdekke et angrep på en sikkerhetsegenskap i en protokoll, har mulige forbedringer som skal beskytte protokollen fra fremtidige angrep av samme sort blitt foreslått.
+%
+%\noindent
+%Denne masteroppgaven presenterer, til forfatterens kjennskap, de første formelle sikkerhetsanalysene av tre protokoller for etablering av krypteringsnøkler i \gls{6lowpan}: APKES, AKES og SAKES. APKES og AKES blir bevist til å inneholde ingen eller få alvorlige feil, noe som gjør dem til aktuelle protokoller for etablering av krypteringsnøkler i \gls{6lowpan}. Det ble oppdaget flere svakheter ved SAKES. Derfor blir flere mulige forbedringer til protokollen presentert, implementert og verifisert ved hjelp av Scyther. Forfatteren understreker at på grunn av et stort område av mulige tilstander, har SAKES blitt oppdelt i to separate komponenter for å begrense tilstandsområdet. Gjennom denne metoden oppnår man vellykkede resultater, men på grunn av separeringen kan det eksistere ytterligere angrep som ikke har blitt oppdaget i denne sikkerhetsanalysen.
+%
+%
+%\noindent
+%Gjennom den formelle sikkerhetsanalysen som blir presentert, konkluderes det med at APKES og AKES kan være mulige design for etablering av krypteringsnøkler i \gls{6lowpan}. SAKES inneholder flere feil som gjør protokoller i sin opprinnelige form uegnet til bruk i \gls{6lowpan}, da det kan forårsake skadelig atferd og lekkasjer av sensitiv informasjon. I tillegg underbygger denne masteroppgaven viktigheten av å utføre formell sikkerhetsanalyse slik at man unngår å ta i bruk protokoller med alvorlige sikkerhetshull.
 \end{abstract}

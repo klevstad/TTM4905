@@ -2,27 +2,22 @@
 Secure Authentication and Key Establishment Scheme (SAKES) - Authentication - Improved
 */
 
-hashfunction MAC;
+hashfunction MAC; # Message Authentication Code
 
 macro Message1 = Na;
 macro Message2 = Nb;
 macro Message2-MAC = MAC(Nb, k(A,B));
-
 macro Message3-Cipher = {A, B, D, Na}k(A, C);
-macro Message3 = Message3-Cipher, A, Na, Nb; # ADD Nb = Achieves nisynch, niagree for A and C
+macro Message3 = Message3-Cipher, A, Na, Nb; # Adding Nb achieves Nisynch and Niagree for A and C
 macro Message3-MAC = MAC(Message3, k(A, B));
-
 macro Message4 = (Message3-Cipher, B, Nb);
 macro Message4-MAC = MAC(Message4, k(B, C));
-
 macro Message5-Signed = {A, B, D}sk(C);
-macro Message5 = {Message5-Signed, Pk, Sk, Nb, Nc}k(B, C); # ADD Nb = Achieves nisynch, niagree for B
-
-macro Message6 = B, Na, Nc; # ADD Na = Achieves Weakagree B & C for A
+macro Message5 = {Message5-Signed, Pk, Sk, Nb, Nc}k(B, C); # Adding Nb achieves Nisynch and Niagree for B
+macro Message6 = B, Na, Nc; # Adding Na achieves Weakagree for B and C in A
 macro Message6-MAC = MAC(Message6, k(A,C));
 
 protocol SAKES-AUTH(A, B, C, D) {
-
 	role A {
 		# 6LoWPAN End Device (A)
 
@@ -35,12 +30,12 @@ protocol SAKES-AUTH(A, B, C, D) {
 		send_3(A, B, Message3, Message3-MAC);
 		recv_6(C, A, Message6, Message6-MAC);
 
-		claim(A, Alive, B);
-		claim(A, Alive, C);
-		claim(A, Weakagree, B);
-		claim(A, Weakagree, C);
-		claim(A, Niagree);
-		claim(A, Nisynch);
+		claim(A, Alive, B); # Entity authentication of B
+		claim(A, Alive, C); # Entity authentication of C
+		claim(A, Weakagree, B); # Weak agreement of B
+		claim(A, Weakagree, C); # Weak agreement of C
+		claim(A, Niagree); # Non-injective agreement
+		claim(A, Nisynch); # Non-injective synchronization
 	}
 
 	role B {
@@ -56,7 +51,7 @@ protocol SAKES-AUTH(A, B, C, D) {
 		send_4(B, C, Message4, Message4-MAC);
 		recv_5(C, B, Message5);
 
-		claim(B, Secret, Sk);
+		claim(B, Secret, Sk); # Secrecy of the received ephemeral private key
 		claim(B, Alive, A);
 		claim(B, Alive, C);
 		claim(B, Weakagree, A);

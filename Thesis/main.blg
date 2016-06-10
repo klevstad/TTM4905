@@ -26,45 +26,45 @@ Warning--empty year in sony-lens
 Warning--empty year in miwi
 Warning--empty year in zigbee
 Warning--empty year in samsung-lens
-You've used 71 entries,
+You've used 73 entries,
             2861 wiz_defined-function locations,
-            1013 strings with 18059 characters,
-and the built_in function-call counts, 51633 in all, are:
-= -- 4445
-> -- 3634
-< -- 35
-+ -- 1078
-- -- 1228
-* -- 4329
-:= -- 9024
-add.period$ -- 231
-call.type$ -- 71
-change.case$ -- 518
-chr.to.int$ -- 70
-cite$ -- 83
-duplicate$ -- 1646
-empty$ -- 3268
-format.name$ -- 1404
-if$ -- 10039
+            1023 strings with 18559 characters,
+and the built_in function-call counts, 53530 in all, are:
+= -- 4595
+> -- 3807
+< -- 36
++ -- 1132
+- -- 1282
+* -- 4520
+:= -- 9355
+add.period$ -- 237
+call.type$ -- 73
+change.case$ -- 537
+chr.to.int$ -- 72
+cite$ -- 85
+duplicate$ -- 1696
+empty$ -- 3369
+format.name$ -- 1466
+if$ -- 10407
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 59
-newline$ -- 371
-num.names$ -- 658
-pop$ -- 593
+missing$ -- 61
+newline$ -- 381
+num.names$ -- 678
+pop$ -- 612
 preamble$ -- 1
-purify$ -- 952
+purify$ -- 983
 quote$ -- 0
-skip$ -- 1560
+skip$ -- 1607
 stack$ -- 0
-substring$ -- 2628
-swap$ -- 625
-text.length$ -- 35
+substring$ -- 2725
+swap$ -- 645
+text.length$ -- 36
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1376
+type$ -- 1416
 warning$ -- 12
-while$ -- 669
+while$ -- 686
 width$ -- 0
-write$ -- 989
+write$ -- 1016
 (There were 12 warnings)
