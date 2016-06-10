@@ -33,7 +33,7 @@
 \BOOKMARK [2][-]{subsection.4.2.1}{Allowing ``Pluggable'' Schemes to Increase Universality}{section.4.2}% 33
 \BOOKMARK [2][-]{subsection.4.2.2}{Avoiding Denial of Service Attacks}{section.4.2}% 34
 \BOOKMARK [2][-]{subsection.4.2.3}{Node Compromise Resilience}{section.4.2}% 35
-\BOOKMARK [2][-]{subsection.4.2.4}{Protocol specification}{section.4.2}% 36
+\BOOKMARK [2][-]{subsection.4.2.4}{Protocol Specification}{section.4.2}% 36
 \BOOKMARK [2][-]{subsection.4.2.5}{Assumptions of Security Properties}{section.4.2}% 37
 \BOOKMARK [2][-]{subsection.4.2.6}{Weaknesses and Challenges with APKES}{section.4.2}% 38
 \BOOKMARK [1][-]{section.4.3}{Adaptable Key Establishment Scheme \(AKES\)}{chapter.4}% 39
@@ -80,13 +80,13 @@
 \BOOKMARK [0][-]{appendix.A}{Scyther Scripts}{}% 80
 \BOOKMARK [1][-]{section.A.1}{Scyther Script of Adaptable Pairwise Key Establishment Scheme \(APKES\)}{appendix.A}% 81
 \BOOKMARK [1][-]{section.A.2}{Scyther Script of Adaptable Key Establishment Scheme \(AKES\)}{appendix.A}% 82
-\BOOKMARK [1][-]{section.A.3}{Scyther Script of Secure Authentication and Key Establishment Scheme \(SAKES\)}{appendix.A}% 83
+\BOOKMARK [1][-]{section.A.3}{Scyther Scripts of Secure Authentication and Key Establishment Scheme \(SAKES\)}{appendix.A}% 83
 \BOOKMARK [2][-]{subsection.A.3.1}{SAKES - Authentication}{section.A.3}% 84
 \BOOKMARK [2][-]{subsection.A.3.2}{SAKES - Key Establishment}{section.A.3}% 85
 \BOOKMARK [2][-]{subsection.A.3.3}{SAKES - Key Establishment - Interaction Between A and B}{section.A.3}% 86
-\BOOKMARK [1][-]{section.A.4}{Scyther Script of the Improved SAKES}{appendix.A}% 87
+\BOOKMARK [1][-]{section.A.4}{Scyther Scripts of the Improved SAKES}{appendix.A}% 87
 \BOOKMARK [2][-]{subsection.A.4.1}{Improved Authentication Phase}{section.A.4}% 88
 \BOOKMARK [2][-]{subsection.A.4.2}{Improved Key Establishment Phase}{section.A.4}% 89
 \BOOKMARK [0][-]{appendix.B}{Scyther Attack Diagrams}{}% 90
-\BOOKMARK [0][-]{appendix.C}{Notations}{}% 91
+\BOOKMARK [0][-]{appendix.C}{Notation}{}% 91
 \BOOKMARK [1][-]{section.C.1}{Notation}{appendix.C}% 92

@@ -10,13 +10,13 @@
 \addvspace {10pt}
 \contentsline {table}{\numberline {3.1}{\ignorespaces Relationship between security properties and the adversary models in Scyther.}}{34}{table.3.1}
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces Overview of if which general security properties that APKES satisfies.}}{41}{table.4.1}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Overview of if which general security properties that AKES satisfies.}}{46}{table.4.2}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Overview of if which general security properties that SAKES satisfies.}}{50}{table.4.3}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Overview of which general security properties that APKES satisfies.}}{41}{table.4.1}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Overview of which general security properties that AKES satisfies.}}{46}{table.4.2}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Overview of which general security properties that SAKES satisfies.}}{50}{table.4.3}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {6.1}{\ignorespaces Table of the security properties for authentication that are satisfied in the different protocols.}}{75}{table.6.1}
-\contentsline {table}{\numberline {6.2}{\ignorespaces Table of the security properties for secrecy that are satisfied in the different protocols.}}{76}{table.6.2}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Table of the security properties for authentication that are satisfied in the different protocols.}}{73}{table.6.1}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Table of the security properties for secrecy that are satisfied in the different protocols.}}{74}{table.6.2}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

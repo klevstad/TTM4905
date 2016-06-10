@@ -28,7 +28,7 @@ As mentioned in Section \ref{sec:attributes}, key establishment schemes desire c
 
 \gls{apkes} is modelled as two roles, the initiator $A$ and the responder $B$, agreeing upon a pairwise key through the message exchange that is presented in Figure \ref{fig:apkes-handshake}. There is not specified any concrete type of pluggable scheme (i.e. the scheme where \gls{apkes} obtains the shared secret between two nodes). Hence, we assume that whatever scheme is used is secure. In the model, the shared secret derived from the pluggable scheme has been modelled using Scyther's built-in support for shared symmetric keys, where the two nodes $A$ and $B$ both possesses the shared secret at start-up.
 
-\gls{apkes} states that the $N_A$ value has to be checked whether or not it has been tampered with before the pairwise key can be derived on the initiating side. This can be verified by modelling the protocol to agree upon the $N_A$ value during the protocol execution, and committing to this. In addition, we model agreement over the pairwise key by using a \texttt{Running} claim in role $B$ after receiving the \texttt{ACK} authenticated with the pairwise key, and \texttt{Commit} claims in both roles to claim explicit key authentication on the pairwise key. As $B$ authenticates the $HELLOACK$ by using the shared secret, we do not claim that the pairwise key is created before $A$ receives the $HELLOACK$ from B. The Scyther model of \gls{apkes} can be viewed in its entirety in Appendix \ref{app:apkes}.
+\gls{apkes} states that the $N_A$ value has to be checked whether or not it has been tampered with before the pairwise key can be derived on the initiating side. This can be verified by modelling the protocol to agree upon the $N_A$ value during the protocol execution, and committing to this. In addition, we model agreement over the pairwise key by using a \texttt{Running} claim in role $B$ after receiving the \texttt{ACK} authenticated with the pairwise key, and \texttt{Commit} claims in both roles to claim explicit key authentication on the pairwise key. As $B$ authenticates the \texttt{HELLOACK} by using the shared secret, we do not claim that the pairwise key is created before $A$ receives the \texttt{HELLOACK} from B. The Scyther model of \gls{apkes} can be viewed in its entirety in Appendix \ref{app:apkes}.
 
 \subsection{Security Claims}
 
@@ -57,7 +57,7 @@ By taking a starting point in the protocol specification from Section \ref{subse
 
 \subsection{Adversary}
 
-In the description of \gls{apkes}, no particular adversary is mentioned. We assume that such a protocol would be used for key establishment in \gls{6lowpan} networks, which are potentially deployed in hostile areas. Therefore, we can assume that the adversary would be able to observe, inject, and tamper with messages that are sent over the network. As \gls{apkes} does not utilize any session keys, but rather agreeing upon a fixed long-term key, we model the adversary in a Dolev-Yao way without giving it any active capabilities other than being able to obtain the long-term keys of nodes not participating in the current key establishment process. 
+In the description of \gls{apkes}, no particular adversary is mentioned. We assume that such a protocol would be used for key establishment in \gls{6lowpan}s, which are potentially deployed in hostile areas. Therefore, we can assume that the adversary would be able to observe, inject, and tamper with messages that are sent over the network. As \gls{apkes} does not utilize any session keys, but rather agreeing upon a fixed long-term key, we model the adversary in a Dolev-Yao way without giving it any active capabilities other than being able to obtain the long-term keys of nodes not participating in the current key establishment process. 
 
 \subsection{Results}
 
@@ -221,7 +221,6 @@ The session key establishment in \gls{sakes} is conducted between the router $B$
 
 As the router generates the session key on behalf of the end device $B$, we also state that the session key should be secret at the router side using the \gls{skr} claim as seen in Listing \ref{lst:claims-b-sakes-key}. As the router interacts with the remote server $D$, we also add claims for entity authentication. Finally, claims for non-injective synchronization and data agreement are added to verify that the protocols behave as specified in the protocol model. \\
 
-\newpage
 
 \begin{lstlisting}[caption={Security claims for role B during key establishment in SAKES.}, label={lst:claims-b-sakes-key}, style=code-listings]
 	claim(B, Alive, D);
@@ -286,7 +285,7 @@ In this model, the interaction between the router and the remote server in estab
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.70]{analysis/sakes-keys-ab-verified.png}
-	\caption{Result of verifying SAKES' the key distribution between the router $B$ and the end device $A$ in the key establishment phase.}
+	\caption[Result of verifying SAKES' the key distribution between the router and the end device in the key establishment phase.]{Result of verifying SAKES' the key distribution between the router $B$ and the end device $A$ in the key establishment phase.}
 	\label{fig:sakes-verified-keys-ab}
 \end{figure}
 

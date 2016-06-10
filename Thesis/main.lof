@@ -16,32 +16,32 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Figure of the mapping of Long-term Key Reveal rules.}}{35}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Results of a verification process using Scyther where all claims are successfully verified.}}{36}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Results of a verification process using Scyther when a claim fails.}}{36}{figure.3.3}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Results of a verification process using Scyther where a claim fails.}}{36}{figure.3.3}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces When Scyther finds an attack on a protocol, if will also provide a graph of the attack.}}{37}{figure.3.4}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces APKES is positioned in the data link layer in the 6LoWPAN stack, expanding the 802.15.4 security sublayer.}}{42}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Figure of the messages sent between communicating parties during APKES' three-way handshake.}}{44}{figure.4.2}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Figure of the messages sent between communicating parties during AKES' three-way handshake.}}{48}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment.}}{51}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}}{52}{figure.4.5}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure of the architecture for a 6LoWPAN using SAKES for authentication and key establishment.}}{51}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure of the messages sent between the end device, router, and border router (with authentication module) in SAKES' authentication phase.}}{52}{figure.4.5}
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Figure of the messages sent between communicating parties in SAKES' key establishment between the end device, the 6LoWPAN router, and the remote server.}}{54}{figure.4.6}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Result of verifying APKES' security claims using Scyther.}}{60}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Result of verifying AKES' security claims using Scyther.}}{62}{figure.5.2}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Result of verifying SAKES' authentication claims using Scyther.}}{65}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Result of verifying SAKES' key establishment claims using Scyther.}}{70}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Result of verifying SAKES' the key distribution between the router $B$ and the end device $A$ in the key establishment phase.}}{72}{figure.5.5}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Result of verifying SAKES' key establishment claims using Scyther.}}{69}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Result of verifying SAKES' the key distribution between the router and the end device in the key establishment phase.}}{71}{figure.5.5}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Result of verifying the fixed version of SAKES' authentication claims using Scyther.}}{80}{figure.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Result of verifying the model of the key distribution in SAKES' using Scyther with a mapping between session and session key.}}{82}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Result of verifying the model of the key distribution in SAKES' using Scyther where the server returns both the proof and the nonce $N_B$.}}{84}{figure.6.3}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Result of verifying the fixed version of SAKES' authentication claims using Scyther.}}{78}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Result of verifying the model of the key distribution in SAKES' using Scyther with a mapping between session and session key.}}{80}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Result of verifying the model of the key distribution in SAKES' using Scyther where the server returns both the proof and the nonce $N_B$.}}{82}{figure.6.3}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Graph of the discovered attack on the weak agreement property of the role A in the authentication phase of SAKES.}}{112}{figure.B.1}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Graph of the discovered attack on the Nisynch property of the roles A, B, and C from A's point of view in the authentication phase of SAKES.}}{113}{figure.B.2}
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Graph of the discovered attack on the entity authentication of the end device in role B in the key establishment phase of SAKES.}}{114}{figure.B.3}
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Graph of the discovered attack on the Niagree and Nisynch properties in the role A in the key establishment phase of SAKES.}}{115}{figure.B.4}
-\contentsline {figure}{\numberline {B.5}{\ignorespaces Graph of the discovered attack on the weak agreement property of D in role B in the key establishment phase of SAKES.}}{116}{figure.B.5}
-\contentsline {figure}{\numberline {B.6}{\ignorespaces Graph of the discovered attack on the weak agreement property of B in role A in the key establishment phase of SAKES.}}{117}{figure.B.6}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Graph of the discovered attack on the weak agreement property of the role A in the authentication phase of SAKES.}}{110}{figure.B.1}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Graph of the discovered attack on the Nisynch property of the roles A, B, and C from A's point of view in the authentication phase of SAKES.}}{111}{figure.B.2}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Graph of the discovered attack on the entity authentication of the end device in role B in the key establishment phase of SAKES.}}{112}{figure.B.3}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Graph of the discovered attack on the Niagree and Nisynch properties in the role A in the key establishment phase of SAKES.}}{113}{figure.B.4}
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Graph of the discovered attack on the weak agreement property of D in role B in the key establishment phase of SAKES.}}{114}{figure.B.5}
+\contentsline {figure}{\numberline {B.6}{\ignorespaces Graph of the discovered attack on the weak agreement property of B in role A in the key establishment phase of SAKES.}}{115}{figure.B.6}
 \addvspace {10pt}

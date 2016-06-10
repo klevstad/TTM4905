@@ -10,7 +10,7 @@ Multiple properties are common for all of the protocols that this thesis address
 
 \paragraph{Key scheme} As mentioned in Section \ref{subsec:keys-schems}, multiple versions of key establishment schemes exist. The network-wide shared key and pairwise keys are commonly used for symmetric key schemes, while public-key schemes is another option where encryption and decryption is done using separate, but mathematically tied, keys. Session keys are symmetric keys which are used for a single session, and never to be used again. These are often used in conjunction with public-key cryptography.
 
-\paragraph{Replay Protection} Replay protection is a general property for a network which prevents an adversary from capturing a data frame and injecting (\emph{replaying}) at a later time. Fortunately, the \gls{ieee} 802.15.4 security sub-layer is capable of filtering out replayed frames and thereby preventing injection \cite{krentz20136lowpan}.
+\paragraph{Replay protection} Replay protection is a general property for a network which prevents an adversary from capturing a data frame and injecting (\emph{replaying}) at a later time. Fortunately, the \gls{ieee} 802.15.4 security sub-layer is capable of filtering out replayed frames and thereby preventing injection \cite{krentz20136lowpan}.
 
 \paragraph{Resilience against node compromises}
 
@@ -47,7 +47,7 @@ The \gls{apkes} is a proposed scheme by Krentz et al. for handling key establish
 \textbf{\gls{dos} resilient:} & Yes \\
 \textbf{Wormhole resilient:} & No \\ \hline
 \end{tabular}
-\caption{Overview of if which general security properties that APKES satisfies.}
+\caption{Overview of which general security properties that APKES satisfies.}
 \label{tab:apkes-props}
 \end{table}
 
@@ -63,7 +63,7 @@ Figure \ref{fig:6lowpan-krentz} illustrates how \gls{apkes} is implemented at th
 
 \subsection{Allowing ``Pluggable'' Schemes to Increase Universality} 
 
-\gls{apkes} provides a ``pluggable'' key establishment scheme for \gls{6lowpan}s using pairwise keys, where the developer of a \gls{6lowpan} picks an appropriate key establishment scheme and delegates \gls{apkes} into handling the key establishment with other nodes \cite{krentz20136lowpan}. As there is no general scheme for \gls{6lowpan} networks, the use of pluggable schemes enhance the overall usability of the protocol, as the developer can use the most appropriate scheme based on the challenges he faces. The only function of the plugged-in scheme is to feed \gls{apkes} with the shared secret for the communicating nodes, and \gls{apkes} will handle both key establishment and key management. Examples of pluggable schemes that have been suggested for \gls{apkes} are \gls{leap} \cite{zhu2006leap+}, Blom's Scheme \cite{blom1984optimal}, and random pairwise keys \cite{chan2003random}. In the case of random pairwise keys, path key establishment has to be implemented in addition to \gls{apkes}.
+\gls{apkes} provides a ``pluggable'' key establishment scheme for \gls{6lowpan}s using pairwise keys, where the developer of a \gls{6lowpan} picks an appropriate key establishment scheme and delegates \gls{apkes} into handling the key establishment with other nodes \cite{krentz20136lowpan}. As there is no general scheme for \gls{6lowpan}s, the use of pluggable schemes enhance the overall usability of the protocol, as the developer can use the most appropriate scheme based on the challenges he faces. The only function of the plugged-in scheme is to feed \gls{apkes} with the shared secret for the communicating nodes, and \gls{apkes} will handle both key establishment and key management. Examples of pluggable schemes that have been suggested for \gls{apkes} are \gls{leap} \cite{zhu2006leap+}, Blom's Scheme \cite{blom1984optimal}, and random pairwise keys \cite{chan2003random}. In the case of random pairwise keys, path key establishment has to be implemented in addition to \gls{apkes}.
 
 \subsection{Avoiding Denial of Service Attacks}
 
@@ -82,7 +82,7 @@ The \gls{ebeap} is a suggested protocol for authenticating broadcast frames in \
 %Authentication of multicast frames, however, which are sent from one node to many others and used for node discovering and network changes, are not authenticated by \gls{apkes}. Broadcast frames are authenticated with keys that are shared between neighbours, meaning that an attacker that compromises a node would not only gain access to its broadcast key, but also its neighbours' broadcast keys. As a solution for authenticating broadcast keys to achieve compromise-resilience, Krentz, Rafiee, and Meinel has suggested \gls{ebeap} to go along with \gls{apkes}. 
 
 
-\subsection{Protocol specification}
+\subsection{Protocol Specification}
 \label{subsec:apkes-spec}
 
 Key establishment in \gls{apkes} consists of a three-way handshake, as described in Figure \ref{fig:apkes-handshake}
@@ -172,7 +172,7 @@ In addition to the weaknesses related to frame counters and storing anti-replay 
 \textbf{\gls{dos} resilient:} & Yes \\
 \textbf{Wormhole resilient:} & No \\ \hline
 \end{tabular}
-\caption{Overview of if which general security properties that AKES satisfies.}
+\caption{Overview of which general security properties that AKES satisfies.}
 \label{tab:akes-props}
 \end{table}
 
@@ -275,7 +275,7 @@ The third, and last protocol which will be discussed in this thesis is the \gls{
 \textbf{\gls{dos} resilient:} & No \\
 \textbf{Wormhole resilient:} & Yes \\ \hline
 \end{tabular}
-\caption{Overview of if which general security properties that SAKES satisfies.}
+\caption{Overview of which general security properties that SAKES satisfies.}
 \label{tab:sakes-props}
 \end{table}
 
@@ -283,7 +283,7 @@ The third, and last protocol which will be discussed in this thesis is the \gls{
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.60]{sakes-arch.png}
-	\caption[Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment.]{Figure of the architecture for a 6LoWPAN network using SAKES for authentication and key establishment \cite{hussen2013sakes}.}
+	\caption[Figure of the architecture for a 6LoWPAN using SAKES for authentication and key establishment.]{Figure of the architecture for a 6LoWPAN using SAKES for authentication and key establishment \cite{hussen2013sakes}.}
 	\label{fig:sakes-arch}
 \end{figure}
 
@@ -322,13 +322,13 @@ C \rightarrow B:\ & \{N_C, C_C, Pk_B, Sk_B\}_{K_{B,C}}\\
 C \rightarrow A:\ & \langle{ID_B, N_C}\rangle{K_{A,C}}\\
 \end{align*}
 \end{tcolorbox}
-\caption{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}
+\caption[Figure of the messages sent between the end device, router, and border router (with authentication module) in SAKES' authentication phase.]{Figure of the messages sent between the end device (A), router (B), and border router (with authentication module) (C) in SAKES' authentication phase.}
 \label{fig:sakes-auth}
 \end{figure}
 
 \begin{enumerate}
 
-\item $A$ starts the authentication by generating a random nonce $N_A$, which it transmits to its closest router $B$.
+\item $A$ starts the authentication phase by generating a random nonce $N_A$, which it transmits to its closest router $B$.
 
 \item The router responds by generating its own random nonce $N_B$, and sends this back to $A$.
 
